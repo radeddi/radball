@@ -14,9 +14,9 @@ from kivy.uix.progressbar import ProgressBar
 from kivy.network.urlrequest import UrlRequest
 
 import os
-
+#import certifi as cfi
 import requests
-
+import random
 
 import datetime
 from functools import partial
@@ -89,7 +89,7 @@ class InfoPage(GridLayout):
 
         # By default every widget returns it's side as [100, 100], it gets finally resized,
         # but we have to listen for size change to get a new one
-        # more: https://github.com/kivy/kivy/issues/1044
+        # more: https://github.com/kivy/kivy/issues/1044e
         self.message.bind(width=self.update_text_width)
 
         # Add text widget to the layout
@@ -185,7 +185,85 @@ class StartPage(GridLayout):
         self.run=False
     def update_all(self,instance):
         #try:
+        self.reqList=[]
+        self.waitlist=[]
         self.unbind_buttons()
+        Clock.schedule_once(partial(self.update_button_text,self,"Verbinden"), -1)
+        req = UrlRequest('https://bw.cycleball.eu/leagues', on_success=self.extract_leagues,ca_file=None, verify=False, timeout=30)#, on_failure=
+        self.reqList.append(req)
+        Clock.schedule_once(self.check_all_req,3)
+    def extract_leagues(self,req,result):
+        #print(req)
+        Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Ligen"), -1)
+        
+        self.list_of_urls = []
+        
+        for league in result:
+            self.list_of_urls.append("https://bw.cycleball.eu/leagues/"+league['id'])
+            req = UrlRequest("https://bw.cycleball.eu/leagues/"+league['id'], on_success=self.add_spieltag,ca_file=None, verify=False, timeout=30)#, on_failure=
+            self.reqList.append(req)
+        print(self.list_of_urls)
+        
+        
+    def add_spieltag(self,req,result):
+        Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Spieltagen"), -1)
+        for day in result['days']:
+            req = UrlRequest('https://bw.cycleball.eu/matchdays/'+str(day["id"]), on_success=self.export_spieltag,ca_file=None, verify=False, timeout=30)
+            self.reqList.append(req)
+        
+    def check_all_req(self,instance): 
+        i=0
+        
+        try:
+            for req in self.reqList:
+                if not req.is_finished:
+                    i+=1
+                elif req.error != None:
+                    print(req.error)
+                    i+=1
+                    self.reqList.remove(req)
+                    self.waitlist.append(req)
+                    Clock.schedule_once(partial(self.update_button_text,self,"Verbindung instabil, Wiederholung"), -1)
+                    Clock.schedule_once(partial(self.remove_restart_req,self,req), 10)
+                    
+                            
+            if i==0 and len(self.waitlist)==0:
+                self.pb.max=len(self.reqList)+len(self.waitlist)
+                self.pb.value=len(self.reqList)-i
+                Clock.schedule_once(partial(self.update_button_text,self,"alles aktuell"), -1)
+                
+            else:
+                Clock.schedule_once(self.check_all_req,1)
+                self.pb.max=len(self.reqList)+len(self.waitlist)
+                self.pb.value=len(self.reqList)-i
+        except:
+            print("an error occured")
+            Clock.schedule_once(self.check_all_req,1)
+        
+
+    def remove_restart_req(self,instace,req_old,*largs):
+        
+        self.waitlist.remove(req_old)
+        print(req_old.url)
+        if "https://bw.cycleball.eu/leagues/" in req_old.url:
+            req = UrlRequest(req_old.url, on_success=self.add_spieltag,ca_file=None, verify=False, timeout=30)
+        elif "https://bw.cycleball.eu/leagues" in req_old.url:
+            req = UrlRequest(req_old.url, on_success=self.extract_leagues,ca_file=None, verify=False, timeout=30)
+        elif 'https://bw.cycleball.eu/matchdays/' in req_old.url:
+            req = UrlRequest(req_old.url, on_success=self.export_spieltag,ca_file=None, verify=False, timeout=30)
+        else:
+            print("something is wrong with url")
+        self.reqList.append(req)
+        
+    def export_spieltag(self,req,result):         
+        print(result)
+        f= open(app_folder+"/spieltage/"+str(result['id'])+".radball","w+",encoding='utf-8')
+        #print(type(day))
+        f.write(json.dumps(result, indent=4, ensure_ascii=False))
+        #print(day)
+        f.close
+        
+        '''  
         def get_url(url):
             return json.loads(session.get(url).text)
         session = requests.Session()
@@ -198,13 +276,13 @@ class StartPage(GridLayout):
             
             leagues.append(get_url("https://bw.cycleball.eu/leagues/"+league['id']))
         #print(leagues)    
-        '''        
+              
         max_workers=1
         if platform == 'android':
             max_workers=50
         with ThreadPoolExecutor(max_workers=max_workers) as pool:
             leagues=(list(pool.map(get_url,list_of_urls)))
-        '''
+        
 
         
         list_of_urls = deque ([])
@@ -218,9 +296,9 @@ class StartPage(GridLayout):
         self.run=True
         Clock.schedule_once(partial(self.get_spieltage,self,list_of_urls,session), 0)
         #print("scheduled")
+        '''
     def get_spieltage(self,dt,urls,session,*largs):           
         if len(urls)>0 and self.run:
-            self.pb.value = self.pb.value+1
             matchday=urls.popleft()
             day=json.loads(session.get(matchday).text)
             #print(day)
