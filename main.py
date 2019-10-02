@@ -93,7 +93,8 @@ class SelectorPage(GridLayout):
         print("going back")
         chat_app.screen_manager.current = 'Start'
     def goFurther(self,instance):
-        chat_app.present_page.load_PresentPage(self.gameId)
+        chat_app.pin_page.load_PinPage(self.gameId)
+        
         # Called with a message, to update message text in widget
     def update_info(self):
         dateiliste=sorted(os.listdir(app_folder+"/spieltage/"))
@@ -163,11 +164,41 @@ class SelectorPage(GridLayout):
     def update_text_width(self, *_):
         self.message.text_size = (self.message.width * 0.9, None)
 
+class PinPage(GridLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.cols=1
+    def load_PinPage(self,game_id):
+        self.gameId=game_id
+        
+        self.clear_widgets()
+        self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
+        self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
+        self.backButton.bind(on_release=self.goBack)
+        self.furtherButton = Button(text="Pin übernehmen",font_size=25)#size_hint_y=None)
+        self.furtherButton.bind(on_release=self.goFurther)
+        self.backFurtherButton.add_widget(self.backButton)
+        self.backFurtherButton.add_widget(self.furtherButton)
+        self.add_widget(self.backFurtherButton)
+        self.textinput = TextInput(input_filter="int",size_hint = (1, 0.15),font_size=25)
+        self.add_widget(self.textinput)
+        self.lb = Label(text='Spieltags Pin',size_hint = (1, 0.15),font_size=25)
+        self.add_widget(self.lb)
+        self.placeholder = Label(size_hint = (1, 0.55),font_size=25)
+        self.add_widget(self.placeholder)
+        chat_app.screen_manager.current = 'Pin'
+    def goBack(self,instance):
+        chat_app.screen_manager.current = 'Selector'
+        print("going back")
+    def goFurther(self,instance):
+        chat_app.present_page.load_PresentPage(self.gameId,(self.textinput.text))
+        print("go on")   
+
 class PresentPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
-    def load_PresentPage(self,game_id):
+    def load_PresentPage(self,game_id,pin=0):
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
         self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
@@ -181,7 +212,9 @@ class PresentPage(GridLayout):
         
         chat_app.screen_manager.current = 'Present'
         f=open(app_folder+"/spieltage/"+game_id+".radball","r",encoding='utf-8')
-        game_json=(json.loads(f.read()))
+        self.game_json=(json.loads(f.read()))
+        if pin != "":
+            self.game_json["pin"]=int(pin)
         self.teamsLayout = GridLayout(cols=2,size_hint = (1, 0.7))
         self.add_widget(Label(text="anwesende Mannschaften",font_size=25,size_hint = (1, 0.15)))
         self.add_widget(self.teamsLayout)
@@ -190,14 +223,14 @@ class PresentPage(GridLayout):
         teams=[]
         self.absent=[]
         i=0
-        for team in game_json["teams"]:
+        for team in self.game_json["teams"]:
             teamLayout = GridLayout(cols=1)
             #bx=CheckBox()
             #bx.active=True
             #teamLayout.add_widget(bx)
             lb=ToggleButton(text=team["teamName"],font_size=25,background_color = (0, 1, 0, 1))
-            teamLayout.bind(on_release=lambda lb=lb: self.set_box(lb))
-            lb.bind(on_release=lambda lb: self.unset_box(self,lb))
+            #teamLayout.bind(on_prese=lambda lb=lb: self.set_box(lb))
+            lb.bind(on_press=lambda lb: self.unset_box(self,lb))
             lb.state="down"
             teamLayout.add_widget(lb)
             self.teamsLayout.add_widget(teamLayout)
@@ -219,10 +252,136 @@ class PresentPage(GridLayout):
         else:
             self.furtherButton.text=str(len(self.absent)) +" Mannschaften abwesend"  
     def goBack(self,instance):
-        chat_app.screen_manager.current = 'Selector'
+        chat_app.screen_manager.current = 'Pin'
+        print("going back")
+    def goFurther(self,instance):
+        print(self.game_json)
+        chat_app.sequence_page.load_SequencePage(self.game_json,self.absent)
+        print("go on")
+        
+class SequencePage(GridLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.cols=1
+        self.index=0
+    def load_SequencePage(self,game_json,absence_list):
+        chat_app.screen_manager.current = 'Sequence'
+        self.game_json=game_json
+        self.absence_list=absence_list
+        self.clear_widgets()
+        self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
+        self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
+        self.backButton.bind(on_release=self.goBack)
+        self.furtherButton = Button(text="weiter",font_size=25)#size_hint_y=None)
+        self.furtherButton.bind(on_release=self.goFurther)
+        self.backFurtherButton.add_widget(self.backButton)
+        self.backFurtherButton.add_widget(self.furtherButton)
+        self.add_widget(self.backFurtherButton)
+        self.add_widget(Label(text="Spielreihenfolge (ohne ausfallende Spiele)",size_hint = (1, 0.05)))
+        self.sv = ScrollView(size_hint=(1, 0.7))
+        self.add_widget(self.sv)
+        
+        self.layout = GridLayout(cols=1, spacing=10, size_hint_y=None,height=self.minimum_size[1])
+        self.layout.bind(minimum_height=self.layout.setter('height'))
+
+        self.sv.add_widget(self.layout)
+        
+        
+        self.upDownButton = GridLayout(cols=2,size_hint = (1, 0.1))
+        self.downButton = Button(text="nach hinten schieben",font_size=25,disabled = True)#size_hint_y=None)
+        self.downButton.bind(on_release=self.down)
+        self.upButton = Button(text="nach vorne schieben",font_size=25,disabled = True)#size_hint_y=None)
+        self.upButton.bind(on_release=self.up)
+        self.upDownButton.add_widget(self.upButton)
+        self.upDownButton.add_widget(self.downButton)
+        self.add_widget(self.upDownButton)
+        self.upButton.disabled=True
+        self.downButton.disabled=True
+
+        
+        
+        self.update_buttons(range(len(self.game_json["games"])))
+        
+    def update_buttons(self,seq):
+        self.layout.clear_widgets()
+        self.sequence=[]
+        self.buttonList=[]
+        
+        for game_nr in seq:
+            print( self.game_json["games"][game_nr])
+            score = {}
+
+            if self.game_json["games"][game_nr]["teamA"] in self.absence_list and self.game_json["games"][game_nr]["teamB"] in self.absence_list:
+                print("beide Teams nicht da")
+                score["bothLost"]=True
+                self.game_json["games"][game_nr]["score"]=score
+            elif self.game_json["games"][game_nr]["teamA"] in self.absence_list:
+                score["bothLost"]=False
+                score["goalsA"]=0
+                score["goalsB"]=5
+                print("teamA nicht da")
+                self.game_json["games"][game_nr]["score"]=score
+            elif self.game_json["games"][game_nr]["teamB"] in self.absence_list:
+                score["bothLost"]=False
+                score["goalsA"]=5
+                score["goalsB"]=0
+                print("teamB nicht da")
+                self.game_json["games"][game_nr]["score"]=score
+            else:
+                self.sequence.append(game_nr)
+                text=str(self.game_json["games"][game_nr]["number"])
+                text+=". Spiel "
+                text+=self.game_json["games"][game_nr]["teamA"]
+                text+=" : "
+                text+=self.game_json["games"][game_nr]["teamB"]
+                bt=(ToggleButton(text=text,size_hint_y=None, height=40))
+                self.buttonList.append(bt)
+                bt.bind(on_press=lambda bt,game_nr=game_nr: self.select_game(self,bt,game_nr))
+                self.layout.add_widget(bt)
+        #print(absence_list)
+        for game_nr in range(len(self.game_json["games"])):
+            print( self.game_json["games"][game_nr])
+    def select_game(self, instance, button,gamenr):
+        for tempbt in self.buttonList:
+            tempbt.state="normal"
+        button.state="down"
+        print(self.buttonList)
+        self.index=gamenr
+        self.activateButton()
+        
+    def activateButton(self):
+        gamenr=self.index
+        if self.sequence.index(gamenr)>0:
+            self.upButton.disabled=False
+        else:
+            self.upButton.disabled=True
+        if self.sequence.index(gamenr)<len(self.sequence)-1:
+            self.downButton.disabled=False
+        else:
+            self.downButton.disabled=True
+    def goBack(self,instance):
+        chat_app.screen_manager.current = 'Present'
         print("going back")
     def goFurther(self,instance):
         print("go on")
+        
+    def up(self,instance):
+        pos=self.sequence.index(self.index)
+        self.sequence[pos],self.sequence[pos-1]=self.sequence[pos-1],self.sequence[pos]
+        self.update_buttons(self.sequence)
+        self.buttonList[pos-1].state="down"
+        self.activateButton()
+
+        print("up")
+    def down(self,instance):
+        pos=self.sequence.index(self.index)
+        self.sequence[pos],self.sequence[pos+1]=self.sequence[pos+1],self.sequence[pos]
+        self.update_buttons(self.sequence)
+        self.buttonList[pos+1].state="down"
+        self.activateButton()
+                
+        print("down")    
+        
 class StartPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -274,7 +433,7 @@ class StartPage(GridLayout):
     def new_button(self, instance):
         pass   
     def update_button(self, instance):
-        Clock.schedule_once(self.update_all,1)
+        Clock.schedule_once(self.update_all,0)
         
     def update_button_text(self,instance,text,*largs):
         #pass
@@ -438,10 +597,22 @@ class EpicApp(App):
         screen.add_widget(self.selector_page)
         self.screen_manager.add_widget(screen)
 
+        self.pin_page = PinPage()
+        screen = Screen(name='Pin')
+        screen.add_widget(self.pin_page)
+        self.screen_manager.add_widget(screen)
+        
+        
         self.present_page = PresentPage()
         screen = Screen(name='Present')
         screen.add_widget(self.present_page)
         self.screen_manager.add_widget(screen)
+        
+        self.sequence_page = SequencePage()
+        screen = Screen(name='Sequence')
+        screen.add_widget(self.sequence_page)
+        self.screen_manager.add_widget(screen)
+        
         
         return self.screen_manager
     
