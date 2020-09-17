@@ -1,0 +1,139 @@
+{
+    "id": "5d5ba4d846e0fb00011adffd",
+    "number": 7,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Mehrzwecksporthalle Peterzell",
+        "city": "St. Georgen-Peterzell",
+        "zip": "78112",
+        "street": "Bärlochtalstr. 3",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "43cf9999-1e64-43a0-b73e-bfc6b691274f",
+            "teamName": "Kemnat 1",
+            "teamId": "5d3d7b6c46e0fb0001448aed",
+            "present": true,
+            "players": [
+                "Maximilian Schwarz",
+                "Florenc Rapp"
+            ]
+        },
+        {
+            "id": "d9e192a7-5538-4398-8725-d0c64eb9e987",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7b6c46e0fb0001448aeb",
+            "present": true,
+            "players": [
+                "David Egl",
+                "Silas Öhlert"
+            ]
+        },
+        {
+            "id": "fb6c1cb7-ad39-41e6-a605-61b9b5a04572",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448af3",
+            "present": true,
+            "players": [
+                "Nils Guse",
+                "Jonathan Ben Hartmann"
+            ]
+        },
+        {
+            "id": "4051744c-a1bf-4dbd-8cc3-82d55986340e",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7d7646e0fb0001e2768b",
+            "present": true,
+            "players": [
+                "Elias Engel",
+                "Felix Hinnenberger"
+            ]
+        },
+        {
+            "id": "715f6561-03de-4f70-bc60-3ab8456a397b",
+            "teamName": "Langenschiltach 1",
+            "teamId": "5d3d7b6c46e0fb0001448af1",
+            "present": true,
+            "players": [
+                "Jonas Schultheiss",
+                "Silas Dold"
+            ]
+        },
+        {
+            "id": "1cb06c5f-102f-43a9-8981-d8c5ce025d82",
+            "teamName": "Wallbach 1",
+            "teamId": "5d3d7b6c46e0fb0001448af8",
+            "present": true,
+            "players": [
+                "Lukas Stocker",
+                "Mika Schrott"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Wallbach 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hofen 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Kemnat 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Wallbach 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Kemnat 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Öflingen 1",
+            "teamB": "Hofen 1"
+        }
+    ],
+    "permissions": [
+        "MatchdayRead",
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead"
+    ]
+}

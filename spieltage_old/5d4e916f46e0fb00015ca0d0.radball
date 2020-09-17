@@ -1,0 +1,139 @@
+{
+    "id": "5d4e916f46e0fb00015ca0d0",
+    "number": 9,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2020-02-01T17:00:00.000Z",
+    "gym": {
+        "name": "Sportzentrum Kuhberg, Halle 5",
+        "city": "Ulm",
+        "zip": "89077",
+        "street": "Egginger Weg 53",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "b3e171b2-9892-4de8-b51a-a0ee6a1c432f",
+            "teamName": "Schwäbisch Gmünd 2",
+            "teamId": "5d3d79e846e0fb0001448a5f",
+            "present": true,
+            "players": [
+                "Daniel Gamber",
+                "Stefan Bläse"
+            ]
+        },
+        {
+            "id": "fc3dfee7-e46f-49b0-b78a-699cac08c7af",
+            "teamName": "Schwäbisch Gmünd 3",
+            "teamId": "5d3d79e846e0fb0001448a61",
+            "present": true,
+            "players": [
+                "Andreas Feiler",
+                "Paul Botsch"
+            ]
+        },
+        {
+            "id": "f60eae87-4ed7-47e3-ad95-e7510086dcda",
+            "teamName": "Schwäbisch Gmünd 4",
+            "teamId": "5d3d79e846e0fb0001448a63",
+            "present": true,
+            "players": [
+                "Florian Dangelmaier",
+                "Martin Khoeiklang"
+            ]
+        },
+        {
+            "id": "232ee1a3-c253-4cf9-8ce6-9e86331a12f5",
+            "teamName": "Niederstotzingen 2",
+            "teamId": "5d3d79e846e0fb0001448a59",
+            "present": true,
+            "players": [
+                "Jonas Schleifer",
+                "Silas Guse"
+            ]
+        },
+        {
+            "id": "7f1f0be5-6783-488a-b91a-5ac4d1de43bc",
+            "teamName": "Söflingen 4",
+            "teamId": "5d3d79e846e0fb0001448a67",
+            "present": true,
+            "players": [
+                "Daniel Schiml",
+                "Sven Schick"
+            ]
+        },
+        {
+            "id": "144043bc-741d-492b-974c-0313ca75580b",
+            "teamName": "Söflingen 5",
+            "teamId": "5d3d79e846e0fb0001448a69",
+            "present": true,
+            "players": [
+                "Knut Nägele",
+                "Fabian Nägele"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Schwäbisch Gmünd 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Söflingen 5",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Söflingen 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Söflingen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Söflingen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Söflingen 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Söflingen 5"
+        },
+        {
+            "number": 10,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Söflingen 5"
+        }
+    ],
+    "permissions": [
+        "TeamsRead",
+        "LeagueRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

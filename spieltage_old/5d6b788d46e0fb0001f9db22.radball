@@ -1,0 +1,169 @@
+{
+    "id": "5d6b788d46e0fb0001f9db22",
+    "number": 5,
+    "league": "5d3d7e9746e0fb0001448bfb",
+    "leagueName": "U15 Schüler A Staffel III",
+    "start": "2020-02-15T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Weil im Schönbuch",
+        "zip": "71093",
+        "street": "Im Seetal 1",
+        "phone": "07157-64820"
+    },
+    "teams": [
+        {
+            "id": "87bcd20f-d960-4c14-9303-2a6999e2f397",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7e9746e0fb0001448c01",
+            "present": true,
+            "players": [
+                "Sven Hauser",
+                "Noah Egl"
+            ]
+        },
+        {
+            "id": "7f9bf15d-dbc2-454e-8292-096e097026cf",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7e9746e0fb0001448c09",
+            "present": true,
+            "players": [
+                "Noah Maxim Lange",
+                "Jakob Förster"
+            ]
+        },
+        {
+            "id": "f5c0052a-d034-4f1f-8ccd-937e0addfe23",
+            "teamName": "Wendlingen 1",
+            "teamId": "5d3d7e9746e0fb0001448c0d",
+            "present": true,
+            "players": [
+                "Tom Nägelein",
+                "Lean Patzelt"
+            ]
+        },
+        {
+            "id": "87511e38-1518-48d4-a772-f67fb1432271",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7e9746e0fb0001448c05",
+            "present": true,
+            "players": [
+                "Maximilian Klügel",
+                "Marius Schall"
+            ]
+        },
+        {
+            "id": "ec94baad-42b0-4f69-80d0-81823f2884d2",
+            "teamName": "Weil im Schönbuch 1",
+            "teamId": "5d3d7e9746e0fb0001448c0b",
+            "present": true,
+            "players": [
+                "Ben Eissler",
+                "Maxim Appel"
+            ]
+        },
+        {
+            "id": "532d72d0-7aa6-4307-868c-1180dab7d8e7",
+            "teamName": "SK Stuttgart 1",
+            "teamId": "5d3d7e9746e0fb0001448c07",
+            "present": true,
+            "players": [
+                "Ole Krauter",
+                "Lennard Mozic"
+            ]
+        },
+        {
+            "id": "47ffe884-1c5c-4c51-bddc-39680d995acd",
+            "teamName": "Denkendorf 1",
+            "teamId": "5d3d7e9746e0fb0001448bfd",
+            "present": true,
+            "players": [
+                "Michael Luik",
+                "Mick Lichy"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Wendlingen 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Waldrems 1",
+            "teamB": "Denkendorf 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Wendlingen 1",
+            "teamB": "SK Stuttgart 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Hofen 1",
+            "teamB": "Denkendorf 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Waldrems 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Wendlingen 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Hofen 1",
+            "teamB": "SK Stuttgart 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Waldrems 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Hofen 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Waldrems 1",
+            "teamB": "SK Stuttgart 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Hofen 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 14,
+            "teamA": "Wendlingen 1",
+            "teamB": "Denkendorf 1"
+        },
+        {
+            "number": 15,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Reichenbach 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

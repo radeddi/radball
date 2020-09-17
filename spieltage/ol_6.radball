@@ -1,0 +1,212 @@
+{
+    "leagueShortName": "ol",
+    "leagueLongName": "Oberliga",
+    "number": 6,
+    "start": "2020-12-05T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Langenbachstr. 16",
+        "zip": "71522",
+        "city": "Backnang Waldrems",
+        "phone": "07191-86957"
+    },
+    "hostClub": "Waldrems",
+    "lastImport": "2020-08-29T15:04:19.108Z",
+    "teams": [
+        {
+            "name": "Bonlanden 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beck, Johannes",
+                    "uciCode": "10036294754",
+                    "regular": true
+                },
+                {
+                    "name": "Döring, Marcel",
+                    "uciCode": "10036339214",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Bonlanden 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bühler, Mike",
+                    "uciCode": "10036330423",
+                    "regular": true
+                },
+                {
+                    "name": "Wolfer, Cedric",
+                    "uciCode": "10036310619",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bertsch, Andreas",
+                    "uciCode": "10036338911",
+                    "regular": true
+                },
+                {
+                    "name": "Frey, Christian",
+                    "uciCode": "10036338507",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Becker, Simon",
+                    "uciCode": "10048347410",
+                    "regular": true
+                },
+                {
+                    "name": "Müller, Jannes",
+                    "uciCode": "10048347814",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seeber, Sebastian",
+                    "uciCode": "10045723558",
+                    "regular": true
+                },
+                {
+                    "name": "Barth, Matthias",
+                    "uciCode": "10036303343",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hirning, David",
+                    "uciCode": "10045714565",
+                    "regular": true
+                },
+                {
+                    "name": "Hofmann, Lars",
+                    "uciCode": "10048349228",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bee, Kevin",
+                    "uciCode": "10016125929",
+                    "regular": true
+                },
+                {
+                    "name": "Bee, Dennis",
+                    "uciCode": "10016126030",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Braun, Jonas",
+                    "uciCode": "10045731642",
+                    "regular": true
+                },
+                {
+                    "name": "Braun, Daniel",
+                    "uciCode": "10048356706",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Bonlanden 1",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 4",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 3",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Bonlanden 2",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Bonlanden 1",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Waldrems 4",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 3",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Bonlanden 2",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Bonlanden 1",
+            "teamB": "Waldrems 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Wendlingen 2",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Bonlanden 2",
+            "teamB": "Gärtringen 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Reichenbach 3",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 13,
+            "teamA": "Bonlanden 1",
+            "teamB": "Gärtringen 3"
+        }
+    ]
+}

@@ -1,0 +1,169 @@
+{
+    "id": "5d7366f346e0fb000176c719",
+    "number": 10,
+    "league": "5d3d79d846e0fb0001448a27",
+    "leagueName": "Bezirksliga Staffel II",
+    "start": "2020-01-18T17:00:00.000Z",
+    "gym": {
+        "name": "Ludwig-Krapf-Halle",
+        "city": "Tübingen-Derendingen",
+        "zip": "72072",
+        "street": "Sieben-Höfe-Str. 58",
+        "phone": "0176-42597629"
+    },
+    "teams": [
+        {
+            "id": "491ed011-a845-47e0-b830-dc89918781ad",
+            "teamName": "Derendingen 1",
+            "teamId": "5d3d79d846e0fb0001448a29",
+            "present": true,
+            "players": [
+                "Fabian Daubner",
+                "Jonathan Marquardt"
+            ]
+        },
+        {
+            "id": "44d080ee-706b-4e30-8116-10eaf051c8a4",
+            "teamName": "Derendingen 2",
+            "teamId": "5d3d79d846e0fb0001448a2b",
+            "present": true,
+            "players": [
+                "Lukas Daubner",
+                "Nils Leverenz"
+            ]
+        },
+        {
+            "id": "f8716fb4-6393-45f7-9ab4-14351ca86ae0",
+            "teamName": "Wimsheim 3",
+            "teamId": "5d3d79d846e0fb0001448a43",
+            "present": true,
+            "players": [
+                "Achim Lauser",
+                "Lukas Lauser"
+            ]
+        },
+        {
+            "id": "8a3f4e69-eeaf-4a82-8016-16cf575bc5e6",
+            "teamName": "Rheinstetten 2",
+            "teamId": "5d3d79d846e0fb0001448a3f",
+            "present": true,
+            "players": [
+                "Manfred Arbogast",
+                "Bernhard Neu"
+            ]
+        },
+        {
+            "id": "2cc5e29d-82ea-4c8e-bcaa-08717e224cc9",
+            "teamName": "Offenburg 2",
+            "teamId": "5d3d79d846e0fb0001448a3d",
+            "present": true,
+            "players": [
+                "Andreas Fiebelkorn",
+                "Christoph Moßmann"
+            ]
+        },
+        {
+            "id": "3e69357f-12a1-4254-b1a2-5ef67d15bd1c",
+            "teamName": "Karlsruhe 3",
+            "teamId": "5d3d79d846e0fb0001448a31",
+            "present": true,
+            "players": [
+                "Lukas Lang",
+                "Andreas Ruf"
+            ]
+        },
+        {
+            "id": "4cfdce17-4f00-4a3d-8cfd-c9086e680c5c",
+            "teamName": "Karlsruhe 4",
+            "teamId": "5d3d79d846e0fb0001448a33",
+            "present": true,
+            "players": [
+                "Peter Holzapfel",
+                "Etienne Groff"
+            ]
+        },
+        {
+            "id": "ffcb7d2f-e5b5-435e-8b22-404663db780c",
+            "teamName": "Kieselbronn 2",
+            "teamId": "5d3d79d846e0fb0001448a35",
+            "present": true,
+            "players": [
+                "Knut Hahn",
+                "Timo Häußermann"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Rheinstetten 2",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Derendingen 1",
+            "teamB": "Karlsruhe 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Derendingen 2",
+            "teamB": "Karlsruhe 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Rheinstetten 2",
+            "teamB": "Offenburg 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Wimsheim 3",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Karlsruhe 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Derendingen 2",
+            "teamB": "Offenburg 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Wimsheim 3",
+            "teamB": "Rheinstetten 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Derendingen 1",
+            "teamB": "Karlsruhe 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Offenburg 2",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Derendingen 2",
+            "teamB": "Karlsruhe 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Derendingen 1",
+            "teamB": "Rheinstetten 2"
+        },
+        {
+            "number": 13,
+            "teamA": "Wimsheim 3",
+            "teamB": "Karlsruhe 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

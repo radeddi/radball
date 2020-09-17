@@ -1,0 +1,139 @@
+{
+    "id": "5d4d2b9c46e0fb00010d0c8b",
+    "number": 10,
+    "league": "5d3d715546e0fb0001e27497",
+    "leagueName": "Verbandsliga Staffel I",
+    "start": "2020-02-08T17:00:00.000Z",
+    "gym": {
+        "name": "Sport- und Festhalle Lauffen",
+        "city": "Deißlingen-Lauffen",
+        "zip": "78652",
+        "street": "Bäumlesweg 7",
+        "phone": "07420-93780"
+    },
+    "teams": [
+        {
+            "id": "1b61feb8-5fbb-4d43-af56-d1deb52faf57",
+            "teamName": "Ailingen 2",
+            "teamId": "5d3d715546e0fb0001e27499",
+            "present": true,
+            "players": [
+                "Pascal Salomon",
+                "Matthias Blab"
+            ]
+        },
+        {
+            "id": "9b8d3bf4-62c4-4aa1-bfe2-1baf16062cd1",
+            "teamName": "Ailingen 3",
+            "teamId": "5d3d715546e0fb0001e2749b",
+            "present": true,
+            "players": [
+                "Sven Braunger",
+                "Marco Braunger"
+            ]
+        },
+        {
+            "id": "0d2dc4bb-d0a3-45bb-ade4-53a43e12a95b",
+            "teamName": "Ailingen 4",
+            "teamId": "5d3d715546e0fb0001e2749d",
+            "present": true,
+            "players": [
+                "Manuel Maier",
+                "Marcel Weißenrieder"
+            ]
+        },
+        {
+            "id": "6148b64a-5dc7-4688-96bf-efbc720e74bd",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d715546e0fb0001e274a3",
+            "present": true,
+            "players": [
+                "Moritz Hundsdörfer",
+                "Mario Oexl"
+            ]
+        },
+        {
+            "id": "a533c1c6-4498-4643-bb22-70cf97665908",
+            "teamName": "Lauffen 2",
+            "teamId": "5d3d715546e0fb0001e274a5",
+            "present": true,
+            "players": [
+                "Marius Hahn",
+                "Florian Storz"
+            ]
+        },
+        {
+            "id": "0234040e-ba25-49f3-b603-0f80bbe75540",
+            "teamName": "Sulgen 2",
+            "teamId": "5d3d715546e0fb0001e274ad",
+            "present": true,
+            "players": [
+                "Jürgen Pfundstein",
+                "Stefan Kimmich"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 3",
+            "teamB": "Ailingen 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Lauffen 2",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Ailingen 2",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Ailingen 3",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Ailingen 4",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 3",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Lauffen 2",
+            "teamB": "Ailingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Ailingen 4",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Ailingen 3",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Ailingen 4",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Sulgen 2",
+            "teamB": "Ailingen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

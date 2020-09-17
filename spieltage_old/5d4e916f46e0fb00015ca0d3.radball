@@ -1,0 +1,159 @@
+{
+    "id": "5d4e916f46e0fb00015ca0d3",
+    "number": 11,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2020-03-14T17:00:00.000Z",
+    "gym": {
+        "name": "Ludwig-Jahn-Sporthalle",
+        "city": "Ostfildern-Nellingen",
+        "zip": "73760",
+        "street": "am Ende der Adlerstr.",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "23a2ae13-b26a-47f8-b0a8-356dc6957291",
+            "teamName": "Schwäbisch Gmünd 2",
+            "teamId": "5d3d79e846e0fb0001448a5f",
+            "present": true,
+            "players": [
+                "Daniel Gamber",
+                "Stefan Bläse"
+            ]
+        },
+        {
+            "id": "85222cba-c8bf-45c9-8c14-0b15adc161a5",
+            "teamName": "Schwäbisch Gmünd 3",
+            "teamId": "5d3d79e846e0fb0001448a61",
+            "present": true,
+            "players": [
+                "Andreas Feiler",
+                "Paul Botsch"
+            ]
+        },
+        {
+            "id": "217cb3ee-1a86-432b-9d11-b2e602027b56",
+            "teamName": "Schwäbisch Gmünd 4",
+            "teamId": "5d3d79e846e0fb0001448a63",
+            "present": true,
+            "players": [
+                "Florian Dangelmaier",
+                "Martin Khoeiklang"
+            ]
+        },
+        {
+            "id": "8b4a4d07-e344-4d3d-a814-3f7791e9833a",
+            "teamName": "Nellingen 4",
+            "teamId": "5d3d79e846e0fb0001448a53",
+            "present": true,
+            "players": [
+                "Michael Federle",
+                "Thilo Schmid"
+            ]
+        },
+        {
+            "id": "53eaf52b-3ed4-4254-8eb1-7811e9524e2a",
+            "teamName": "Nellingen 5",
+            "teamId": "5d3d79e846e0fb0001448a55",
+            "present": true,
+            "players": [
+                "Nico Rogalski",
+                "Tobias Fröschle"
+            ]
+        },
+        {
+            "id": "192efeef-c55f-4cc0-ba2f-9c9a6a98edbe",
+            "teamName": "Nellingen 6",
+            "teamId": "5d3d79e846e0fb0001448a57",
+            "present": true,
+            "players": [
+                "Kai-Uwe Schreiber",
+                "Sascha Schreiber"
+            ]
+        },
+        {
+            "id": "b8b92885-188f-454b-af36-f57b55037372",
+            "teamName": "Schwaikheim 5",
+            "teamId": "5d3d79e846e0fb0001448a65",
+            "present": true,
+            "players": [
+                "Florian Mayer",
+                "Philipp Leidner"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Nellingen 4",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 3,
+            "teamA": "Nellingen 6",
+            "teamB": "Schwäbisch Gmünd 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 7,
+            "teamA": "Nellingen 6",
+            "teamB": "Schwäbisch Gmünd 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 10,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 11,
+            "teamA": "Nellingen 6",
+            "teamB": "Schwäbisch Gmünd 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 13,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Schwaikheim 5"
+        }
+    ],
+    "permissions": [
+        "TeamsRead",
+        "LeagueRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

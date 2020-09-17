@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ju2",
+    "leagueLongName": "U19 Junioren Staffel II",
+    "number": 2,
+    "start": "2020-09-26T13:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "street": "Schulstr. 40",
+        "zip": "73262",
+        "city": "Reichenbach/Fils",
+        "phone": "07153-59448"
+    },
+    "hostClub": "Reichenbach",
+    "lastImport": "2020-09-07T07:50:08.739Z",
+    "teams": [
+        {
+            "name": "Wendlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schmid, Denny",
+                    "uciCode": "10045729016",
+                    "regular": true
+                },
+                {
+                    "name": "Schlosser, Erick",
+                    "uciCode": "10064570557",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Jakob, Marius",
+                    "uciCode": "10045746800",
+                    "regular": true
+                },
+                {
+                    "name": "Hesser, Aaron",
+                    "uciCode": "10045734874",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "SG Oberesslingen/Esslingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahnemann, Oskar",
+                    "uciCode": "10036309205",
+                    "regular": true
+                },
+                {
+                    "name": "Wolter, Paul",
+                    "uciCode": "10068030225",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ailingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wörner, Colin",
+                    "uciCode": "10036290916",
+                    "regular": true
+                },
+                {
+                    "name": "Reitter, Noah",
+                    "uciCode": "10036344668",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hofen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Thaler, Laurenz",
+                    "uciCode": "10048506347",
+                    "regular": true
+                },
+                {
+                    "name": "Rettenmeier, Moritz",
+                    "uciCode": "10048496950",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schuch, Marc",
+                    "uciCode": "10036296875",
+                    "regular": true
+                },
+                {
+                    "name": "Thamm, Felix",
+                    "uciCode": "10036318396",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Wendlingen 1",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Ailingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "SG Oberesslingen/Esslingen 2",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Wendlingen 2",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Wendlingen 1",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 6,
+            "teamA": "SG Oberesslingen/Esslingen 2",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Wendlingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Wendlingen 2",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "SG Oberesslingen/Esslingen 2",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Wendlingen 2",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Wendlingen 1",
+            "teamB": "Ailingen 1"
+        }
+    ]
+}

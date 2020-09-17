@@ -1,0 +1,134 @@
+{
+    "id": "5d5c020a46e0fb00013a1c87",
+    "number": 4,
+    "league": "5d3d7bba46e0fb0001448b14",
+    "leagueName": "U17 Jugend Staffel I",
+    "start": "2019-11-30T14:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle Merklingen",
+        "city": "Weil der Stadt-Merklingen",
+        "zip": "71263",
+        "street": "Untere Talstr. 64",
+        "phone": "07033-35927"
+    },
+    "teams": [
+        {
+            "id": "0dec58aa-c412-43c9-851c-5a6736808974",
+            "teamName": "Merklingen 1",
+            "teamId": "5d3d7bba46e0fb0001448b1e",
+            "present": true,
+            "players": [
+                "Florian Rebs",
+                "Niklas Breitling"
+            ]
+        },
+        {
+            "id": "53dd7f88-dc3f-4f7e-8068-77f839a70ab8",
+            "teamName": "Merklingen 2",
+            "teamId": "5d3d7bba46e0fb0001448b20",
+            "present": true,
+            "players": [
+                "Andreas Pfäffle",
+                "Till Braungart"
+            ]
+        },
+        {
+            "id": "e8548186-5f8c-46db-8601-a9d042ed6323",
+            "teamName": "Weil im Schönbuch 1",
+            "teamId": "5d3d7dea46e0fb0001e276bc",
+            "present": true,
+            "players": [
+                "Lennox Laib",
+                "Clemens Frasch"
+            ]
+        },
+        {
+            "id": "d1671e2e-e030-4d47-b5b0-b56b94bb1637",
+            "teamName": "Denkendorf 3",
+            "teamId": "5d3d7bba46e0fb0001448b16",
+            "present": true,
+            "players": [
+                "Leon Binder",
+                "Felix Bauer"
+            ]
+        },
+        {
+            "id": "e4ddd8d3-4747-449b-8eac-e1080aed0040",
+            "teamName": "Denkendorf 4",
+            "teamId": "5d3d7bba46e0fb0001448b18",
+            "present": true,
+            "players": [
+                "Pablo Geyer",
+                "Elias Zschoke"
+            ]
+        },
+        {
+            "id": "67b7f153-86d5-4e84-b5c6-cc0e55c3bb6d",
+            "teamName": "Reutlingen 1 a.K.",
+            "teamId": "5d3d7dea46e0fb0001e276b5",
+            "present": true,
+            "players": [
+                "Leon Geiselhart",
+                "Jannik Schneider"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Merklingen 1",
+            "teamB": "Merklingen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Merklingen 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Merklingen 1",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 5,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Merklingen 2",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 8,
+            "teamA": "Merklingen 1",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Merklingen 2",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 10,
+            "teamA": "Merklingen 1",
+            "teamB": "Denkendorf 3"
+        }
+    ],
+    "permissions": [
+        "LeagueRead",
+        "TeamsRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "id": "5d6b751546e0fb0001f9d999",
+    "number": 5,
+    "league": "5d3d74af46e0fb0001e2756c",
+    "leagueName": "Landesliga Staffel IV",
+    "start": "2020-01-11T17:00:00.000Z",
+    "gym": {
+        "name": "Keltenhalle",
+        "city": "Rheinstetten",
+        "zip": "76287",
+        "street": "Am Tummelplatz 6",
+        "phone": "0157-52658660"
+    },
+    "teams": [
+        {
+            "id": "e0fd168a-0041-4d8b-ada2-b03848438827",
+            "teamName": "Forst 1",
+            "teamId": "5d3d74af46e0fb0001e27574",
+            "present": true,
+            "players": [
+                "Paul Beste",
+                "Daniel Süss"
+            ]
+        },
+        {
+            "id": "8fefd67f-14c7-4af5-8f44-b5342b92f595",
+            "teamName": "Forst 2",
+            "teamId": "5d3d74af46e0fb0001e27576",
+            "present": true,
+            "players": [
+                "Gerald Faiß",
+                "Andreas Spangenberg"
+            ]
+        },
+        {
+            "id": "e49dfa16-536d-4f28-9c44-953aa517d135",
+            "teamName": "Rheinstetten 1",
+            "teamId": "5d3d74af46e0fb0001e27582",
+            "present": true,
+            "players": [
+                "Simon Becker",
+                "Robin Vogel"
+            ]
+        },
+        {
+            "id": "83585129-64fd-4a21-9e51-3ee2cddd15de",
+            "teamName": "Enzberg 1",
+            "teamId": "5d3d74af46e0fb0001e2756e",
+            "present": true,
+            "players": [
+                "Fabian Burkhard",
+                "Patrick Goll"
+            ]
+        },
+        {
+            "id": "2f26649f-ab8d-439d-9777-4c836cfaa671",
+            "teamName": "Ersingen 1",
+            "teamId": "5d3d74af46e0fb0001e27570",
+            "present": true,
+            "players": [
+                "Hubert Harr",
+                "Ralf Scheier"
+            ]
+        },
+        {
+            "id": "04832a6c-05c2-472b-be48-2fa149abc1b8",
+            "teamName": "Karlsruhe 2",
+            "teamId": "5d3d74af46e0fb0001e2757c",
+            "present": true,
+            "players": [
+                "Lukas Beckers",
+                "Florian Walter"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Forst 2",
+            "teamB": "Rheinstetten 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Ersingen 1",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Forst 1",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Forst 2",
+            "teamB": "Ersingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Forst 2",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Ersingen 1",
+            "teamB": "Forst 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Forst 2",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Ersingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Forst 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,224 @@
+{
+    "id": "5da95d8046e0fb00018a313e",
+    "number": 1,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2019-09-28T12:00:00.000Z",
+    "gym": {
+        "name": "Löcherhaldenturnhalle",
+        "city": "Denkendorf",
+        "zip": "73770",
+        "street": "Löcherhaldenstr. 36",
+        "phone": "0711-9348755"
+    },
+    "teams": [
+        {
+            "id": "8207896c-9588-42d3-b1cc-70c6bc32e729",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448af3",
+            "present": true,
+            "players": [
+                "Nils Guse",
+                "Jonathan Ben Hartmann"
+            ]
+        },
+        {
+            "id": "148b7f79-e527-4aa6-a255-4557cf9e8598",
+            "teamName": "Langenschiltach 1",
+            "teamId": "5d3d7b6c46e0fb0001448af1",
+            "present": true,
+            "players": [
+                "Jonas Schultheiss",
+                "Silas Dold"
+            ]
+        },
+        {
+            "id": "be8d0c91-c62f-4e4e-8f0a-101be6f343f7",
+            "teamName": "Wallbach 1",
+            "teamId": "5d3d7b6c46e0fb0001448af8",
+            "present": true,
+            "players": [
+                "Lukas Stocker",
+                "Mika Schrott"
+            ]
+        },
+        {
+            "id": "6f7a5da3-9b82-4956-b115-c8b45f204d35",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7d7646e0fb0001e2768b",
+            "present": true,
+            "players": [
+                "Elias Engel",
+                "Felix Hinnenberger"
+            ]
+        },
+        {
+            "id": "b7e05123-4222-4712-8c9f-871deb510003",
+            "teamName": "Kemnat 1",
+            "teamId": "5d3d7b6c46e0fb0001448aed",
+            "present": true,
+            "players": [
+                "Maximilian Schwarz",
+                "Florenc Rapp"
+            ]
+        },
+        {
+            "id": "cda500ac-4d49-450d-8fb2-ce44eefedbc8",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7b6c46e0fb0001448aef",
+            "present": true,
+            "players": [
+                "Nick Hundsdörfer",
+                "Jan Böhrer"
+            ]
+        },
+        {
+            "id": "bbfe426c-64d7-4641-938a-1639d41a14e2",
+            "teamName": "Alpirsbach 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae5",
+            "present": true,
+            "players": [
+                "Moritz Klemm",
+                "Jonas Kaltenbach"
+            ]
+        },
+        {
+            "id": "aed42d00-8542-4c23-ae02-6f7e30832cd3",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7b6c46e0fb0001448aeb",
+            "present": true,
+            "players": [
+                "David Egl",
+                "Silas Öhlert"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Langenschiltach 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hofen 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Öflingen 1",
+            "teamB": "Kemnat 1",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Wallbach 1",
+            "teamB": "Konstanz 1",
+            "score": {
+                "goalsA": 7,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Hofen 1",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Kemnat 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Wallbach 1",
+            "teamB": "Alpirsbach 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Öflingen 1",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Konstanz 1",
+            "teamB": "Hofen 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 1",
+            "teamB": "Alpirsbach 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Konstanz 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 12,
+            "teamA": "Wallbach 1",
+            "teamB": "Öflingen 1",
+            "score": {
+                "goalsA": 10,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

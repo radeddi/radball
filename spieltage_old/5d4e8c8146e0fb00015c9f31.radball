@@ -1,0 +1,139 @@
+{
+    "id": "5d4e8c8146e0fb00015c9f31",
+    "number": 10,
+    "league": "5d3d747946e0fb00014489a8",
+    "leagueName": "Landesliga Staffel I",
+    "start": "2020-02-15T17:00:00.000Z",
+    "gym": {
+        "name": "Steinberghalle",
+        "city": "Elzach-Prechtal",
+        "zip": "79215",
+        "street": "Schrahöfe",
+        "phone": "07682-1707"
+    },
+    "teams": [
+        {
+            "id": "4353955b-36d2-45b9-973d-355a94a3d9da",
+            "teamName": "Hardt 3",
+            "teamId": "5d3d747946e0fb00014489aa",
+            "present": true,
+            "players": [
+                "David Hilser",
+                "Tim Fehrenbacher"
+            ]
+        },
+        {
+            "id": "e3c79937-1245-4b4c-89b8-8ffa54aa4a3c",
+            "teamName": "Hardt 4",
+            "teamId": "5d3d747946e0fb00014489ac",
+            "present": true,
+            "players": [
+                "Thomas Broghammer",
+                "Markus Herzog"
+            ]
+        },
+        {
+            "id": "b9faf881-b9cf-4a92-ab5c-275762d87571",
+            "teamName": "Hardt 5",
+            "teamId": "5d3d747946e0fb00014489ae",
+            "present": true,
+            "players": [
+                "Max Görlich",
+                "Markus Flaig"
+            ]
+        },
+        {
+            "id": "4772348d-de7e-473a-8833-fcb7d3547c22",
+            "teamName": "Prechtal 4",
+            "teamId": "5d3d747946e0fb00014489ba",
+            "present": true,
+            "players": [
+                "Patrick Schneider",
+                "David Hildbrand"
+            ]
+        },
+        {
+            "id": "ae221d10-fc50-4d06-9b4f-c69c0ec59233",
+            "teamName": "Sulgen 3",
+            "teamId": "5d3d747946e0fb00014489bd",
+            "present": true,
+            "players": [
+                "Dominik Pfundstein",
+                "Daniel Pfundstein"
+            ]
+        },
+        {
+            "id": "b229d4dc-f19c-4ab8-b7dd-e7aba9735172",
+            "teamName": "Sulgen 4",
+            "teamId": "5d3d747946e0fb00014489bf",
+            "present": true,
+            "players": [
+                "Florian Moosmann",
+                "Marcel Blanke"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 5",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 4",
+            "teamB": "Sulgen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 3",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 4",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 5",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Sulgen 3",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 5",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 4",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 5",
+            "teamB": "Sulgen 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Sulgen 4",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Prechtal 4",
+            "teamB": "Sulgen 3"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

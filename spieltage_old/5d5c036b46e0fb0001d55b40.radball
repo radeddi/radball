@@ -1,0 +1,154 @@
+{
+    "id": "5d5c036b46e0fb0001d55b40",
+    "number": 6,
+    "league": "5d3d7e0246e0fb0001448b6b",
+    "leagueName": "U17 Jugend Staffel II",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Löcherhaldenturnhalle",
+        "city": "Denkendorf",
+        "zip": "73770",
+        "street": "Löcherhaldenstr. 36",
+        "phone": "0711-9348755"
+    },
+    "teams": [
+        {
+            "id": "f0c2d573-a5d9-4e9a-abf9-157ac2788c9c",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d7e0246e0fb0001448b77",
+            "present": true,
+            "players": [
+                "Finn Ben Breining",
+                "Yannik Fröschle"
+            ]
+        },
+        {
+            "id": "e5bf7fde-8b71-4ccd-84af-f4fd265c2828",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d7e0246e0fb0001448b6f",
+            "present": true,
+            "players": [
+                "Jannik Lang",
+                "Mathias Schneider"
+            ]
+        },
+        {
+            "id": "217788ac-1e53-400d-9fb2-39dcf87c52dd",
+            "teamName": "Denkendorf 5",
+            "teamId": "5d3d7e0246e0fb0001448b71",
+            "present": true,
+            "players": [
+                "Berhan Istif",
+                "Milo Radenic"
+            ]
+        },
+        {
+            "id": "e214a992-bade-48bb-a414-7eddead8e89c",
+            "teamName": "Niederstotzingen 2",
+            "teamId": "5d3d7e0246e0fb0001448b7d",
+            "present": true,
+            "players": [
+                "Niklas Maibaum",
+                "Moritz Groll"
+            ]
+        },
+        {
+            "id": "4473d7aa-e364-489b-b69e-ac495973896f",
+            "teamName": "Gärtringen 2",
+            "teamId": "5d3d7e0246e0fb0001448b73",
+            "present": true,
+            "players": [
+                "Simeon Heim",
+                "Luis Veit"
+            ]
+        },
+        {
+            "id": "bf909f2b-1814-4e0b-ae9c-5b51cee3635d",
+            "teamName": "Gärtringen 4",
+            "teamId": "5d3d7e0246e0fb0001448b75",
+            "present": true,
+            "players": [
+                "Nico Sindlinger",
+                "Joel Schaumburg"
+            ]
+        },
+        {
+            "id": "8a735f58-b57f-4f79-bf7f-f49103bd0080",
+            "teamName": "Niederstotzingen 3",
+            "teamId": "5d3d7e0246e0fb0001448b7f",
+            "present": true,
+            "players": [
+                "Kai Rechthaler",
+                "Philipp Böhm"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kemnat 2",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Denkendorf 2",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 5",
+            "teamB": "Gärtringen 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 2",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Denkendorf 2",
+            "teamB": "Gärtringen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 5",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Kemnat 2",
+            "teamB": "Gärtringen 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Denkendorf 2",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 5",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 2",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Denkendorf 5",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Denkendorf 2",
+            "teamB": "Niederstotzingen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

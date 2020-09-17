@@ -1,0 +1,184 @@
+{
+    "id": "5d9c763346e0fb000138a5c3",
+    "number": 4,
+    "league": "5d3d7ef646e0fb0001e2778a",
+    "leagueName": "U13 Schüler B Staffel II",
+    "start": "2019-11-23T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Backnang Waldrems",
+        "zip": "71522",
+        "street": "Langenbachstr. 16",
+        "phone": "07191-86957"
+    },
+    "teams": [
+        {
+            "id": "655622fc-9bc7-4d87-8145-7f301e324a5c",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d7ef646e0fb0001e2779e",
+            "present": true,
+            "players": [
+                "Luke Löffler",
+                "Noah Zieker"
+            ]
+        },
+        {
+            "id": "1073fb0a-4e6b-4e32-83a5-6f9c8ed93293",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7ef646e0fb0001e2779a",
+            "present": true,
+            "players": [
+                "Henri Teichmann",
+                "Niklas Wittchen"
+            ]
+        },
+        {
+            "id": "539087b1-b62a-4e14-8c56-b651e0e7f19a",
+            "teamName": "Reichenbach 2",
+            "teamId": "5d3d7ef646e0fb0001e2779c",
+            "present": true,
+            "players": [
+                "Laurin Hottenroth",
+                "Amely Klügel"
+            ]
+        },
+        {
+            "id": "d39e30af-94b0-4c7c-9015-388f7a134aa8",
+            "teamName": "Ailingen 1",
+            "teamId": "5d3d7ef646e0fb0001e2778c",
+            "present": true,
+            "players": [
+                "Niklas Böck",
+                "Kilian Schlegel"
+            ]
+        },
+        {
+            "id": "090fa7f3-1e91-4855-b03b-7c0953329b47",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7ef646e0fb0001e277a0",
+            "present": true,
+            "players": [
+                "Emil Heckelmann",
+                "Philipp Stang"
+            ]
+        },
+        {
+            "id": "c625df44-f972-4d93-bdf1-f28ae1391943",
+            "teamName": "Waldrems 2",
+            "teamId": "5d3d7ef646e0fb0001e277a2",
+            "present": false,
+            "players": [
+                "Maxim Rauleder",
+                "Leon Dressler"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 1",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 2",
+            "teamB": "Waldrems 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 3",
+            "teamB": "Ailingen 1",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 1",
+            "teamB": "Waldrems 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 3",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 1",
+            "teamB": "Reichenbach 2",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Reichenbach 1",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Reichenbach 3",
+            "teamB": "Waldrems 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Reichenbach 1",
+            "teamB": "Ailingen 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Waldrems 1",
+            "teamB": "Reichenbach 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

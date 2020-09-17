@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll3",
+    "leagueLongName": "Landesliga Staffel III",
+    "number": 6,
+    "start": "2020-12-12T17:00:00.000Z",
+    "gym": {
+        "name": "Glück-Auf-Halle",
+        "street": "Kappelbergstr. 34",
+        "zip": "73433",
+        "city": "Aalen-Hofen",
+        "phone": "0170-4779082"
+    },
+    "hostClub": "Hofen",
+    "lastImport": "2020-08-30T08:51:23.673Z",
+    "teams": [
+        {
+            "name": "Hofen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Stephan, Rudi",
+                    "uciCode": "10050782615",
+                    "regular": true
+                },
+                {
+                    "name": "Wolf, Judith",
+                    "uciCode": "10048513926",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hofen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Machnig, Thomas",
+                    "uciCode": "10048528878",
+                    "regular": true
+                },
+                {
+                    "name": "Machnig, Simon",
+                    "uciCode": "10064022509",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwäbisch Gmünd 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Friedrich, Stephan",
+                    "uciCode": "10036285357",
+                    "regular": true
+                },
+                {
+                    "name": "Hofer, Benjamin",
+                    "uciCode": "10063661989",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fischer, Martin",
+                    "uciCode": "10036330120",
+                    "regular": true
+                },
+                {
+                    "name": "Wagner, Thimo",
+                    "uciCode": "10036297784",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kurle, Ralph",
+                    "uciCode": "10036323753",
+                    "regular": true
+                },
+                {
+                    "name": "Fischer, Daniel",
+                    "uciCode": "10036286367",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 7",
+            "present": true,
+            "players": [
+                {
+                    "name": "Regner, Philipp",
+                    "uciCode": "10036339113",
+                    "regular": true
+                },
+                {
+                    "name": "Granidis, Christos",
+                    "uciCode": "10036326278",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reichenbach 6",
+            "teamB": "Reichenbach 7"
+        },
+        {
+            "number": 2,
+            "teamA": "Hofen 4",
+            "teamB": "Schwäbisch Gmünd 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 5",
+            "teamB": "Hofen 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 6",
+            "teamB": "Hofen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 7",
+            "teamB": "Hofen 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 6",
+            "teamB": "Schwäbisch Gmünd 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Hofen 4",
+            "teamB": "Reichenbach 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Reichenbach 7",
+            "teamB": "Schwäbisch Gmünd 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Reichenbach 6",
+            "teamB": "Hofen 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Reichenbach 7",
+            "teamB": "Hofen 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Schwäbisch Gmünd 1",
+            "teamB": "Reichenbach 5"
+        }
+    ]
+}

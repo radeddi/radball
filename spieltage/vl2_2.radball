@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "vl2",
+    "leagueLongName": "Verbandsliga Staffel II",
+    "number": 2,
+    "start": "2020-10-10T16:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Römerstr. 71",
+        "zip": "70794",
+        "city": "Filderstadt",
+        "phone": "0711-7738175"
+    },
+    "hostClub": "Plattenhardt",
+    "lastImport": "2020-09-02T08:20:54.884Z",
+    "teams": [
+        {
+            "name": "Plattenhardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Mack, Ulrich",
+                    "uciCode": "10036331130",
+                    "regular": true
+                },
+                {
+                    "name": "Pflieger, Marco",
+                    "uciCode": "10036340527",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Plattenhardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kehrle, Dieter",
+                    "uciCode": "10036326682",
+                    "regular": true
+                },
+                {
+                    "name": "Pflieger, Jürgen",
+                    "uciCode": "10036331332",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Merklingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weber, Robin",
+                    "uciCode": "10036342547",
+                    "regular": true
+                },
+                {
+                    "name": "Weber, Tim",
+                    "uciCode": "10036326076",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Offenburg 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kuhn, Felix",
+                    "uciCode": "10051578116",
+                    "regular": true
+                },
+                {
+                    "name": "Gröer, Nils",
+                    "uciCode": "10046124490",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "SG Gärtringen/Waldrems 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Berner, Uwe",
+                    "uciCode": "10012803475",
+                    "regular": true
+                },
+                {
+                    "name": "Kotb, Sebastian",
+                    "uciCode": "10036323854",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wimsheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lauser, Heiko",
+                    "uciCode": "10036306575",
+                    "regular": true
+                },
+                {
+                    "name": "Bernhagen, Sven",
+                    "uciCode": "10036316679",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Offenburg 1",
+            "teamB": "SG Gärtringen/Waldrems 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Merklingen 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Offenburg 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Plattenhardt 2",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Plattenhardt 1",
+            "teamB": "SG Gärtringen/Waldrems 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Offenburg 1",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Plattenhardt 2",
+            "teamB": "SG Gärtringen/Waldrems 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Plattenhardt 2",
+            "teamB": "Offenburg 1"
+        },
+        {
+            "number": 11,
+            "teamA": "SG Gärtringen/Waldrems 4",
+            "teamB": "Merklingen 1"
+        }
+    ]
+}

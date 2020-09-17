@@ -1,0 +1,169 @@
+{
+    "id": "5dac258b46e0fb0001ef77f4",
+    "number": 6,
+    "league": "5d3d7e8546e0fb0001e27736",
+    "leagueName": "U15 Schüler A Staffel II",
+    "start": "2020-03-07T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle-Radrennbahn",
+        "city": "Singen",
+        "zip": "78224",
+        "street": "Bohlinger Str. 26",
+        "phone": "0171-7029502"
+    },
+    "teams": [
+        {
+            "id": "621b511e-a4a0-4fd4-814d-8448bec94bb5",
+            "teamName": "Plattenhardt 1",
+            "teamId": "5d3d7e8546e0fb0001e2773e",
+            "present": true,
+            "players": [
+                "Luca Gentzcke",
+                "Moritz Cejnek"
+            ]
+        },
+        {
+            "id": "79ec3f38-9ce3-4251-accf-98cb23e3ead4",
+            "teamName": "Plattenhardt 2 a.K.",
+            "teamId": "5d75083b46e0fb0001bb812c",
+            "present": true,
+            "players": [
+                "Lena Gentzcke",
+                "Luque Mario Huth"
+            ]
+        },
+        {
+            "id": "686a1644-6256-4f17-8655-5fc8e81f6a32",
+            "teamName": "Plattenhardt 3 0 a.K.",
+            "teamId": "5d75083b46e0fb0001bb812e",
+            "present": true,
+            "players": [
+                "Felix Cejnek",
+                "Raphael Blum"
+            ]
+        },
+        {
+            "id": "79881142-bd24-4083-89e7-7a3bcf831bf5",
+            "teamName": "Prechtal 3",
+            "teamId": "5d3d7e8546e0fb0001e27743",
+            "present": true,
+            "players": [
+                "Lukas Wernet",
+                "Joscha Winterer"
+            ]
+        },
+        {
+            "id": "9f4f7cf8-02f3-4b8d-b255-26921776f26e",
+            "teamName": "Prechtal 4",
+            "teamId": "5d3d7e8546e0fb0001e27745",
+            "present": true,
+            "players": [
+                "Roman Dufner",
+                "Julian Häringer"
+            ]
+        },
+        {
+            "id": "06457924-5c53-4ce6-b5a9-120524a716ff",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7e8546e0fb0001e2773c",
+            "present": true,
+            "players": [
+                "Anton Schien",
+                "Matti Trempa"
+            ]
+        },
+        {
+            "id": "b3409ec5-3dc0-4559-b475-2de8482b2ed8",
+            "teamName": "Singen 1",
+            "teamId": "5d3d7e8546e0fb0001e27749",
+            "present": true,
+            "players": [
+                "Timon Beuscher",
+                "Jason Richmond"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Konstanz 1",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Plattenhardt 3 0 a.K.",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Plattenhardt 2 a.K.",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Plattenhardt 3 0 a.K.",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Plattenhardt 2 a.K.",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Plattenhardt 3 0 a.K.",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Plattenhardt 2 a.K.",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Singen 1",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 12,
+            "teamA": "Plattenhardt 2 a.K.",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 14,
+            "teamA": "Plattenhardt 3 0 a.K.",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 15,
+            "teamA": "Konstanz 1",
+            "teamB": "Prechtal 3"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "id": "5d4e8d5c46e0fb00015c9fa3",
+    "number": 9,
+    "league": "5d3d749946e0fb0001e2753e",
+    "leagueName": "Landesliga Staffel III",
+    "start": "2020-02-15T17:00:00.000Z",
+    "gym": {
+        "name": "Glück-Auf-Halle",
+        "city": "Aalen-Hofen",
+        "zip": "73433",
+        "street": "Kappelbergstr. 34",
+        "phone": "0170-4779082"
+    },
+    "teams": [
+        {
+            "id": "74b359c4-1451-41f3-ae28-dfeef81f5be6",
+            "teamName": "Hofen 2",
+            "teamId": "5d3d749946e0fb0001e27542",
+            "present": true,
+            "players": [
+                "Rudi Stephan",
+                "Judith Wolf"
+            ]
+        },
+        {
+            "id": "cbbdc09d-a0b9-4bcd-81b5-3981c01bf30f",
+            "teamName": "Hofen 4",
+            "teamId": "5d3d749946e0fb0001e27546",
+            "present": true,
+            "players": [
+                "Julian Schwarzer",
+                "Raphael Fröbe"
+            ]
+        },
+        {
+            "id": "ac2e23a0-0607-486e-ac8f-4de36d37da0a",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d749946e0fb0001e27548",
+            "present": true,
+            "players": [
+                "Hannes Wetzler",
+                "Andreas Miller"
+            ]
+        },
+        {
+            "id": "6750dc1b-aea9-4c62-8a53-eefb7b904376",
+            "teamName": "Reichenbach 5",
+            "teamId": "5d3d749946e0fb0001e2754a",
+            "present": true,
+            "players": [
+                "Gerhard Kayser",
+                "Martin Fischer"
+            ]
+        },
+        {
+            "id": "7c052e30-1269-419e-be5b-2e77159f0820",
+            "teamName": "Reichenbach 6",
+            "teamId": "5d3d749946e0fb0001e2754c",
+            "present": true,
+            "players": [
+                "Thimo Wagner",
+                "Matthias Barth"
+            ]
+        },
+        {
+            "id": "df12e0c5-8b4f-4806-a8f1-d0de22d8d317",
+            "teamName": "Söflingen 3",
+            "teamId": "5d3d749946e0fb0001e27556",
+            "present": true,
+            "players": [
+                "Manfred Pfinder",
+                "Patrick Ströbele"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Hofen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Söflingen 3",
+            "teamB": "Reichenbach 5"
+        },
+        {
+            "number": 3,
+            "teamA": "Hofen 4",
+            "teamB": "Reichenbach 6"
+        },
+        {
+            "number": 4,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Söflingen 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Hofen 2",
+            "teamB": "Reichenbach 6"
+        },
+        {
+            "number": 6,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Reichenbach 5"
+        },
+        {
+            "number": 7,
+            "teamA": "Söflingen 3",
+            "teamB": "Hofen 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Hofen 2",
+            "teamB": "Reichenbach 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Reichenbach 6"
+        },
+        {
+            "number": 10,
+            "teamA": "Hofen 2",
+            "teamB": "Söflingen 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Reichenbach 5",
+            "teamB": "Hofen 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

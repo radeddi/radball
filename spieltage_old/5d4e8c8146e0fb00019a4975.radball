@@ -1,0 +1,194 @@
+{
+    "id": "5d4e8c8146e0fb00019a4975",
+    "number": 2,
+    "league": "5d3d747946e0fb00014489a8",
+    "leagueName": "Landesliga Staffel I",
+    "start": "2019-11-23T17:00:00.000Z",
+    "gym": {
+        "name": "Altrheinhalle",
+        "city": "Neuenburg am Rhein",
+        "zip": "79395",
+        "street": "Am Altrhein 3",
+        "phone": "0151-54852202"
+    },
+    "teams": [
+        {
+            "id": "beec95dc-d8f4-4359-be89-c9452896b116",
+            "teamName": "Neuenburg 1",
+            "teamId": "5d3d747946e0fb00014489b6",
+            "present": true,
+            "players": [
+                "Andreas Kößler",
+                "Marius Müller"
+            ]
+        },
+        {
+            "id": "3c038d69-9463-48cb-9fbe-1b28f38cdc32",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d747946e0fb00014489b8",
+            "present": true,
+            "players": [
+                "Noah Klausmann",
+                "Luca Klausmann"
+            ]
+        },
+        {
+            "id": "17fd3457-c86c-437e-abeb-9d3970601640",
+            "teamName": "SG Öflingen/Wehr 2",
+            "teamId": "5d3d747946e0fb00014489bc",
+            "present": true,
+            "players": [
+                "Julian Urich",
+                "Markus Buchner"
+            ]
+        },
+        {
+            "id": "56bfae5d-50e0-48ca-892e-ff54e2faae73",
+            "teamName": "Prechtal 4",
+            "teamId": "5d3d747946e0fb00014489ba",
+            "present": true,
+            "players": [
+                "Patrick Schneider",
+                "David Hildbrand"
+            ]
+        },
+        {
+            "id": "a59889e6-bf64-4d99-9fba-7cd7ad9079c0",
+            "teamName": "Sulgen 3",
+            "teamId": "5d3d747946e0fb00014489bd",
+            "present": true,
+            "players": [
+                "Dominik Pfundstein",
+                "Daniel Pfundstein"
+            ]
+        },
+        {
+            "id": "7ba45e94-a0c3-42c9-b9ef-ae84023edf7d",
+            "teamName": "Sulgen 4",
+            "teamId": "5d3d747946e0fb00014489bf",
+            "present": true,
+            "players": [
+                "Florian Moosmann",
+                "Marcel Blanke"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Sulgen 3",
+            "teamB": "Sulgen 4",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Öflingen 1",
+            "teamB": "SG Öflingen/Wehr 2",
+            "score": {
+                "goalsA": 9,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Neuenburg 1",
+            "teamB": "Prechtal 4",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "SG Öflingen/Wehr 2",
+            "teamB": "Sulgen 4",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Neuenburg 1",
+            "teamB": "Sulgen 3",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 7,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Öflingen 1",
+            "teamB": "Sulgen 4",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Prechtal 4",
+            "teamB": "SG Öflingen/Wehr 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Öflingen 1",
+            "teamB": "Sulgen 3",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Neuenburg 1",
+            "teamB": "Sulgen 4",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Öflingen 1",
+            "teamB": "Prechtal 4",
+            "score": {
+                "goalsA": 8,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Sulgen 3",
+            "teamB": "SG Öflingen/Wehr 2",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

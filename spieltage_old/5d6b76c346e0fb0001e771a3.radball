@@ -1,0 +1,194 @@
+{
+    "id": "5d6b76c346e0fb0001e771a3",
+    "number": 8,
+    "league": "5d3d7ab046e0fb0001e275d3",
+    "leagueName": "U19O Junioren-Oberliga",
+    "start": "2019-12-14T13:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "city": "Gärtringen",
+        "zip": "71116",
+        "street": "Steingrubenweg",
+        "phone": "0173-9457977"
+    },
+    "teams": [
+        {
+            "id": "fafc8598-a9d8-4f9b-9c5f-b7509e74bbac",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7ab046e0fb0001e275e1",
+            "present": true,
+            "players": [
+                "Marc Huber",
+                "Moritz Schubach"
+            ]
+        },
+        {
+            "id": "2ba6684a-44be-498d-be08-4e86d5763a00",
+            "teamName": "Prechtal 1",
+            "teamId": "5d3d7ab046e0fb0001e275e3",
+            "present": true,
+            "players": [
+                "Timo Volk",
+                "Nico Volk"
+            ]
+        },
+        {
+            "id": "fb756d8c-2b9f-459d-91bc-d1987ad6897d",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d7ab046e0fb0001e275e5",
+            "present": true,
+            "players": [
+                "Luca Lang",
+                "Ferdinand Weber"
+            ]
+        },
+        {
+            "id": "826c6fe8-4b46-4e03-a9f2-0574d9152afc",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7ab046e0fb0001e275d5",
+            "present": true,
+            "players": [
+                "Luis Müller",
+                "Loris Ferrari"
+            ]
+        },
+        {
+            "id": "0e2eb5d9-3f84-46ce-bbf6-b2a5333fefb0",
+            "teamName": "Gärtringen 2",
+            "teamId": "5d3d7ab046e0fb0001e275d7",
+            "present": true,
+            "players": [
+                "Till Ganser",
+                "Nico Quast"
+            ]
+        },
+        {
+            "id": "f8615150-b04e-41c7-95f2-d2f77b9fa8db",
+            "teamName": "Lauffen 1",
+            "teamId": "5d3d7ab046e0fb0001e275dd",
+            "present": true,
+            "players": [
+                "Paul Fischer",
+                "Tom Fischer"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Öflingen 1",
+            "teamB": "Prechtal 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 1",
+            "teamB": "Gärtringen 2",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 2",
+            "teamB": "Lauffen 1",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Öflingen 1",
+            "teamB": "Gärtringen 1",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 1",
+            "teamB": "Lauffen 1",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Öflingen 1",
+            "teamB": "Gärtringen 2",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 1",
+            "teamB": "Prechtal 2",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 1",
+            "teamB": "Gärtringen 2",
+            "score": {
+                "goalsA": 9,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Öflingen 1",
+            "teamB": "Lauffen 1",
+            "score": {
+                "goalsA": 7,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Prechtal 1",
+            "teamB": "Gärtringen 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Gärtringen 2",
+            "teamB": "Prechtal 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

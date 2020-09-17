@@ -1,0 +1,139 @@
+{
+    "id": "5d4e8fd746e0fb00019a4a3d",
+    "number": 10,
+    "league": "5d3d79c346e0fb00014489f9",
+    "leagueName": "Bezirksliga Staffel I",
+    "start": "2020-02-15T17:00:00.000Z",
+    "gym": {
+        "name": "Arthur-Bantle-Halle",
+        "city": "Hardt",
+        "zip": "78739",
+        "street": "Ostlandstr. 10",
+        "phone": "0171 7059873"
+    },
+    "teams": [
+        {
+            "id": "e0667961-c3fe-4cee-8a0f-19b7efef012d",
+            "teamName": "Ehrenkirchen 1",
+            "teamId": "5d3d79c346e0fb00014489fd",
+            "present": true,
+            "players": [
+                "Eric van Steenis",
+                "Christian Weinmann"
+            ]
+        },
+        {
+            "id": "4d108655-b6e4-4c13-aebf-128ec857155e",
+            "teamName": "Hardt 7",
+            "teamId": "5d3d79c346e0fb0001448a01",
+            "present": true,
+            "players": [
+                "Pascal Bammert",
+                "Leon Woelki"
+            ]
+        },
+        {
+            "id": "56cfd82c-8618-442b-aed0-41909d0025b6",
+            "teamName": "Hardt 6",
+            "teamId": "5d3d79c346e0fb00014489ff",
+            "present": true,
+            "players": [
+                "Christian Hug",
+                "Rolf Weißer"
+            ]
+        },
+        {
+            "id": "8f2e0f3a-27eb-4021-94a4-1f2764b25240",
+            "teamName": "Lauffen 3",
+            "teamId": "5d3d79c346e0fb0001448a07",
+            "present": true,
+            "players": [
+                "Fabian Fischer",
+                "Philipp Fischer"
+            ]
+        },
+        {
+            "id": "dfb2265d-dc9c-4ae1-93b3-096c16d9d8b3",
+            "teamName": "Lauffen 4",
+            "teamId": "5d3d79c346e0fb0001448a09",
+            "present": true,
+            "players": [
+                "Benjamin Brunner",
+                "Oliver Hollstein"
+            ]
+        },
+        {
+            "id": "72967943-5477-4e8d-9b27-7afafa9cf51a",
+            "teamName": "Ailingen 6",
+            "teamId": "5d3d79c346e0fb00014489fb",
+            "present": true,
+            "players": [
+                "Simon Lunenberg",
+                "Sascha Walther"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 6",
+            "teamB": "Ehrenkirchen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Ailingen 6",
+            "teamB": "Lauffen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 7",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 6",
+            "teamB": "Ailingen 6"
+        },
+        {
+            "number": 5,
+            "teamA": "Ehrenkirchen 1",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 6",
+            "teamB": "Lauffen 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Ailingen 6",
+            "teamB": "Hardt 7"
+        },
+        {
+            "number": 8,
+            "teamA": "Ehrenkirchen 1",
+            "teamB": "Lauffen 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 6",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Ehrenkirchen 1",
+            "teamB": "Ailingen 6"
+        },
+        {
+            "number": 11,
+            "teamA": "Lauffen 3",
+            "teamB": "Hardt 7"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

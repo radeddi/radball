@@ -1,0 +1,139 @@
+{
+    "id": "5da6cd1d46e0fb0001f72663",
+    "number": 10,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2020-01-11T17:00:00.000Z",
+    "gym": {
+        "name": "Sporthalle Kemnat",
+        "city": "Ostfildern",
+        "zip": "73760",
+        "street": "Haldenstr. 42",
+        "phone": "01779 777876"
+    },
+    "teams": [
+        {
+            "id": "4fa280b9-30eb-4512-8248-6854bfefba6e",
+            "teamName": "Gärtringen 3",
+            "teamId": "5d3d701446e0fb0001e273da",
+            "present": true,
+            "players": [
+                "Gunther Schmid",
+                "Michael Posedi"
+            ]
+        },
+        {
+            "id": "249339b7-5033-4afb-8dc2-e230c39029a7",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d701446e0fb0001e273ec",
+            "present": true,
+            "players": [
+                "Jonas Braun",
+                "Daniel Braun"
+            ]
+        },
+        {
+            "id": "e18166ee-e507-4a2c-9806-faa8f7331263",
+            "teamName": "Kemnat 3",
+            "teamId": "5d3d701446e0fb0001e273e2",
+            "present": true,
+            "players": [
+                "Jonas Balz",
+                "Dominik Schmidt"
+            ]
+        },
+        {
+            "id": "04de57e9-322e-45c9-90d1-27389561a571",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d701446e0fb0001e273e0",
+            "present": true,
+            "players": [
+                "Manuel Fröschle",
+                "Florian Fröschle"
+            ]
+        },
+        {
+            "id": "965dcd63-ee78-4252-a1b0-0c6dfdd0e3a9",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d701446e0fb0001e273ea",
+            "present": true,
+            "players": [
+                "Daniel Villwock",
+                "Sebastian Seeber"
+            ]
+        },
+        {
+            "id": "2e2e28bc-b3b6-435b-8e3a-c3e5ea9ef063",
+            "teamName": "Gärtringen 4",
+            "teamId": "5d3d701446e0fb0001e273dc",
+            "present": true,
+            "players": [
+                "Simon Becker",
+                "Jannes Müller"
+            ]
+        },
+        {
+            "id": "87718c41-2596-47fd-b5d8-2c6483aceac2",
+            "teamName": "Lauffen 1",
+            "teamId": "5d3d701446e0fb0001e273e4",
+            "present": true,
+            "players": [
+                "Marc Käufer",
+                "Thomas Keller"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 3",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 4",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 3",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Kemnat 2",
+            "teamB": "Gärtringen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 3",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Reichenbach 3",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 3",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Kemnat 3",
+            "teamB": "Gärtringen 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

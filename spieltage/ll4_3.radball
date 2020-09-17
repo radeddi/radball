@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll4",
+    "leagueLongName": "Landesliga Staffel IV",
+    "number": 3,
+    "start": "2020-11-14T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "street": "Kanalstr. 2",
+        "zip": "75417",
+        "city": "Mühlacker-Enzberg",
+        "phone": "0152 56 19 18 44"
+    },
+    "hostClub": "Enzberg",
+    "lastImport": "2020-09-07T07:40:31.057Z",
+    "teams": [
+        {
+            "name": "Enzberg 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Burkhard, Fabian",
+                    "uciCode": "10036404686",
+                    "regular": true
+                },
+                {
+                    "name": "Goll, Patrick",
+                    "uciCode": "10036410649",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ersingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Harr, Hubert",
+                    "uciCode": "10043835900",
+                    "regular": true
+                },
+                {
+                    "name": "Scheier, Ralf",
+                    "uciCode": "10043826604",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Winter, Stefan",
+                    "uciCode": "10036333655",
+                    "regular": true
+                },
+                {
+                    "name": "Winter, Jürgen",
+                    "uciCode": "10036280913",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gerlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bedarf, Frank",
+                    "uciCode": "10048550201",
+                    "regular": true
+                },
+                {
+                    "name": "Wagner, Tobias",
+                    "uciCode": "10048521606",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gerlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rapp, Stefan",
+                    "uciCode": "10048523323",
+                    "regular": true
+                },
+                {
+                    "name": "Katz, Sebastian",
+                    "uciCode": "10048360847",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beste, Paul",
+                    "uciCode": "10015525943",
+                    "regular": true
+                },
+                {
+                    "name": "Kreimes, Alan",
+                    "uciCode": "10048394492",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ersingen 1",
+            "teamB": "Waldrems 6"
+        },
+        {
+            "number": 2,
+            "teamA": "Gerlingen 2",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Enzberg 1",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Ersingen 1",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Waldrems 6",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Ersingen 1",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Gerlingen 2",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Waldrems 6",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Ersingen 1",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Waldrems 6",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Forst 2",
+            "teamB": "Enzberg 1"
+        }
+    ]
+}

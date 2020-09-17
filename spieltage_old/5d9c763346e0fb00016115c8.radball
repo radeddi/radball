@@ -1,0 +1,139 @@
+{
+    "id": "5d9c763346e0fb00016115c8",
+    "number": 11,
+    "league": "5d3d7ef646e0fb0001e2778a",
+    "leagueName": "U13 Schüler B Staffel II",
+    "start": "2020-03-07T14:00:00.000Z",
+    "gym": {
+        "name": "Ballsporthalle",
+        "city": "Niederstotzingen",
+        "zip": "89168",
+        "street": "Bergstr. 39-40",
+        "phone": "07325-10276"
+    },
+    "teams": [
+        {
+            "id": "8df94e4f-2ef6-4c86-95e9-42f8216621ad",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7ef646e0fb0001e27792",
+            "present": true,
+            "players": [
+                "Lars Schiele",
+                "Theo Rettenmeier"
+            ]
+        },
+        {
+            "id": "188776a2-b26b-4c8d-b621-a09370597824",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d7ef646e0fb0001e27794",
+            "present": true,
+            "players": [
+                "Maxim Geibel",
+                "Thomas Wahner"
+            ]
+        },
+        {
+            "id": "0c73c2ce-57fb-40ef-997f-746a45043f76",
+            "teamName": "Karlsruhe 2 a.K.",
+            "teamId": "5d3d7ef646e0fb0001e27796",
+            "present": true,
+            "players": [
+                "Tizian Wagner",
+                "Edwin Müller"
+            ]
+        },
+        {
+            "id": "54f88f9b-f048-4c0a-b530-7b1d6ff3bdf8",
+            "teamName": "Niederstotzingen 1 a.K.",
+            "teamId": "5d3d7ef646e0fb0001e27798",
+            "present": true,
+            "players": [
+                "Mathis Junginger",
+                "Tobias Linder"
+            ]
+        },
+        {
+            "id": "eec00594-258a-4884-a8f5-7368cd0d8300",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d7ef646e0fb0001e2778e",
+            "present": true,
+            "players": [
+                "Bastian Kendl",
+                "Finn Gerlach"
+            ]
+        },
+        {
+            "id": "f35f69cc-cbe9-4523-8625-33d866b9d3fb",
+            "teamName": "Hardt 4 a.K.",
+            "teamId": "5d3d7ef646e0fb0001e27790",
+            "present": true,
+            "players": [
+                "Mia Elsäßer",
+                "Jana Kendl"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hofen 1",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Niederstotzingen 1 a.K.",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Karlsruhe 2 a.K.",
+            "teamB": "Hardt 4 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Hofen 1",
+            "teamB": "Niederstotzingen 1 a.K."
+        },
+        {
+            "number": 5,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Hardt 4 a.K."
+        },
+        {
+            "number": 6,
+            "teamA": "Hofen 1",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Niederstotzingen 1 a.K.",
+            "teamB": "Karlsruhe 2 a.K."
+        },
+        {
+            "number": 8,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Hofen 1",
+            "teamB": "Hardt 4 a.K."
+        },
+        {
+            "number": 10,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Niederstotzingen 1 a.K."
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 2",
+            "teamB": "Karlsruhe 2 a.K."
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

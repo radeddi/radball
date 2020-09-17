@@ -1,0 +1,174 @@
+{
+    "id": "5d5b9f6146e0fb0001411489",
+    "number": 6,
+    "league": "5d3d7abe46e0fb0001448a9b",
+    "leagueName": "U19 Junioren Staffel I",
+    "start": "2020-02-01T13:00:00.000Z",
+    "gym": {
+        "name": "Anne-Frank-Schule",
+        "city": "Karlsruhe",
+        "zip": "76189",
+        "street": "Bonhoeferstr. 12",
+        "phone": "01794268400"
+    },
+    "teams": [
+        {
+            "id": "bcd4a4e8-0796-4eaa-8bae-e20a27d0c856",
+            "teamName": "Wehr 1",
+            "teamId": "5d3d7abe46e0fb0001448aa9",
+            "present": true,
+            "players": [
+                "Nico Buchner",
+                "Benedikt Kranz"
+            ]
+        },
+        {
+            "id": "5f058e9f-d4fe-464b-a939-c7e4d18756ef",
+            "teamName": "Forst 1",
+            "teamId": "5d3d7abe46e0fb0001448a9f",
+            "present": true,
+            "players": [
+                "Max Petersohn",
+                "Kenan Gecer"
+            ]
+        },
+        {
+            "id": "17a5739e-5671-4b9f-a8f3-67106e64d778",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d7abe46e0fb0001448aa1",
+            "present": true,
+            "players": [
+                "Gary Meyle",
+                "Eric Meyle"
+            ]
+        },
+        {
+            "id": "c0a43461-588f-428f-8c21-4fc104a9be66",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d7abe46e0fb0001448aa3",
+            "present": true,
+            "players": [
+                "Tobias Appenzeller",
+                "Jan Wehrmaker"
+            ]
+        },
+        {
+            "id": "e22abb95-fcc2-4f1d-95de-f50170172bfc",
+            "teamName": "Neuenburg 1",
+            "teamId": "5d3d7abe46e0fb0001448aa5",
+            "present": true,
+            "players": [
+                "Karl Grozinger",
+                "Marvin Kößler"
+            ]
+        },
+        {
+            "id": "e7d94460-563e-44aa-95ee-6c766c4a7db4",
+            "teamName": "Sindelfingen 1",
+            "teamId": "5d3d7abe46e0fb0001448aa7",
+            "present": true,
+            "players": [
+                "Matti Hennig",
+                "Finn Pflieger"
+            ]
+        },
+        {
+            "id": "b1be0c99-1162-4bb4-b19a-0eb25855923d",
+            "teamName": "Enzberg 1",
+            "teamId": "5d3d7abe46e0fb0001448a9d",
+            "present": true,
+            "players": [
+                "Nina Hauck",
+                "Moritz Lang"
+            ]
+        },
+        {
+            "id": "f3d82ceb-54f6-47e5-bc2d-3c850f0993f5",
+            "teamName": "Wehr 2",
+            "teamId": "5d3d7abe46e0fb0001448aab",
+            "present": true,
+            "players": [
+                "Simon Buchner",
+                "Nikolas Kranz"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Forst 1",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Wehr 1",
+            "teamB": "Neuenburg 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Forst 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Wehr 1",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Neuenburg 1",
+            "teamB": "Wehr 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Sindelfingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Neuenburg 1",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Forst 1",
+            "teamB": "Wehr 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Wehr 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Enzberg 1",
+            "teamB": "Wehr 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Neuenburg 1",
+            "teamB": "Sindelfingen 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Hardt 1",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 14,
+            "teamA": "Wehr 1",
+            "teamB": "Forst 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

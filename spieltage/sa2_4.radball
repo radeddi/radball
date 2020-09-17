@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "sa2",
+    "leagueLongName": "U15 Schüler A Staffel II",
+    "number": 4,
+    "start": "2020-11-14T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Tiefenbronner Str. 1",
+        "zip": "71299",
+        "city": "Wimsheim",
+        "phone": ""
+    },
+    "hostClub": "Wimsheim",
+    "lastImport": "2020-08-31T14:47:53.904Z",
+    "teams": [
+        {
+            "name": "Graben 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Scholl, Nico",
+                    "uciCode": "10064568739",
+                    "regular": true
+                },
+                {
+                    "name": "Vollmer, Julian",
+                    "uciCode": "10084604693",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wimsheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bernhagen, Mattis",
+                    "uciCode": "10084245086",
+                    "regular": true
+                },
+                {
+                    "name": "Rapp, Jeremi",
+                    "uciCode": "10084247110",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Luik, Michael",
+                    "uciCode": "10036279600",
+                    "regular": true
+                },
+                {
+                    "name": "Lichy, Mick",
+                    "uciCode": "10084605101",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "SK Stuttgart 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Krauter, Ole",
+                    "uciCode": "10084042093",
+                    "regular": true
+                },
+                {
+                    "name": "Mozic, Lennard",
+                    "uciCode": "10084043713",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Nägelein, Tom",
+                    "uciCode": "10086992917",
+                    "regular": true
+                },
+                {
+                    "name": "Patzelt, Lean",
+                    "uciCode": "10072417150",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lange, Noah Maxim",
+                    "uciCode": "10045712646",
+                    "regular": true
+                },
+                {
+                    "name": "Förster, Jakob",
+                    "uciCode": "10045712343",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Denkendorf 1",
+            "teamB": "Graben 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 1",
+            "teamB": "SK Stuttgart 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Wimsheim 1",
+            "teamB": "Wendlingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Graben 1",
+            "teamB": "Wendlingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 1",
+            "teamB": "SK Stuttgart 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Graben 1",
+            "teamB": "SK Stuttgart 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 1",
+            "teamB": "Wendlingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Graben 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 11,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Wimsheim 1"
+        }
+    ]
+}

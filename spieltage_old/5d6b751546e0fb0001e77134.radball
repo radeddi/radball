@@ -1,0 +1,139 @@
+{
+    "id": "5d6b751546e0fb0001e77134",
+    "number": 8,
+    "league": "5d3d74af46e0fb0001e2756c",
+    "leagueName": "Landesliga Staffel IV",
+    "start": "2020-01-25T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Versammlungshalle",
+        "city": "Esslingen",
+        "zip": "73730",
+        "street": "Schorndorfer Str. 48",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "d3b68b27-8813-4aa8-9382-7f5d951989a3",
+            "teamName": "Oberesslingen 4",
+            "teamId": "5d3d74af46e0fb0001e27580",
+            "present": true,
+            "players": [
+                "Daniel Hahn",
+                "Matthias Langbein"
+            ]
+        },
+        {
+            "id": "9a1e75de-cc8d-49fd-86cc-660b5373177e",
+            "teamName": "Ersingen 1",
+            "teamId": "5d3d74af46e0fb0001e27570",
+            "present": true,
+            "players": [
+                "Hubert Harr",
+                "Ralf Scheier"
+            ]
+        },
+        {
+            "id": "202c71ee-80c9-492d-92fb-00fc4b454872",
+            "teamName": "Esslingen 2",
+            "teamId": "5d3d74af46e0fb0001e27572",
+            "present": true,
+            "players": [
+                "Kai Baumann",
+                "Florian Blaauwbroek"
+            ]
+        },
+        {
+            "id": "c3357557-c560-4973-bc8f-987f716db8b4",
+            "teamName": "Enzberg 1",
+            "teamId": "5d3d74af46e0fb0001e2756e",
+            "present": true,
+            "players": [
+                "Fabian Burkhard",
+                "Patrick Goll"
+            ]
+        },
+        {
+            "id": "f2f833ee-9e4d-416d-94f8-8b695e9872b5",
+            "teamName": "Wimsheim 2",
+            "teamId": "5d3d74af46e0fb0001e27584",
+            "present": true,
+            "players": [
+                "Nico Leibecke",
+                "Marco Zipperle"
+            ]
+        },
+        {
+            "id": "fc98db8a-354f-434f-bceb-bb830f09913c",
+            "teamName": "Kieselbronn 1",
+            "teamId": "5d3d74af46e0fb0001e2757e",
+            "present": true,
+            "players": [
+                "German Dürrwächter",
+                "Martin Burger"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Ersingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Enzberg 1",
+            "teamB": "Wimsheim 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Esslingen 2",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Ersingen 1",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Wimsheim 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Enzberg 1",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Ersingen 1",
+            "teamB": "Wimsheim 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Ersingen 1",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Wimsheim 2",
+            "teamB": "Esslingen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

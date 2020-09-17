@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "juo",
+    "leagueLongName": "U19O Junioren-Oberliga",
+    "number": 8,
+    "start": "2020-12-05T13:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "street": "Steingrubenweg",
+        "zip": "71116",
+        "city": "Gärtringen",
+        "phone": "0173-9457977"
+    },
+    "hostClub": "Gärtringen",
+    "lastImport": "2020-09-07T07:45:57.018Z",
+    "teams": [
+        {
+            "name": "Gärtringen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Luis",
+                    "uciCode": "10048358322",
+                    "regular": true
+                },
+                {
+                    "name": "Ferrari, Loris",
+                    "uciCode": "10048359231",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Ganser, Till",
+                    "uciCode": "10036295057",
+                    "regular": true
+                },
+                {
+                    "name": "Quast, Nico",
+                    "uciCode": "10048357918",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Nas, Tarik",
+                    "uciCode": "10036324763",
+                    "regular": true
+                },
+                {
+                    "name": "Bracht, Moritz",
+                    "uciCode": "10036313346",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kemnat 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rapp, Chris",
+                    "uciCode": "10036295158",
+                    "regular": true
+                },
+                {
+                    "name": "Bluthardt, Robin",
+                    "uciCode": "10036328504",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kemnat 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Klatt, Giuliano",
+                    "uciCode": "10036334665",
+                    "regular": true
+                },
+                {
+                    "name": "Spreter, Luca",
+                    "uciCode": "10036330625",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Brezina, Jan",
+                    "uciCode": "10036322339",
+                    "regular": true
+                },
+                {
+                    "name": "Kurle, Lukas",
+                    "uciCode": "10036298188",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Gärtringen 1",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Kemnat 1",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Gärtringen 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 2",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 1",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Kemnat 1",
+            "teamB": "Oberesslingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 2",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Gärtringen 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Gärtringen 2",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Kemnat 2",
+            "teamB": "Oberesslingen 1"
+        }
+    ]
+}

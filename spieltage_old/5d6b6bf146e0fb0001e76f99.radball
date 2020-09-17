@@ -1,0 +1,164 @@
+{
+    "id": "5d6b6bf146e0fb0001e76f99",
+    "number": 4,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2019-10-05T16:00:00.000Z",
+    "gym": {
+        "name": "Seefällehalle gegenüber Fildorado",
+        "city": "Filderstadt",
+        "zip": "70794",
+        "street": "Mahlestr. 60",
+        "phone": "0711-9972275"
+    },
+    "teams": [
+        {
+            "id": "4895dc6c-f695-4250-acb8-603d489051b5",
+            "teamName": "Kemnat 3",
+            "teamId": "5d3d701446e0fb0001e273e2",
+            "present": true,
+            "players": [
+                "Jonas Balz",
+                "Dominik Schmidt"
+            ]
+        },
+        {
+            "id": "c224a210-2b51-41a3-aaaf-8b988d5a5d97",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d701446e0fb0001e273e0",
+            "present": true,
+            "players": [
+                "Manuel Fröschle",
+                "Florian Fröschle"
+            ]
+        },
+        {
+            "id": "a826d3bd-83c8-4ecf-8974-434f75bb8a15",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d701446e0fb0001e273ea",
+            "present": true,
+            "players": [
+                "Daniel Villwock",
+                "Sebastian Seeber"
+            ]
+        },
+        {
+            "id": "80ada315-4dde-4f78-a819-bc772f300261",
+            "teamName": "Ebersbach 1",
+            "teamId": "5d3d701346e0fb0001e273d8",
+            "present": true,
+            "players": [
+                "Marc Eggelhöfer",
+                "Jens Eggelhöfer"
+            ]
+        },
+        {
+            "id": "00ddea43-4f44-4cbc-812c-2de83d4740a8",
+            "teamName": "Bonlanden 1",
+            "teamId": "5d3d701346e0fb0001e273d2",
+            "present": true,
+            "players": [
+                "Johannes Beck",
+                "Marcel Döring"
+            ]
+        },
+        {
+            "id": "0b30f439-3332-49db-a66b-f7cadbe3b0da",
+            "teamName": "Wendlingen 2",
+            "teamId": "5d3d701446e0fb0001e273ee",
+            "present": true,
+            "players": [
+                "Valentin Stegmaier",
+                "Kai Wandel"
+            ]
+        },
+        {
+            "id": "755df332-4530-464d-9e71-339193b64772",
+            "teamName": "Wendlingen 3",
+            "teamId": "5d3d701446e0fb0001e273f0",
+            "present": true,
+            "players": [
+                "Kevin Bee",
+                "Dennis Bee"
+            ]
+        },
+        {
+            "id": "2abbd4d8-b0ea-46ee-9392-3b9ae28b3434",
+            "teamName": "Bonlanden 2",
+            "teamId": "5d3d701346e0fb0001e273d4",
+            "present": true,
+            "players": [
+                "Mike Bühler",
+                "Cedric Wolfer"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reichenbach 3",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Wendlingen 3",
+            "teamB": "Bonlanden 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Kemnat 2",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 3",
+            "teamB": "Ebersbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 3",
+            "teamB": "Bonlanden 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Bonlanden 1",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Kemnat 2",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Ebersbach 1",
+            "teamB": "Bonlanden 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Kemnat 3",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 2",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Ebersbach 1",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Kemnat 3",
+            "teamB": "Wendlingen 3"
+        }
+    ],
+    "permissions": [
+        "LeagueRead",
+        "TeamsRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "id": "5d5ba4d846e0fb00014115ac",
+    "number": 12,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2020-02-08T14:00:00.000Z",
+    "gym": {
+        "name": "Glück-Auf-Halle",
+        "city": "Aalen-Hofen",
+        "zip": "73433",
+        "street": "Kappelbergstr. 34",
+        "phone": "0170-4779082"
+    },
+    "teams": [
+        {
+            "id": "9ec65cd6-90b8-451c-869e-a3824664cf04",
+            "teamName": "Kemnat 1",
+            "teamId": "5d3d7b6c46e0fb0001448aed",
+            "present": true,
+            "players": [
+                "Maximilian Schwarz",
+                "Florenc Rapp"
+            ]
+        },
+        {
+            "id": "52c944c1-3ed9-49d3-9b19-26629d31e4da",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7b6c46e0fb0001448aeb",
+            "present": true,
+            "players": [
+                "David Egl",
+                "Silas Öhlert"
+            ]
+        },
+        {
+            "id": "7f832d88-4fd8-4741-bb75-f79c70124d46",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448af3",
+            "present": true,
+            "players": [
+                "Nils Guse",
+                "Jonathan Ben Hartmann"
+            ]
+        },
+        {
+            "id": "22ef88fb-f06e-4fc1-a805-c24a15e81f3f",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7b6c46e0fb0001448aef",
+            "present": true,
+            "players": [
+                "Nick Hundsdörfer",
+                "Jan Böhrer"
+            ]
+        },
+        {
+            "id": "59921f37-bfb9-4759-9313-64b744374c15",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae9",
+            "present": true,
+            "players": [
+                "Paul Hildbrand",
+                "Lucas Flaig"
+            ]
+        },
+        {
+            "id": "981cf762-b268-40ee-beb5-762bd7c93d85",
+            "teamName": "Ailingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae3",
+            "present": true,
+            "players": [
+                "Jakob Schlegel",
+                "Nelio Böck"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 1",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Hofen 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Konstanz 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Ailingen 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Hofen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Ailingen 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Ailingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Konstanz 1"
+        }
+    ],
+    "permissions": [
+        "LeagueRead",
+        "TeamsRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

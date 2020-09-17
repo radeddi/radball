@@ -1,0 +1,139 @@
+{
+    "id": "5d4d2b9c46e0fb00019b3e05",
+    "number": 9,
+    "league": "5d3d715546e0fb0001e27497",
+    "leagueName": "Verbandsliga Staffel I",
+    "start": "2020-02-08T17:00:00.000Z",
+    "gym": {
+        "name": "Arthur-Bantle-Halle",
+        "city": "Hardt",
+        "zip": "78739",
+        "street": "Ostlandstr. 10",
+        "phone": "0171 7059873"
+    },
+    "teams": [
+        {
+            "id": "9d39c2e9-6254-4e07-8ce2-007ac0bb992e",
+            "teamName": "Böblingen 1",
+            "teamId": "5d3d715546e0fb0001e2749f",
+            "present": true,
+            "players": [
+                "Marcel Gürtler",
+                "Florian Gürtler"
+            ]
+        },
+        {
+            "id": "63f4c644-7715-4c63-97b2-0b4c09c1df24",
+            "teamName": "Sindelfingen 1",
+            "teamId": "5d3d715546e0fb0001e274ab",
+            "present": true,
+            "players": [
+                "Pawel Knapp",
+                "Jan Gutzke"
+            ]
+        },
+        {
+            "id": "5a11ecd1-89b0-4864-ad77-bfeebb4117f2",
+            "teamName": "Weil im Schönbuch 1",
+            "teamId": "5d3d715546e0fb0001e274af",
+            "present": true,
+            "players": [
+                "Jannick Bühler",
+                "Franz Leinich"
+            ]
+        },
+        {
+            "id": "e7bbbbcc-6fb0-4ac8-a39f-8f4886579dd2",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d715546e0fb0001e274a1",
+            "present": true,
+            "players": [
+                "Kevin Wahlenmeier",
+                "Mathias Haas"
+            ]
+        },
+        {
+            "id": "59785a88-7abc-4053-b308-68c7d8b76052",
+            "teamName": "Lauterbach 1",
+            "teamId": "5d3d715546e0fb0001e274a7",
+            "present": true,
+            "players": [
+                "Julian Müller",
+                "Christian Haas"
+            ]
+        },
+        {
+            "id": "d9c4fba9-b22d-477a-9419-9de47348ed8f",
+            "teamName": "Lauterbach 2",
+            "teamId": "5d3d715546e0fb0001e274a9",
+            "present": true,
+            "players": [
+                "Marco Kohler",
+                "Jannic King"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 2",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Lauterbach 1",
+            "teamB": "Sindelfingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Lauterbach 2",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Lauterbach 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Lauterbach 2",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Lauterbach 1",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Lauterbach 2",
+            "teamB": "Sindelfingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Hardt 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

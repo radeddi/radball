@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll4",
+    "leagueLongName": "Landesliga Staffel IV",
+    "number": 2,
+    "start": "2020-10-10T16:00:00.000Z",
+    "gym": {
+        "name": "Turnhallen der Breitwiesenschule",
+        "street": "Zedernweg 1",
+        "zip": "70839",
+        "city": "Gerlingen",
+        "phone": ""
+    },
+    "hostClub": "Gerlingen",
+    "lastImport": "2020-09-07T07:40:30.257Z",
+    "teams": [
+        {
+            "name": "Kieselbronn 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Dürrwächter, German",
+                    "uciCode": "10036407215",
+                    "regular": true
+                },
+                {
+                    "name": "Burger, Martin",
+                    "uciCode": "10036415093",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kieselbronn 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahn, Knut",
+                    "uciCode": "10036403373",
+                    "regular": true
+                },
+                {
+                    "name": "Häußermann, Timo",
+                    "uciCode": "10036410750",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Merklingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfäffle, Julian",
+                    "uciCode": "10036345476",
+                    "regular": true
+                },
+                {
+                    "name": "Buess, Lukas",
+                    "uciCode": "10036283034",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gerlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bedarf, Frank",
+                    "uciCode": "10048550201",
+                    "regular": true
+                },
+                {
+                    "name": "Wagner, Tobias",
+                    "uciCode": "10048521606",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gerlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rapp, Stefan",
+                    "uciCode": "10048523323",
+                    "regular": true
+                },
+                {
+                    "name": "Katz, Sebastian",
+                    "uciCode": "10048360847",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beste, Paul",
+                    "uciCode": "10015525943",
+                    "regular": true
+                },
+                {
+                    "name": "Kreimes, Alan",
+                    "uciCode": "10048394492",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Gerlingen 1",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Merklingen 2",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Kieselbronn 2",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Gerlingen 1",
+            "teamB": "Merklingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Kieselbronn 2",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Kieselbronn 2",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Gerlingen 2",
+            "teamB": "Merklingen 2"
+        }
+    ]
+}

@@ -1,0 +1,254 @@
+{
+    "id": "5d73640e46e0fb000182a3d6",
+    "number": 1,
+    "league": "5d3d7ee846e0fb0001448c17",
+    "leagueName": "U13 Schüler B Staffel I",
+    "start": "2019-09-21T12:00:00.000Z",
+    "gym": {
+        "name": "Arthur-Bantle-Halle",
+        "city": "Hardt",
+        "zip": "78739",
+        "street": "Ostlandstr. 10",
+        "phone": "0171 7059873"
+    },
+    "teams": [
+        {
+            "id": "a127ff92-7f08-42f5-a33e-255715c13b39",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d7ee846e0fb0001448c1b",
+            "present": true,
+            "players": [
+                "Ariane Fink",
+                "Jule Gerlach"
+            ]
+        },
+        {
+            "id": "5f22c9ea-22b0-43c2-b3ec-1ce1624a0d13",
+            "teamName": "Hardt 3",
+            "teamId": "5d3d7ee846e0fb0001448c1d",
+            "present": true,
+            "players": [
+                "Laura Nele Halder",
+                "Mario Leicht"
+            ]
+        },
+        {
+            "id": "e7c482de-0d96-4ac4-9169-af761aeff847",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7ee846e0fb0001448c19",
+            "present": true,
+            "players": [
+                "Georg Keim",
+                "Mika Haug"
+            ]
+        },
+        {
+            "id": "7040cef2-2570-4c9a-8598-8d420e50ea58",
+            "teamName": "Oberesslingen 1",
+            "teamId": "5d3d7ee846e0fb0001448c27",
+            "present": true,
+            "players": [
+                "Haris Munjakovic",
+                "Jan Günther Widmann"
+            ]
+        },
+        {
+            "id": "2ecccd7e-107a-4516-bd04-a96c842aa479",
+            "teamName": "Lauterbach 1",
+            "teamId": "5d3d7ee846e0fb0001448c23",
+            "present": true,
+            "players": [
+                "Patrick Fischer",
+                "Phillip Fieberg"
+            ]
+        },
+        {
+            "id": "b44acccd-1315-4513-9082-94322f4cd2c6",
+            "teamName": "Lauterbach 2",
+            "teamId": "5d3d7ee846e0fb0001448c25",
+            "present": true,
+            "players": [
+                "Max Echtle",
+                "Lenny Held"
+            ]
+        },
+        {
+            "id": "22733388-5de4-4c68-86da-d8705ba41f63",
+            "teamName": "Sindelfingen 1",
+            "teamId": "5d3d7ee846e0fb0001448c2b",
+            "present": true,
+            "players": [
+                "Christian Hochmuth",
+                "Conrad Hochmuth"
+            ]
+        },
+        {
+            "id": "c66f7676-5cd4-4fa0-879a-3b781355227a",
+            "teamName": "Wimsheim 1",
+            "teamId": "5d3d7ee846e0fb0001448c2d",
+            "present": true,
+            "players": [
+                "Jeremi Rapp",
+                "Mattis Bernhagen"
+            ]
+        },
+        {
+            "id": "49de858c-b94e-4c84-abed-fb3d68f1bded",
+            "teamName": "Hardt 5",
+            "teamId": "5d3d7ee846e0fb0001448c1f",
+            "present": true,
+            "players": [
+                "Leon Leicht",
+                "Julian Müller"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 1",
+            "teamB": "Oberesslingen 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 3",
+            "teamB": "Hardt 5",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Wimsheim 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 5,
+                "bothLost": true
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Lauterbach 1",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 1",
+            "teamB": "Hardt 3",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 1",
+            "teamB": "Sindelfingen 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Lauterbach 2",
+            "teamB": "Wimsheim 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 3",
+            "teamB": "Gärtringen 1",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Lauterbach 1",
+            "teamB": "Lauterbach 2",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Gärtringen 1",
+            "teamB": "Hardt 5",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 1",
+            "teamB": "Wimsheim 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 12,
+            "teamA": "Lauterbach 1",
+            "teamB": "Sindelfingen 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 13,
+            "teamA": "Hardt 3",
+            "teamB": "Lauterbach 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 14,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Hardt 5",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

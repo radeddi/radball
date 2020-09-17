@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll3",
+    "leagueLongName": "Landesliga Staffel III",
+    "number": 2,
+    "start": "2020-09-26T16:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "street": "Schulstr. 40",
+        "zip": "73262",
+        "city": "Reichenbach/Fils",
+        "phone": "07153-59448"
+    },
+    "hostClub": "Reichenbach",
+    "lastImport": "2020-08-30T08:51:21.053Z",
+    "teams": [
+        {
+            "name": "Reichenbach 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fischer, Martin",
+                    "uciCode": "10036330120",
+                    "regular": true
+                },
+                {
+                    "name": "Wagner, Thimo",
+                    "uciCode": "10036297784",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kurle, Ralph",
+                    "uciCode": "10036323753",
+                    "regular": true
+                },
+                {
+                    "name": "Fischer, Daniel",
+                    "uciCode": "10036286367",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 7",
+            "present": true,
+            "players": [
+                {
+                    "name": "Regner, Philipp",
+                    "uciCode": "10036339113",
+                    "regular": true
+                },
+                {
+                    "name": "Granidis, Christos",
+                    "uciCode": "10036326278",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Söflingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Jungmichel, Uwe",
+                    "uciCode": "10036302939",
+                    "regular": true
+                },
+                {
+                    "name": "Nolle, Norbert",
+                    "uciCode": "10036328302",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Söflingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Swensson, Reiner",
+                    "uciCode": "10036318703",
+                    "regular": true
+                },
+                {
+                    "name": "Welke, Jürgen",
+                    "uciCode": "10036286569",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wetzler, Hannes",
+                    "uciCode": "10045739524",
+                    "regular": true
+                },
+                {
+                    "name": "Miller, Andreas",
+                    "uciCode": "10048346501",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reichenbach 5",
+            "teamB": "Reichenbach 6"
+        },
+        {
+            "number": 2,
+            "teamA": "Söflingen 2",
+            "teamB": "Söflingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 7",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 5",
+            "teamB": "Söflingen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 6",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 5",
+            "teamB": "Söflingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Söflingen 2",
+            "teamB": "Reichenbach 7"
+        },
+        {
+            "number": 8,
+            "teamA": "Reichenbach 6",
+            "teamB": "Söflingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Reichenbach 5",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Reichenbach 6",
+            "teamB": "Söflingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Söflingen 1",
+            "teamB": "Reichenbach 7"
+        }
+    ]
+}

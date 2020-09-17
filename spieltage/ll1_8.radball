@@ -1,0 +1,196 @@
+{
+    "leagueShortName": "ll1",
+    "leagueLongName": "Landesliga Staffel I",
+    "number": 8,
+    "start": "2021-01-16T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "street": "Sulgauer Str. 7",
+        "zip": "78713",
+        "city": "Schramberg-Sulgen",
+        "phone": "0171 342 865 8"
+    },
+    "hostClub": "Sulgen",
+    "lastImport": "2020-08-30T08:49:46.294Z",
+    "teams": [
+        {
+            "name": "Alpirsbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Girrbach, Lukas",
+                    "uciCode": "10036326884",
+                    "regular": true
+                },
+                {
+                    "name": "Vidacak, Moritz",
+                    "uciCode": "10036321329",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "SG Öflingen/Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Urich, Julian",
+                    "uciCode": "10036151981",
+                    "regular": true
+                },
+                {
+                    "name": "Buchner, Markus",
+                    "uciCode": "10036163095",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Buchner, Nico",
+                    "uciCode": "10036161782",
+                    "regular": true
+                },
+                {
+                    "name": "Kranz, Benedikt",
+                    "uciCode": "10036158651",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Moosmann, Florian",
+                    "uciCode": "10045728511",
+                    "regular": true
+                },
+                {
+                    "name": "Blanke, Marcel",
+                    "uciCode": "10045734369",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schlecht, Markus",
+                    "uciCode": "10045714161",
+                    "regular": true
+                },
+                {
+                    "name": "Kimmich, Torsten",
+                    "uciCode": "10045715070",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Langenschiltach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Davidsen, Christian",
+                    "uciCode": "10045746695",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Niklas",
+                    "uciCode": "10036511184",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Langenschiltach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Davidsen, Jonathan",
+                    "uciCode": "10045711636",
+                    "regular": true
+                },
+                {
+                    "name": "Baumann, Lennart",
+                    "uciCode": "10045748517",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Sulgen 4",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Wehr 1",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 3,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 7,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Wehr 1",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Wehr 1",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 12,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 13,
+            "teamA": "Wehr 1",
+            "teamB": "Langenschiltach 1"
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "id": "5d5c020a46e0fb0001d55aa8",
+    "number": 7,
+    "league": "5d3d7bba46e0fb0001448b14",
+    "leagueName": "U17 Jugend Staffel I",
+    "start": "2020-01-25T14:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "city": "Gärtringen",
+        "zip": "71116",
+        "street": "Steingrubenweg",
+        "phone": "0173-9457977"
+    },
+    "teams": [
+        {
+            "id": "95afcbbf-6846-453c-8ed3-fceb2fc26672",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d7bba46e0fb0001448b1c",
+            "present": true,
+            "players": [
+                "Henrik Kern",
+                "Ricco Weißer"
+            ]
+        },
+        {
+            "id": "225d9a7e-cf1a-4817-9ce3-f1591f3feeae",
+            "teamName": "SG Langenschiltach/Prechtal 2",
+            "teamId": "5d3d7bba46e0fb0001448b24",
+            "present": true,
+            "players": [
+                "Lasse Lützow",
+                "Niklas Joos"
+            ]
+        },
+        {
+            "id": "f7687002-7660-4a71-9420-9825372b39fc",
+            "teamName": "Sulgen 1",
+            "teamId": "5d3d7bba46e0fb0001448b25",
+            "present": true,
+            "players": [
+                "Cedric Miseria",
+                "Mike Petri"
+            ]
+        },
+        {
+            "id": "e5d7580c-30bf-4b2e-83ff-380ef252c2f0",
+            "teamName": "Sulgen 2",
+            "teamId": "5d3d7bba46e0fb0001448b27",
+            "present": true,
+            "players": [
+                "Julian Hils",
+                "Maximilian Hug"
+            ]
+        },
+        {
+            "id": "7600750a-da09-4eef-b2c7-ea9f2978e80e",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7dea46e0fb0001e276ab",
+            "present": true,
+            "players": [
+                "Luca Quast",
+                "Elias Motteler"
+            ]
+        },
+        {
+            "id": "99c95b3a-40a8-459b-8957-c028089703e1",
+            "teamName": "Gärtringen 3",
+            "teamId": "5d3d7dea46e0fb0001e276ad",
+            "present": true,
+            "players": [
+                "Adrian Fischer",
+                "Jonas Maier"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Sulgen 1",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 3",
+            "teamB": "SG Langenschiltach/Prechtal 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 1",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Gärtringen 3",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 1",
+            "teamB": "Sulgen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 2",
+            "teamB": "SG Langenschiltach/Prechtal 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 1",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 3",
+            "teamB": "Sulgen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 2",
+            "teamB": "Sulgen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Gärtringen 1",
+            "teamB": "SG Langenschiltach/Prechtal 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Gärtringen 3",
+            "teamB": "Hardt 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

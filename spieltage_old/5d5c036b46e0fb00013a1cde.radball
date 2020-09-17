@@ -1,0 +1,164 @@
+{
+    "id": "5d5c036b46e0fb00013a1cde",
+    "number": 1,
+    "league": "5d3d7e0246e0fb0001448b6b",
+    "leagueName": "U17 Jugend Staffel II",
+    "start": "2019-09-28T13:00:00.000Z",
+    "gym": {
+        "name": "Sporthalle Kemnat",
+        "city": "Ostfildern",
+        "zip": "73760",
+        "street": "Haldenstr. 42",
+        "phone": "01779 777876"
+    },
+    "teams": [
+        {
+            "id": "755682f7-3d56-42a0-a189-ebc2c8a9f574",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d7e0246e0fb0001448b77",
+            "present": true,
+            "players": [
+                "Finn Ben Breining",
+                "Yannik Fröschle"
+            ]
+        },
+        {
+            "id": "b3902de4-43de-45c5-90b3-e7f208f3cd7b",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d7e0246e0fb0001448b6f",
+            "present": true,
+            "players": [
+                "Jannik Lang",
+                "Mathias Schneider"
+            ]
+        },
+        {
+            "id": "af1e55f4-003b-457b-86f9-4d108ddeb3ed",
+            "teamName": "Denkendorf 5",
+            "teamId": "5d3d7e0246e0fb0001448b71",
+            "present": true,
+            "players": [
+                "Berhan Istif",
+                "Milo Radenic"
+            ]
+        },
+        {
+            "id": "a909da37-a4e0-47aa-b1c3-ec4fd29c6a6e",
+            "teamName": "Nellingen 1 a.K.",
+            "teamId": "5d3d7e0246e0fb0001448b79",
+            "present": true,
+            "players": [
+                "Veit Vollmer",
+                "Felix Neuhoff"
+            ]
+        },
+        {
+            "id": "9c068cda-7b2f-4af8-87aa-da1c27871c7f",
+            "teamName": "Nellingen 2",
+            "teamId": "5d3d7e0246e0fb0001448b7b",
+            "present": true,
+            "players": [
+                "Micha Sperrer",
+                "Leon Schwarz"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kemnat 2",
+            "teamB": "Nellingen 1 a.K.",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Denkendorf 2",
+            "teamB": "Nellingen 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Kemnat 2",
+            "teamB": "Denkendorf 5",
+            "score": {
+                "goalsA": 7,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 2",
+            "teamB": "Nellingen 1 a.K.",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Denkendorf 5",
+            "teamB": "Nellingen 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Kemnat 2",
+            "teamB": "Denkendorf 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Denkendorf 5",
+            "teamB": "Nellingen 1 a.K.",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Kemnat 2",
+            "teamB": "Nellingen 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 2",
+            "teamB": "Denkendorf 5",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

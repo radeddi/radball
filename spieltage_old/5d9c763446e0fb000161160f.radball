@@ -1,0 +1,144 @@
+{
+    "id": "5d9c763446e0fb000161160f",
+    "number": 7,
+    "league": "5d3d7ef646e0fb0001e2778a",
+    "leagueName": "U13 Schüler B Staffel II",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Glück-Auf-Halle",
+        "city": "Aalen-Hofen",
+        "zip": "73433",
+        "street": "Kappelbergstr. 34",
+        "phone": "0170-4779082"
+    },
+    "teams": [
+        {
+            "id": "a8b95102-c928-4370-b515-f72ddb37d3ab",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7ef646e0fb0001e27792",
+            "present": true,
+            "players": [
+                "Lars Schiele",
+                "Theo Rettenmeier"
+            ]
+        },
+        {
+            "id": "be038b67-3ddd-463d-9b9e-f5df8faa3e9b",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d7ef646e0fb0001e27794",
+            "present": true,
+            "players": [
+                "Maxim Geibel",
+                "Thomas Wahner"
+            ]
+        },
+        {
+            "id": "0edfff49-4220-4633-a989-8daf87bec5da",
+            "teamName": "Karlsruhe 2 a.K.",
+            "teamId": "5d3d7ef646e0fb0001e27796",
+            "present": true,
+            "players": [
+                "Tizian Wagner",
+                "Edwin Müller"
+            ]
+        },
+        {
+            "id": "c827c7ec-ceac-4be8-a82f-d00b63a9ce27",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7ef646e0fb0001e2779a",
+            "present": true,
+            "players": [
+                "Henri Teichmann",
+                "Niklas Wittchen"
+            ]
+        },
+        {
+            "id": "d84ff9fc-c792-4b09-9e37-b1803b099aca",
+            "teamName": "Reichenbach 2",
+            "teamId": "5d3d7ef646e0fb0001e2779c",
+            "present": true,
+            "players": [
+                "Laurin Hottenroth",
+                "Amely Klügel"
+            ]
+        },
+        {
+            "id": "2af693d8-15c7-4206-b84e-a8b5b503754d",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d7ef646e0fb0001e2779e",
+            "present": true,
+            "players": [
+                "Luke Löffler",
+                "Noah Zieker"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Karlsruhe 2 a.K."
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 1",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 3",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Hofen 1",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 3",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Karlsruhe 2 a.K.",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Hofen 1",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Karlsruhe 2 a.K.",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Hofen 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Karlsruhe 2 a.K.",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Reichenbach 1",
+            "teamB": "Karlsruhe 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

@@ -1,0 +1,207 @@
+{
+    "leagueShortName": "sb2",
+    "leagueLongName": "U13 Schüler B Staffel II",
+    "number": 2,
+    "start": "2020-10-10T13:00:00.000Z",
+    "gym": {
+        "name": "VMC Radsporthalle",
+        "street": "Salesianerweg 8",
+        "zip": "78464",
+        "city": "Konstanz",
+        "phone": "0 170 29 39 883"
+    },
+    "hostClub": "Konstanz",
+    "lastImport": "2020-08-31T14:53:21.343Z",
+    "teams": [
+        {
+            "name": "Ailingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Böck, Niklas",
+                    "uciCode": "10071824743",
+                    "regular": true
+                },
+                {
+                    "name": "Schlegel, Kilian",
+                    "uciCode": "10071823329",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ailingen 2 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Köhler, Levi",
+                    "uciCode": "10099726791",
+                    "regular": true
+                },
+                {
+                    "name": "Freyas, Ferdinant",
+                    "uciCode": "10099727094",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Keim, Georg",
+                    "uciCode": "10045722548",
+                    "regular": true
+                },
+                {
+                    "name": "Haug, Mika",
+                    "uciCode": "10048350339",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Laur, Tom",
+                    "uciCode": "10086410816",
+                    "regular": true
+                },
+                {
+                    "name": "Schäfer, Paul",
+                    "uciCode": "10086411725",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Konstanz 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Karrer, Emil",
+                    "uciCode": "10072538402",
+                    "regular": true
+                },
+                {
+                    "name": "Schien, Emil",
+                    "uciCode": "10089631620",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Konstanz 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bäcker, Jan",
+                    "uciCode": "10088588363",
+                    "regular": true
+                },
+                {
+                    "name": "Trempa, Timo",
+                    "uciCode": "10099721337",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hottenroth, Laurin",
+                    "uciCode": "10053699180",
+                    "regular": true
+                },
+                {
+                    "name": "Klügel, Amely",
+                    "uciCode": "10071823935",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schmitz, Lukas",
+                    "uciCode": "10071825551",
+                    "regular": true
+                },
+                {
+                    "name": "Fischer, Tom",
+                    "uciCode": "10071824036",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Ailingen 2 a.K.",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Konstanz 2",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 1",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Ailingen 2 a.K.",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 1",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 2",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Konstanz 1",
+            "teamB": "Konstanz 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Ailingen 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Ailingen 2 a.K.",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Konstanz 2",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Gärtringen 1",
+            "teamB": "Reichenbach 1"
+        }
+    ]
+}

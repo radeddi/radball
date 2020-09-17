@@ -1,0 +1,204 @@
+{
+    "id": "5d6b86a846e0fb0001e773b2",
+    "number": 3,
+    "league": "5d3d7ad846e0fb0001448abd",
+    "leagueName": "U19 Junioren Staffel II",
+    "start": "2019-10-05T13:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Backnang Waldrems",
+        "zip": "71522",
+        "street": "Langenbachstr. 16",
+        "phone": "07191-86957"
+    },
+    "teams": [
+        {
+            "id": "8b353270-afa7-4eab-b070-786084d185c2",
+            "teamName": "SG Oberesslingen/Esslingen 2",
+            "teamId": "5d3d7ad846e0fb0001448ac5",
+            "present": true,
+            "players": [
+                "Oskar Hahnemann",
+                "Paul Wolter"
+            ]
+        },
+        {
+            "id": "e4c22ebd-3c31-441f-92b3-24286c9f2e86",
+            "teamName": "Waldrems 2",
+            "teamId": "5d3d7ad846e0fb0001448aca",
+            "present": true,
+            "players": [
+                "Tim Fuchs",
+                "Leon Weißhaar"
+            ]
+        },
+        {
+            "id": "6f6eea2f-1dab-421f-95b4-c72687b6095c",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7ad846e0fb0001448abf",
+            "present": true,
+            "players": [
+                "Noah Janas",
+                "Nils Schiele"
+            ]
+        },
+        {
+            "id": "66f66981-41d2-40a1-826a-965561548960",
+            "teamName": "Hofen 2",
+            "teamId": "5d3d7ad846e0fb0001448ac1",
+            "present": true,
+            "players": [
+                "Laurenz Thaler",
+                "Moritz Rettenmeier"
+            ]
+        },
+        {
+            "id": "7116bd97-0313-446e-9c6b-ef2178f323d8",
+            "teamName": "SK Stuttgart 1",
+            "teamId": "5d3d7ad846e0fb0001448ac6",
+            "present": true,
+            "players": [
+                "Lars Lindenmaier",
+                "Noah Van Moll"
+            ]
+        },
+        {
+            "id": "8b51330f-9ab3-4047-b24e-d67506aae787",
+            "teamName": "SK Stuttgart 2",
+            "teamId": "5d3d7ad846e0fb0001448ac8",
+            "present": true,
+            "players": [
+                "Samuel Benk",
+                "Cedric Krauter"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hofen 1",
+            "teamB": "Hofen 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "SK Stuttgart 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "SG Oberesslingen/Esslingen 2",
+            "teamB": "Waldrems 2",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Hofen 1",
+            "teamB": "SK Stuttgart 1",
+            "score": {
+                "goalsA": 10,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "SK Stuttgart 2",
+            "teamB": "Waldrems 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Hofen 1",
+            "teamB": "SG Oberesslingen/Esslingen 2",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Hofen 2",
+            "teamB": "SK Stuttgart 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Waldrems 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Hofen 2",
+            "teamB": "SG Oberesslingen/Esslingen 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Hofen 1",
+            "teamB": "SK Stuttgart 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Hofen 2",
+            "teamB": "SK Stuttgart 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 12,
+            "teamA": "SK Stuttgart 2",
+            "teamB": "SG Oberesslingen/Esslingen 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

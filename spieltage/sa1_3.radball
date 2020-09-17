@@ -1,0 +1,201 @@
+{
+    "leagueShortName": "sa1",
+    "leagueLongName": "U15 Schüler A Staffel I",
+    "number": 3,
+    "start": "2020-10-17T13:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Römerstr. 71",
+        "zip": "70794",
+        "city": "Filderstadt",
+        "phone": "0711-7738175"
+    },
+    "hostClub": "Plattenhardt",
+    "lastImport": "2020-09-07T08:00:27.481Z",
+    "teams": [
+        {
+            "name": "Plattenhardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gentzcke, Luca",
+                    "uciCode": "10076661003",
+                    "regular": true
+                },
+                {
+                    "name": "Cejnek, Moritz",
+                    "uciCode": "10075496902",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sindelfingen 1 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gutzke, Kai Alex",
+                    "uciCode": "10064865496",
+                    "regular": true
+                },
+                {
+                    "name": "Gutzke, Nic",
+                    "uciCode": "10072548203",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Alpirsbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Klemm, Josef",
+                    "uciCode": "10071825955",
+                    "regular": true
+                },
+                {
+                    "name": "Fahrbach, Jona",
+                    "uciCode": "10071823026",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weil im Schönbuch 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Eissler, Ben",
+                    "uciCode": "10084248423",
+                    "regular": true
+                },
+                {
+                    "name": "Leinich, Silas",
+                    "uciCode": "10085395649",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fink, Ariane",
+                    "uciCode": "10052540234",
+                    "regular": true
+                },
+                {
+                    "name": "Gerlach, Jule",
+                    "uciCode": "10053686046",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Halder, Laura Nele",
+                    "uciCode": "10053680184",
+                    "regular": true
+                },
+                {
+                    "name": "Leicht, Mario",
+                    "uciCode": "10052529423",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Elsäßer, Mia",
+                    "uciCode": "10052521137",
+                    "regular": true
+                },
+                {
+                    "name": "Kendl, Jana",
+                    "uciCode": "10052527807",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 2",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Sindelfingen 1 a.K.",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 2",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 2",
+            "teamB": "Sindelfingen 1 a.K."
+        },
+        {
+            "number": 9,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 2",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Sindelfingen 1 a.K.",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 13,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 14,
+            "teamA": "Sindelfingen 1 a.K.",
+            "teamB": "Hardt 3"
+        }
+    ]
+}

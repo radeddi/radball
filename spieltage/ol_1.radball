@@ -1,0 +1,217 @@
+{
+    "leagueShortName": "ol",
+    "leagueLongName": "Oberliga",
+    "number": 1,
+    "start": "2020-09-26T16:00:00.000Z",
+    "gym": {
+        "name": "Seefällehalle gegenüber Fildorado",
+        "street": "Mahlestr. 60",
+        "zip": "70794",
+        "city": "Filderstadt",
+        "phone": "0711-9972275"
+    },
+    "hostClub": "Bonlanden",
+    "lastImport": "2020-08-29T15:03:48.108Z",
+    "teams": [
+        {
+            "name": "Bonlanden 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beck, Johannes",
+                    "uciCode": "10036294754",
+                    "regular": true
+                },
+                {
+                    "name": "Döring, Marcel",
+                    "uciCode": "10036339214",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Bonlanden 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bühler, Mike",
+                    "uciCode": "10036330423",
+                    "regular": true
+                },
+                {
+                    "name": "Wolfer, Cedric",
+                    "uciCode": "10036310619",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Julian",
+                    "uciCode": "10036509770",
+                    "regular": true
+                },
+                {
+                    "name": "Haas, Christian",
+                    "uciCode": "10048350945",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wisser, Simon",
+                    "uciCode": "10036155318",
+                    "regular": true
+                },
+                {
+                    "name": "Volk, Patrick",
+                    "uciCode": "10023465795",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bertsch, Andreas",
+                    "uciCode": "10036338911",
+                    "regular": true
+                },
+                {
+                    "name": "Frey, Christian",
+                    "uciCode": "10036338507",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Becker, Simon",
+                    "uciCode": "10048347410",
+                    "regular": true
+                },
+                {
+                    "name": "Müller, Jannes",
+                    "uciCode": "10048347814",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauffen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Käufer, Marc",
+                    "uciCode": "10036330221",
+                    "regular": true
+                },
+                {
+                    "name": "Keller, Thomas",
+                    "uciCode": "10036304252",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Mathias",
+                    "uciCode": "10036535335",
+                    "regular": true
+                },
+                {
+                    "name": "Müller, Florian",
+                    "uciCode": "10015102476",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Bonlanden 1",
+            "teamB": "Bonlanden 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 4",
+            "teamB": "Gärtringen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Bonlanden 1",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Bonlanden 2",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 2",
+            "teamB": "Waldrems 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 3",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Bonlanden 2",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Bonlanden 1",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Prechtal 2",
+            "teamB": "Gärtringen 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Waldrems 4",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Bonlanden 1",
+            "teamB": "Prechtal 2"
+        },
+        {
+            "number": 13,
+            "teamA": "Lauterbach 1",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 14,
+            "teamA": "Bonlanden 1",
+            "teamB": "Hardt 1"
+        }
+    ]
+}

@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll3",
+    "leagueLongName": "Landesliga Staffel III",
+    "number": 3,
+    "start": "2020-10-10T16:00:00.000Z",
+    "gym": {
+        "name": "Gem.schule am Schillerpark",
+        "street": "Blumenstr. 10",
+        "zip": "73728",
+        "city": "Esslingen",
+        "phone": "0160-5313704"
+    },
+    "hostClub": "Esslingen",
+    "lastImport": "2020-08-30T08:51:21.733Z",
+    "teams": [
+        {
+            "name": "Esslingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seybold, Matthias",
+                    "uciCode": "10036328605",
+                    "regular": true
+                },
+                {
+                    "name": "Höflich, Harald",
+                    "uciCode": "10036297279",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Esslingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seybold, Alexander",
+                    "uciCode": "10036322541",
+                    "regular": true
+                },
+                {
+                    "name": "Heubach, Jochen",
+                    "uciCode": "10036287983",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahn, Daniel",
+                    "uciCode": "10036281822",
+                    "regular": true
+                },
+                {
+                    "name": "Langbein, Matthias",
+                    "uciCode": "10036307181",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fischer, Martin",
+                    "uciCode": "10036330120",
+                    "regular": true
+                },
+                {
+                    "name": "Wagner, Thimo",
+                    "uciCode": "10036297784",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kurle, Ralph",
+                    "uciCode": "10036323753",
+                    "regular": true
+                },
+                {
+                    "name": "Fischer, Daniel",
+                    "uciCode": "10036286367",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 7",
+            "present": true,
+            "players": [
+                {
+                    "name": "Regner, Philipp",
+                    "uciCode": "10036339113",
+                    "regular": true
+                },
+                {
+                    "name": "Granidis, Christos",
+                    "uciCode": "10036326278",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Esslingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 7",
+            "teamB": "Reichenbach 5"
+        },
+        {
+            "number": 3,
+            "teamA": "Esslingen 2",
+            "teamB": "Reichenbach 6"
+        },
+        {
+            "number": 4,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Reichenbach 7"
+        },
+        {
+            "number": 5,
+            "teamA": "Esslingen 1",
+            "teamB": "Reichenbach 6"
+        },
+        {
+            "number": 6,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Reichenbach 5"
+        },
+        {
+            "number": 7,
+            "teamA": "Reichenbach 7",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Esslingen 1",
+            "teamB": "Reichenbach 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Reichenbach 6"
+        },
+        {
+            "number": 10,
+            "teamA": "Esslingen 1",
+            "teamB": "Reichenbach 7"
+        },
+        {
+            "number": 11,
+            "teamA": "Reichenbach 5",
+            "teamB": "Esslingen 2"
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "id": "5df74b1e4cedfd0001e02c70",
+    "number": 11,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2020-03-14T17:00:00.000Z",
+    "gym": {
+        "name": "Ludwig-Jahn-Sporthalle",
+        "city": "Ostfildern-Nellingen",
+        "zip": "73760",
+        "street": "am Ende der Adlerstr.",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "1153db29-6d34-4eea-acdd-1066f95b8253",
+            "teamName": "Schwäbisch Gmünd 2",
+            "teamId": "5d3d79e846e0fb0001448a5f",
+            "present": true,
+            "players": [
+                "Daniel Gamber",
+                "Stefan Bläse"
+            ]
+        },
+        {
+            "id": "bf23008e-4d2b-41be-8f75-1cb1dbd46568",
+            "teamName": "Schwäbisch Gmünd 3",
+            "teamId": "5d3d79e846e0fb0001448a61",
+            "present": true,
+            "players": [
+                "Andreas Feiler",
+                "Paul Botsch"
+            ]
+        },
+        {
+            "id": "340b032a-2389-4712-8f00-43f0bec0a2c8",
+            "teamName": "Schwäbisch Gmünd 4",
+            "teamId": "5d3d79e846e0fb0001448a63",
+            "present": true,
+            "players": [
+                "Florian Dangelmaier",
+                "Martin Khoeiklang"
+            ]
+        },
+        {
+            "id": "3f0707c3-7860-46f3-9c53-fb131c14ddf2",
+            "teamName": "Nellingen 4",
+            "teamId": "5d3d79e846e0fb0001448a53",
+            "present": true,
+            "players": [
+                "Michael Federle",
+                "Thilo Schmid"
+            ]
+        },
+        {
+            "id": "4bab4647-16a1-4ccf-83ea-5ace968f3666",
+            "teamName": "Nellingen 5",
+            "teamId": "5d3d79e846e0fb0001448a55",
+            "present": true,
+            "players": [
+                "Nico Rogalski",
+                "Tobias Fröschle"
+            ]
+        },
+        {
+            "id": "1d1dbf4d-dff7-4765-ade1-e0baf00b5626",
+            "teamName": "Nellingen 6",
+            "teamId": "5d3d79e846e0fb0001448a57",
+            "present": true,
+            "players": [
+                "Kai-Uwe Schreiber",
+                "Sascha Schreiber"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Nellingen 6",
+            "teamB": "Schwäbisch Gmünd 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Nellingen 6",
+            "teamB": "Schwäbisch Gmünd 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Nellingen 6",
+            "teamB": "Schwäbisch Gmünd 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Nellingen 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

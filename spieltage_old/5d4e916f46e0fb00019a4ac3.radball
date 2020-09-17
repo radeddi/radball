@@ -1,0 +1,184 @@
+{
+    "id": "5d4e916f46e0fb00019a4ac3",
+    "number": 2,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2019-10-12T16:00:00.000Z",
+    "gym": {
+        "name": "Ballsporthalle",
+        "city": "Niederstotzingen",
+        "zip": "89168",
+        "street": "Bergstr. 39-40",
+        "phone": "07325-10276"
+    },
+    "teams": [
+        {
+            "id": "427eba87-7f5a-4e92-af91-09e5afaa7b12",
+            "teamName": "Ebersbach 3",
+            "teamId": "5d3d79e846e0fb0001448a51",
+            "present": true,
+            "players": [
+                "Johannes Berger",
+                "Sarah Urbanitsch"
+            ]
+        },
+        {
+            "id": "ce66ccd1-791b-4dbd-9dcc-1beb2d480206",
+            "teamName": "Reichenbach 8",
+            "teamId": "5d3d79e846e0fb0001448a5b",
+            "present": true,
+            "players": [
+                "Ralph Kurle",
+                "Martin Röder"
+            ]
+        },
+        {
+            "id": "38e9df62-5f37-4f40-a229-14f94bd1e9ca",
+            "teamName": "Reichenbach 9",
+            "teamId": "5d3d79e846e0fb0001448a5d",
+            "present": true,
+            "players": [
+                "Frank Brezina",
+                "Felix Bartl"
+            ]
+        },
+        {
+            "id": "34900dfb-65ef-4e52-aaa5-43625c397b59",
+            "teamName": "Niederstotzingen 2",
+            "teamId": "5d3d79e846e0fb0001448a59",
+            "present": true,
+            "players": [
+                "Jonas Schleifer",
+                "Silas Guse"
+            ]
+        },
+        {
+            "id": "003865c8-dd5b-49c1-a548-db763109758e",
+            "teamName": "Söflingen 4",
+            "teamId": "5d3d79e846e0fb0001448a67",
+            "present": true,
+            "players": [
+                "Daniel Schiml",
+                "Sven Schick"
+            ]
+        },
+        {
+            "id": "e37a01c6-04f9-48cf-91ea-2afd7fbb8a91",
+            "teamName": "Söflingen 5",
+            "teamId": "5d3d79e846e0fb0001448a69",
+            "present": true,
+            "players": [
+                "Knut Nägele",
+                "Fabian Nägele"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Söflingen 4",
+            "teamB": "Niederstotzingen 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 9",
+            "teamB": "Söflingen 5",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 8",
+            "teamB": "Söflingen 4",
+            "score": {
+                "goalsA": 8,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 9",
+            "teamB": "Niederstotzingen 2",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Ebersbach 3",
+            "teamB": "Söflingen 5",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 9",
+            "teamB": "Söflingen 4",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Ebersbach 3",
+            "teamB": "Niederstotzingen 2",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Reichenbach 8",
+            "teamB": "Söflingen 5",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Ebersbach 3",
+            "teamB": "Söflingen 4",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Reichenbach 8",
+            "teamB": "Niederstotzingen 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

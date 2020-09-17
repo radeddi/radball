@@ -1,0 +1,207 @@
+{
+    "leagueShortName": "ol",
+    "leagueLongName": "Oberliga",
+    "number": 2,
+    "start": "2020-09-26T16:00:00.000Z",
+    "gym": {
+        "name": "Löcherhaldenturnhalle",
+        "street": "Löcherhaldenstr. 36",
+        "zip": "73770",
+        "city": "Denkendorf",
+        "phone": "0711-9348755"
+    },
+    "hostClub": "Denkendorf",
+    "lastImport": "2020-08-29T15:04:16.028Z",
+    "teams": [
+        {
+            "name": "Kemnat 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fröschle, Manuel",
+                    "uciCode": "10036297683",
+                    "regular": true
+                },
+                {
+                    "name": "Fröschle, Florian",
+                    "uciCode": "10036322440",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kemnat 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Balz, Jonas",
+                    "uciCode": "10023465290",
+                    "regular": true
+                },
+                {
+                    "name": "Schmidt, Dominik",
+                    "uciCode": "10023465189",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Henn, Sascha",
+                    "uciCode": "10013020313",
+                    "regular": true
+                },
+                {
+                    "name": "Eberhardt-Schneider, Simon",
+                    "uciCode": "10036293845",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Stahl, Andreas",
+                    "uciCode": "10036319107",
+                    "regular": true
+                },
+                {
+                    "name": "Berner, Stefan",
+                    "uciCode": "10036317386",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seeber, Sebastian",
+                    "uciCode": "10045723558",
+                    "regular": true
+                },
+                {
+                    "name": "Barth, Matthias",
+                    "uciCode": "10036303343",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hirning, David",
+                    "uciCode": "10045714565",
+                    "regular": true
+                },
+                {
+                    "name": "Hofmann, Lars",
+                    "uciCode": "10048349228",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bee, Kevin",
+                    "uciCode": "10016125929",
+                    "regular": true
+                },
+                {
+                    "name": "Bee, Dennis",
+                    "uciCode": "10016126030",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Braun, Jonas",
+                    "uciCode": "10045731642",
+                    "regular": true
+                },
+                {
+                    "name": "Braun, Daniel",
+                    "uciCode": "10048356706",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kemnat 2",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Wendlingen 2",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 2",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Kemnat 3",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 2",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Denkendorf 3",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Kemnat 2",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Kemnat 3",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 3",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Denkendorf 2",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Reichenbach 3",
+            "teamB": "Schwaikheim 1"
+        }
+    ]
+}

@@ -1,0 +1,164 @@
+{
+    "id": "5d6b6bf146e0fb0001e76ff1",
+    "number": 18,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2020-03-28T17:00:00.000Z",
+    "gym": {
+        "name": "Sporthalle Kemnat",
+        "city": "Ostfildern",
+        "zip": "73760",
+        "street": "Haldenstr. 42",
+        "phone": "01779 777876"
+    },
+    "teams": [
+        {
+            "id": "da59d5e9-f49f-4663-a4d3-c78207a39d1a",
+            "teamName": "Gärtringen 3",
+            "teamId": "5d3d701446e0fb0001e273da",
+            "present": true,
+            "players": [
+                "Gunther Schmid",
+                "Michael Posedi"
+            ]
+        },
+        {
+            "id": "be2554d4-2313-4194-a9d0-de8beae03df6",
+            "teamName": "Ebersbach 1",
+            "teamId": "5d3d701346e0fb0001e273d8",
+            "present": true,
+            "players": [
+                "Marc Eggelhöfer",
+                "Jens Eggelhöfer"
+            ]
+        },
+        {
+            "id": "140f18b8-e44e-4ecb-8e75-ee1438a0b8b6",
+            "teamName": "Gärtringen 4",
+            "teamId": "5d3d701446e0fb0001e273dc",
+            "present": true,
+            "players": [
+                "Simon Becker",
+                "Jannes Müller"
+            ]
+        },
+        {
+            "id": "8938470a-061f-4620-84cc-1b191f15058b",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d701446e0fb0001e273ea",
+            "present": true,
+            "players": [
+                "Daniel Villwock",
+                "Sebastian Seeber"
+            ]
+        },
+        {
+            "id": "738fa19e-f4a4-4ca5-a365-d085fe139775",
+            "teamName": "Kemnat 3",
+            "teamId": "5d3d701446e0fb0001e273e2",
+            "present": true,
+            "players": [
+                "Jonas Balz",
+                "Dominik Schmidt"
+            ]
+        },
+        {
+            "id": "b62c6814-3ec4-4d04-a1e6-ac0de69f52f8",
+            "teamName": "Bonlanden 1",
+            "teamId": "5d3d701346e0fb0001e273d2",
+            "present": true,
+            "players": [
+                "Johannes Beck",
+                "Marcel Döring"
+            ]
+        },
+        {
+            "id": "ce0242ac-7cc4-4d11-802e-f6c75a8c4e8d",
+            "teamName": "Bonlanden 2",
+            "teamId": "5d3d701346e0fb0001e273d4",
+            "present": true,
+            "players": [
+                "Mike Bühler",
+                "Cedric Wolfer"
+            ]
+        },
+        {
+            "id": "644e537c-08b1-4f8a-bb7a-d6ab79ee081a",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d701446e0fb0001e273e0",
+            "present": true,
+            "players": [
+                "Manuel Fröschle",
+                "Florian Fröschle"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Gärtringen 4",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 3",
+            "teamB": "Bonlanden 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Ebersbach 1",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 3",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 3",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 4",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Ebersbach 1",
+            "teamB": "Bonlanden 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 3",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Reichenbach 3",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Ebersbach 1",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Gärtringen 4",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Reichenbach 3",
+            "teamB": "Bonlanden 2"
+        }
+    ],
+    "permissions": [
+        "MatchdayRead",
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead"
+    ]
+}

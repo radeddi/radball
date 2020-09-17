@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll4",
+    "leagueLongName": "Landesliga Staffel IV",
+    "number": 6,
+    "start": "2020-12-12T17:00:00.000Z",
+    "gym": {
+        "name": "Waldseehalle Forst",
+        "street": "Hambrücker Str. 67",
+        "zip": "76694",
+        "city": "Forst",
+        "phone": "0178 2026 070"
+    },
+    "hostClub": "Forst",
+    "lastImport": "2020-09-07T07:40:33.556Z",
+    "teams": [
+        {
+            "name": "Nellingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bohusch, Florian",
+                    "uciCode": "10036311225",
+                    "regular": true
+                },
+                {
+                    "name": "Eisenmann, David",
+                    "uciCode": "10036295461",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Nellingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Distel, Tim",
+                    "uciCode": "10036326379",
+                    "regular": true
+                },
+                {
+                    "name": "Schiedermeier, Roman",
+                    "uciCode": "10036299202",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Karlsruhe 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Holzapfel, Peter",
+                    "uciCode": "10043831048",
+                    "regular": true
+                },
+                {
+                    "name": "Groff, Etienne",
+                    "uciCode": "10043824176",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gerlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bedarf, Frank",
+                    "uciCode": "10048550201",
+                    "regular": true
+                },
+                {
+                    "name": "Wagner, Tobias",
+                    "uciCode": "10048521606",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gerlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rapp, Stefan",
+                    "uciCode": "10048523323",
+                    "regular": true
+                },
+                {
+                    "name": "Katz, Sebastian",
+                    "uciCode": "10048360847",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beste, Paul",
+                    "uciCode": "10015525943",
+                    "regular": true
+                },
+                {
+                    "name": "Kreimes, Alan",
+                    "uciCode": "10048394492",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Nellingen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Forst 2",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Nellingen 3",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Nellingen 2",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Forst 2",
+            "teamB": "Nellingen 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Nellingen 2",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Nellingen 2",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Gerlingen 1",
+            "teamB": "Nellingen 3"
+        }
+    ]
+}

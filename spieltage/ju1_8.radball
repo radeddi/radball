@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ju1",
+    "leagueLongName": "U19 Junioren Staffel I",
+    "number": 8,
+    "start": "2020-12-19T14:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "street": "Steingrubenweg",
+        "zip": "71116",
+        "city": "Gärtringen",
+        "phone": "0173-9457977"
+    },
+    "hostClub": "Gärtringen",
+    "lastImport": "2020-08-31T14:02:25.044Z",
+    "teams": [
+        {
+            "name": "Gärtringen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Quast, Luca",
+                    "uciCode": "10048355288",
+                    "regular": true
+                },
+                {
+                    "name": "Motteler, Elias",
+                    "uciCode": "10064865904",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Veit, Luis",
+                    "uciCode": "10045735278",
+                    "regular": true
+                },
+                {
+                    "name": "Fischer, Adrian",
+                    "uciCode": "10045744069",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Buchner, Simon",
+                    "uciCode": "10036153395",
+                    "regular": true
+                },
+                {
+                    "name": "Kranz, Nikolas",
+                    "uciCode": "10036160469",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Rheinstetten 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Oberle, Monja",
+                    "uciCode": "10043800938",
+                    "regular": true
+                },
+                {
+                    "name": "Maier, Nico",
+                    "uciCode": "10043798514",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hildbrand, Paul",
+                    "uciCode": "10036507346",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Lucas",
+                    "uciCode": "10036537557",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wimsheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lauser, Nino",
+                    "uciCode": "10064246403",
+                    "regular": true
+                },
+                {
+                    "name": "Reinhold, Maurice",
+                    "uciCode": "10064248524",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Gärtringen 3",
+            "teamB": "Gärtringen 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Wehr 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Gärtringen 3",
+            "teamB": "Rheinstetten 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 4",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 3",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Wehr 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 4",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Gärtringen 3",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Gärtringen 4",
+            "teamB": "Rheinstetten 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 1",
+            "teamB": "Wehr 1"
+        }
+    ]
+}

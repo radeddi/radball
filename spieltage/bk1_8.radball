@@ -1,0 +1,186 @@
+{
+    "leagueShortName": "bk1",
+    "leagueLongName": "Bezirksliga Staffel I",
+    "number": 8,
+    "start": "2021-02-27T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- u. Festhalle Lauffen",
+        "street": "Bäumlesweg 7",
+        "zip": "78652",
+        "city": "Deisslingen",
+        "phone": "07420-93780"
+    },
+    "hostClub": "Schwenningen",
+    "lastImport": "2020-08-30T08:52:26.754Z",
+    "teams": [
+        {
+            "name": "Hardt 7",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bammert, Pascal",
+                    "uciCode": "10036513612",
+                    "regular": true
+                },
+                {
+                    "name": "Woelki, Leon",
+                    "uciCode": "10036518965",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 8",
+            "present": true,
+            "players": [
+                {
+                    "name": "Meyle, Gary",
+                    "uciCode": "10036537052",
+                    "regular": true
+                },
+                {
+                    "name": "Meyle, Eric",
+                    "uciCode": "10036531594",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwenningen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfister, Thomas",
+                    "uciCode": "10093873651",
+                    "regular": true
+                },
+                {
+                    "name": "Schuhbauer, Dirk",
+                    "uciCode": "10093859911",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Singen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bumiller, Marc",
+                    "uciCode": "10036162489",
+                    "regular": true
+                },
+                {
+                    "name": "Oexle, Manuel",
+                    "uciCode": "10065369088",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weber, Maximilian",
+                    "uciCode": "10036155217",
+                    "regular": true
+                },
+                {
+                    "name": "Holzer, Danielle",
+                    "uciCode": "10036162994",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauffen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fischer, Tom",
+                    "uciCode": "10036299303",
+                    "regular": true
+                },
+                {
+                    "name": "Fischer, Philipp",
+                    "uciCode": "10036319410",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwenningen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Brugger, Harald",
+                    "uciCode": "10093877186",
+                    "regular": true
+                },
+                {
+                    "name": "Schurer, Hansi",
+                    "uciCode": "10093852534",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 8",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 7",
+            "teamB": "Schwenningen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Singen 1",
+            "teamB": "Prechtal 6"
+        },
+        {
+            "number": 4,
+            "teamA": "Lauffen 4",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 8",
+            "teamB": "Schwenningen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 7",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Singen 1",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 8",
+            "teamB": "Prechtal 6"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 7",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Schwenningen 1",
+            "teamB": "Prechtal 6"
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 8",
+            "teamB": "Schwenningen 2"
+        }
+    ]
+}

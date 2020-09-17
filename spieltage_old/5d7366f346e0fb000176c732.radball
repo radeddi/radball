@@ -1,0 +1,169 @@
+{
+    "id": "5d7366f346e0fb000176c732",
+    "number": 14,
+    "league": "5d3d79d846e0fb0001448a27",
+    "leagueName": "Bezirksliga Staffel II",
+    "start": "2020-03-28T17:00:00.000Z",
+    "gym": {
+        "name": "Anne-Frank-Schule",
+        "city": "Karlsruhe",
+        "zip": "76189",
+        "street": "Bonhoeferstr. 12",
+        "phone": "01794268400"
+    },
+    "teams": [
+        {
+            "id": "769b5c9b-465f-45fc-b873-cb49ac71c19a",
+            "teamName": "Wendlingen 6",
+            "teamId": "5d3d79d846e0fb0001448a41",
+            "present": true,
+            "players": [
+                "Kebron Welday",
+                "Erick Schlosser"
+            ]
+        },
+        {
+            "id": "4a3f7dc3-1057-4552-9e6b-c42d82d5f321",
+            "teamName": "Offenburg 2",
+            "teamId": "5d3d79d846e0fb0001448a3d",
+            "present": true,
+            "players": [
+                "Andreas Fiebelkorn",
+                "Christoph Moßmann"
+            ]
+        },
+        {
+            "id": "2690ea40-b5ce-4513-b17d-592470e00d26",
+            "teamName": "Ersingen 2",
+            "teamId": "5d3d79d846e0fb0001448a2d",
+            "present": true,
+            "players": [
+                "Sven Erhard",
+                "David Wagner"
+            ]
+        },
+        {
+            "id": "8aa4432a-4b82-44b8-984e-1b657ed509ca",
+            "teamName": "Karlsruhe 3",
+            "teamId": "5d3d79d846e0fb0001448a31",
+            "present": true,
+            "players": [
+                "Lukas Lang",
+                "Andreas Ruf"
+            ]
+        },
+        {
+            "id": "46c6e9d4-6318-44f3-9e88-221ceb233745",
+            "teamName": "Karlsruhe 4",
+            "teamId": "5d3d79d846e0fb0001448a33",
+            "present": true,
+            "players": [
+                "Peter Holzapfel",
+                "Etienne Groff"
+            ]
+        },
+        {
+            "id": "24c7f35e-7722-468b-ba9e-d7ac734fc76d",
+            "teamName": "Kieselbronn 2",
+            "teamId": "5d3d79d846e0fb0001448a35",
+            "present": true,
+            "players": [
+                "Knut Hahn",
+                "Timo Häußermann"
+            ]
+        },
+        {
+            "id": "b2772670-fadb-415e-9437-3d1833532866",
+            "teamName": "Merklingen 3",
+            "teamId": "5d3d79d846e0fb0001448a37",
+            "present": true,
+            "players": [
+                "Nadine, Jacqueline Weber",
+                "Claire Feyler"
+            ]
+        },
+        {
+            "id": "e008c2fc-2bc8-471c-9d06-b5c2cdd39d37",
+            "teamName": "Esslingen 3",
+            "teamId": "5d3d79d846e0fb0001448a2f",
+            "present": true,
+            "players": [
+                "Alexander Seybold",
+                "Jochen Heubach"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Merklingen 3",
+            "teamB": "Esslingen 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Karlsruhe 4",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Ersingen 2",
+            "teamB": "Karlsruhe 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Wendlingen 6",
+            "teamB": "Offenburg 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Karlsruhe 4",
+            "teamB": "Esslingen 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Merklingen 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Offenburg 2",
+            "teamB": "Ersingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Wendlingen 6",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Esslingen 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Offenburg 2",
+            "teamB": "Merklingen 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Wendlingen 6",
+            "teamB": "Karlsruhe 4"
+        },
+        {
+            "number": 12,
+            "teamA": "Ersingen 2",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 13,
+            "teamA": "Offenburg 2",
+            "teamB": "Karlsruhe 3"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

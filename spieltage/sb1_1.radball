@@ -1,0 +1,175 @@
+{
+    "leagueShortName": "sb1",
+    "leagueLongName": "U13 Schüler B Staffel I",
+    "number": 1,
+    "start": "2020-09-26T13:00:00.000Z",
+    "gym": {
+        "name": "Arthur-Bantle-Halle",
+        "street": "Ostlandstr. 10",
+        "zip": "78739",
+        "city": "Hardt",
+        "phone": "0171 7059873"
+    },
+    "hostClub": "Hardt",
+    "lastImport": "2020-09-11T08:55:13.145Z",
+    "teams": [
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Leicht, Leon",
+                    "uciCode": "10052544072",
+                    "regular": true
+                },
+                {
+                    "name": "Müller, Julian",
+                    "uciCode": "10053680386",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Buchholz, Paul",
+                    "uciCode": "10086782850",
+                    "regular": true
+                },
+                {
+                    "name": "Martin Sanchez, Diego",
+                    "uciCode": "",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Feldweg, Mattis",
+                    "uciCode": "10086770221",
+                    "regular": true
+                },
+                {
+                    "name": "Haas, Niklas",
+                    "uciCode": "10086790732",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Winkler, Emilia",
+                    "uciCode": "10086769413",
+                    "regular": true
+                },
+                {
+                    "name": "Gidai, Nandor",
+                    "uciCode": "10086785981",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Huber, Tim Cedric",
+                    "uciCode": "10086780426",
+                    "regular": true
+                },
+                {
+                    "name": "Thiel, Otto",
+                    "uciCode": "10086772948",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 3 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kendl, Bastian",
+                    "uciCode": "10052533766",
+                    "regular": true
+                },
+                {
+                    "name": "Gerlach, Finn",
+                    "uciCode": "10071825652",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 3 a.K.",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Lauterbach 2",
+            "teamB": "Lauterbach 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 2",
+            "teamB": "Hardt 3 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 1",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Lauterbach 3",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 3 a.K.",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Lauterbach 3",
+            "teamB": "Hardt 3 a.K."
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 2",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 3 a.K."
+        },
+        {
+            "number": 12,
+            "teamA": "Lauterbach 3",
+            "teamB": "Hardt 2"
+        }
+    ]
+}

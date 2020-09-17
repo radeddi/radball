@@ -1,0 +1,139 @@
+{
+    "id": "5d6b76c346e0fb0001f9da59",
+    "number": 11,
+    "league": "5d3d7ab046e0fb0001e275d3",
+    "leagueName": "U19O Junioren-Oberliga",
+    "start": "2020-02-08T14:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Wehr-Öflingen",
+        "zip": "79664",
+        "street": "Wehratalstr. 48",
+        "phone": "07761-2577"
+    },
+    "teams": [
+        {
+            "id": "8a030f4b-55c1-4372-8c50-14daf0bf6a9d",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7ab046e0fb0001e275e1",
+            "present": true,
+            "players": [
+                "Marc Huber",
+                "Moritz Schubach"
+            ]
+        },
+        {
+            "id": "c778e933-f0f2-4a14-9958-c3c77ae5aebc",
+            "teamName": "Prechtal 1",
+            "teamId": "5d3d7ab046e0fb0001e275e3",
+            "present": true,
+            "players": [
+                "Timo Volk",
+                "Nico Volk"
+            ]
+        },
+        {
+            "id": "41e9f393-4501-483a-9a8f-12f4d192cb65",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d7ab046e0fb0001e275e5",
+            "present": true,
+            "players": [
+                "Luca Lang",
+                "Ferdinand Weber"
+            ]
+        },
+        {
+            "id": "0814fa0b-6419-4427-9eea-ab26664b589c",
+            "teamName": "Kemnat 1",
+            "teamId": "5d3d7ab046e0fb0001e275d9",
+            "present": true,
+            "players": [
+                "Chris Rapp",
+                "Robin Bluthardt"
+            ]
+        },
+        {
+            "id": "55fd3c08-29f9-4c29-bc47-bd65d60a9540",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d7ab046e0fb0001e275db",
+            "present": true,
+            "players": [
+                "Giuliano Klatt",
+                "Luca Spreter"
+            ]
+        },
+        {
+            "id": "1304b6b3-d6c8-475f-9224-fed7ee2862a8",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7ab046e0fb0001e275e7",
+            "present": true,
+            "players": [
+                "Marc Schuch",
+                "Felix Thamm"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 2",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 1",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Prechtal 2",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Öflingen 1",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 2",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Reichenbach 1",
+            "teamB": "Prechtal 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Öflingen 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Prechtal 2",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Öflingen 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Kemnat 1",
+            "teamB": "Prechtal 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

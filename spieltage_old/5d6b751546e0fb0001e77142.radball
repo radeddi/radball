@@ -1,0 +1,139 @@
+{
+    "id": "5d6b751546e0fb0001e77142",
+    "number": 10,
+    "league": "5d3d74af46e0fb0001e2756c",
+    "leagueName": "Landesliga Staffel IV",
+    "start": "2020-02-15T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Wimsheim",
+        "zip": "71299",
+        "street": "Tiefenbronner Str. 1",
+        "phone": "07044-41211"
+    },
+    "teams": [
+        {
+            "id": "024fe98c-f163-451a-bc3f-5aee97a3ad58",
+            "teamName": "Gerlingen 1",
+            "teamId": "5d3d74af46e0fb0001e27578",
+            "present": true,
+            "players": [
+                "Frank Bedarf",
+                "Tobias Wagner"
+            ]
+        },
+        {
+            "id": "d8340db7-9ec9-402d-93ec-fce3c68868bb",
+            "teamName": "Gerlingen 2",
+            "teamId": "5d3d74af46e0fb0001e2757a",
+            "present": true,
+            "players": [
+                "Stefan Rapp",
+                "Sebastian Katz"
+            ]
+        },
+        {
+            "id": "7714a81f-f7ed-4f40-8a2b-ce1e21bad9bf",
+            "teamName": "Karlsruhe 2",
+            "teamId": "5d3d74af46e0fb0001e2757c",
+            "present": true,
+            "players": [
+                "Lukas Beckers",
+                "Florian Walter"
+            ]
+        },
+        {
+            "id": "488acb1b-7152-4926-a624-e633b0a680d1",
+            "teamName": "Enzberg 1",
+            "teamId": "5d3d74af46e0fb0001e2756e",
+            "present": true,
+            "players": [
+                "Fabian Burkhard",
+                "Patrick Goll"
+            ]
+        },
+        {
+            "id": "f0024353-0eef-4a0b-82c7-b52cf2dd8386",
+            "teamName": "Wimsheim 2",
+            "teamId": "5d3d74af46e0fb0001e27584",
+            "present": true,
+            "players": [
+                "Nico Leibecke",
+                "Marco Zipperle"
+            ]
+        },
+        {
+            "id": "32567f32-47e4-4244-abac-d176da159c51",
+            "teamName": "Kieselbronn 1",
+            "teamId": "5d3d74af46e0fb0001e2757e",
+            "present": true,
+            "players": [
+                "German Dürrwächter",
+                "Martin Burger"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Gerlingen 2",
+            "teamB": "Wimsheim 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Gerlingen 1",
+            "teamB": "Wimsheim 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Gerlingen 1",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Wimsheim 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Gerlingen 1",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Enzberg 1",
+            "teamB": "Gerlingen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

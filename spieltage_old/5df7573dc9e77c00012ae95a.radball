@@ -1,0 +1,109 @@
+{
+    "id": "5df7573dc9e77c00012ae95a",
+    "number": 12,
+    "league": "5d3d749946e0fb0001e2753e",
+    "leagueName": "Landesliga Staffel III",
+    "start": "2020-04-25T16:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Reichenbach/Fils",
+        "zip": "73262",
+        "street": "Schulstr. 40",
+        "phone": "07153-59448"
+    },
+    "teams": [
+        {
+            "id": "29bd4573-6394-4d8b-9f2a-70c7240f2ae6",
+            "teamName": "Ebersbach 2",
+            "teamId": "5d3d749946e0fb0001e27540",
+            "present": true,
+            "players": [
+                "Mathias Berger",
+                "Jens Eggelhöfer"
+            ]
+        },
+        {
+            "id": "d0089760-6295-4543-85dc-50cc57455a02",
+            "teamName": "Schwäbisch Gmünd 1",
+            "teamId": "5d3d749946e0fb0001e27550",
+            "present": true,
+            "players": [
+                "Stephan Friedrich",
+                "Benjamin Hofer"
+            ]
+        },
+        {
+            "id": "2b6a5eb6-7165-4973-88ac-d364107f49c0",
+            "teamName": "Reichenbach 5",
+            "teamId": "5d3d749946e0fb0001e2754a",
+            "present": true,
+            "players": [
+                "Gerhard Kayser",
+                "Martin Fischer"
+            ]
+        },
+        {
+            "id": "122d1efb-bcc5-4197-8d8f-62bc3a1557be",
+            "teamName": "Reichenbach 6",
+            "teamId": "5d3d749946e0fb0001e2754c",
+            "present": true,
+            "players": [
+                "Thimo Wagner",
+                "Matthias Barth"
+            ]
+        },
+        {
+            "id": "24af1c78-4cdc-4cd5-82f1-80a9b4e2d7bd",
+            "teamName": "Söflingen 3",
+            "teamId": "5d3d749946e0fb0001e27556",
+            "present": true,
+            "players": [
+                "Manfred Pfinder",
+                "Patrick Ströbele"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reichenbach 6",
+            "teamB": "Söflingen 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 5",
+            "teamB": "Ebersbach 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Söflingen 3",
+            "teamB": "Ebersbach 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 6",
+            "teamB": "Schwäbisch Gmünd 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Söflingen 3",
+            "teamB": "Schwäbisch Gmünd 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 6",
+            "teamB": "Ebersbach 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwäbisch Gmünd 1",
+            "teamB": "Reichenbach 5"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

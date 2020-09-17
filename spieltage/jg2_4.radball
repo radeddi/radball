@@ -1,0 +1,175 @@
+{
+    "leagueShortName": "jg2",
+    "leagueLongName": "U17 Jugend Staffel II",
+    "number": 4,
+    "start": "2020-11-14T14:00:00.000Z",
+    "gym": {
+        "name": "Kasernensporthalle",
+        "street": "Prinz-Eugen-Straße",
+        "zip": "97900",
+        "city": "Külsheim",
+        "phone": "0151-432 22 106"
+    },
+    "hostClub": "Külsheim",
+    "lastImport": "2020-09-01T12:14:11.381Z",
+    "teams": [
+        {
+            "name": "Külsheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Stang, Simon",
+                    "uciCode": "10096347757",
+                    "regular": true
+                },
+                {
+                    "name": "Imhof, Jonas",
+                    "uciCode": "10096345030",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Merklingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfäffle, Andreas",
+                    "uciCode": "10036324359",
+                    "regular": true
+                },
+                {
+                    "name": "Braungart, Till",
+                    "uciCode": "10036321228",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 3 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schall, Marius",
+                    "uciCode": "10053701204",
+                    "regular": true
+                },
+                {
+                    "name": "Hohlbauch, Marcel",
+                    "uciCode": "10036276768",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kemnat 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Breining, Finn Ben",
+                    "uciCode": "10036300616",
+                    "regular": true
+                },
+                {
+                    "name": "Fröschle, Yannik",
+                    "uciCode": "10036310013",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Külsheim 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gehrig, Aaron",
+                    "uciCode": "10096346545",
+                    "regular": true
+                },
+                {
+                    "name": "Engstler, Emil",
+                    "uciCode": "10096347555",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Külsheim 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Dietz, Vitus",
+                    "uciCode": "10096346040",
+                    "regular": true
+                },
+                {
+                    "name": "Gehring, Linus",
+                    "uciCode": "10096346848",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reichenbach 3 a.K.",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Külsheim 2",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Külsheim 1",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 3 a.K.",
+            "teamB": "Külsheim 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Külsheim 3",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 3 a.K.",
+            "teamB": "Külsheim 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Kemnat 2",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Külsheim 2",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Kemnat 2",
+            "teamB": "Külsheim 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Reichenbach 3 a.K.",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Kemnat 2",
+            "teamB": "Külsheim 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Külsheim 3",
+            "teamB": "Külsheim 1"
+        }
+    ]
+}

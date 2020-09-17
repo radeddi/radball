@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "juo",
+    "leagueLongName": "U19O Junioren-Oberliga",
+    "number": 4,
+    "start": "2020-11-21T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Langenbachstr. 16",
+        "zip": "71522",
+        "city": "Backnang Waldrems",
+        "phone": "07191-86957"
+    },
+    "hostClub": "Waldrems",
+    "lastImport": "2020-09-07T07:45:54.038Z",
+    "teams": [
+        {
+            "name": "Gärtringen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Luis",
+                    "uciCode": "10048358322",
+                    "regular": true
+                },
+                {
+                    "name": "Ferrari, Loris",
+                    "uciCode": "10048359231",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Ganser, Till",
+                    "uciCode": "10036295057",
+                    "regular": true
+                },
+                {
+                    "name": "Quast, Nico",
+                    "uciCode": "10048357918",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Nas, Tarik",
+                    "uciCode": "10036324763",
+                    "regular": true
+                },
+                {
+                    "name": "Bracht, Moritz",
+                    "uciCode": "10036313346",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Völk, Philipp",
+                    "uciCode": "10036292734",
+                    "regular": true
+                },
+                {
+                    "name": "Völk, Moritz",
+                    "uciCode": "10036302434",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fuchs, Tim",
+                    "uciCode": "10036345678",
+                    "regular": true
+                },
+                {
+                    "name": "Weißhaar, Leon",
+                    "uciCode": "10036295360",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Mayer, Benjamin",
+                    "uciCode": "10048351955",
+                    "regular": true
+                },
+                {
+                    "name": "Frank, Jonas",
+                    "uciCode": "10048352561",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Gärtringen 2",
+            "teamB": "Oberesslingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 2",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Gärtringen 2",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 2",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 2",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Gärtringen 2",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Gärtringen 1"
+        }
+    ]
+}

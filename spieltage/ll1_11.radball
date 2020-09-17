@@ -1,0 +1,144 @@
+{
+    "leagueShortName": "ll1",
+    "leagueLongName": "Landesliga Staffel I",
+    "number": 11,
+    "start": "2021-03-13T17:00:00.000Z",
+    "gym": {
+        "name": "Turnhalle Sulzberg",
+        "street": "Sulzberg",
+        "zip": "72275",
+        "city": "Alpirsbach",
+        "phone": ""
+    },
+    "hostClub": "Alpirsbach",
+    "lastImport": "2020-08-30T08:49:48.674Z",
+    "teams": [
+        {
+            "name": "Alpirsbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Girrbach, Lukas",
+                    "uciCode": "10036326884",
+                    "regular": true
+                },
+                {
+                    "name": "Vidacak, Moritz",
+                    "uciCode": "10036321329",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "SG Öflingen/Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Urich, Julian",
+                    "uciCode": "10036151981",
+                    "regular": true
+                },
+                {
+                    "name": "Buchner, Markus",
+                    "uciCode": "10036163095",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Buchner, Nico",
+                    "uciCode": "10036161782",
+                    "regular": true
+                },
+                {
+                    "name": "Kranz, Benedikt",
+                    "uciCode": "10036158651",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Görlich, Max",
+                    "uciCode": "10036517046",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Markus",
+                    "uciCode": "10036543116",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hilser, David",
+                    "uciCode": "10036561809",
+                    "regular": true
+                },
+                {
+                    "name": "Fehrenbacher, Tim",
+                    "uciCode": "10036538466",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hardt 5"
+        },
+        {
+            "number": 2,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Wehr 1"
+        },
+        {
+            "number": 4,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Hardt 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Wehr 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Alpirsbach 1",
+            "teamB": "SG Öflingen/Wehr 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Wehr 1",
+            "teamB": "Hardt 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 9,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Wehr 1"
+        }
+    ]
+}

@@ -1,0 +1,194 @@
+{
+    "id": "5d4d2b9c46e0fb00019b3dc1",
+    "number": 3,
+    "league": "5d3d715546e0fb0001e27497",
+    "leagueName": "Verbandsliga Staffel I",
+    "start": "2019-11-09T17:00:00.000Z",
+    "gym": {
+        "name": "Rotachhalle Ailingen",
+        "city": "Friedrichshafen-Ailingen",
+        "zip": "88048",
+        "street": "Leonie Fürst Straße",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "dc11e31a-ae14-497f-9e26-50197ebc2dd8",
+            "teamName": "Ailingen 2",
+            "teamId": "5d3d715546e0fb0001e27499",
+            "present": true,
+            "players": [
+                "Pascal Salomon",
+                "Matthias Blab"
+            ]
+        },
+        {
+            "id": "d9c51d4f-53ff-4a9c-bd4a-31643b22a2b8",
+            "teamName": "Ailingen 3",
+            "teamId": "5d3d715546e0fb0001e2749b",
+            "present": true,
+            "players": [
+                "Sven Braunger",
+                "Marco Braunger"
+            ]
+        },
+        {
+            "id": "152b4dbf-7bf6-4aeb-be1e-ae6a573f0841",
+            "teamName": "Ailingen 4",
+            "teamId": "5d3d715546e0fb0001e2749d",
+            "present": true,
+            "players": [
+                "Manuel Maier",
+                "Marcel Weißenrieder"
+            ]
+        },
+        {
+            "id": "a6caafaf-418c-4e31-915f-e9c3edfccc33",
+            "teamName": "Böblingen 1",
+            "teamId": "5d3d715546e0fb0001e2749f",
+            "present": true,
+            "players": [
+                "Marcel Gürtler",
+                "Florian Gürtler"
+            ]
+        },
+        {
+            "id": "01bc70ef-f572-49d8-934b-3634cee11d1c",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d715546e0fb0001e274a1",
+            "present": true,
+            "players": [
+                "Kevin Wahlenmeier",
+                "Mathias Haas"
+            ]
+        },
+        {
+            "id": "62baca1e-49e2-49c7-8261-c410553b899d",
+            "teamName": "Sindelfingen 1",
+            "teamId": "5d3d715546e0fb0001e274ab",
+            "present": true,
+            "players": [
+                "Pawel Knapp",
+                "Jan Gutzke"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 2",
+            "teamB": "Ailingen 3",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Böblingen 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Ailingen 3",
+            "teamB": "Hardt 2",
+            "score": {
+                "goalsA": 8,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Ailingen 4",
+            "teamB": "Sindelfingen 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Ailingen 2",
+            "teamB": "Hardt 2",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 4",
+            "teamB": "Böblingen 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Ailingen 3",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 7,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Ailingen 2",
+            "teamB": "Böblingen 1",
+            "score": {
+                "goalsA": 8,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Ailingen 4",
+            "teamB": "Hardt 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Ailingen 2",
+            "teamB": "Sindelfingen 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Böblingen 1",
+            "teamB": "Ailingen 3",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

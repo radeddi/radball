@@ -1,0 +1,139 @@
+{
+    "id": "5d4d2eaa46e0fb00010d0d53",
+    "number": 10,
+    "league": "5d3d716746e0fb0001e274c5",
+    "leagueName": "Verbandsliga Staffel II",
+    "start": "2020-02-08T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Leimen",
+        "zip": "69181",
+        "street": "Weidweg 7",
+        "phone": "06224-74600"
+    },
+    "teams": [
+        {
+            "id": "970ba908-7cf7-4577-9de1-241f4deaf768",
+            "teamName": "Leimen 2",
+            "teamId": "5d3d716746e0fb0001e274d1",
+            "present": true,
+            "players": [
+                "Oliver Schneeberger",
+                "Max Beste"
+            ]
+        },
+        {
+            "id": "295ca82e-b125-43ea-83a3-aa071b944a21",
+            "teamName": "Leimen 1",
+            "teamId": "5d3d716746e0fb0001e274cf",
+            "present": true,
+            "players": [
+                "Dorian Doroftei",
+                "Jürgen Junkert"
+            ]
+        },
+        {
+            "id": "30f82e81-7aca-4a97-8ab2-32440a3ff72c",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d716746e0fb0001e274cd",
+            "present": true,
+            "players": [
+                "Robin Beckers",
+                "Florian Noack"
+            ]
+        },
+        {
+            "id": "7c4a7648-245b-47e1-9a1c-48ae0f1fcacb",
+            "teamName": "Plattenhardt 1",
+            "teamId": "5d3d716746e0fb0001e274d7",
+            "present": true,
+            "players": [
+                "Ulrich Mack",
+                "Marco Pflieger"
+            ]
+        },
+        {
+            "id": "546d3011-9b39-45a4-827d-0abe17fe5567",
+            "teamName": "Plattenhardt 2",
+            "teamId": "5d3d716746e0fb0001e274d9",
+            "present": true,
+            "players": [
+                "Dieter Kehrle",
+                "Jürgen Pflieger"
+            ]
+        },
+        {
+            "id": "45aa3c6a-43e5-4f4f-b548-ccd5b5ff3793",
+            "teamName": "Reichenbach 4",
+            "teamId": "5d3d716746e0fb0001e274db",
+            "present": true,
+            "players": [
+                "Jonas Baumann",
+                "Stefan Mangold"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Leimen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 4",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Leimen 1",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Leimen 2",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Reichenbach 4",
+            "teamB": "Leimen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Leimen 2",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Leimen 2",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Leimen 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

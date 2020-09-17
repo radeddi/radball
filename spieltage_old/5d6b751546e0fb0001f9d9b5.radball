@@ -1,0 +1,139 @@
+{
+    "id": "5d6b751546e0fb0001f9d9b5",
+    "number": 11,
+    "league": "5d3d74af46e0fb0001e2756c",
+    "leagueName": "Landesliga Staffel IV",
+    "start": "2020-02-15T17:00:00.000Z",
+    "gym": {
+        "name": "Keltenhalle",
+        "city": "Rheinstetten",
+        "zip": "76287",
+        "street": "Am Tummelplatz 6",
+        "phone": "0157-52658660"
+    },
+    "teams": [
+        {
+            "id": "b7e5b29d-c237-4a1a-9cc1-9568849022e7",
+            "teamName": "Forst 1",
+            "teamId": "5d3d74af46e0fb0001e27574",
+            "present": true,
+            "players": [
+                "Paul Beste",
+                "Daniel Süss"
+            ]
+        },
+        {
+            "id": "80f4ca36-b264-4c94-affa-94fc6f0267fe",
+            "teamName": "Forst 2",
+            "teamId": "5d3d74af46e0fb0001e27576",
+            "present": true,
+            "players": [
+                "Gerald Faiß",
+                "Andreas Spangenberg"
+            ]
+        },
+        {
+            "id": "4561b482-0396-4f14-8138-b7248a778de9",
+            "teamName": "Rheinstetten 1",
+            "teamId": "5d3d74af46e0fb0001e27582",
+            "present": true,
+            "players": [
+                "Simon Becker",
+                "Robin Vogel"
+            ]
+        },
+        {
+            "id": "ccccb846-26e1-4305-b1c5-da0ec1afb819",
+            "teamName": "Oberesslingen 4",
+            "teamId": "5d3d74af46e0fb0001e27580",
+            "present": true,
+            "players": [
+                "Daniel Hahn",
+                "Matthias Langbein"
+            ]
+        },
+        {
+            "id": "6713fe98-b8b2-400e-9e5a-8331e48aee46",
+            "teamName": "Ersingen 1",
+            "teamId": "5d3d74af46e0fb0001e27570",
+            "present": true,
+            "players": [
+                "Hubert Harr",
+                "Ralf Scheier"
+            ]
+        },
+        {
+            "id": "0c32451e-20a9-4660-8369-7e0520fb3035",
+            "teamName": "Esslingen 2",
+            "teamId": "5d3d74af46e0fb0001e27572",
+            "present": true,
+            "players": [
+                "Kai Baumann",
+                "Florian Blaauwbroek"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Forst 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Esslingen 2",
+            "teamB": "Oberesslingen 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Forst 2",
+            "teamB": "Ersingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Forst 1",
+            "teamB": "Ersingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Oberesslingen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Esslingen 2",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Forst 1",
+            "teamB": "Oberesslingen 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Rheinstetten 1",
+            "teamB": "Ersingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Forst 1",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Forst 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

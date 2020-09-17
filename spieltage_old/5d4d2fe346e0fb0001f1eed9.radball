@@ -1,0 +1,134 @@
+{
+    "id": "5d4d2fe346e0fb0001f1eed9",
+    "number": 12,
+    "league": "5d3d717746e0fb000144897f",
+    "leagueName": "Verbandsliga Staffel III",
+    "start": "2020-03-07T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Schwaikheim",
+        "zip": "71409",
+        "street": "Badstr.",
+        "phone": "0175-9362062"
+    },
+    "teams": [
+        {
+            "id": "2653181f-36e3-436a-9f9b-92a7c6d8acf7",
+            "teamName": "Nellingen 1",
+            "teamId": "5d3d717746e0fb0001448985",
+            "present": true,
+            "players": [
+                "Andreas Korupp",
+                "Julian Ruda"
+            ]
+        },
+        {
+            "id": "3ccf5ebc-9b32-4030-a3d1-427aa348b2d1",
+            "teamName": "Wendlingen 4",
+            "teamId": "5d3d717746e0fb0001448995",
+            "present": true,
+            "players": [
+                "Dennis Fritsch",
+                "David Hirning"
+            ]
+        },
+        {
+            "id": "87f831e9-202e-4edd-9ca9-72de4cbb8d0c",
+            "teamName": "Wendlingen 5",
+            "teamId": "5d3d717746e0fb0001448997",
+            "present": true,
+            "players": [
+                "Julian Wannek",
+                "Lukas Till"
+            ]
+        },
+        {
+            "id": "65334239-066e-4d2a-89da-cf5ee4f953e2",
+            "teamName": "Schwaikheim 3",
+            "teamId": "5d3d717746e0fb000144898d",
+            "present": true,
+            "players": [
+                "Ingo Bareiß",
+                "Sebastian Braun"
+            ]
+        },
+        {
+            "id": "ba0d30e5-c821-4d07-afdb-eb80a7f6550a",
+            "teamName": "Schwaikheim 4",
+            "teamId": "5d3d717746e0fb000144898f",
+            "present": true,
+            "players": [
+                "Patrick Fleischmann",
+                "Mike Trautwein"
+            ]
+        },
+        {
+            "id": "93ca28b3-770f-47c2-b1ef-ca4c8278d82b",
+            "teamName": "Schwaikheim 2",
+            "teamId": "5d3d717746e0fb000144898b",
+            "present": true,
+            "players": [
+                "Benjamin Schwarzer",
+                "Tobias Schwarzer"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwaikheim 3",
+            "teamB": "Nellingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Schwaikheim 4",
+            "teamB": "Wendlingen 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Nellingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwaikheim 4",
+            "teamB": "Wendlingen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Wendlingen 4",
+            "teamB": "Schwaikheim 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Wendlingen 5"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwaikheim 4",
+            "teamB": "Nellingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Wendlingen 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Wendlingen 5",
+            "teamB": "Schwaikheim 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Nellingen 1",
+            "teamB": "Wendlingen 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

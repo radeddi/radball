@@ -1,0 +1,164 @@
+{
+    "id": "5d6b6bf146e0fb0001f9d7de",
+    "number": 5,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2019-11-09T17:00:00.000Z",
+    "gym": {
+        "name": "Steinberghalle",
+        "city": "Elzach-Prechtal",
+        "zip": "79215",
+        "street": "Schrahöfe",
+        "phone": "07682-1707"
+    },
+    "teams": [
+        {
+            "id": "1ad52247-b1fa-4d47-b5f7-7be02674975c",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d701446e0fb0001e273e6",
+            "present": true,
+            "players": [
+                "Simon Wisser",
+                "Patrick Volk"
+            ]
+        },
+        {
+            "id": "9cc8f515-c8b4-4c37-9bf3-85a06fa7f9be",
+            "teamName": "Prechtal 3",
+            "teamId": "5d3d701446e0fb0001e273e8",
+            "present": true,
+            "players": [
+                "Dominik Becherer",
+                "Claudius Holzer"
+            ]
+        },
+        {
+            "id": "1f29b1f2-8c2c-4b71-a58e-348d832cbe11",
+            "teamName": "Kemnat 3",
+            "teamId": "5d3d701446e0fb0001e273e2",
+            "present": true,
+            "players": [
+                "Jonas Balz",
+                "Dominik Schmidt"
+            ]
+        },
+        {
+            "id": "f9889c3a-d38d-4ffc-9776-1549b153df57",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d701446e0fb0001e273e0",
+            "present": true,
+            "players": [
+                "Manuel Fröschle",
+                "Florian Fröschle"
+            ]
+        },
+        {
+            "id": "233351b8-909e-482e-84d9-ac40efc32e3c",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d701446e0fb0001e273de",
+            "present": true,
+            "players": [
+                "Mathias Müller",
+                "Florian Müller"
+            ]
+        },
+        {
+            "id": "8acc1217-fd2d-4a86-b8d9-5af573224039",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d701346e0fb0001e273d6",
+            "present": true,
+            "players": [
+                "Sascha Henn",
+                "Simon Eberhardt-Schneider"
+            ]
+        },
+        {
+            "id": "51518336-7a5f-42f2-9638-2c31bd16da6d",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d701446e0fb0001e273ea",
+            "present": true,
+            "players": [
+                "Daniel Villwock",
+                "Sebastian Seeber"
+            ]
+        },
+        {
+            "id": "05921a07-8ab8-4b45-8a1f-21747f18864c",
+            "teamName": "Ebersbach 1",
+            "teamId": "5d3d701346e0fb0001e273d8",
+            "present": true,
+            "players": [
+                "Marc Eggelhöfer",
+                "Jens Eggelhöfer"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 3",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Prechtal 2",
+            "teamB": "Ebersbach 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 1",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 3",
+            "teamB": "Denkendorf 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 2",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 3",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 1",
+            "teamB": "Ebersbach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 2",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 2",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Prechtal 3",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Denkendorf 2",
+            "teamB": "Ebersbach 1"
+        }
+    ],
+    "permissions": [
+        "MatchdayRead",
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "id": "5d4d2eab46e0fb0001f1ee3a",
+    "number": 7,
+    "league": "5d3d716746e0fb0001e274c5",
+    "leagueName": "Verbandsliga Staffel II",
+    "start": "2020-01-25T17:00:00.000Z",
+    "gym": {
+        "name": "Seefällehalle gegenüber Fildorado",
+        "city": "Filderstadt",
+        "zip": "70794",
+        "street": "Mahlestr. 60",
+        "phone": "0711-9972275"
+    },
+    "teams": [
+        {
+            "id": "727ac64c-fafd-4b9d-87fb-b09f6ee3cee1",
+            "teamName": "Denkendorf 4",
+            "teamId": "5d3d716746e0fb0001e274cb",
+            "present": true,
+            "players": [
+                "Christian Müller",
+                "Peter Berner"
+            ]
+        },
+        {
+            "id": "ba2b7b08-8ae2-4ca3-920c-d019baf17af3",
+            "teamName": "Denkendorf 3",
+            "teamId": "5d3d716746e0fb0001e274c9",
+            "present": true,
+            "players": [
+                "Andreas Stahl",
+                "Stefan Berner"
+            ]
+        },
+        {
+            "id": "96631d88-25fb-4a0d-894a-f824629b8251",
+            "teamName": "Bonlanden 3",
+            "teamId": "5d3d716746e0fb0001e274c7",
+            "present": true,
+            "players": [
+                "Daniel Born",
+                "Sebastian Schondorff"
+            ]
+        },
+        {
+            "id": "4594ddc2-1396-4e2d-9fa3-d0701f020d61",
+            "teamName": "Leimen 2",
+            "teamId": "5d3d716746e0fb0001e274d1",
+            "present": true,
+            "players": [
+                "Oliver Schneeberger",
+                "Max Beste"
+            ]
+        },
+        {
+            "id": "599f1f50-3046-4191-834b-517305078bd0",
+            "teamName": "Leimen 1",
+            "teamId": "5d3d716746e0fb0001e274cf",
+            "present": true,
+            "players": [
+                "Dorian Doroftei",
+                "Jürgen Junkert"
+            ]
+        },
+        {
+            "id": "fb2606f1-79ae-43b0-b947-09380476a892",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d716746e0fb0001e274cd",
+            "present": true,
+            "players": [
+                "Robin Beckers",
+                "Florian Noack"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Denkendorf 4",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Leimen 2",
+            "teamB": "Leimen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Bonlanden 3",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 4",
+            "teamB": "Leimen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Denkendorf 3",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 4",
+            "teamB": "Leimen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Leimen 2",
+            "teamB": "Bonlanden 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Denkendorf 3",
+            "teamB": "Leimen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 4",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 3",
+            "teamB": "Leimen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Leimen 1",
+            "teamB": "Bonlanden 3"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,234 @@
+{
+    "id": "5d6b788d46e0fb0001f9db24",
+    "number": 1,
+    "league": "5d3d7e9746e0fb0001448bfb",
+    "leagueName": "U15 Schüler A Staffel III",
+    "start": "2019-10-19T13:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Wimsheim",
+        "zip": "71299",
+        "street": "Tiefenbronner Str. 1",
+        "phone": "07044-41211"
+    },
+    "teams": [
+        {
+            "id": "a1a228db-bc8f-49db-86bb-893c1118e8ec",
+            "teamName": "Wimsheim 1 a.K.",
+            "teamId": "5d3d7e9746e0fb0001448c0f",
+            "present": true,
+            "players": [
+                "Justin Brenner",
+                "Urs Bernhagen"
+            ]
+        },
+        {
+            "id": "7a8abc60-656f-4633-96a0-64de1b528093",
+            "teamName": "Graben 1",
+            "teamId": "5d3d7e9746e0fb0001448bff",
+            "present": true,
+            "players": [
+                "Nico Scholl",
+                "Julian Vollmer"
+            ]
+        },
+        {
+            "id": "7ef02348-9e8c-4662-88ae-cb2cb9b99325",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d7e9746e0fb0001448c03",
+            "present": false,
+            "players": [
+                "Leon Heinemann",
+                "Joel Gacis"
+            ]
+        },
+        {
+            "id": "03ad5b95-b0c3-457e-bc49-17c54a4c9eab",
+            "teamName": "Weil im Schönbuch 1",
+            "teamId": "5d3d7e9746e0fb0001448c0b",
+            "present": true,
+            "players": [
+                "Ben Eissler",
+                "Maxim Appel"
+            ]
+        },
+        {
+            "id": "84a640cc-5580-4085-9a9a-35638671e699",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7e9746e0fb0001448c05",
+            "present": true,
+            "players": [
+                "Maximilian Klügel",
+                "Marius Schall"
+            ]
+        },
+        {
+            "id": "ed42de72-2c74-41ee-9ffd-4ba1489a88da",
+            "teamName": "SK Stuttgart 1",
+            "teamId": "5d3d7e9746e0fb0001448c07",
+            "present": true,
+            "players": [
+                "Ole Krauter",
+                "Lennard Mozic"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Wimsheim 1 a.K.",
+            "teamB": "Graben 1",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 9,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Reichenbach 1",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Wimsheim 1 a.K.",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Graben 1",
+            "teamB": "Karlsruhe 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 1",
+            "teamB": "SK Stuttgart 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Wimsheim 1 a.K.",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Reichenbach 1",
+            "teamB": "Graben 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Wimsheim 1 a.K.",
+            "teamB": "Karlsruhe 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Graben 1",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Karlsruhe 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Reichenbach 1",
+            "teamB": "Wimsheim 1 a.K.",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 12,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "SK Stuttgart 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 13,
+            "teamA": "Reichenbach 1",
+            "teamB": "Karlsruhe 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 14,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Graben 1",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 15,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Karlsruhe 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "id": "5d5c036b46e0fb00013a1cf8",
+    "number": 9,
+    "league": "5d3d7e0246e0fb0001448b6b",
+    "leagueName": "U17 Jugend Staffel II",
+    "start": "2020-02-01T14:00:00.000Z",
+    "gym": {
+        "name": "Löcherhaldenturnhalle",
+        "city": "Denkendorf",
+        "zip": "73770",
+        "street": "Löcherhaldenstr. 36",
+        "phone": "0711-9348755"
+    },
+    "teams": [
+        {
+            "id": "f506be1e-15de-40c9-be7d-a63ca339f543",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d7e0246e0fb0001448b77",
+            "present": true,
+            "players": [
+                "Finn Ben Breining",
+                "Yannik Fröschle"
+            ]
+        },
+        {
+            "id": "346c51e1-99ce-4d72-9107-4de30c4da731",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d7e0246e0fb0001448b6f",
+            "present": true,
+            "players": [
+                "Jannik Lang",
+                "Mathias Schneider"
+            ]
+        },
+        {
+            "id": "aeb4d487-352b-4860-bac0-6f45a35418ce",
+            "teamName": "Denkendorf 5",
+            "teamId": "5d3d7e0246e0fb0001448b71",
+            "present": true,
+            "players": [
+                "Berhan Istif",
+                "Milo Radenic"
+            ]
+        },
+        {
+            "id": "d62cd091-40fd-47e0-aeb6-44759100babf",
+            "teamName": "Ailingen 2",
+            "teamId": "5d3d7e0246e0fb0001448b6d",
+            "present": true,
+            "players": [
+                "Colin Wörner",
+                "Noah Reitter"
+            ]
+        },
+        {
+            "id": "b4f97c9d-829e-491a-a57a-8690d9a319c5",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7e0246e0fb0001448b81",
+            "present": true,
+            "players": [
+                "Luis Bachmann",
+                "Moritz Thamm"
+            ]
+        },
+        {
+            "id": "365cfdaf-8ec4-4943-a26a-b76d41e34a7d",
+            "teamName": "Reichenbach 2",
+            "teamId": "5d3d7e0246e0fb0001448b83",
+            "present": true,
+            "players": [
+                "Leon Kurle",
+                "Leon Röder"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kemnat 2",
+            "teamB": "Ailingen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Denkendorf 2",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 5",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 2",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Denkendorf 2",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 5",
+            "teamB": "Ailingen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Kemnat 2",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Denkendorf 5",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 2",
+            "teamB": "Ailingen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

@@ -1,0 +1,134 @@
+{
+    "id": "5df74b1ec9e77c00012ae618",
+    "number": 10,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2020-02-01T17:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Reichenbach/Fils",
+        "zip": "73262",
+        "street": "Schulstr. 40",
+        "phone": "07153-59448"
+    },
+    "teams": [
+        {
+            "id": "f6a60f50-9204-4369-a379-0141a202c92e",
+            "teamName": "Ebersbach 3",
+            "teamId": "5d3d79e846e0fb0001448a51",
+            "present": true,
+            "players": [
+                "Johannes Berger",
+                "Sarah Urbanitsch"
+            ]
+        },
+        {
+            "id": "bd6e72fa-0cfb-4dae-b7cc-d5b5d5bfde35",
+            "teamName": "Reichenbach 8",
+            "teamId": "5d3d79e846e0fb0001448a5b",
+            "present": true,
+            "players": [
+                "Ralph Kurle",
+                "Martin Röder"
+            ]
+        },
+        {
+            "id": "8c7095aa-326f-4000-ace9-ed9a8530de88",
+            "teamName": "Reichenbach 9",
+            "teamId": "5d3d79e846e0fb0001448a5d",
+            "present": true,
+            "players": [
+                "Frank Brezina",
+                "Felix Bartl"
+            ]
+        },
+        {
+            "id": "383d968d-c5b4-411b-9b9e-59ecca267d13",
+            "teamName": "Nellingen 4",
+            "teamId": "5d3d79e846e0fb0001448a53",
+            "present": true,
+            "players": [
+                "Michael Federle",
+                "Thilo Schmid"
+            ]
+        },
+        {
+            "id": "c95954a0-40bb-4c40-b9eb-aca2dc2f312b",
+            "teamName": "Nellingen 5",
+            "teamId": "5d3d79e846e0fb0001448a55",
+            "present": true,
+            "players": [
+                "Nico Rogalski",
+                "Tobias Fröschle"
+            ]
+        },
+        {
+            "id": "5843923d-7fca-46c6-8560-2cbaf2734d78",
+            "teamName": "Nellingen 6",
+            "teamId": "5d3d79e846e0fb0001448a57",
+            "present": true,
+            "players": [
+                "Kai-Uwe Schreiber",
+                "Sascha Schreiber"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Nellingen 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Nellingen 6",
+            "teamB": "Ebersbach 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 8",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Ebersbach 3",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Nellingen 6",
+            "teamB": "Reichenbach 9"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 8",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Ebersbach 3",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Reichenbach 9",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Nellingen 6",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 10,
+            "teamA": "Reichenbach 9",
+            "teamB": "Nellingen 5"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

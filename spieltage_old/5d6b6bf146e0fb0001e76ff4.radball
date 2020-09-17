@@ -1,0 +1,164 @@
+{
+    "id": "5d6b6bf146e0fb0001e76ff4",
+    "number": 20,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2020-05-02T16:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Reichenbach/Fils",
+        "zip": "73262",
+        "street": "Schulstr. 40",
+        "phone": "07153-59448"
+    },
+    "teams": [
+        {
+            "id": "471bb75e-a7f4-48fe-bbb0-64e268e5b48f",
+            "teamName": "Gärtringen 3",
+            "teamId": "5d3d701446e0fb0001e273da",
+            "present": true,
+            "players": [
+                "Gunther Schmid",
+                "Michael Posedi"
+            ]
+        },
+        {
+            "id": "b2168ecb-11f6-4273-bfd3-18b114ec0e4e",
+            "teamName": "Ebersbach 1",
+            "teamId": "5d3d701346e0fb0001e273d8",
+            "present": true,
+            "players": [
+                "Marc Eggelhöfer",
+                "Jens Eggelhöfer"
+            ]
+        },
+        {
+            "id": "59133b07-8bbc-429a-b5fb-4b17b8daef5d",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d701446e0fb0001e273ec",
+            "present": true,
+            "players": [
+                "Jonas Braun",
+                "Daniel Braun"
+            ]
+        },
+        {
+            "id": "d72ed71c-71bf-4469-9d32-211c10f3f448",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d701346e0fb0001e273d6",
+            "present": true,
+            "players": [
+                "Sascha Henn",
+                "Simon Eberhardt-Schneider"
+            ]
+        },
+        {
+            "id": "4fb23eb0-66b5-47a7-ae12-2f888db300ab",
+            "teamName": "Wendlingen 2",
+            "teamId": "5d3d701446e0fb0001e273ee",
+            "present": true,
+            "players": [
+                "Valentin Stegmaier",
+                "Kai Wandel"
+            ]
+        },
+        {
+            "id": "c0af6b27-7760-4c8b-b6b7-97c4388f0567",
+            "teamName": "Wendlingen 3",
+            "teamId": "5d3d701446e0fb0001e273f0",
+            "present": true,
+            "players": [
+                "Kevin Bee",
+                "Dennis Bee"
+            ]
+        },
+        {
+            "id": "2b5805a9-9954-4238-a841-ce8a629b6958",
+            "teamName": "Gärtringen 4",
+            "teamId": "5d3d701446e0fb0001e273dc",
+            "present": true,
+            "players": [
+                "Simon Becker",
+                "Jannes Müller"
+            ]
+        },
+        {
+            "id": "f1b116a7-3517-491f-a79f-7b9ba21b5d8a",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d701446e0fb0001e273ea",
+            "present": true,
+            "players": [
+                "Daniel Villwock",
+                "Sebastian Seeber"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Gärtringen 3",
+            "teamB": "Denkendorf 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 4",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Ebersbach 1",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Denkendorf 2",
+            "teamB": "Gärtringen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 3",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Wendlingen 2",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Denkendorf 2",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Gärtringen 3",
+            "teamB": "Ebersbach 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Gärtringen 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Wendlingen 3",
+            "teamB": "Reichenbach 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Ebersbach 1",
+            "teamB": "Wendlingen 2"
+        }
+    ],
+    "permissions": [
+        "LeagueRead",
+        "TeamsRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

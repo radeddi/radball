@@ -1,0 +1,139 @@
+{
+    "id": "5d4e8d5c46e0fb00015c9fb3",
+    "number": 11,
+    "league": "5d3d749946e0fb0001e2753e",
+    "leagueName": "Landesliga Staffel III",
+    "start": "2020-04-25T16:00:00.000Z",
+    "gym": {
+        "name": "Glück-Auf-Halle",
+        "city": "Aalen-Hofen",
+        "zip": "73433",
+        "street": "Kappelbergstr. 34",
+        "phone": "0170-4779082"
+    },
+    "teams": [
+        {
+            "id": "3e6397f9-af54-42ca-8741-a399adfce155",
+            "teamName": "Hofen 2",
+            "teamId": "5d3d749946e0fb0001e27542",
+            "present": true,
+            "players": [
+                "Rudi Stephan",
+                "Judith Wolf"
+            ]
+        },
+        {
+            "id": "99bc6b16-d4b1-4c4a-a164-10ca40620bbc",
+            "teamName": "Hofen 4",
+            "teamId": "5d3d749946e0fb0001e27546",
+            "present": true,
+            "players": [
+                "Julian Schwarzer",
+                "Raphael Fröbe"
+            ]
+        },
+        {
+            "id": "307a713d-419d-4031-ab1b-a9a4a3aa646a",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d749946e0fb0001e27548",
+            "present": true,
+            "players": [
+                "Hannes Wetzler",
+                "Andreas Miller"
+            ]
+        },
+        {
+            "id": "990acb23-edb2-4375-81a2-7ac72ec6306c",
+            "teamName": "Söflingen 1",
+            "teamId": "5d3d749946e0fb0001e27552",
+            "present": true,
+            "players": [
+                "Reiner Swensson",
+                "Jürgen Welke"
+            ]
+        },
+        {
+            "id": "f6208cc3-8282-491f-b5bc-e27345c8a899",
+            "teamName": "Söflingen 2",
+            "teamId": "5d3d749946e0fb0001e27554",
+            "present": true,
+            "players": [
+                "Uwe Jungmichel",
+                "Norbert Nolle"
+            ]
+        },
+        {
+            "id": "d8542504-0b26-450a-84e1-5a5dd1b1cfdb",
+            "teamName": "Reichenbach 7",
+            "teamId": "5d3d749946e0fb0001e2754e",
+            "present": true,
+            "players": [
+                "Philipp Regner",
+                "Christos Granidis"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hofen 4",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Söflingen 2",
+            "teamB": "Reichenbach 7"
+        },
+        {
+            "number": 3,
+            "teamA": "Hofen 2",
+            "teamB": "Söflingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Hofen 4",
+            "teamB": "Söflingen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Söflingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hofen 4",
+            "teamB": "Reichenbach 7"
+        },
+        {
+            "number": 7,
+            "teamA": "Söflingen 2",
+            "teamB": "Hofen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Reichenbach 7"
+        },
+        {
+            "number": 9,
+            "teamA": "Hofen 4",
+            "teamB": "Söflingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Söflingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Reichenbach 7",
+            "teamB": "Hofen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

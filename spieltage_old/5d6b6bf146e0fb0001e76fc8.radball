@@ -1,0 +1,224 @@
+{
+    "id": "5d6b6bf146e0fb0001e76fc8",
+    "number": 6,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2019-11-09T17:00:00.000Z",
+    "gym": {
+        "name": "Sport- und Festhalle Lauffen",
+        "city": "Deißlingen-Lauffen",
+        "zip": "78652",
+        "street": "Bäumlesweg 7",
+        "phone": "07420-93780"
+    },
+    "teams": [
+        {
+            "id": "0b1daee7-c5f2-4af2-81c6-9ef20b3421a1",
+            "teamName": "Gärtringen 3",
+            "teamId": "5d3d701446e0fb0001e273da",
+            "present": true,
+            "players": [
+                "Gunther Schmid",
+                "Michael Posedi"
+            ]
+        },
+        {
+            "id": "c92c51af-fbc6-4731-992a-d66eb794ac3e",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d701446e0fb0001e273ec",
+            "present": true,
+            "players": [
+                "Jonas Braun",
+                "Daniel Braun"
+            ]
+        },
+        {
+            "id": "a0738a23-be46-47ce-a594-c8e4b7494cd5",
+            "teamName": "Gärtringen 4",
+            "teamId": "5d3d701446e0fb0001e273dc",
+            "present": true,
+            "players": [
+                "Simon Becker",
+                "Jannes Müller"
+            ]
+        },
+        {
+            "id": "16bf4dec-19da-4c55-a262-10c17e794cdd",
+            "teamName": "Lauffen 1",
+            "teamId": "5d3d701446e0fb0001e273e4",
+            "present": true,
+            "players": [
+                "Marc Käufer",
+                "Thomas Keller"
+            ]
+        },
+        {
+            "id": "e5959fb3-2f46-4f9b-857b-80e48e90b48f",
+            "teamName": "Bonlanden 1",
+            "teamId": "5d3d701346e0fb0001e273d2",
+            "present": true,
+            "players": [
+                "Johannes Beck",
+                "Marcel Döring"
+            ]
+        },
+        {
+            "id": "0a658f85-afeb-4cb3-a784-8d53207df1c1",
+            "teamName": "Wendlingen 2",
+            "teamId": "5d3d701446e0fb0001e273ee",
+            "present": true,
+            "players": [
+                "Valentin Stegmaier",
+                "Kai Wandel"
+            ]
+        },
+        {
+            "id": "31ce9feb-decd-45f7-8b16-ea410e43817f",
+            "teamName": "Wendlingen 3",
+            "teamId": "5d3d701446e0fb0001e273f0",
+            "present": false,
+            "players": [
+                "Kevin Bee",
+                "Dennis Bee"
+            ]
+        },
+        {
+            "id": "75de3345-998f-42f9-a167-3ef1c8ece40a",
+            "teamName": "Bonlanden 2",
+            "teamId": "5d3d701346e0fb0001e273d4",
+            "present": true,
+            "players": [
+                "Mike Bühler",
+                "Cedric Wolfer"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Gärtringen 4",
+            "teamB": "Bonlanden 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 3",
+            "teamB": "Wendlingen 3",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Wendlingen 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 7,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Lauffen 1",
+            "teamB": "Bonlanden 2",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 6,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 3",
+            "teamB": "Bonlanden 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 4",
+            "teamB": "Wendlingen 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Wendlingen 3",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 3",
+            "teamB": "Bonlanden 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Lauffen 1",
+            "teamB": "Wendlingen 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 9,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Bonlanden 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 7,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Gärtringen 4",
+            "teamB": "Bonlanden 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 12,
+            "teamA": "Lauffen 1",
+            "teamB": "Wendlingen 3",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

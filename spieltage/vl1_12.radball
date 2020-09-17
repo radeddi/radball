@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "vl1",
+    "leagueLongName": "Verbandsliga Staffel I",
+    "number": 12,
+    "start": "2021-03-06T17:00:00.000Z",
+    "gym": {
+        "name": "Turnhalle im Höfle",
+        "street": "Schafgasse 10",
+        "zip": "71032",
+        "city": "Böblingen",
+        "phone": "0177-6109415"
+    },
+    "hostClub": "Böblingen",
+    "lastImport": "2020-09-07T07:30:24.175Z",
+    "teams": [
+        {
+            "name": "Böblingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gürtler, Marcel",
+                    "uciCode": "10036308393",
+                    "regular": true
+                },
+                {
+                    "name": "Gürtler, Florian",
+                    "uciCode": "10036276263",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Volk, Timo",
+                    "uciCode": "10036161075",
+                    "regular": true
+                },
+                {
+                    "name": "Volk, Nico",
+                    "uciCode": "10036151779",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weil im Schönbuch 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bühler, Jannick",
+                    "uciCode": "10036289906",
+                    "regular": true
+                },
+                {
+                    "name": "Leinich, Franz",
+                    "uciCode": "10036300010",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wahlenmeier, Kevin",
+                    "uciCode": "10036552210",
+                    "regular": true
+                },
+                {
+                    "name": "Haas, Mathias",
+                    "uciCode": "10036507447",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauffen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahn, Marius",
+                    "uciCode": "10036283640",
+                    "regular": true
+                },
+                {
+                    "name": "Storz, Florian",
+                    "uciCode": "10036316780",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "King, Jannic",
+                    "uciCode": "10036539476",
+                    "regular": true
+                },
+                {
+                    "name": "King, Maic",
+                    "uciCode": "10036558775",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Prechtal 3",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 2",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Lauffen 2",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Lauterbach 2",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Lauffen 2",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Prechtal 3",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Lauterbach 2",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Lauffen 2",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Lauterbach 2",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Hardt 2"
+        }
+    ]
+}

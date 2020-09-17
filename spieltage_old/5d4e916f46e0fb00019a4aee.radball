@@ -1,0 +1,169 @@
+{
+    "id": "5d4e916f46e0fb00019a4aee",
+    "number": 10,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2020-02-01T17:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Reichenbach/Fils",
+        "zip": "73262",
+        "street": "Schulstr. 40",
+        "phone": "07153-59448"
+    },
+    "teams": [
+        {
+            "id": "d282eedd-4b75-457a-8dc1-256765e82afa",
+            "teamName": "Ebersbach 3",
+            "teamId": "5d3d79e846e0fb0001448a51",
+            "present": true,
+            "players": [
+                "Johannes Berger",
+                "Sarah Urbanitsch"
+            ]
+        },
+        {
+            "id": "20359c5e-02ab-4b14-8439-ab1b76f71426",
+            "teamName": "Reichenbach 8",
+            "teamId": "5d3d79e846e0fb0001448a5b",
+            "present": true,
+            "players": [
+                "Ralph Kurle",
+                "Martin Röder"
+            ]
+        },
+        {
+            "id": "60cafd76-9f55-44dd-97fc-13ce1bc27182",
+            "teamName": "Reichenbach 9",
+            "teamId": "5d3d79e846e0fb0001448a5d",
+            "present": true,
+            "players": [
+                "Frank Brezina",
+                "Felix Bartl"
+            ]
+        },
+        {
+            "id": "6886da18-7861-41ea-a71c-7f09dbf18b40",
+            "teamName": "Nellingen 4",
+            "teamId": "5d3d79e846e0fb0001448a53",
+            "present": true,
+            "players": [
+                "Michael Federle",
+                "Thilo Schmid"
+            ]
+        },
+        {
+            "id": "add07284-f5ba-473f-a314-900149c8abf5",
+            "teamName": "Nellingen 5",
+            "teamId": "5d3d79e846e0fb0001448a55",
+            "present": true,
+            "players": [
+                "Nico Rogalski",
+                "Tobias Fröschle"
+            ]
+        },
+        {
+            "id": "7996cb08-bc42-407c-a835-8f347e0210ce",
+            "teamName": "Nellingen 6",
+            "teamId": "5d3d79e846e0fb0001448a57",
+            "present": true,
+            "players": [
+                "Kai-Uwe Schreiber",
+                "Sascha Schreiber"
+            ]
+        },
+        {
+            "id": "ed5ef63c-eb75-48e9-847d-ca8e1e2cf3fb",
+            "teamName": "Schwaikheim 5",
+            "teamId": "5d3d79e846e0fb0001448a65",
+            "present": true,
+            "players": [
+                "Florian Mayer",
+                "Philipp Leidner"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Nellingen 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Nellingen 6",
+            "teamB": "Ebersbach 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Nellingen 5",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Ebersbach 3",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Nellingen 6",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 8",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 7,
+            "teamA": "Reichenbach 9",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Ebersbach 3",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Nellingen 6",
+            "teamB": "Reichenbach 9"
+        },
+        {
+            "number": 10,
+            "teamA": "Reichenbach 8",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Reichenbach 9",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 12,
+            "teamA": "Nellingen 6",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 13,
+            "teamA": "Ebersbach 3",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 14,
+            "teamA": "Reichenbach 8",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 15,
+            "teamA": "Reichenbach 9",
+            "teamB": "Nellingen 5"
+        }
+    ],
+    "permissions": [
+        "TeamsRead",
+        "LeagueRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

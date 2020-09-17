@@ -1,0 +1,139 @@
+{
+    "id": "5d4d2b9c46e0fb00010d0c7f",
+    "number": 8,
+    "league": "5d3d715546e0fb0001e27497",
+    "leagueName": "Verbandsliga Staffel I",
+    "start": "2020-01-18T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "city": "Schramberg-Sulgen",
+        "zip": "78713",
+        "street": "Sulgauer Str. 7",
+        "phone": "0171 342 865 8"
+    },
+    "teams": [
+        {
+            "id": "90225192-bdf6-4d4c-8055-7d394a771004",
+            "teamName": "Böblingen 1",
+            "teamId": "5d3d715546e0fb0001e2749f",
+            "present": true,
+            "players": [
+                "Marcel Gürtler",
+                "Florian Gürtler"
+            ]
+        },
+        {
+            "id": "4b43943d-877f-4d92-976e-42a74df32ed2",
+            "teamName": "Sindelfingen 1",
+            "teamId": "5d3d715546e0fb0001e274ab",
+            "present": true,
+            "players": [
+                "Pawel Knapp",
+                "Jan Gutzke"
+            ]
+        },
+        {
+            "id": "7d6f7862-6678-49f0-b6f3-179b833b3f57",
+            "teamName": "Weil im Schönbuch 1",
+            "teamId": "5d3d715546e0fb0001e274af",
+            "present": true,
+            "players": [
+                "Jannick Bühler",
+                "Franz Leinich"
+            ]
+        },
+        {
+            "id": "33211823-7b53-432d-98e0-c77e08e652b0",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d715546e0fb0001e274a3",
+            "present": true,
+            "players": [
+                "Moritz Hundsdörfer",
+                "Mario Oexl"
+            ]
+        },
+        {
+            "id": "76410656-14f8-465e-8da4-43add43325a7",
+            "teamName": "Lauffen 2",
+            "teamId": "5d3d715546e0fb0001e274a5",
+            "present": true,
+            "players": [
+                "Marius Hahn",
+                "Florian Storz"
+            ]
+        },
+        {
+            "id": "2876068c-756b-490c-a280-779afe8a9b48",
+            "teamName": "Sulgen 2",
+            "teamId": "5d3d715546e0fb0001e274ad",
+            "present": true,
+            "players": [
+                "Jürgen Pfundstein",
+                "Stefan Kimmich"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Sulgen 2",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Böblingen 1",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Sulgen 2",
+            "teamB": "Sindelfingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Böblingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Böblingen 1",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Konstanz 1",
+            "teamB": "Sindelfingen 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

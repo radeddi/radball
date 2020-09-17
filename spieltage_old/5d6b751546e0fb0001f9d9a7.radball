@@ -1,0 +1,139 @@
+{
+    "id": "5d6b751546e0fb0001f9d9a7",
+    "number": 9,
+    "league": "5d3d74af46e0fb0001e2756c",
+    "leagueName": "Landesliga Staffel IV",
+    "start": "2020-02-01T17:00:00.000Z",
+    "gym": {
+        "name": "Gem.schule am Schillerpark",
+        "city": "Esslingen",
+        "zip": "73728",
+        "street": "Blumenstr. 10",
+        "phone": "0160-5313704"
+    },
+    "teams": [
+        {
+            "id": "1e9d425b-0212-45d4-a43e-e57227a990cf",
+            "teamName": "Gerlingen 1",
+            "teamId": "5d3d74af46e0fb0001e27578",
+            "present": true,
+            "players": [
+                "Frank Bedarf",
+                "Tobias Wagner"
+            ]
+        },
+        {
+            "id": "05346ef7-ae7b-4aa2-be9d-b822a72bc095",
+            "teamName": "Gerlingen 2",
+            "teamId": "5d3d74af46e0fb0001e2757a",
+            "present": true,
+            "players": [
+                "Stefan Rapp",
+                "Sebastian Katz"
+            ]
+        },
+        {
+            "id": "e0225948-2d36-495d-bc64-189aa58a86de",
+            "teamName": "Karlsruhe 2",
+            "teamId": "5d3d74af46e0fb0001e2757c",
+            "present": true,
+            "players": [
+                "Lukas Beckers",
+                "Florian Walter"
+            ]
+        },
+        {
+            "id": "6bc19ae2-70c9-429b-b671-aa190e645207",
+            "teamName": "Oberesslingen 4",
+            "teamId": "5d3d74af46e0fb0001e27580",
+            "present": true,
+            "players": [
+                "Daniel Hahn",
+                "Matthias Langbein"
+            ]
+        },
+        {
+            "id": "b5267dd3-c479-4f7b-8b6a-c35badb825fd",
+            "teamName": "Ersingen 1",
+            "teamId": "5d3d74af46e0fb0001e27570",
+            "present": true,
+            "players": [
+                "Hubert Harr",
+                "Ralf Scheier"
+            ]
+        },
+        {
+            "id": "ee6afc98-df49-4660-92eb-ece4bacf1e74",
+            "teamName": "Esslingen 2",
+            "teamId": "5d3d74af46e0fb0001e27572",
+            "present": true,
+            "players": [
+                "Kai Baumann",
+                "Florian Blaauwbroek"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ersingen 1",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Gerlingen 2",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Ersingen 1",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Esslingen 2",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Ersingen 1",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Gerlingen 2",
+            "teamB": "Oberesslingen 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Esslingen 2",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Ersingen 1",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Esslingen 2",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Oberesslingen 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "vl1",
+    "leagueLongName": "Verbandsliga Staffel I",
+    "number": 1,
+    "start": "2020-10-10T16:00:00.000Z",
+    "gym": {
+        "name": "Gemeindehaus",
+        "street": "Poststr.",
+        "zip": "78730",
+        "city": "Lauterbach",
+        "phone": ""
+    },
+    "hostClub": "Lauterbach",
+    "lastImport": "2020-09-07T07:30:15.835Z",
+    "teams": [
+        {
+            "name": "Ailingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Salomon, Pascal",
+                    "uciCode": "10036325167",
+                    "regular": true
+                },
+                {
+                    "name": "Blab, Matthias",
+                    "uciCode": "10036323551",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ailingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Braunger, Sven",
+                    "uciCode": "10036313750",
+                    "regular": true
+                },
+                {
+                    "name": "Braunger, Marco",
+                    "uciCode": "10036277879",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ailingen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Maier, Manuel",
+                    "uciCode": "10036318804",
+                    "regular": true
+                },
+                {
+                    "name": "Mayer, Patrick",
+                    "uciCode": "10036541092",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wahlenmeier, Kevin",
+                    "uciCode": "10036552210",
+                    "regular": true
+                },
+                {
+                    "name": "Haas, Mathias",
+                    "uciCode": "10036507447",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauffen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahn, Marius",
+                    "uciCode": "10036283640",
+                    "regular": true
+                },
+                {
+                    "name": "Storz, Florian",
+                    "uciCode": "10036316780",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "King, Jannic",
+                    "uciCode": "10036539476",
+                    "regular": true
+                },
+                {
+                    "name": "King, Maic",
+                    "uciCode": "10036558775",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 2",
+            "teamB": "Ailingen 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Ailingen 3",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Ailingen 4",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Ailingen 2",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 4",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Lauterbach 2",
+            "teamB": "Ailingen 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Ailingen 2",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Ailingen 4",
+            "teamB": "Lauffen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Ailingen 2",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 2",
+            "teamB": "Ailingen 3"
+        }
+    ]
+}

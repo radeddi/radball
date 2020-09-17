@@ -1,0 +1,129 @@
+{
+    "id": "5da9682d4cedfd00016f6c56",
+    "number": 6,
+    "league": "5d3d7bba46e0fb0001448b14",
+    "leagueName": "U17 Jugend Staffel I",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "city": "Schramberg-Sulgen",
+        "zip": "78713",
+        "street": "Sulgauer Str. 7",
+        "phone": "0171 342 865 8"
+    },
+    "teams": [
+        {
+            "id": "b3be7e7c-dc9f-4e2b-a8c5-b26134dd5385",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d7bba46e0fb0001448b1c",
+            "present": true,
+            "players": [
+                "Henrik Kern",
+                "Ricco Weißer"
+            ]
+        },
+        {
+            "id": "ee17c92d-275c-4ab3-95e4-05d1b4a98fa2",
+            "teamName": "SG Langenschiltach/Prechtal 2",
+            "teamId": "5d3d7bba46e0fb0001448b24",
+            "present": true,
+            "players": [
+                "Lasse Lützow",
+                "Niklas Joos"
+            ]
+        },
+        {
+            "id": "98d6182a-7eea-45ca-9ba3-cfeea15ae0f3",
+            "teamName": "Sulgen 1",
+            "teamId": "5d3d7bba46e0fb0001448b25",
+            "present": true,
+            "players": [
+                "Cedric Miseria",
+                "Mike Petri"
+            ]
+        },
+        {
+            "id": "fbcbeea9-41be-4054-ae7c-b632468b6f16",
+            "teamName": "Sulgen 2",
+            "teamId": "5d3d7bba46e0fb0001448b27",
+            "present": true,
+            "players": [
+                "Julian Hils",
+                "Maximilian Hug"
+            ]
+        },
+        {
+            "id": "870449db-a9ee-4598-9225-be894bf7ba8e",
+            "teamName": "Denkendorf 3",
+            "teamId": "5d3d7bba46e0fb0001448b16",
+            "present": true,
+            "players": [
+                "Leon Binder",
+                "Felix Bauer"
+            ]
+        },
+        {
+            "id": "da212aa0-142f-4e01-8735-d5d140bfb58a",
+            "teamName": "Reutlingen 1 a.K.",
+            "teamId": "5da968164cedfd00016f6c0b",
+            "present": true,
+            "players": [
+                "Leon Geiselhart",
+                "Jannik Schneider"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 2,
+            "teamA": "Sulgen 1",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Sulgen 2",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 5,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Sulgen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Sulgen 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 2",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 8,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Sulgen 1",
+            "teamB": "Reutlingen 1 a.K."
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "leagueShortName": "bk3",
+    "leagueLongName": "Bezirksliga Staffel III",
+    "number": 8,
+    "start": "2021-03-06T17:00:00.000Z",
+    "gym": {
+        "name": "Ballsporthalle",
+        "street": "Bergstr. 39-40",
+        "zip": "89168",
+        "city": "Niederstotzingen",
+        "phone": "07325-10276"
+    },
+    "hostClub": "Niederstotzingen",
+    "lastImport": "2020-08-30T08:44:34.591Z",
+    "teams": [
+        {
+            "name": "Ebersbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Berger, Johannes",
+                    "uciCode": "10036301525",
+                    "regular": true
+                },
+                {
+                    "name": "Urbanitsch, Sarah",
+                    "uciCode": "10036312740",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ebersbach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Berger, Mathias",
+                    "uciCode": "10036286266",
+                    "regular": true
+                },
+                {
+                    "name": "Stierl, Matthias",
+                    "uciCode": "10036305262",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schleifer, Jonas",
+                    "uciCode": "10045729218",
+                    "regular": true
+                },
+                {
+                    "name": "Guse, Silas",
+                    "uciCode": "10045746493",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Tobias",
+                    "uciCode": "",
+                    "regular": true
+                },
+                {
+                    "name": "Weisbarth, Matthias",
+                    "uciCode": "10045724770",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 8",
+            "present": true,
+            "players": [
+                {
+                    "name": "Brezina, Frank",
+                    "uciCode": "10036319208",
+                    "regular": true
+                },
+                {
+                    "name": "Bartl, Felix",
+                    "uciCode": "10036330019",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reutlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Mangold, Thomas",
+                    "uciCode": "10045739019",
+                    "regular": true
+                },
+                {
+                    "name": "Geiselhart, Leon",
+                    "uciCode": "10045715272",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Söflingen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schiml, Daniel",
+                    "uciCode": "10036310518",
+                    "regular": true
+                },
+                {
+                    "name": "Schick, Sven",
+                    "uciCode": "10036335978",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Heszler, Marvin",
+                    "uciCode": "10045717191",
+                    "regular": true
+                },
+                {
+                    "name": "Enderle, Sascha",
+                    "uciCode": "10045749426",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reichenbach 8",
+            "teamB": "Reutlingen 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Wendlingen 6"
+        },
+        {
+            "number": 3,
+            "teamA": "Niederstotzingen 3",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 4,
+            "teamA": "Reutlingen 2",
+            "teamB": "Söflingen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Ebersbach 1",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Ebersbach 2",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Reutlingen 2",
+            "teamB": "Wendlingen 6"
+        },
+        {
+            "number": 8,
+            "teamA": "Reichenbach 8",
+            "teamB": "Söflingen 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Ebersbach 1",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Reutlingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Ebersbach 2",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 12,
+            "teamA": "Ebersbach 1",
+            "teamB": "Wendlingen 6"
+        },
+        {
+            "number": 13,
+            "teamA": "Ebersbach 2",
+            "teamB": "Söflingen 5"
+        }
+    ]
+}

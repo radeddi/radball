@@ -1,0 +1,144 @@
+{
+    "id": "5d4e8c8146e0fb00015c9f21",
+    "number": 7,
+    "league": "5d3d747946e0fb00014489a8",
+    "leagueName": "Landesliga Staffel I",
+    "start": "2020-01-25T17:00:00.000Z",
+    "gym": {
+        "name": "Mehrzwecksporthalle Peterzell",
+        "city": "St. Georgen-Peterzell",
+        "zip": "78112",
+        "street": "Bärlochtalstr. 3",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "fa5354f7-7262-4869-a864-b886d797e944",
+            "teamName": "Hardt 3",
+            "teamId": "5d3d747946e0fb00014489aa",
+            "present": true,
+            "players": [
+                "David Hilser",
+                "Tim Fehrenbacher"
+            ]
+        },
+        {
+            "id": "c4347469-b829-4db7-a8e0-1c34ed968767",
+            "teamName": "Hardt 4",
+            "teamId": "5d3d747946e0fb00014489ac",
+            "present": true,
+            "players": [
+                "Thomas Broghammer",
+                "Markus Herzog"
+            ]
+        },
+        {
+            "id": "7157dda4-5e42-4ca8-849f-bfd918875311",
+            "teamName": "Hardt 5",
+            "teamId": "5d3d747946e0fb00014489ae",
+            "present": true,
+            "players": [
+                "Max Görlich",
+                "Markus Flaig"
+            ]
+        },
+        {
+            "id": "632bbe03-d94f-4f30-a6e7-2ba018faee7a",
+            "teamName": "Langenschiltach 1",
+            "teamId": "5d3d747946e0fb00014489b0",
+            "present": true,
+            "players": [
+                "Werner Schultheiss",
+                "Thomas Weißer"
+            ]
+        },
+        {
+            "id": "860a29de-f732-4a46-a378-35dc24386549",
+            "teamName": "Langenschiltach 2",
+            "teamId": "5d3d747946e0fb00014489b2",
+            "present": true,
+            "players": [
+                "Jonathan Davidsen",
+                "Lennart Baumann"
+            ]
+        },
+        {
+            "id": "3c8cf405-9fc3-4d15-979f-9989cfa6d418",
+            "teamName": "Langenschiltach 3",
+            "teamId": "5d3d747946e0fb00014489b4",
+            "present": true,
+            "players": [
+                "Christian Davidsen",
+                "Stefan Reuter"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 4",
+            "teamB": "Hardt 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 3",
+            "teamB": "Hardt 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 5",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 3",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 4",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 3",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Hardt 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 4",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 3",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 4",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Langenschiltach 2",
+            "teamB": "Hardt 5"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

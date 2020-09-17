@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll1",
+    "leagueLongName": "Landesliga Staffel I",
+    "number": 4,
+    "start": "2020-12-05T17:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "street": "Wehratalstr. 48",
+        "zip": "79664",
+        "city": "Wehr-Öflingen",
+        "phone": "07761-2577"
+    },
+    "hostClub": "Öflingen",
+    "lastImport": "2020-08-30T08:49:43.313Z",
+    "teams": [
+        {
+            "name": "SG Öflingen/Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Urich, Julian",
+                    "uciCode": "10036151981",
+                    "regular": true
+                },
+                {
+                    "name": "Buchner, Markus",
+                    "uciCode": "10036163095",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Buchner, Nico",
+                    "uciCode": "10036161782",
+                    "regular": true
+                },
+                {
+                    "name": "Kranz, Benedikt",
+                    "uciCode": "10036158651",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Langenschiltach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Davidsen, Christian",
+                    "uciCode": "10045746695",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Niklas",
+                    "uciCode": "10036511184",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Langenschiltach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Davidsen, Jonathan",
+                    "uciCode": "10045711636",
+                    "regular": true
+                },
+                {
+                    "name": "Baumann, Lennart",
+                    "uciCode": "10045748517",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Görlich, Max",
+                    "uciCode": "10036517046",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Markus",
+                    "uciCode": "10036543116",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hilser, David",
+                    "uciCode": "10036561809",
+                    "regular": true
+                },
+                {
+                    "name": "Fehrenbacher, Tim",
+                    "uciCode": "10036538466",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 3",
+            "teamB": "SG Öflingen/Wehr 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 5",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 3,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Wehr 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 5",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 3",
+            "teamB": "Wehr 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 5",
+            "teamB": "SG Öflingen/Wehr 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 3",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 5",
+            "teamB": "Wehr 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 3",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Wehr 1",
+            "teamB": "Langenschiltach 1"
+        }
+    ]
+}

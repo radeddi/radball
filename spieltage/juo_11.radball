@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "juo",
+    "leagueLongName": "U19O Junioren-Oberliga",
+    "number": 11,
+    "start": "2021-01-23T13:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "street": "Steingrubenweg",
+        "zip": "71116",
+        "city": "Gärtringen",
+        "phone": "0173-9457977"
+    },
+    "hostClub": "Gärtringen",
+    "lastImport": "2020-09-07T07:45:58.638Z",
+    "teams": [
+        {
+            "name": "Gärtringen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Luis",
+                    "uciCode": "10048358322",
+                    "regular": true
+                },
+                {
+                    "name": "Ferrari, Loris",
+                    "uciCode": "10048359231",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gärtringen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Ganser, Till",
+                    "uciCode": "10036295057",
+                    "regular": true
+                },
+                {
+                    "name": "Quast, Nico",
+                    "uciCode": "10048357918",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Nas, Tarik",
+                    "uciCode": "10036324763",
+                    "regular": true
+                },
+                {
+                    "name": "Bracht, Moritz",
+                    "uciCode": "10036313346",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wallbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Stocker, Lukas",
+                    "uciCode": "10036169765",
+                    "regular": true
+                },
+                {
+                    "name": "Schrott, Mika",
+                    "uciCode": "10036169664",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Öflingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Huber, Marc",
+                    "uciCode": "10036164412",
+                    "regular": true
+                },
+                {
+                    "name": "Schubach, Moritz",
+                    "uciCode": "10036165725",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Petersohn, Max",
+                    "uciCode": "10048483917",
+                    "regular": true
+                },
+                {
+                    "name": "Gecer, Kenan",
+                    "uciCode": "10048391058",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Forst 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 2",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Forst 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Forst 1",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Gärtringen 1",
+            "teamB": "Forst 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Wallbach 1",
+            "teamB": "Gärtringen 2"
+        }
+    ]
+}

@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "sa2",
+    "leagueLongName": "U15 Schüler A Staffel II",
+    "number": 10,
+    "start": "2021-02-27T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Langenbachstr. 16",
+        "zip": "71522",
+        "city": "Backnang Waldrems",
+        "phone": "07191-86957"
+    },
+    "hostClub": "Waldrems",
+    "lastImport": "2020-08-31T14:47:58.942Z",
+    "teams": [
+        {
+            "name": "Graben 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Scholl, Nico",
+                    "uciCode": "10064568739",
+                    "regular": true
+                },
+                {
+                    "name": "Vollmer, Julian",
+                    "uciCode": "10084604693",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wimsheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bernhagen, Mattis",
+                    "uciCode": "10084245086",
+                    "regular": true
+                },
+                {
+                    "name": "Rapp, Jeremi",
+                    "uciCode": "10084247110",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Nägelein, Tom",
+                    "uciCode": "10086992917",
+                    "regular": true
+                },
+                {
+                    "name": "Patzelt, Lean",
+                    "uciCode": "10072417150",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lange, Noah Maxim",
+                    "uciCode": "10045712646",
+                    "regular": true
+                },
+                {
+                    "name": "Förster, Jakob",
+                    "uciCode": "10045712343",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hofen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schiele, Lars",
+                    "uciCode": "10053700190",
+                    "regular": true
+                },
+                {
+                    "name": "Rettenmeier, Theo",
+                    "uciCode": "10053700800",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Junginger, Mathis",
+                    "uciCode": "10073994917",
+                    "regular": true
+                },
+                {
+                    "name": "Linder, Tobias",
+                    "uciCode": "10096949056",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Wendlingen 1",
+            "teamB": "Graben 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Wimsheim 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Wendlingen 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Graben 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Wendlingen 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Graben 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Wendlingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Graben 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Waldrems 1",
+            "teamB": "Wimsheim 1"
+        }
+    ]
+}

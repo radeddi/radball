@@ -1,0 +1,149 @@
+{
+    "id": "5df74b1e4cedfd0001e02c73",
+    "number": 7,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2020-01-18T17:00:00.000Z",
+    "gym": {
+        "name": "Marktschulturnhalle",
+        "city": "Ebersbach",
+        "zip": "73061",
+        "street": "Hauptstr. 36",
+        "phone": "07163-161-2645"
+    },
+    "teams": [
+        {
+            "id": "669036c0-87ef-44d8-a75c-f8afaed37f77",
+            "teamName": "Ebersbach 3",
+            "teamId": "5d3d79e846e0fb0001448a51",
+            "present": true,
+            "players": [
+                "Johannes Berger",
+                "Sarah Urbanitsch"
+            ]
+        },
+        {
+            "id": "ee0e3c19-38ed-47f9-b7c3-43b015011f7d",
+            "teamName": "Reichenbach 8",
+            "teamId": "5d3d79e846e0fb0001448a5b",
+            "present": true,
+            "players": [
+                "Ralph Kurle",
+                "Martin Röder"
+            ]
+        },
+        {
+            "id": "d226d5f3-5ede-414b-9922-f89671943733",
+            "teamName": "Reichenbach 9",
+            "teamId": "5d3d79e846e0fb0001448a5d",
+            "present": true,
+            "players": [
+                "Frank Brezina",
+                "Felix Bartl"
+            ]
+        },
+        {
+            "id": "89d2de97-4598-4914-84ce-e8b454c1ead5",
+            "teamName": "Schwäbisch Gmünd 2",
+            "teamId": "5d3d79e846e0fb0001448a5f",
+            "present": true,
+            "players": [
+                "Daniel Gamber",
+                "Stefan Bläse"
+            ]
+        },
+        {
+            "id": "eecb80d1-6f2b-4670-9cf4-4e919045e84b",
+            "teamName": "Schwäbisch Gmünd 3",
+            "teamId": "5d3d79e846e0fb0001448a61",
+            "present": true,
+            "players": [
+                "Andreas Feiler",
+                "Paul Botsch"
+            ]
+        },
+        {
+            "id": "127290e3-c71e-4138-ab45-03659b663e94",
+            "teamName": "Schwäbisch Gmünd 4",
+            "teamId": "5d3d79e846e0fb0001448a63",
+            "present": true,
+            "players": [
+                "Florian Dangelmaier",
+                "Martin Khoeiklang"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Schwäbisch Gmünd 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Ebersbach 3",
+            "teamB": "Reichenbach 9"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Reichenbach 9"
+        },
+        {
+            "number": 5,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Ebersbach 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwäbisch Gmünd 4",
+            "teamB": "Reichenbach 9"
+        },
+        {
+            "number": 8,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Ebersbach 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 10,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Reichenbach 9"
+        },
+        {
+            "number": 11,
+            "teamA": "Schwäbisch Gmünd 2",
+            "teamB": "Ebersbach 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Reichenbach 9",
+            "teamB": "Reichenbach 8"
+        },
+        {
+            "number": 13,
+            "teamA": "Schwäbisch Gmünd 3",
+            "teamB": "Schwäbisch Gmünd 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

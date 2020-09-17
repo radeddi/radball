@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ju1",
+    "leagueLongName": "U19 Junioren Staffel I",
+    "number": 5,
+    "start": "2020-11-14T14:00:00.000Z",
+    "gym": {
+        "name": "Zelgturnhalle",
+        "street": "Zelgstr. 39a",
+        "zip": "79664",
+        "city": "Wehr",
+        "phone": "07762-7088916"
+    },
+    "hostClub": "Wehr",
+    "lastImport": "2020-08-31T14:02:22.822Z",
+    "teams": [
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hildbrand, Paul",
+                    "uciCode": "10036507346",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Lucas",
+                    "uciCode": "10036537557",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Buchner, Simon",
+                    "uciCode": "10036153395",
+                    "regular": true
+                },
+                {
+                    "name": "Kranz, Nikolas",
+                    "uciCode": "10036160469",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Merklingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rebs, Florian",
+                    "uciCode": "10036312134",
+                    "regular": true
+                },
+                {
+                    "name": "Breitling, Niklas",
+                    "uciCode": "10036327692",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lang, Jannik",
+                    "uciCode": "10036321026",
+                    "regular": true
+                },
+                {
+                    "name": "Schneider, Mathias",
+                    "uciCode": "10036291017",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Binder, Leon",
+                    "uciCode": "10050910028",
+                    "regular": true
+                },
+                {
+                    "name": "Bauer, Felix",
+                    "uciCode": "10050780490",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "SK Stuttgart 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lindenmaier, Lars",
+                    "uciCode": "10036317891",
+                    "regular": true
+                },
+                {
+                    "name": "Benk, Samuel",
+                    "uciCode": "10036343860",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Denkendorf 2",
+            "teamB": "SK Stuttgart 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Wehr 1",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 2",
+            "teamB": "Wehr 1"
+        },
+        {
+            "number": 5,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 2",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Wehr 1",
+            "teamB": "Denkendorf 1"
+        },
+        {
+            "number": 8,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 10,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Wehr 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Merklingen 1",
+            "teamB": "Denkendorf 1"
+        }
+    ]
+}

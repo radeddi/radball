@@ -1,0 +1,139 @@
+{
+    "id": "5d5ba4d846e0fb00014115ae",
+    "number": 10,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2020-01-25T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Backnang Waldrems",
+        "zip": "71522",
+        "street": "Langenbachstr. 16",
+        "phone": "07191-86957"
+    },
+    "teams": [
+        {
+            "id": "bb37e4b4-1b77-4950-879a-6f64261e6a03",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7b6c46e0fb0001448af6",
+            "present": true,
+            "players": [
+                "Jan Österle",
+                "Marco Gross"
+            ]
+        },
+        {
+            "id": "8bc76a95-077a-4226-866e-c875175e321e",
+            "teamName": "Alpirsbach 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae5",
+            "present": true,
+            "players": [
+                "Moritz Klemm",
+                "Jonas Kaltenbach"
+            ]
+        },
+        {
+            "id": "3abcf98b-871e-44d3-9cc6-03e137bda40c",
+            "teamName": "Denkendorf 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae7",
+            "present": true,
+            "players": [
+                "David Endriss",
+                "Leonard Hartmann"
+            ]
+        },
+        {
+            "id": "d4f27091-56b0-41b7-9765-9a5495b99dad",
+            "teamName": "Kemnat 1",
+            "teamId": "5d3d7b6c46e0fb0001448aed",
+            "present": true,
+            "players": [
+                "Maximilian Schwarz",
+                "Florenc Rapp"
+            ]
+        },
+        {
+            "id": "92c30f59-629b-4747-83b2-eedcd76c353e",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7b6c46e0fb0001448aeb",
+            "present": true,
+            "players": [
+                "David Egl",
+                "Silas Öhlert"
+            ]
+        },
+        {
+            "id": "f7755ee2-2f80-4f83-98c1-37a375be53f2",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448af3",
+            "present": true,
+            "players": [
+                "Nils Guse",
+                "Jonathan Ben Hartmann"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Waldrems 1",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Kemnat 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Waldrems 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Waldrems 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Kemnat 1",
+            "teamB": "Denkendorf 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Waldrems 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Hofen 1",
+            "teamB": "Denkendorf 1"
+        }
+    ],
+    "permissions": [
+        "MatchdayRead",
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead"
+    ]
+}

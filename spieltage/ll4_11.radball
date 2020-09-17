@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll4",
+    "leagueLongName": "Landesliga Staffel IV",
+    "number": 11,
+    "start": "2021-03-13T17:00:00.000Z",
+    "gym": {
+        "name": "Sport- und Festhalle Kieselbronn",
+        "street": "Eutinger Straße",
+        "zip": "75249",
+        "city": "Kieselbronn",
+        "phone": "0171 540 5374"
+    },
+    "hostClub": "Kieselbronn",
+    "lastImport": "2020-09-07T07:40:37.497Z",
+    "teams": [
+        {
+            "name": "Enzberg 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Burkhard, Fabian",
+                    "uciCode": "10036404686",
+                    "regular": true
+                },
+                {
+                    "name": "Goll, Patrick",
+                    "uciCode": "10036410649",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ersingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Harr, Hubert",
+                    "uciCode": "10043835900",
+                    "regular": true
+                },
+                {
+                    "name": "Scheier, Ralf",
+                    "uciCode": "10043826604",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Merklingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfäffle, Julian",
+                    "uciCode": "10036345476",
+                    "regular": true
+                },
+                {
+                    "name": "Buess, Lukas",
+                    "uciCode": "10036283034",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kieselbronn 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Dürrwächter, German",
+                    "uciCode": "10036407215",
+                    "regular": true
+                },
+                {
+                    "name": "Burger, Martin",
+                    "uciCode": "10036415093",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kieselbronn 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahn, Knut",
+                    "uciCode": "10036403373",
+                    "regular": true
+                },
+                {
+                    "name": "Häußermann, Timo",
+                    "uciCode": "10036410750",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beste, Paul",
+                    "uciCode": "10015525943",
+                    "regular": true
+                },
+                {
+                    "name": "Kreimes, Alan",
+                    "uciCode": "10048394492",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Merklingen 2",
+            "teamB": "Enzberg 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Forst 2",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Ersingen 1",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Merklingen 2",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Enzberg 1",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Merklingen 2",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Forst 2",
+            "teamB": "Ersingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Enzberg 1",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Merklingen 2",
+            "teamB": "Kieselbronn 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Enzberg 1",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Ersingen 1"
+        }
+    ]
+}

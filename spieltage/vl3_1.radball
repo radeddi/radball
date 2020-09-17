@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "vl3",
+    "leagueLongName": "Verbandsliga Staffel III",
+    "number": 1,
+    "start": "2020-10-10T16:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Langenbachstr. 16",
+        "zip": "71522",
+        "city": "Backnang Waldrems",
+        "phone": "07191-86957"
+    },
+    "hostClub": "Waldrems",
+    "lastImport": "2020-08-30T08:45:46.332Z",
+    "teams": [
+        {
+            "name": "Oberesslingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Theilinger, Markus",
+                    "uciCode": "10036308902",
+                    "regular": true
+                },
+                {
+                    "name": "Bläsi, Philipp",
+                    "uciCode": "10036278384",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Paxian, Jakob Felix",
+                    "uciCode": "10036299101",
+                    "regular": true
+                },
+                {
+                    "name": "Lutz, Manuel",
+                    "uciCode": "10036344264",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weller, Markus",
+                    "uciCode": "10036339416",
+                    "regular": true
+                },
+                {
+                    "name": "Schneider, Matthias",
+                    "uciCode": "10036287579",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Baumann, Jonas",
+                    "uciCode": "10036331837",
+                    "regular": true
+                },
+                {
+                    "name": "Mangold, Stefan",
+                    "uciCode": "10036340729",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fritsch, Dennis",
+                    "uciCode": "10045749628",
+                    "regular": true
+                },
+                {
+                    "name": "Welday, Kebron",
+                    "uciCode": "10045748416",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wendlingen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wannek, Julian",
+                    "uciCode": "10048350238",
+                    "regular": true
+                },
+                {
+                    "name": "Till, Lukas",
+                    "uciCode": "10045719518",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Wendlingen 4",
+            "teamB": "Wendlingen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Waldrems 5"
+        },
+        {
+            "number": 3,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Wendlingen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Waldrems 5",
+            "teamB": "Wendlingen 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Wendlingen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Wendlingen 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Waldrems 5",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Wendlingen 5"
+        },
+        {
+            "number": 11,
+            "teamA": "Waldrems 5",
+            "teamB": "Wendlingen 4"
+        }
+    ]
+}

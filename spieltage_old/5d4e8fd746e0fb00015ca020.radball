@@ -1,0 +1,139 @@
+{
+    "id": "5d4e8fd746e0fb00015ca020",
+    "number": 11,
+    "league": "5d3d79c346e0fb00014489f9",
+    "leagueName": "Bezirksliga Staffel I",
+    "start": "2020-02-15T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- u. Festhalle Lauffen",
+        "city": "Deisslingen",
+        "zip": "78652",
+        "street": "Bäumlesweg 7",
+        "phone": "07420-93780"
+    },
+    "teams": [
+        {
+            "id": "b0560219-5769-4231-b7f8-512d377bd8a1",
+            "teamName": "Konstanz 2",
+            "teamId": "5d3d79c346e0fb0001448a03",
+            "present": true,
+            "players": [
+                "Christoph Gutjahr",
+                "Maximilian Gattung"
+            ]
+        },
+        {
+            "id": "edd0fb7d-bd85-4fe8-bb22-d6717ced1225",
+            "teamName": "Schwenningen 1",
+            "teamId": "5d3d79c346e0fb0001448a0b",
+            "present": true,
+            "players": [
+                "Thomas Pfister",
+                "Dirk Schuhbauer"
+            ]
+        },
+        {
+            "id": "88e2147f-a52b-499f-bf45-e0894e9ce2a7",
+            "teamName": "Schwenningen 2",
+            "teamId": "5d3d79c346e0fb0001448a0d",
+            "present": true,
+            "players": [
+                "Harald Brugger",
+                "Hansi Schurer"
+            ]
+        },
+        {
+            "id": "7cd62fa0-924c-4346-8328-4e5f30e793ad",
+            "teamName": "Langenschiltach 4",
+            "teamId": "5d3d79c346e0fb0001448a05",
+            "present": true,
+            "players": [
+                "Christoph Weißer",
+                "Jürgen Oehl"
+            ]
+        },
+        {
+            "id": "f8ee1cb7-bb18-4c9c-b719-c860dc45eb7e",
+            "teamName": "Sulgen 7",
+            "teamId": "5d3d79c346e0fb0001448a0f",
+            "present": true,
+            "players": [
+                "Patrick Klausmann",
+                "Patrick Ehrmann"
+            ]
+        },
+        {
+            "id": "80e960ef-bd60-44f5-b391-adf188311d00",
+            "teamName": "Sulgen 8",
+            "teamId": "5d3d79c346e0fb0001448a11",
+            "present": true,
+            "players": [
+                "Torsten Seiler",
+                "Michael Schmid"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwenningen 2",
+            "teamB": "Konstanz 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Sulgen 8",
+            "teamB": "Langenschiltach 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwenningen 1",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwenningen 2",
+            "teamB": "Sulgen 8"
+        },
+        {
+            "number": 5,
+            "teamA": "Konstanz 2",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwenningen 2",
+            "teamB": "Langenschiltach 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Sulgen 8",
+            "teamB": "Schwenningen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Konstanz 2",
+            "teamB": "Langenschiltach 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Schwenningen 2",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 10,
+            "teamA": "Konstanz 2",
+            "teamB": "Sulgen 8"
+        },
+        {
+            "number": 11,
+            "teamA": "Langenschiltach 4",
+            "teamB": "Schwenningen 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

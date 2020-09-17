@@ -1,0 +1,184 @@
+{
+    "id": "5da6cd1c46e0fb0001f7264d",
+    "number": 5,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2019-11-09T17:00:00.000Z",
+    "gym": {
+        "name": "Steinberghalle",
+        "city": "Elzach-Prechtal",
+        "zip": "79215",
+        "street": "Schrahöfe",
+        "phone": "07682-1707"
+    },
+    "teams": [
+        {
+            "id": "c9f552da-7ca6-4016-96c1-4ef3289d5b1f",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d701446e0fb0001e273e6",
+            "present": true,
+            "players": [
+                "Simon Wisser",
+                "Patrick Volk"
+            ]
+        },
+        {
+            "id": "47066c37-1e3d-46e9-999b-d6eda092410d",
+            "teamName": "Prechtal 3",
+            "teamId": "5d3d701446e0fb0001e273e8",
+            "present": true,
+            "players": [
+                "Dominik Becherer",
+                "Claudius Holzer"
+            ]
+        },
+        {
+            "id": "496c320c-80e4-470e-ac7e-abcbdd43ddb2",
+            "teamName": "Kemnat 3",
+            "teamId": "5d3d701446e0fb0001e273e2",
+            "present": false,
+            "players": [
+                "Jonas Balz",
+                "Dominik Schmidt"
+            ]
+        },
+        {
+            "id": "5da58571-8f6c-4e18-b2aa-718cb1e66718",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d701446e0fb0001e273e0",
+            "present": true,
+            "players": [
+                "Manuel Fröschle",
+                "Florian Fröschle"
+            ]
+        },
+        {
+            "id": "56a7ea7b-49de-4d15-9a63-de34e2caa55b",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d701446e0fb0001e273de",
+            "present": true,
+            "players": [
+                "Mathias Müller",
+                "Florian Müller"
+            ]
+        },
+        {
+            "id": "b665c424-b855-4aad-9f4c-8cfe5206cffd",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d701346e0fb0001e273d6",
+            "present": true,
+            "players": [
+                "Sascha Henn",
+                "Simon Eberhardt-Schneider"
+            ]
+        },
+        {
+            "id": "873b1fc1-ae2f-493a-b2f5-3c9014a61055",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d701446e0fb0001e273ea",
+            "present": true,
+            "players": [
+                "Daniel Villwock",
+                "Sebastian Seeber"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 3",
+            "teamB": "Kemnat 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 7,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 1",
+            "teamB": "Reichenbach 3",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 2",
+            "teamB": "Kemnat 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 3",
+            "teamB": "Denkendorf 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 3",
+            "teamB": "Reichenbach 3",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 2",
+            "teamB": "Kemnat 3",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Denkendorf 2",
+            "teamB": "Reichenbach 3",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Kemnat 2",
+            "teamB": "Hardt 1",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Prechtal 3",
+            "teamB": "Kemnat 3",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

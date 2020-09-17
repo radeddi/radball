@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "vl2",
+    "leagueLongName": "Verbandsliga Staffel II",
+    "number": 1,
+    "start": "2020-10-10T16:00:00.000Z",
+    "gym": {
+        "name": "Seefällehalle gegenüber Fildorado",
+        "street": "Mahlestr. 60",
+        "zip": "70794",
+        "city": "Filderstadt",
+        "phone": "0711-9972275"
+    },
+    "hostClub": "Bonlanden",
+    "lastImport": "2020-09-02T08:20:53.842Z",
+    "teams": [
+        {
+            "name": "Bonlanden 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Born, Daniel",
+                    "uciCode": "10036330928",
+                    "regular": true
+                },
+                {
+                    "name": "Schondorff, Sebastian",
+                    "uciCode": "10036335574",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Christian",
+                    "uciCode": "10036314558",
+                    "regular": true
+                },
+                {
+                    "name": "Bayer, Moritz",
+                    "uciCode": "10036277677",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Faiß, Gerald",
+                    "uciCode": "10055920177",
+                    "regular": true
+                },
+                {
+                    "name": "Spangenberg, Andreas",
+                    "uciCode": "10048395607",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Karlsruhe 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beckers, Robin",
+                    "uciCode": "10043799726",
+                    "regular": true
+                },
+                {
+                    "name": "Noack, Florian",
+                    "uciCode": "10043828220",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Karlsruhe 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beckers, Lukas",
+                    "uciCode": "10043811345",
+                    "regular": true
+                },
+                {
+                    "name": "Lang, Lukas",
+                    "uciCode": "10043820843",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Leimen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Doroftei, Dorian",
+                    "uciCode": "10036165624",
+                    "regular": true
+                },
+                {
+                    "name": "Junkert, Jürgen",
+                    "uciCode": "10036166129",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Bonlanden 3",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Forst 1",
+            "teamB": "Leimen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Bonlanden 3",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Denkendorf 4",
+            "teamB": "Leimen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Bonlanden 3",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Forst 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Denkendorf 4",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Bonlanden 3",
+            "teamB": "Leimen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 4",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Forst 1"
+        }
+    ]
+}

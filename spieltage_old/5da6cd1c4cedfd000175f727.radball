@@ -1,0 +1,184 @@
+{
+    "id": "5da6cd1c4cedfd000175f727",
+    "number": 7,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2019-11-23T17:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "city": "Gärtringen",
+        "zip": "71116",
+        "street": "Steingrubenweg",
+        "phone": "0173-9457977"
+    },
+    "teams": [
+        {
+            "id": "9c77e738-e5ad-4004-9821-3a72c7ee5dd1",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d701446e0fb0001e273e6",
+            "present": true,
+            "players": [
+                "Simon Wisser",
+                "Patrick Volk"
+            ]
+        },
+        {
+            "id": "b040e3ef-8c35-4b12-b084-9b1b5da69321",
+            "teamName": "Prechtal 3",
+            "teamId": "5d3d701446e0fb0001e273e8",
+            "present": true,
+            "players": [
+                "Dominik Becherer",
+                "Claudius Holzer"
+            ]
+        },
+        {
+            "id": "76f229a2-742c-4e5a-9738-06bc1cabdcc8",
+            "teamName": "Gärtringen 3",
+            "teamId": "5d3d701446e0fb0001e273da",
+            "present": true,
+            "players": [
+                "Gunther Schmid",
+                "Michael Posedi"
+            ]
+        },
+        {
+            "id": "d5984991-281a-4440-b1cb-d8fdd320c6fd",
+            "teamName": "Reichenbach 3",
+            "teamId": "5d3d701446e0fb0001e273ea",
+            "present": true,
+            "players": [
+                "Daniel Villwock",
+                "Sebastian Seeber"
+            ]
+        },
+        {
+            "id": "688e48e5-4812-44dd-865e-e443a74c9d56",
+            "teamName": "Gärtringen 4",
+            "teamId": "5d3d701446e0fb0001e273dc",
+            "present": true,
+            "players": [
+                "Simon Becker",
+                "Jannes Müller"
+            ]
+        },
+        {
+            "id": "26aab586-c311-4610-a2ba-bb8e7859acc6",
+            "teamName": "Wendlingen 2",
+            "teamId": "5d3d701446e0fb0001e273ee",
+            "present": true,
+            "players": [
+                "Valentin Stegmaier",
+                "Kai Wandel"
+            ]
+        },
+        {
+            "id": "5cf10540-8bda-43f5-9153-ff8cc0f13fb4",
+            "teamName": "Wendlingen 3",
+            "teamId": "5d3d701446e0fb0001e273f0",
+            "present": true,
+            "players": [
+                "Kevin Bee",
+                "Dennis Bee"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 2",
+            "teamB": "Reichenbach 3",
+            "score": {
+                "goalsA": 9,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Prechtal 3",
+            "teamB": "Wendlingen 3",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 3",
+            "teamB": "Wendlingen 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 3",
+            "teamB": "Gärtringen 4",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 2",
+            "teamB": "Wendlingen 3",
+            "score": {
+                "goalsA": 8,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 3",
+            "teamB": "Wendlingen 2",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 3",
+            "teamB": "Reichenbach 3",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 4",
+            "teamB": "Wendlingen 3",
+            "score": {
+                "goalsA": 2,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Prechtal 2",
+            "teamB": "Wendlingen 2",
+            "score": {
+                "goalsA": 7,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

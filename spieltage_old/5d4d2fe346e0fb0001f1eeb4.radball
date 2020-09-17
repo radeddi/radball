@@ -1,0 +1,139 @@
+{
+    "id": "5d4d2fe346e0fb0001f1eeb4",
+    "number": 6,
+    "league": "5d3d717746e0fb000144897f",
+    "leagueName": "Verbandsliga Staffel III",
+    "start": "2020-01-18T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Versammlungshalle",
+        "city": "Esslingen",
+        "zip": "73730",
+        "street": "Schorndorfer Str. 48",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "c09099b6-6dae-4565-89b1-a41696bed824",
+            "teamName": "Oberesslingen 2",
+            "teamId": "5d3d717746e0fb0001448987",
+            "present": true,
+            "players": [
+                "Markus Theilinger",
+                "Philipp Bläsi"
+            ]
+        },
+        {
+            "id": "35393886-22e0-4b47-8792-25a8f39ce643",
+            "teamName": "Oberesslingen 3",
+            "teamId": "5d3d717746e0fb0001448989",
+            "present": true,
+            "players": [
+                "Jakob Felix Paxian",
+                "Lucas Nitsche"
+            ]
+        },
+        {
+            "id": "3cb1fa23-f19f-45d4-bef3-7471abe7907d",
+            "teamName": "Esslingen 1",
+            "teamId": "5d3d717746e0fb0001448981",
+            "present": true,
+            "players": [
+                "Matthias Seybold",
+                "Harald Höflich"
+            ]
+        },
+        {
+            "id": "6eebde7c-7dc2-4465-99f4-0a1229b1f07b",
+            "teamName": "Waldrems 5",
+            "teamId": "5d3d717746e0fb0001448993",
+            "present": true,
+            "players": [
+                "Markus Weller",
+                "Matthias Schneider"
+            ]
+        },
+        {
+            "id": "554f7f45-2843-4634-9314-f570af61fb1b",
+            "teamName": "Waldrems 4",
+            "teamId": "5d3d717746e0fb0001448991",
+            "present": true,
+            "players": [
+                "Andreas Bertsch",
+                "Christian Frey"
+            ]
+        },
+        {
+            "id": "92c721ac-13f2-427a-badb-a0b3904a151b",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d717746e0fb0001448983",
+            "present": true,
+            "players": [
+                "Dennis Berner",
+                "Magnus Öhlert"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Esslingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 4",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Waldrems 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Waldrems 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Esslingen 1",
+            "teamB": "Waldrems 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 4",
+            "teamB": "Oberesslingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Esslingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Waldrems 5"
+        },
+        {
+            "number": 10,
+            "teamA": "Esslingen 1",
+            "teamB": "Waldrems 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Hofen 1",
+            "teamB": "Oberesslingen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

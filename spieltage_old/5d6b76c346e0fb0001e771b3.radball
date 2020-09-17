@@ -1,0 +1,139 @@
+{
+    "id": "5d6b76c346e0fb0001e771b3",
+    "number": 10,
+    "league": "5d3d7ab046e0fb0001e275d3",
+    "leagueName": "U19O Junioren-Oberliga",
+    "start": "2020-01-25T14:00:00.000Z",
+    "gym": {
+        "name": "Sporthalle Kemnat",
+        "city": "Ostfildern",
+        "zip": "73760",
+        "street": "Haldenstr. 42",
+        "phone": "01779 777876"
+    },
+    "teams": [
+        {
+            "id": "a0586cd5-b50f-4328-acdd-737f082f315f",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7ab046e0fb0001e275d5",
+            "present": true,
+            "players": [
+                "Luis Müller",
+                "Loris Ferrari"
+            ]
+        },
+        {
+            "id": "92f0f3a9-fc60-4f9d-92b7-1af08c4b983a",
+            "teamName": "Gärtringen 2",
+            "teamId": "5d3d7ab046e0fb0001e275d7",
+            "present": true,
+            "players": [
+                "Till Ganser",
+                "Nico Quast"
+            ]
+        },
+        {
+            "id": "c5eb0b98-3b0c-4e05-9e78-632f2e32b588",
+            "teamName": "Lauffen 1",
+            "teamId": "5d3d7ab046e0fb0001e275dd",
+            "present": true,
+            "players": [
+                "Paul Fischer",
+                "Tom Fischer"
+            ]
+        },
+        {
+            "id": "db44de3d-8e5f-463c-9f5e-29ca6127c127",
+            "teamName": "Kemnat 1",
+            "teamId": "5d3d7ab046e0fb0001e275d9",
+            "present": true,
+            "players": [
+                "Chris Rapp",
+                "Robin Bluthardt"
+            ]
+        },
+        {
+            "id": "2fd99e19-b810-4adf-8b57-5992034914b3",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d7ab046e0fb0001e275db",
+            "present": true,
+            "players": [
+                "Giuliano Klatt",
+                "Luca Spreter"
+            ]
+        },
+        {
+            "id": "b64b5780-050a-4694-8c79-6fdc9b3ecba3",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7ab046e0fb0001e275e7",
+            "present": true,
+            "players": [
+                "Marc Schuch",
+                "Felix Thamm"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kemnat 2",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 2",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Kemnat 1",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 2",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 1",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Kemnat 2",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 2",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Reichenbach 1",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Kemnat 2",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Reichenbach 1",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Lauffen 1",
+            "teamB": "Kemnat 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

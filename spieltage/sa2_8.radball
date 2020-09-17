@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "sa2",
+    "leagueLongName": "U15 Schüler A Staffel II",
+    "number": 8,
+    "start": "2021-01-16T14:00:00.000Z",
+    "gym": {
+        "name": "Löcherhaldenturnhalle",
+        "street": "Löcherhaldenstr. 36",
+        "zip": "73770",
+        "city": "Denkendorf",
+        "phone": "0711-9348755"
+    },
+    "hostClub": "Denkendorf",
+    "lastImport": "2020-08-31T14:47:57.101Z",
+    "teams": [
+        {
+            "name": "SK Stuttgart 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Krauter, Ole",
+                    "uciCode": "10084042093",
+                    "regular": true
+                },
+                {
+                    "name": "Mozic, Lennard",
+                    "uciCode": "10084043713",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Luik, Michael",
+                    "uciCode": "10036279600",
+                    "regular": true
+                },
+                {
+                    "name": "Lichy, Mick",
+                    "uciCode": "10084605101",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Teichmann, Henri",
+                    "uciCode": "10053701507",
+                    "regular": true
+                },
+                {
+                    "name": "Wittchen, Niklas",
+                    "uciCode": "10053700901",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lange, Noah Maxim",
+                    "uciCode": "10045712646",
+                    "regular": true
+                },
+                {
+                    "name": "Förster, Jakob",
+                    "uciCode": "10045712343",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hofen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schiele, Lars",
+                    "uciCode": "10053700190",
+                    "regular": true
+                },
+                {
+                    "name": "Rettenmeier, Theo",
+                    "uciCode": "10053700800",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Junginger, Mathis",
+                    "uciCode": "10073994917",
+                    "regular": true
+                },
+                {
+                    "name": "Linder, Tobias",
+                    "uciCode": "10096949056",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Denkendorf 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Denkendorf 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 1",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Denkendorf 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "SK Stuttgart 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Hofen 1",
+            "teamB": "Reichenbach 1"
+        }
+    ]
+}

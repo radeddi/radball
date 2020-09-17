@@ -1,0 +1,164 @@
+{
+    "id": "5d6b6bf146e0fb0001e76f58",
+    "number": 16,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2020-03-14T17:00:00.000Z",
+    "gym": {
+        "name": "Seefällehalle gegenüber Fildorado",
+        "city": "Filderstadt",
+        "zip": "70794",
+        "street": "Mahlestr. 60",
+        "phone": "0711-9972275"
+    },
+    "teams": [
+        {
+            "id": "e3b78d43-cdfc-4d52-93d7-6ac93e66c0bc",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d701446e0fb0001e273ec",
+            "present": true,
+            "players": [
+                "Jonas Braun",
+                "Daniel Braun"
+            ]
+        },
+        {
+            "id": "c5c59c92-a413-4758-8db0-b442f354cb6a",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d701346e0fb0001e273d6",
+            "present": true,
+            "players": [
+                "Sascha Henn",
+                "Simon Eberhardt-Schneider"
+            ]
+        },
+        {
+            "id": "430bc772-9c8d-4879-a78b-ea101b6eef62",
+            "teamName": "Wendlingen 2",
+            "teamId": "5d3d701446e0fb0001e273ee",
+            "present": true,
+            "players": [
+                "Valentin Stegmaier",
+                "Kai Wandel"
+            ]
+        },
+        {
+            "id": "01cbbc19-ae2c-4bc6-831a-4507adcca60f",
+            "teamName": "Wendlingen 3",
+            "teamId": "5d3d701446e0fb0001e273f0",
+            "present": true,
+            "players": [
+                "Kevin Bee",
+                "Dennis Bee"
+            ]
+        },
+        {
+            "id": "20e9dddb-9677-4de3-8266-1f3388d813c5",
+            "teamName": "Kemnat 3",
+            "teamId": "5d3d701446e0fb0001e273e2",
+            "present": true,
+            "players": [
+                "Jonas Balz",
+                "Dominik Schmidt"
+            ]
+        },
+        {
+            "id": "7964b0b4-3989-4177-ab2f-59300adf636c",
+            "teamName": "Bonlanden 1",
+            "teamId": "5d3d701346e0fb0001e273d2",
+            "present": true,
+            "players": [
+                "Johannes Beck",
+                "Marcel Döring"
+            ]
+        },
+        {
+            "id": "c45a4928-1f7e-4bea-b7fa-384ba2a70b44",
+            "teamName": "Bonlanden 2",
+            "teamId": "5d3d701346e0fb0001e273d4",
+            "present": true,
+            "players": [
+                "Mike Bühler",
+                "Cedric Wolfer"
+            ]
+        },
+        {
+            "id": "40f50dd6-af11-4103-989c-ed0be0d499d4",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d701446e0fb0001e273e0",
+            "present": true,
+            "players": [
+                "Manuel Fröschle",
+                "Florian Fröschle"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Wendlingen 2",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Bonlanden 2",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 2",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Wendlingen 2",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Kemnat 3",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Denkendorf 2",
+            "teamB": "Bonlanden 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Wendlingen 3",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Bonlanden 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 2",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Wendlingen 3",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Bonlanden 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

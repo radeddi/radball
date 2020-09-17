@@ -1,0 +1,129 @@
+{
+    "id": "5d6cc9da46e0fb0001cc8fda",
+    "number": 8,
+    "league": "5d3d7e6d46e0fb0001e2770e",
+    "leagueName": "U15 Schüler A Staffel I",
+    "start": "2020-03-07T14:00:00.000Z",
+    "gym": {
+        "name": "Flößerhalle",
+        "city": "Bad Säckingen-Wallbach",
+        "zip": "79713",
+        "street": "Steinenstr. 20",
+        "phone": "07761-7660"
+    },
+    "teams": [
+        {
+            "id": "f30e9c0d-ffdb-4f6b-9604-aa25398da0cd",
+            "teamName": "Prechtal 1",
+            "teamId": "5d3d7e6d46e0fb0001e2771a",
+            "present": true,
+            "players": [
+                "Verena Volk",
+                "Fabian Volk"
+            ]
+        },
+        {
+            "id": "a75b9f26-6d3c-4e44-9536-0bd54f02cdf1",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d7e6d46e0fb0001e2771c",
+            "present": true,
+            "players": [
+                "Lukas Wernet",
+                "Joscha Winterer"
+            ]
+        },
+        {
+            "id": "20a1a90b-bf26-4a5e-b5d2-962ae94037a7",
+            "teamName": "Sulgen 1",
+            "teamId": "5d3d7e6d46e0fb0001e2771e",
+            "present": true,
+            "players": [
+                "Marcel Weißer",
+                "Michael Kopp"
+            ]
+        },
+        {
+            "id": "2d576dd3-1b2e-4e31-87ec-4c13ec328a30",
+            "teamName": "Sulgen 2 a.K.",
+            "teamId": "5d3d7e6d46e0fb0001e27720",
+            "present": true,
+            "players": [
+                "Michelle Seeber",
+                "Jacqueline Seeber"
+            ]
+        },
+        {
+            "id": "489ee096-bc37-4b29-821f-fd22f962bfad",
+            "teamName": "Neuenburg 1",
+            "teamId": "5d3d7e6d46e0fb0001e27718",
+            "present": true,
+            "players": [
+                "Simon Luis Kaltenbach",
+                "Julian Wulle"
+            ]
+        },
+        {
+            "id": "86d9aa49-9750-41be-83e1-23186e217461",
+            "teamName": "Wallbach 1",
+            "teamId": "5d3d7e6d46e0fb0001e27722",
+            "present": true,
+            "players": [
+                "Kimi Schrott",
+                "Jonathan Kranz"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 1",
+            "teamB": "Neuenburg 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Prechtal 2",
+            "teamB": "Sulgen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Sulgen 2 a.K.",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Prechtal 1",
+            "teamB": "Sulgen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 2",
+            "teamB": "Neuenburg 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Sulgen 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Prechtal 2",
+            "teamB": "Sulgen 2 a.K."
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Sulgen 2 a.K.",
+            "teamB": "Neuenburg 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

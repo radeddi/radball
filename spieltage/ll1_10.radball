@@ -1,0 +1,160 @@
+{
+    "leagueShortName": "ll1",
+    "leagueLongName": "Landesliga Staffel I",
+    "number": 10,
+    "start": "2021-02-06T17:00:00.000Z",
+    "gym": {
+        "name": "Steinberghalle",
+        "street": "Schrahöfe",
+        "zip": "79215",
+        "city": "Elzach-Prechtal",
+        "phone": "07682-1707"
+    },
+    "hostClub": "Prechtal",
+    "lastImport": "2020-08-30T08:49:48.153Z",
+    "teams": [
+        {
+            "name": "Alpirsbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Girrbach, Lukas",
+                    "uciCode": "10036326884",
+                    "regular": true
+                },
+                {
+                    "name": "Vidacak, Moritz",
+                    "uciCode": "10036321329",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "SG Öflingen/Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Urich, Julian",
+                    "uciCode": "10036151981",
+                    "regular": true
+                },
+                {
+                    "name": "Buchner, Markus",
+                    "uciCode": "10036163095",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Wehr 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Buchner, Nico",
+                    "uciCode": "10036161782",
+                    "regular": true
+                },
+                {
+                    "name": "Kranz, Benedikt",
+                    "uciCode": "10036158651",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weingarten 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gann, Fritz",
+                    "uciCode": "10036319511",
+                    "regular": true
+                },
+                {
+                    "name": "Braungart, Günther",
+                    "uciCode": "10036342446",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schneider, Patrick",
+                    "uciCode": "10048389846",
+                    "regular": true
+                },
+                {
+                    "name": "Hildbrand, David",
+                    "uciCode": "10036159459",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lang, Luca",
+                    "uciCode": "10048397021",
+                    "regular": true
+                },
+                {
+                    "name": "Weber, Ferdinand",
+                    "uciCode": "10036161883",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 2,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Wehr 1",
+            "teamB": "Prechtal 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 5,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Prechtal 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Wehr 1",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Prechtal 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Wehr 1",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 9,
+            "teamA": "SG Öflingen/Wehr 1",
+            "teamB": "Weingarten 1"
+        }
+    ]
+}

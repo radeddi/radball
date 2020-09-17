@@ -1,0 +1,134 @@
+{
+    "id": "5d4e8c8146e0fb00019a496e",
+    "number": 11,
+    "league": "5d3d747946e0fb00014489a8",
+    "leagueName": "Landesliga Staffel I",
+    "start": "2020-03-07T17:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Wehr-Öflingen",
+        "zip": "79664",
+        "street": "Wehratalstr. 48",
+        "phone": "07761-2577"
+    },
+    "teams": [
+        {
+            "id": "3dde38b4-2f22-4479-8bee-eb7c397ef246",
+            "teamName": "Hardt 3",
+            "teamId": "5d3d747946e0fb00014489aa",
+            "present": true,
+            "players": [
+                "David Hilser",
+                "Tim Fehrenbacher"
+            ]
+        },
+        {
+            "id": "03253dbc-58ee-4f87-9d1c-8986ad462a26",
+            "teamName": "Hardt 4",
+            "teamId": "5d3d747946e0fb00014489ac",
+            "present": true,
+            "players": [
+                "Thomas Broghammer",
+                "Markus Herzog"
+            ]
+        },
+        {
+            "id": "8de14dde-266a-4fed-9b7c-89ef9eccc324",
+            "teamName": "Hardt 5",
+            "teamId": "5d3d747946e0fb00014489ae",
+            "present": true,
+            "players": [
+                "Max Görlich",
+                "Markus Flaig"
+            ]
+        },
+        {
+            "id": "8dfb0ebe-e36b-4e58-bb40-507553d1d442",
+            "teamName": "Neuenburg 1",
+            "teamId": "5d3d747946e0fb00014489b6",
+            "present": true,
+            "players": [
+                "Andreas Kößler",
+                "Marius Müller"
+            ]
+        },
+        {
+            "id": "8ef851ea-7599-4cbc-8dce-3215c3b48c67",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d747946e0fb00014489b8",
+            "present": true,
+            "players": [
+                "Noah Klausmann",
+                "Luca Klausmann"
+            ]
+        },
+        {
+            "id": "695aae3c-1dcf-4724-9ce2-241780fe7d88",
+            "teamName": "SG Öflingen/Wehr 2",
+            "teamId": "5d3d747946e0fb00014489bc",
+            "present": true,
+            "players": [
+                "Julian Urich",
+                "Markus Buchner"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "SG Öflingen/Wehr 2",
+            "teamB": "Neuenburg 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 4",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 5",
+            "teamB": "SG Öflingen/Wehr 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 3",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 5",
+            "teamB": "Neuenburg 1"
+        },
+        {
+            "number": 6,
+            "teamA": "SG Öflingen/Wehr 2",
+            "teamB": "Hardt 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 3",
+            "teamB": "Neuenburg 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 5",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 3",
+            "teamB": "SG Öflingen/Wehr 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Neuenburg 1",
+            "teamB": "Hardt 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

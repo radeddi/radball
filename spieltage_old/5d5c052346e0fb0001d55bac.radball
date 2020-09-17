@@ -1,0 +1,169 @@
+{
+    "id": "5d5c052346e0fb0001d55bac",
+    "number": 5,
+    "league": "5d3d7e8546e0fb0001e27736",
+    "leagueName": "U15 Schüler A Staffel II",
+    "start": "2020-02-15T14:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "city": "Gärtringen",
+        "zip": "71116",
+        "street": "Steingrubenweg",
+        "phone": "0173-9457977"
+    },
+    "teams": [
+        {
+            "id": "227e0e6d-41aa-464d-9fe0-c258e00b1bad",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7e8546e0fb0001e27738",
+            "present": true,
+            "players": [
+                "Noah Posedi",
+                "Michael Berner"
+            ]
+        },
+        {
+            "id": "9c83b6e0-1a96-48e3-9616-f3a111f114ae",
+            "teamName": "Gärtringen 2",
+            "teamId": "5d3d7e8546e0fb0001e2773a",
+            "present": true,
+            "players": [
+                "Valentin Fischer",
+                "Oskar Schimmel"
+            ]
+        },
+        {
+            "id": "5c669d4f-cedc-47ab-9fdf-fbe2417c85f7",
+            "teamName": "Sindelfingen 1",
+            "teamId": "5d3d7e8546e0fb0001e27747",
+            "present": true,
+            "players": [
+                "Kai Alex Gutzke",
+                "Nic Gutzke"
+            ]
+        },
+        {
+            "id": "559c4afd-74e0-48aa-aafe-2a449c029208",
+            "teamName": "Prechtal 3",
+            "teamId": "5d3d7e8546e0fb0001e27743",
+            "present": true,
+            "players": [
+                "Fabian Joos",
+                "Marco Häringer"
+            ]
+        },
+        {
+            "id": "fc3af6e0-0e71-407b-b19c-825af8857b4e",
+            "teamName": "Prechtal 4",
+            "teamId": "5d3d7e8546e0fb0001e27745",
+            "present": true,
+            "players": [
+                "Roman Dufner",
+                "Julian Häringer"
+            ]
+        },
+        {
+            "id": "c7c0856d-aa1e-4b38-a999-4adba35754c7",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7e8546e0fb0001e2773c",
+            "present": true,
+            "players": [
+                "Anton Schien",
+                "Matti Trempa"
+            ]
+        },
+        {
+            "id": "971c3c54-26a3-4c5e-bcf3-13a5a747d0f0",
+            "teamName": "Singen 1",
+            "teamId": "5d3d7e8546e0fb0001e27749",
+            "present": true,
+            "players": [
+                "Timon Beuscher",
+                "Jason Richmond"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Konstanz 1",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Prechtal 3",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 1",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Gärtringen 2",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 1",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Gärtringen 2",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Gärtringen 1",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Gärtringen 2",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Gärtringen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Singen 1",
+            "teamB": "Prechtal 4"
+        },
+        {
+            "number": 14,
+            "teamA": "Gärtringen 2",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 15,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Prechtal 4"
+        }
+    ],
+    "permissions": [
+        "MatchdayRead",
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead"
+    ]
+}

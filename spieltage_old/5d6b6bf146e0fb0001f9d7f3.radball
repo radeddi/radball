@@ -1,0 +1,164 @@
+{
+    "id": "5d6b6bf146e0fb0001f9d7f3",
+    "number": 17,
+    "league": "5d3d701346e0fb0001e273d0",
+    "leagueName": "Oberliga",
+    "start": "2020-03-28T17:00:00.000Z",
+    "gym": {
+        "name": "Löcherhaldenturnhalle",
+        "city": "Denkendorf",
+        "zip": "73770",
+        "street": "Löcherhaldenstr. 36",
+        "phone": "0711-9348755"
+    },
+    "teams": [
+        {
+            "id": "096b3669-439f-4b37-b525-5e679089957d",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d701446e0fb0001e273e6",
+            "present": true,
+            "players": [
+                "Simon Wisser",
+                "Patrick Volk"
+            ]
+        },
+        {
+            "id": "96b14349-3dee-4f41-ba7e-dafc790d1e41",
+            "teamName": "Prechtal 3",
+            "teamId": "5d3d701446e0fb0001e273e8",
+            "present": true,
+            "players": [
+                "Dominik Becherer",
+                "Claudius Holzer"
+            ]
+        },
+        {
+            "id": "9a1c557c-68cd-4ea6-8a6d-e1e179592b7b",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d701446e0fb0001e273ec",
+            "present": true,
+            "players": [
+                "Jonas Braun",
+                "Daniel Braun"
+            ]
+        },
+        {
+            "id": "30d5db78-9981-4607-ac25-940251228e7c",
+            "teamName": "Denkendorf 2",
+            "teamId": "5d3d701346e0fb0001e273d6",
+            "present": true,
+            "players": [
+                "Sascha Henn",
+                "Simon Eberhardt-Schneider"
+            ]
+        },
+        {
+            "id": "e6921e32-ea32-49b4-bd01-3cab59c14478",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d701446e0fb0001e273de",
+            "present": true,
+            "players": [
+                "Mathias Müller",
+                "Florian Müller"
+            ]
+        },
+        {
+            "id": "596ad122-9b4c-4bdf-a231-276a9fa0df56",
+            "teamName": "Lauffen 1",
+            "teamId": "5d3d701446e0fb0001e273e4",
+            "present": true,
+            "players": [
+                "Marc Käufer",
+                "Thomas Keller"
+            ]
+        },
+        {
+            "id": "0e3a84ac-62fc-40d1-88e7-44016a3673e0",
+            "teamName": "Wendlingen 2",
+            "teamId": "5d3d701446e0fb0001e273ee",
+            "present": true,
+            "players": [
+                "Valentin Stegmaier",
+                "Kai Wandel"
+            ]
+        },
+        {
+            "id": "f1cbb8e4-cc45-4248-a91c-eb3d969ef4bd",
+            "teamName": "Wendlingen 3",
+            "teamId": "5d3d701446e0fb0001e273f0",
+            "present": true,
+            "players": [
+                "Kevin Bee",
+                "Dennis Bee"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 3",
+            "teamB": "Denkendorf 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Prechtal 2",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 1",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 2",
+            "teamB": "Denkendorf 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 3",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 1",
+            "teamB": "Wendlingen 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 2",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Lauffen 1",
+            "teamB": "Wendlingen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Prechtal 3",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Lauffen 1",
+            "teamB": "Wendlingen 3"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

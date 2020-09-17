@@ -1,0 +1,186 @@
+{
+    "leagueShortName": "bk1",
+    "leagueLongName": "Bezirksliga Staffel I",
+    "number": 6,
+    "start": "2021-01-23T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle-Radrennbahn",
+        "street": "Bohlinger Str. 26",
+        "zip": "78224",
+        "city": "Singen",
+        "phone": "0171-7029502"
+    },
+    "hostClub": "Singen",
+    "lastImport": "2020-08-30T08:52:25.673Z",
+    "teams": [
+        {
+            "name": "Hardt 7",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bammert, Pascal",
+                    "uciCode": "10036513612",
+                    "regular": true
+                },
+                {
+                    "name": "Woelki, Leon",
+                    "uciCode": "10036518965",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 8",
+            "present": true,
+            "players": [
+                {
+                    "name": "Meyle, Gary",
+                    "uciCode": "10036537052",
+                    "regular": true
+                },
+                {
+                    "name": "Meyle, Eric",
+                    "uciCode": "10036531594",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwenningen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfister, Thomas",
+                    "uciCode": "10093873651",
+                    "regular": true
+                },
+                {
+                    "name": "Schuhbauer, Dirk",
+                    "uciCode": "10093859911",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ailingen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lunenberg, Simon",
+                    "uciCode": "10095763232",
+                    "regular": true
+                },
+                {
+                    "name": "Braunger, Christian",
+                    "uciCode": "10036305464",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Singen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bumiller, Marc",
+                    "uciCode": "10036162489",
+                    "regular": true
+                },
+                {
+                    "name": "Oexle, Manuel",
+                    "uciCode": "10065369088",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Konstanz 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gutjahr, Christoph",
+                    "uciCode": "10036473091",
+                    "regular": true
+                },
+                {
+                    "name": "Gattung, Maximilian",
+                    "uciCode": "10036493000",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwenningen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Brugger, Harald",
+                    "uciCode": "10093877186",
+                    "regular": true
+                },
+                {
+                    "name": "Schurer, Hansi",
+                    "uciCode": "10093852534",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 7",
+            "teamB": "Hardt 8"
+        },
+        {
+            "number": 2,
+            "teamA": "Konstanz 2",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwenningen 1",
+            "teamB": "Ailingen 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Singen 1",
+            "teamB": "Konstanz 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 7",
+            "teamB": "Ailingen 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwenningen 1",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 8",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Schwenningen 1",
+            "teamB": "Konstanz 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 7",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 8",
+            "teamB": "Ailingen 5"
+        },
+        {
+            "number": 11,
+            "teamA": "Schwenningen 1",
+            "teamB": "Singen 1"
+        }
+    ]
+}

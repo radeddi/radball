@@ -1,0 +1,192 @@
+{
+    "id": "5d6b76c346e0fb0001f9da37",
+    "number": 3,
+    "league": "5d3d7ab046e0fb0001e275d3",
+    "leagueName": "U19O Junioren-Oberliga",
+    "start": "2019-10-19T13:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Backnang Waldrems",
+        "zip": "71522",
+        "street": "Langenbachstr. 16",
+        "phone": "07191-86957"
+    },
+    "teams": [
+        {
+            "id": "157a768b-98d5-4971-ac2f-3f648dbabedc",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d7ab046e0fb0001e275e5",
+            "present": true,
+            "players": [
+                "Luca Lang",
+                "Ferdinand Weber"
+            ]
+        },
+        {
+            "id": "e7e9860f-2da9-4b18-bf2c-69ee698642e5",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7ab046e0fb0001e275e1",
+            "present": true,
+            "players": [
+                "Marc Huber",
+                "Moritz Schubach"
+            ]
+        },
+        {
+            "id": "cad0b59b-310f-47c7-b595-7252ef71edd8",
+            "teamName": "Prechtal 1",
+            "teamId": "5d3d7ab046e0fb0001e275e3",
+            "present": true,
+            "players": [
+                "Timo Volk",
+                "Nico Volk"
+            ]
+        },
+        {
+            "id": "ab22b4e2-8839-4631-b2de-8e18130f2d56",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d7ab046e0fb0001e275e9",
+            "present": true,
+            "players": [
+                "Benjamin Mayer",
+                "Jonas Frank"
+            ]
+        },
+        {
+            "id": "0dc9a354-f38d-40ac-acf6-85fc8e231e73",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7ab046e0fb0001e275eb",
+            "present": false,
+            "players": [
+                "Philipp Völk",
+                "Moritz Völk"
+            ]
+        },
+        {
+            "id": "8fcf7521-6859-40e7-9432-279d2ad8616a",
+            "teamName": "Oberesslingen 1",
+            "teamId": "5d3d7ab046e0fb0001e275df",
+            "present": false,
+            "players": [
+                "Tarik Nas",
+                "Moritz Bracht"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Öflingen 1",
+            "teamB": "Prechtal 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 1",
+            "teamB": "Oberesslingen 1",
+            "score": {
+                "bothLost": true
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 2",
+            "teamB": "Schwaikheim 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Öflingen 1",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 1",
+            "teamB": "Schwaikheim 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Öflingen 1",
+            "teamB": "Oberesslingen 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 1",
+            "teamB": "Prechtal 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 1",
+            "teamB": "Oberesslingen 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Öflingen 1",
+            "teamB": "Schwaikheim 1",
+            "score": {
+                "goalsA": 11,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Prechtal 1",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Prechtal 2",
+            "score": {
+                "goalsA": 0,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

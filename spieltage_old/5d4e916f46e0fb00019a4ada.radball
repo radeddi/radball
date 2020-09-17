@@ -1,0 +1,169 @@
+{
+    "id": "5d4e916f46e0fb00019a4ada",
+    "number": 8,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2019-01-18T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Schwaikheim",
+        "zip": "71409",
+        "street": "Badstr.",
+        "phone": "0175-9362062"
+    },
+    "teams": [
+        {
+            "id": "bc03c6f0-092c-43ca-9232-b857a03e00dd",
+            "teamName": "Niederstotzingen 2",
+            "teamId": "5d3d79e846e0fb0001448a59",
+            "present": true,
+            "players": [
+                "Jonas Schleifer",
+                "Silas Guse"
+            ]
+        },
+        {
+            "id": "12568fc7-53fd-4cd7-b3dc-601528861c52",
+            "teamName": "Söflingen 4",
+            "teamId": "5d3d79e846e0fb0001448a67",
+            "present": true,
+            "players": [
+                "Daniel Schiml",
+                "Sven Schick"
+            ]
+        },
+        {
+            "id": "817ba5be-63a8-457b-b198-ef1dfe76da1b",
+            "teamName": "Söflingen 5",
+            "teamId": "5d3d79e846e0fb0001448a69",
+            "present": true,
+            "players": [
+                "Knut Nägele",
+                "Fabian Nägele"
+            ]
+        },
+        {
+            "id": "fa89d20c-319a-4bc7-9480-060aee0d3159",
+            "teamName": "Nellingen 4",
+            "teamId": "5d3d79e846e0fb0001448a53",
+            "present": true,
+            "players": [
+                "Michael Federle",
+                "Thilo Schmid"
+            ]
+        },
+        {
+            "id": "f370ae58-57fe-4055-aaf2-db085feba2ef",
+            "teamName": "Nellingen 5",
+            "teamId": "5d3d79e846e0fb0001448a55",
+            "present": true,
+            "players": [
+                "Nico Rogalski",
+                "Tobias Fröschle"
+            ]
+        },
+        {
+            "id": "1e916a68-4177-48a2-88ef-81e70ccaf1ca",
+            "teamName": "Nellingen 6",
+            "teamId": "5d3d79e846e0fb0001448a57",
+            "present": true,
+            "players": [
+                "Kai-Uwe Schreiber",
+                "Sascha Schreiber"
+            ]
+        },
+        {
+            "id": "672e8686-57f7-4655-95dc-773a9a9501d6",
+            "teamName": "Schwaikheim 5",
+            "teamId": "5d3d79e846e0fb0001448a65",
+            "present": true,
+            "players": [
+                "Florian Mayer",
+                "Philipp Leidner"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Nellingen 6",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Söflingen 4",
+            "teamB": "Söflingen 5"
+        },
+        {
+            "number": 3,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Nellingen 6",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Söflingen 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Söflingen 5",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Nellingen 6",
+            "teamB": "Söflingen 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 10,
+            "teamA": "Söflingen 5",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Söflingen 4",
+            "teamB": "Schwaikheim 5"
+        },
+        {
+            "number": 12,
+            "teamA": "Nellingen 6",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 13,
+            "teamA": "Söflingen 5",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 14,
+            "teamA": "Söflingen 4",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 15,
+            "teamA": "Nellingen 6",
+            "teamB": "Söflingen 5"
+        }
+    ],
+    "permissions": [
+        "TeamsRead",
+        "LeagueRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

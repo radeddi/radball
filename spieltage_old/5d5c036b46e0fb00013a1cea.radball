@@ -1,0 +1,124 @@
+{
+    "id": "5d5c036b46e0fb00013a1cea",
+    "number": 7,
+    "league": "5d3d7e0246e0fb0001448b6b",
+    "leagueName": "U17 Jugend Staffel II",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Reichenbach/Fils",
+        "zip": "73262",
+        "street": "Schulstr. 40",
+        "phone": "07153-59448"
+    },
+    "teams": [
+        {
+            "id": "b67212d6-f00b-4a10-ac1f-a5d52c114776",
+            "teamName": "Nellingen 1 a.K.",
+            "teamId": "5d3d7e0246e0fb0001448b79",
+            "present": true,
+            "players": [
+                "Veit Vollmer",
+                "Felix Neuhoff"
+            ]
+        },
+        {
+            "id": "9e309d7e-9511-400a-b099-3a5ab791420a",
+            "teamName": "Nellingen 2",
+            "teamId": "5d3d7e0246e0fb0001448b7b",
+            "present": true,
+            "players": [
+                "Micha Sperrer",
+                "Leon Schwarz"
+            ]
+        },
+        {
+            "id": "c54217b5-2eda-407b-af7d-a2b0c783ecc3",
+            "teamName": "Ailingen 2",
+            "teamId": "5d3d7e0246e0fb0001448b6d",
+            "present": true,
+            "players": [
+                "Colin Wörner",
+                "Noah Reitter"
+            ]
+        },
+        {
+            "id": "c4d46824-ec6f-4bf5-85a0-6ad268547bb5",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7e0246e0fb0001448b81",
+            "present": true,
+            "players": [
+                "Luis Bachmann",
+                "Moritz Thamm"
+            ]
+        },
+        {
+            "id": "8821752a-07b0-42f7-b8fa-522712b927b8",
+            "teamName": "Reichenbach 2",
+            "teamId": "5d3d7e0246e0fb0001448b83",
+            "present": true,
+            "players": [
+                "Leon Kurle",
+                "Leon Röder"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 2",
+            "teamB": "Nellingen 1 a.K."
+        },
+        {
+            "number": 2,
+            "teamA": "Reichenbach 1",
+            "teamB": "Nellingen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 2",
+            "teamB": "Nellingen 1 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Ailingen 2",
+            "teamB": "Reichenbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 2",
+            "teamB": "Nellingen 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 1",
+            "teamB": "Nellingen 1 a.K."
+        },
+        {
+            "number": 7,
+            "teamA": "Ailingen 2",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Nellingen 1 a.K.",
+            "teamB": "Nellingen 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Reichenbach 1",
+            "teamB": "Reichenbach 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Ailingen 2",
+            "teamB": "Nellingen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

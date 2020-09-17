@@ -1,0 +1,165 @@
+{
+    "leagueShortName": "ll1",
+    "leagueLongName": "Landesliga Staffel I",
+    "number": 2,
+    "start": "2020-10-10T16:00:00.000Z",
+    "gym": {
+        "name": "Turnhalle Sulzberg",
+        "street": "Sulzberg",
+        "zip": "72275",
+        "city": "Alpirsbach",
+        "phone": ""
+    },
+    "hostClub": "Alpirsbach",
+    "lastImport": "2020-08-30T08:49:41.813Z",
+    "teams": [
+        {
+            "name": "Alpirsbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Girrbach, Lukas",
+                    "uciCode": "10036326884",
+                    "regular": true
+                },
+                {
+                    "name": "Vidacak, Moritz",
+                    "uciCode": "10036321329",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schneider, Patrick",
+                    "uciCode": "10048389846",
+                    "regular": true
+                },
+                {
+                    "name": "Hildbrand, David",
+                    "uciCode": "10036159459",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lang, Luca",
+                    "uciCode": "10048397021",
+                    "regular": true
+                },
+                {
+                    "name": "Weber, Ferdinand",
+                    "uciCode": "10036161883",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weingarten 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gann, Fritz",
+                    "uciCode": "10036319511",
+                    "regular": true
+                },
+                {
+                    "name": "Braungart, Günther",
+                    "uciCode": "10036342446",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Moosmann, Florian",
+                    "uciCode": "10045728511",
+                    "regular": true
+                },
+                {
+                    "name": "Blanke, Marcel",
+                    "uciCode": "10045734369",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schlecht, Markus",
+                    "uciCode": "10045714161",
+                    "regular": true
+                },
+                {
+                    "name": "Kimmich, Torsten",
+                    "uciCode": "10045715070",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 4",
+            "teamB": "Prechtal 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 4",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Prechtal 5",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 4",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 7,
+            "teamA": "Prechtal 5",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Prechtal 5",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 10,
+            "teamA": "Prechtal 4",
+            "teamB": "Weingarten 1"
+        }
+    ]
+}

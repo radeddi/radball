@@ -1,0 +1,144 @@
+{
+    "id": "5d9c763446e0fb000138a5fd",
+    "number": 8,
+    "league": "5d3d7ef646e0fb0001e2778a",
+    "leagueName": "U13 Schüler B Staffel II",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Arthur-Bantle-Halle",
+        "city": "Hardt",
+        "zip": "78739",
+        "street": "Ostlandstr. 10",
+        "phone": "0171 7059873"
+    },
+    "teams": [
+        {
+            "id": "5e9e84cc-ee68-4abc-b5ce-898925dc5099",
+            "teamName": "Niederstotzingen 1 a.K.",
+            "teamId": "5d3d7ef646e0fb0001e27798",
+            "present": true,
+            "players": [
+                "Mathis Junginger",
+                "Tobias Linder"
+            ]
+        },
+        {
+            "id": "77774b6f-08a3-4db2-89ff-14406699bb0e",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d7ef646e0fb0001e2778e",
+            "present": true,
+            "players": [
+                "Bastian Kendl",
+                "Finn Gerlach"
+            ]
+        },
+        {
+            "id": "ce95725b-929f-4138-a52a-76dec3216b20",
+            "teamName": "Hardt 4 a.K.",
+            "teamId": "5d3d7ef646e0fb0001e27790",
+            "present": true,
+            "players": [
+                "Mia Elsäßer",
+                "Jana Kendl"
+            ]
+        },
+        {
+            "id": "814626ca-79ba-48f0-8074-36242ebf46d0",
+            "teamName": "Ailingen 1",
+            "teamId": "5d3d7ef646e0fb0001e2778c",
+            "present": true,
+            "players": [
+                "Niklas Böck",
+                "Kilian Schlegel"
+            ]
+        },
+        {
+            "id": "c839ab4b-a2b3-4040-86cc-deca125a4e2d",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7ef646e0fb0001e277a0",
+            "present": true,
+            "players": [
+                "Emil Heckelmann",
+                "Philipp Stang"
+            ]
+        },
+        {
+            "id": "a2213d9c-89eb-40b4-854b-cea2df46557d",
+            "teamName": "Waldrems 2",
+            "teamId": "5d3d7ef646e0fb0001e277a2",
+            "present": true,
+            "players": [
+                "Maxim Rauleder",
+                "Leon Dressler"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Waldrems 1",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Ailingen 1",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 4 a.K.",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Niederstotzingen 1 a.K.",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 2",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 4 a.K.",
+            "teamB": "Niederstotzingen 1 a.K."
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 2",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Niederstotzingen 1 a.K.",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 4 a.K.",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Niederstotzingen 1 a.K.",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Waldrems 2",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Hardt 4 a.K.",
+            "teamB": "Ailingen 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "id": "5d6b741946e0fb0001f9d914",
+    "number": 8,
+    "league": "5d3d748a46e0fb0001e27510",
+    "leagueName": "Landesliga Staffel II",
+    "start": "2020-01-11T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "city": "Schramberg-Sulgen",
+        "zip": "78713",
+        "street": "Sulgauer Str. 7",
+        "phone": "0171 342 865 8"
+    },
+    "teams": [
+        {
+            "id": "7385514e-ba09-4b61-8116-7ba02f9db464",
+            "teamName": "Merklingen 2",
+            "teamId": "5d3d748a46e0fb0001e2751a",
+            "present": true,
+            "players": [
+                "Julian Pfäffle",
+                "Lukas Buess"
+            ]
+        },
+        {
+            "id": "3fc1ef0f-ba7f-4881-9c38-723e4dba3385",
+            "teamName": "Nellingen 2",
+            "teamId": "5d3d748a46e0fb0001e2751c",
+            "present": true,
+            "players": [
+                "Florian Bohusch",
+                "David Eisenmann"
+            ]
+        },
+        {
+            "id": "2cd33599-4a5d-4df7-8d26-f05e5996d17e",
+            "teamName": "Nellingen 3",
+            "teamId": "5d3d748a46e0fb0001e2751e",
+            "present": true,
+            "players": [
+                "Tim Distel",
+                "Roman Schiedermeier"
+            ]
+        },
+        {
+            "id": "ab3ccd02-694d-4052-9762-11aee59966ed",
+            "teamName": "Reutlingen 1",
+            "teamId": "5d3d748a46e0fb0001e27520",
+            "present": true,
+            "players": [
+                "Thomas Barth",
+                "Volker Wischett"
+            ]
+        },
+        {
+            "id": "e5ca7774-f796-4e80-8aaf-5aa15b67f151",
+            "teamName": "Sulgen 5",
+            "teamId": "5d3d748a46e0fb0001e27522",
+            "present": true,
+            "players": [
+                "Markus Schlecht",
+                "Torsten Kimmich"
+            ]
+        },
+        {
+            "id": "e2f15187-c363-4708-a70a-a5cdb3c229aa",
+            "teamName": "Sulgen 6",
+            "teamId": "5d3d748a46e0fb0001e27524",
+            "present": true,
+            "players": [
+                "Tobias Pfundstein",
+                "Björn Lohrer"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Sulgen 5",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 2,
+            "teamA": "Nellingen 2",
+            "teamB": "Nellingen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Merklingen 2",
+            "teamB": "Reutlingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Nellingen 2",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Nellingen 3",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 6,
+            "teamA": "Merklingen 2",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 7,
+            "teamA": "Nellingen 2",
+            "teamB": "Reutlingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Merklingen 2",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 9,
+            "teamA": "Nellingen 3",
+            "teamB": "Reutlingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Nellingen 2",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 11,
+            "teamA": "Nellingen 3",
+            "teamB": "Sulgen 5"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll1",
+    "leagueLongName": "Landesliga Staffel I",
+    "number": 9,
+    "start": "2021-02-06T17:00:00.000Z",
+    "gym": {
+        "name": "Mehrzwecksporthalle Peterzell",
+        "street": "Bärlochtalstr. 3",
+        "zip": "78112",
+        "city": "St. Georgen-Peterzell",
+        "phone": ""
+    },
+    "hostClub": "Langenschiltach",
+    "lastImport": "2020-08-30T08:49:47.192Z",
+    "teams": [
+        {
+            "name": "Sulgen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Moosmann, Florian",
+                    "uciCode": "10045728511",
+                    "regular": true
+                },
+                {
+                    "name": "Blanke, Marcel",
+                    "uciCode": "10045734369",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schlecht, Markus",
+                    "uciCode": "10045714161",
+                    "regular": true
+                },
+                {
+                    "name": "Kimmich, Torsten",
+                    "uciCode": "10045715070",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Langenschiltach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Davidsen, Christian",
+                    "uciCode": "10045746695",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Niklas",
+                    "uciCode": "10036511184",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Langenschiltach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Davidsen, Jonathan",
+                    "uciCode": "10045711636",
+                    "regular": true
+                },
+                {
+                    "name": "Baumann, Lennart",
+                    "uciCode": "10045748517",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Görlich, Max",
+                    "uciCode": "10036517046",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Markus",
+                    "uciCode": "10036543116",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hilser, David",
+                    "uciCode": "10036561809",
+                    "regular": true
+                },
+                {
+                    "name": "Fehrenbacher, Tim",
+                    "uciCode": "10036538466",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Langenschiltach 2",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 3",
+            "teamB": "Sulgen 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 5",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 3",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 5",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 3",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Sulgen 4",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 5",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 3",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Sulgen 5",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 5",
+            "teamB": "Sulgen 4"
+        }
+    ]
+}

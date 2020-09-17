@@ -1,0 +1,189 @@
+{
+    "id": "5d6e1ea346e0fb00019a3df0",
+    "number": 3,
+    "league": "5d3d7e1346e0fb0001448b9d",
+    "leagueName": "U17 Jugend Staffel III",
+    "start": "2019-11-09T14:00:00.000Z",
+    "gym": {
+        "name": "Kasernensporthalle",
+        "city": "Külsheim",
+        "zip": "97900",
+        "street": "Prinz-Eugen-Straße",
+        "phone": "0151-432 22 106"
+    },
+    "teams": [
+        {
+            "id": "b82f3df0-6aaa-4495-9f17-ef22f759f892",
+            "teamName": "Külsheim 1",
+            "teamId": "5d3d7e1346e0fb0001448ba7",
+            "present": true,
+            "players": [
+                "Simon Stang",
+                "Aaron Gehrig"
+            ]
+        },
+        {
+            "id": "c19a47b0-7b7c-4873-9fb9-eca3fd6728e3",
+            "teamName": "Külsheim 2",
+            "teamId": "5d3d7e1346e0fb0001448ba9",
+            "present": true,
+            "players": [
+                "Jonas Imhof",
+                "Linus Gehring"
+            ]
+        },
+        {
+            "id": "e011bf84-50f9-4b82-a55e-26774258f80d",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d7e1346e0fb0001448ba3",
+            "present": true,
+            "players": [
+                "Tobias Malek",
+                "Felix Noel Ruf"
+            ]
+        },
+        {
+            "id": "cf62adc3-6045-4aac-8103-025a05626922",
+            "teamName": "Karlsruhe 2",
+            "teamId": "5d3d7e1346e0fb0001448ba5",
+            "present": true,
+            "players": [
+                "Noah Cedric Bergner",
+                "Timon Kottirra"
+            ]
+        },
+        {
+            "id": "6ee4add6-2157-4905-af5c-f9b2cc1c8fc1",
+            "teamName": "Rheinstetten 1 a.K.",
+            "teamId": "5d6e1e8b46e0fb00015dba6b",
+            "present": true,
+            "players": [
+                "Monja Oberle",
+                "Nico Maier"
+            ]
+        },
+        {
+            "id": "162d3414-d726-45aa-8489-e97a332aa8b4",
+            "teamName": "Waldrems 2",
+            "teamId": "5d3d7e1346e0fb0001448bb0",
+            "present": true,
+            "players": [
+                "Tom Zahs",
+                "Robin Fuchs"
+            ]
+        },
+        {
+            "id": "b6e89d52-0a67-4d02-8eaf-a0af61141afb",
+            "teamName": "Waldrems 3",
+            "teamId": "5d3d7e1346e0fb0001448bb2",
+            "present": true,
+            "players": [
+                "Mika Heckelmann",
+                "Kai Häußermann"
+            ]
+        },
+        {
+            "id": "ffeac7cf-1dbc-4c73-948a-786dabb6ba77",
+            "teamName": "Enzberg 1 a.K.",
+            "teamId": "5d3d7e1346e0fb0001448b9f",
+            "present": true,
+            "players": [
+                "Denis Morlock",
+                "Elias Hofmann"
+            ]
+        },
+        {
+            "id": "c826eac4-7c71-495b-b2b0-8da1cade1a9b",
+            "teamName": "Külsheim 3",
+            "teamId": "5d3d7e1346e0fb0001448bab",
+            "present": true,
+            "players": [
+                "Jannik Schreck",
+                "Emil Engstler"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Külsheim 1",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Külsheim 2",
+            "teamB": "Karlsruhe 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Rheinstetten 1 a.K.",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Waldrems 3",
+            "teamB": "Enzberg 1 a.K."
+        },
+        {
+            "number": 5,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Külsheim 1",
+            "teamB": "Rheinstetten 1 a.K."
+        },
+        {
+            "number": 7,
+            "teamA": "Enzberg 1 a.K.",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Külsheim 1",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Külsheim 2",
+            "teamB": "Rheinstetten 1 a.K."
+        },
+        {
+            "number": 11,
+            "teamA": "Külsheim 1",
+            "teamB": "Waldrems 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Enzberg 1 a.K."
+        },
+        {
+            "number": 13,
+            "teamA": "Waldrems 2",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 14,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Waldrems 3"
+        },
+        {
+            "number": 15,
+            "teamA": "Külsheim 2",
+            "teamB": "Enzberg 1 a.K."
+        }
+    ],
+    "permissions": [
+        "LeagueRead",
+        "TeamsRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

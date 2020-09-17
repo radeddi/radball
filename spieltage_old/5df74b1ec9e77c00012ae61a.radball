@@ -1,0 +1,144 @@
+{
+    "id": "5df74b1ec9e77c00012ae61a",
+    "number": 8,
+    "league": "5d3d79e846e0fb0001448a4f",
+    "leagueName": "Bezirksliga Staffel III",
+    "start": "2020-01-18T17:00:00.000Z",
+    "gym": {
+        "name": "Sportzentrum Kuhberg, Halle 5",
+        "city": "Ulm",
+        "zip": "89077",
+        "street": "Egginger Weg 53",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "27345b05-d683-48a6-9cdc-bbd05b143621",
+            "teamName": "Niederstotzingen 2",
+            "teamId": "5d3d79e846e0fb0001448a59",
+            "present": true,
+            "players": [
+                "Jonas Schleifer",
+                "Silas Guse"
+            ]
+        },
+        {
+            "id": "ba57a6cb-ae24-460f-a16f-5ee5ec3a3fbe",
+            "teamName": "Söflingen 4",
+            "teamId": "5d3d79e846e0fb0001448a67",
+            "present": true,
+            "players": [
+                "Daniel Schiml",
+                "Sven Schick"
+            ]
+        },
+        {
+            "id": "2977171b-982a-4733-829b-279bf20a2e58",
+            "teamName": "Söflingen 5",
+            "teamId": "5d3d79e846e0fb0001448a69",
+            "present": true,
+            "players": [
+                "Knut Nägele",
+                "Fabian Nägele"
+            ]
+        },
+        {
+            "id": "456991f7-e275-488d-ba76-58d9f0f85e72",
+            "teamName": "Nellingen 4",
+            "teamId": "5d3d79e846e0fb0001448a53",
+            "present": true,
+            "players": [
+                "Michael Federle",
+                "Thilo Schmid"
+            ]
+        },
+        {
+            "id": "c2de2641-b754-48d4-90be-bc308452142a",
+            "teamName": "Nellingen 5",
+            "teamId": "5d3d79e846e0fb0001448a55",
+            "present": true,
+            "players": [
+                "Nico Rogalski",
+                "Tobias Fröschle"
+            ]
+        },
+        {
+            "id": "c3a1bc45-1ab5-4608-b3d4-77332c2b778a",
+            "teamName": "Nellingen 6",
+            "teamId": "5d3d79e846e0fb0001448a57",
+            "present": true,
+            "players": [
+                "Kai-Uwe Schreiber",
+                "Sascha Schreiber"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Nellingen 6",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Söflingen 4",
+            "teamB": "Söflingen 5"
+        },
+        {
+            "number": 3,
+            "teamA": "Nellingen 6",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Söflingen 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 5,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Nellingen 6",
+            "teamB": "Söflingen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Söflingen 5",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Nellingen 6",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Söflingen 5",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 11,
+            "teamA": "Söflingen 4",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 12,
+            "teamA": "Nellingen 6",
+            "teamB": "Söflingen 5"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

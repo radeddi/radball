@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "vl1",
+    "leagueLongName": "Verbandsliga Staffel I",
+    "number": 10,
+    "start": "2021-02-27T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "street": "Sulgauer Str. 7",
+        "zip": "78713",
+        "city": "Schramberg-Sulgen",
+        "phone": "0171 342 865 8"
+    },
+    "hostClub": "Sulgen",
+    "lastImport": "2020-09-07T07:30:23.015Z",
+    "teams": [
+        {
+            "name": "Böblingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gürtler, Marcel",
+                    "uciCode": "10036308393",
+                    "regular": true
+                },
+                {
+                    "name": "Gürtler, Florian",
+                    "uciCode": "10036276263",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Volk, Timo",
+                    "uciCode": "10036161075",
+                    "regular": true
+                },
+                {
+                    "name": "Volk, Nico",
+                    "uciCode": "10036151779",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weil im Schönbuch 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bühler, Jannick",
+                    "uciCode": "10036289906",
+                    "regular": true
+                },
+                {
+                    "name": "Leinich, Franz",
+                    "uciCode": "10036300010",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfundstein, Jürgen",
+                    "uciCode": "10045717700",
+                    "regular": true
+                },
+                {
+                    "name": "Kimmich, Stefan",
+                    "uciCode": "10045734773",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfundstein, Dominik",
+                    "uciCode": "10045715878",
+                    "regular": true
+                },
+                {
+                    "name": "Pfundstein, Daniel",
+                    "uciCode": "10045729925",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Konstanz 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hundsdörfer, Moritz",
+                    "uciCode": "10036464304",
+                    "regular": true
+                },
+                {
+                    "name": "Oexl, Mario",
+                    "uciCode": "10036500474",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Böblingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Konstanz 1",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 3",
+            "teamB": "Sulgen 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Böblingen 1",
+            "teamB": "Sulgen 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Konstanz 1",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Böblingen 1",
+            "teamB": "Sulgen 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Sulgen 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Böblingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Sulgen 2",
+            "teamB": "Prechtal 3"
+        }
+    ]
+}

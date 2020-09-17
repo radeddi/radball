@@ -1,0 +1,175 @@
+{
+    "leagueShortName": "vl3",
+    "leagueLongName": "Verbandsliga Staffel III",
+    "number": 8,
+    "start": "2021-01-16T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Badstr.",
+        "zip": "71409",
+        "city": "Schwaikheim",
+        "phone": "0175-9362062"
+    },
+    "hostClub": "Schwaikheim",
+    "lastImport": "2020-08-30T08:45:51.552Z",
+    "teams": [
+        {
+            "name": "Schwaikheim 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fleischmann, Patrick",
+                    "uciCode": "10045725982",
+                    "regular": true
+                },
+                {
+                    "name": "Trautwein, Mike",
+                    "uciCode": "10045737100",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bareiß, Ingo",
+                    "uciCode": "10048353571",
+                    "regular": true
+                },
+                {
+                    "name": "Braun, Sebastian",
+                    "uciCode": "10048350743",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schwarzer, Benjamin",
+                    "uciCode": "10045730632",
+                    "regular": true
+                },
+                {
+                    "name": "Schwarzer, Tobias",
+                    "uciCode": "10084431814",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Nellingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Korupp, Andreas",
+                    "uciCode": "10036288286",
+                    "regular": true
+                },
+                {
+                    "name": "Ruda, Julian",
+                    "uciCode": "10036342749",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Theilinger, Markus",
+                    "uciCode": "10036308902",
+                    "regular": true
+                },
+                {
+                    "name": "Bläsi, Philipp",
+                    "uciCode": "10036278384",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Paxian, Jakob Felix",
+                    "uciCode": "10036299101",
+                    "regular": true
+                },
+                {
+                    "name": "Lutz, Manuel",
+                    "uciCode": "10036344264",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Schwaikheim 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Nellingen 1",
+            "teamB": "Oberesslingen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Schwaikheim 4",
+            "teamB": "Oberesslingen 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwaikheim 3",
+            "teamB": "Oberesslingen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Oberesslingen 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Schwaikheim 4",
+            "teamB": "Nellingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Oberesslingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Schwaikheim 3",
+            "teamB": "Nellingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Schwaikheim 4",
+            "teamB": "Oberesslingen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Nellingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Schwaikheim 3",
+            "teamB": "Oberesslingen 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Schwaikheim 2",
+            "teamB": "Schwaikheim 4"
+        }
+    ]
+}

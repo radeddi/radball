@@ -1,0 +1,174 @@
+{
+    "id": "5d7363dc46e0fb000176c5d2",
+    "number": 4,
+    "league": "5d3d7ee846e0fb0001448c17",
+    "leagueName": "U13 Schüler B Staffel I",
+    "start": "2019-11-23T14:00:00.000Z",
+    "gym": {
+        "name": "Sporthalle Stadtmitte",
+        "city": "Sindelfingen",
+        "zip": "71065",
+        "street": "Böblinger Str. 22",
+        "phone": "0160-4377339"
+    },
+    "teams": [
+        {
+            "id": "96941309-341c-4ca2-8788-4e1d8fd3bd6d",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7ee846e0fb0001448c19",
+            "present": true,
+            "players": [
+                "Georg Keim",
+                "Mika Haug"
+            ]
+        },
+        {
+            "id": "62a47543-331d-43cc-858f-e57e30e4f999",
+            "teamName": "Oberesslingen 1",
+            "teamId": "5d3d7ee846e0fb0001448c27",
+            "present": true,
+            "players": [
+                "Haris Munjakovic",
+                "Jan Günther Widmann"
+            ]
+        },
+        {
+            "id": "1d820b0f-0d4a-4140-8b49-981fb294ae02",
+            "teamName": "Lauterbach 1",
+            "teamId": "5d3d7ee846e0fb0001448c23",
+            "present": true,
+            "players": [
+                "Patrick Fischer",
+                "Phillip Fieberg"
+            ]
+        },
+        {
+            "id": "621aa5f7-bffd-415d-bfc8-99aab91ca6b3",
+            "teamName": "Lauterbach 2",
+            "teamId": "5d3d7ee846e0fb0001448c25",
+            "present": true,
+            "players": [
+                "Max Echtle",
+                "Lenny Held"
+            ]
+        },
+        {
+            "id": "97379139-8f07-4529-a92a-1f897a995052",
+            "teamName": "Sindelfingen 1",
+            "teamId": "5d3d7ee846e0fb0001448c2b",
+            "present": true,
+            "players": [
+                "Christian Hochmuth",
+                "Conrad Hochmuth"
+            ]
+        },
+        {
+            "id": "2f86662d-1366-47d0-902a-113f30417b62",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7ee846e0fb0001448c29",
+            "present": true,
+            "players": [
+                "Frederik Kranz",
+                "Quentin Schumann"
+            ]
+        },
+        {
+            "id": "1cef4270-cf56-4da8-a8b8-c1fa23ccb9a4",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7ee846e0fb0001448c21",
+            "present": true,
+            "players": [
+                "Emil Karrer",
+                "Emil Schien"
+            ]
+        },
+        {
+            "id": "15803d9b-699b-4252-90a2-3092938293f9",
+            "teamName": "Wimsheim 1",
+            "teamId": "5d3d7ee846e0fb0001448c2d",
+            "present": true,
+            "players": [
+                "Jeremi Rapp",
+                "Mattis Bernhagen"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Gärtringen 1",
+            "teamB": "Oberesslingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Lauterbach 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Öflingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Lauterbach 2",
+            "teamB": "Sindelfingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Gärtringen 1",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Öflingen 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Sindelfingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Gärtringen 1",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Lauterbach 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Sindelfingen 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Gärtringen 1",
+            "teamB": "Wimsheim 1"
+        },
+        {
+            "number": 14,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Konstanz 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "MatchdayRead",
+        "TeamsRead"
+    ]
+}

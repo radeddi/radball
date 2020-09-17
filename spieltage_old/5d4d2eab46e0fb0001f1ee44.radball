@@ -1,0 +1,139 @@
+{
+    "id": "5d4d2eab46e0fb0001f1ee44",
+    "number": 11,
+    "league": "5d3d716746e0fb0001e274c5",
+    "leagueName": "Verbandsliga Staffel II",
+    "start": "2020-03-07T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Filderstadt",
+        "zip": "70794",
+        "street": "Römerstr. 71",
+        "phone": "0711-7738175"
+    },
+    "teams": [
+        {
+            "id": "f590a96a-9b6e-4e4e-9d44-a9e61548d68d",
+            "teamName": "Denkendorf 4",
+            "teamId": "5d3d716746e0fb0001e274cb",
+            "present": true,
+            "players": [
+                "Christian Müller",
+                "Peter Berner"
+            ]
+        },
+        {
+            "id": "70868671-26b4-4f55-a136-506c6280fa31",
+            "teamName": "Denkendorf 3",
+            "teamId": "5d3d716746e0fb0001e274c9",
+            "present": true,
+            "players": [
+                "Andreas Stahl",
+                "Stefan Berner"
+            ]
+        },
+        {
+            "id": "573ff3cf-5468-45d8-bd1a-9d184c5c965a",
+            "teamName": "Bonlanden 3",
+            "teamId": "5d3d716746e0fb0001e274c7",
+            "present": true,
+            "players": [
+                "Daniel Born",
+                "Sebastian Schondorff"
+            ]
+        },
+        {
+            "id": "492ffe8b-bc51-48f2-a2fe-a4aed6305aa1",
+            "teamName": "Plattenhardt 1",
+            "teamId": "5d3d716746e0fb0001e274d7",
+            "present": true,
+            "players": [
+                "Ulrich Mack",
+                "Marco Pflieger"
+            ]
+        },
+        {
+            "id": "db02d72c-7438-4fd9-89df-d34b257251ee",
+            "teamName": "Plattenhardt 2",
+            "teamId": "5d3d716746e0fb0001e274d9",
+            "present": true,
+            "players": [
+                "Dieter Kehrle",
+                "Jürgen Pflieger"
+            ]
+        },
+        {
+            "id": "00530c23-0ffd-4516-ac71-a56f06a6b975",
+            "teamName": "Reichenbach 4",
+            "teamId": "5d3d716746e0fb0001e274db",
+            "present": true,
+            "players": [
+                "Jonas Baumann",
+                "Stefan Mangold"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Denkendorf 3",
+            "teamB": "Bonlanden 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Plattenhardt 2",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 4",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 3",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Bonlanden 3",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 3",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Plattenhardt 2",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Bonlanden 3",
+            "teamB": "Reichenbach 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 3",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Bonlanden 3",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Reichenbach 4",
+            "teamB": "Denkendorf 4"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

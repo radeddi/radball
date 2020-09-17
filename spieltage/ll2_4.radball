@@ -1,0 +1,196 @@
+{
+    "leagueShortName": "ll2",
+    "leagueLongName": "Landesliga Staffel II",
+    "number": 4,
+    "start": "2020-11-14T17:00:00.000Z",
+    "gym": {
+        "name": "Arthur-Bantle-Halle",
+        "street": "Ostlandstr. 10",
+        "zip": "78739",
+        "city": "Hardt",
+        "phone": "0171 7059873"
+    },
+    "hostClub": "Hardt",
+    "lastImport": "2020-08-30T08:50:36.594Z",
+    "teams": [
+        {
+            "name": "Hardt 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Broghammer, Thomas",
+                    "uciCode": "10036556048",
+                    "regular": true
+                },
+                {
+                    "name": "Herzog, Markus",
+                    "uciCode": "10036527352",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hug, Christian",
+                    "uciCode": "10036552614",
+                    "regular": true
+                },
+                {
+                    "name": "Weißer, Rolf",
+                    "uciCode": "10036512400",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Nellingen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schreiber, Kai-Uwe",
+                    "uciCode": "10036289300",
+                    "regular": true
+                },
+                {
+                    "name": "Senke, Andreas",
+                    "uciCode": "10036311427",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Nellingen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Federle, Michael",
+                    "uciCode": "10036339517",
+                    "regular": true
+                },
+                {
+                    "name": "Schmid, Thilo",
+                    "uciCode": "10036332241",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfundstein, Tobias",
+                    "uciCode": "10045729824",
+                    "regular": true
+                },
+                {
+                    "name": "Lohrer, Björn",
+                    "uciCode": "10048347511",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 7",
+            "present": true,
+            "players": [
+                {
+                    "name": "Klausmann, Patrick",
+                    "uciCode": "10045712242",
+                    "regular": true
+                },
+                {
+                    "name": "Ehrmann, Patrick",
+                    "uciCode": "10045716484",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reutlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Barth, Thomas",
+                    "uciCode": "10048357817",
+                    "regular": true
+                },
+                {
+                    "name": "Wischett, Volker",
+                    "uciCode": "10045730329",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 4",
+            "teamB": "Hardt 6"
+        },
+        {
+            "number": 2,
+            "teamA": "Nellingen 5",
+            "teamB": "Reutlingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 4",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 6",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 5,
+            "teamA": "Nellingen 4",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 4",
+            "teamB": "Reutlingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Nellingen 5",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 6",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 9,
+            "teamA": "Nellingen 4",
+            "teamB": "Reutlingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 4",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 11,
+            "teamA": "Nellingen 5",
+            "teamB": "Sulgen 6"
+        },
+        {
+            "number": 12,
+            "teamA": "Hardt 6",
+            "teamB": "Reutlingen 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Nellingen 4",
+            "teamB": "Sulgen 7"
+        }
+    ]
+}

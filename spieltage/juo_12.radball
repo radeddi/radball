@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "juo",
+    "leagueLongName": "U19O Junioren-Oberliga",
+    "number": 12,
+    "start": "2021-01-23T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Badstr.",
+        "zip": "71409",
+        "city": "Schwaikheim",
+        "phone": "0175-9362062"
+    },
+    "hostClub": "Schwaikheim",
+    "lastImport": "2020-09-07T07:45:59.278Z",
+    "teams": [
+        {
+            "name": "Kemnat 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rapp, Chris",
+                    "uciCode": "10036295158",
+                    "regular": true
+                },
+                {
+                    "name": "Bluthardt, Robin",
+                    "uciCode": "10036328504",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kemnat 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Klatt, Giuliano",
+                    "uciCode": "10036334665",
+                    "regular": true
+                },
+                {
+                    "name": "Spreter, Luca",
+                    "uciCode": "10036330625",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Brezina, Jan",
+                    "uciCode": "10036322339",
+                    "regular": true
+                },
+                {
+                    "name": "Kurle, Lukas",
+                    "uciCode": "10036298188",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Völk, Philipp",
+                    "uciCode": "10036292734",
+                    "regular": true
+                },
+                {
+                    "name": "Völk, Moritz",
+                    "uciCode": "10036302434",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fuchs, Tim",
+                    "uciCode": "10036345678",
+                    "regular": true
+                },
+                {
+                    "name": "Weißhaar, Leon",
+                    "uciCode": "10036295360",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Mayer, Benjamin",
+                    "uciCode": "10048351955",
+                    "regular": true
+                },
+                {
+                    "name": "Frank, Jonas",
+                    "uciCode": "10048352561",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reichenbach 1",
+            "teamB": "Kemnat 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Kemnat 2",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Reichenbach 1",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Kemnat 1",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Reichenbach 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Kemnat 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Reichenbach 1",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 1",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Waldrems 1",
+            "teamB": "Kemnat 2"
+        }
+    ]
+}

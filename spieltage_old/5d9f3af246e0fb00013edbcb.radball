@@ -1,0 +1,159 @@
+{
+    "id": "5d9f3af246e0fb00013edbcb",
+    "number": 8,
+    "league": "5d3d7e1346e0fb0001448b9d",
+    "leagueName": "U17 Jugend Staffel III",
+    "start": "2020-02-08T14:00:00.000Z",
+    "gym": {
+        "name": "Anne-Frank-Schule",
+        "city": "Karlsruhe",
+        "zip": "76189",
+        "street": "Bonhoeferstr. 12",
+        "phone": "01794268400"
+    },
+    "teams": [
+        {
+            "id": "488ed598-760f-4233-9078-a3affd5d013e",
+            "teamName": "Külsheim 1",
+            "teamId": "5d3d7e1346e0fb0001448ba7",
+            "present": true,
+            "players": [
+                "Simon Stang",
+                "Aaron Gehrig"
+            ]
+        },
+        {
+            "id": "33aa4551-e3b3-4c70-b53f-6320533da3ac",
+            "teamName": "Külsheim 2",
+            "teamId": "5d3d7e1346e0fb0001448ba9",
+            "present": true,
+            "players": [
+                "Jonas Imhof",
+                "Linus Gehring"
+            ]
+        },
+        {
+            "id": "295d363e-0e53-4d94-a10d-002f5f00b3b7",
+            "teamName": "Karlsruhe 1",
+            "teamId": "5d3d7e1346e0fb0001448ba3",
+            "present": true,
+            "players": [
+                "Tobias Malek",
+                "Felix Noel Ruf"
+            ]
+        },
+        {
+            "id": "92e939b0-1755-4112-8a7d-bc33c2bfd4ff",
+            "teamName": "Rheinstetten 1 a.K.",
+            "teamId": "5d9f39c846e0fb00016b1334",
+            "present": true,
+            "players": [
+                "Monja Oberle",
+                "Nico Maier"
+            ]
+        },
+        {
+            "id": "92bcbf66-1ca2-4914-ba85-d8d99a077b44",
+            "teamName": "Waldrems 2",
+            "teamId": "5d3d7e1346e0fb0001448bb0",
+            "present": true,
+            "players": [
+                "Tom Zahs",
+                "Robin Fuchs"
+            ]
+        },
+        {
+            "id": "4040ac1e-c2a5-4831-a385-48b328ac8189",
+            "teamName": "Waldrems 3",
+            "teamId": "5d3d7e1346e0fb0001448bb2",
+            "present": true,
+            "players": [
+                "Mika Heckelmann",
+                "Kai Häußermann"
+            ]
+        },
+        {
+            "id": "00c0ded1-bc72-4aba-b3fa-0ae2de93afa2",
+            "teamName": "Enzberg 1 a.K.",
+            "teamId": "5d9f39c846e0fb00016b132a",
+            "present": true,
+            "players": [
+                "Denis Morlock",
+                "Elias Hofmann"
+            ]
+        },
+        {
+            "id": "ce3fc262-7bb1-474c-8a07-30a56e24db18",
+            "teamName": "Külsheim 3",
+            "teamId": "5d3d7e1346e0fb0001448bab",
+            "present": true,
+            "players": [
+                "Jannik Schreck",
+                "Emil Engstler"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Külsheim 1",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Rheinstetten 1 a.K.",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Waldrems 3",
+            "teamB": "Enzberg 1 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Waldrems 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Külsheim 1",
+            "teamB": "Rheinstetten 1 a.K."
+        },
+        {
+            "number": 6,
+            "teamA": "Enzberg 1 a.K.",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Waldrems 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Külsheim 2",
+            "teamB": "Rheinstetten 1 a.K."
+        },
+        {
+            "number": 9,
+            "teamA": "Külsheim 1",
+            "teamB": "Waldrems 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Waldrems 2",
+            "teamB": "Külsheim 3"
+        },
+        {
+            "number": 11,
+            "teamA": "Külsheim 2",
+            "teamB": "Enzberg 1 a.K."
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

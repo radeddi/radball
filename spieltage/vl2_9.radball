@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "vl2",
+    "leagueLongName": "Verbandsliga Staffel II",
+    "number": 9,
+    "start": "2021-01-30T17:00:00.000Z",
+    "gym": {
+        "name": "Löcherhaldenturnhalle",
+        "street": "Löcherhaldenstr. 36",
+        "zip": "73770",
+        "city": "Denkendorf",
+        "phone": "0711-9348755"
+    },
+    "hostClub": "Denkendorf",
+    "lastImport": "2020-09-02T08:21:00.481Z",
+    "teams": [
+        {
+            "name": "Bonlanden 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Born, Daniel",
+                    "uciCode": "10036330928",
+                    "regular": true
+                },
+                {
+                    "name": "Schondorff, Sebastian",
+                    "uciCode": "10036335574",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Christian",
+                    "uciCode": "10036314558",
+                    "regular": true
+                },
+                {
+                    "name": "Bayer, Moritz",
+                    "uciCode": "10036277677",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Faiß, Gerald",
+                    "uciCode": "10055920177",
+                    "regular": true
+                },
+                {
+                    "name": "Spangenberg, Andreas",
+                    "uciCode": "10048395607",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Plattenhardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Mack, Ulrich",
+                    "uciCode": "10036331130",
+                    "regular": true
+                },
+                {
+                    "name": "Pflieger, Marco",
+                    "uciCode": "10036340527",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Plattenhardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kehrle, Dieter",
+                    "uciCode": "10036326682",
+                    "regular": true
+                },
+                {
+                    "name": "Pflieger, Jürgen",
+                    "uciCode": "10036331332",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Merklingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weber, Robin",
+                    "uciCode": "10036342547",
+                    "regular": true
+                },
+                {
+                    "name": "Weber, Tim",
+                    "uciCode": "10036326076",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Forst 1",
+            "teamB": "Bonlanden 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Merklingen 1",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 4",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Forst 1",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Bonlanden 3",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Forst 1",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Merklingen 1",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Bonlanden 3",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Forst 1",
+            "teamB": "Plattenhardt 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Bonlanden 3",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Denkendorf 4"
+        }
+    ]
+}

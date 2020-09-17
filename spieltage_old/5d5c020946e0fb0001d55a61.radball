@@ -1,0 +1,124 @@
+{
+    "id": "5d5c020946e0fb0001d55a61",
+    "number": 9,
+    "league": "5d3d7bba46e0fb0001448b14",
+    "leagueName": "U17 Jugend Staffel I",
+    "start": "2020-02-01T14:00:00.000Z",
+    "gym": {
+        "name": "Schwarzwaldhalle",
+        "city": "Gärtringen",
+        "zip": "71116",
+        "street": "Steingrubenweg",
+        "phone": "0173-9457977"
+    },
+    "teams": [
+        {
+            "id": "6e8320fe-ca53-42c7-88bc-3c1bbe984e78",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7dea46e0fb0001e276ab",
+            "present": true,
+            "players": [
+                "Luca Quast",
+                "Elias Motteler"
+            ]
+        },
+        {
+            "id": "339a477d-f86b-4b30-b02f-36a101d46764",
+            "teamName": "Gärtringen 3",
+            "teamId": "5d3d7dea46e0fb0001e276ad",
+            "present": true,
+            "players": [
+                "Adrian Fischer",
+                "Jonas Maier"
+            ]
+        },
+        {
+            "id": "93edb47e-4797-4395-9b76-29f3bc75f28e",
+            "teamName": "Denkendorf 3",
+            "teamId": "5d3d7bba46e0fb0001448b16",
+            "present": true,
+            "players": [
+                "Leon Binder",
+                "Felix Bauer"
+            ]
+        },
+        {
+            "id": "60864050-32c6-4544-913a-92546072cf92",
+            "teamName": "Denkendorf 4",
+            "teamId": "5d3d7bba46e0fb0001448b18",
+            "present": true,
+            "players": [
+                "Pablo Geyer",
+                "Elias Zschoke"
+            ]
+        },
+        {
+            "id": "99c34364-17dc-41d5-9b34-fc60f866d171",
+            "teamName": "Reutlingen 1 a.K.",
+            "teamId": "5d3d7dea46e0fb0001e276b5",
+            "present": true,
+            "players": [
+                "Leon Geiselhart",
+                "Jannik Schneider"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Denkendorf 3",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Gärtringen 1",
+            "teamB": "Gärtringen 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Denkendorf 3",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 4",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Reutlingen 1 a.K.",
+            "teamB": "Gärtringen 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 3",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Denkendorf 4",
+            "teamB": "Gärtringen 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Reutlingen 1 a.K.",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 3",
+            "teamB": "Gärtringen 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Denkendorf 4",
+            "teamB": "Reutlingen 1 a.K."
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

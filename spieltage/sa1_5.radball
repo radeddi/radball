@@ -1,0 +1,201 @@
+{
+    "leagueShortName": "sa1",
+    "leagueLongName": "U15 Schüler A Staffel I",
+    "number": 5,
+    "start": "2020-12-12T14:00:00.000Z",
+    "gym": {
+        "name": "Steinberghalle",
+        "street": "Schrahöfe",
+        "zip": "79215",
+        "city": "Elzach-Prechtal",
+        "phone": "07682-1707"
+    },
+    "hostClub": "Prechtal",
+    "lastImport": "2020-09-07T08:00:29.220Z",
+    "teams": [
+        {
+            "name": "Prechtal 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wernet, Lukas",
+                    "uciCode": "10065367472",
+                    "regular": true
+                },
+                {
+                    "name": "Winterer, Joscha",
+                    "uciCode": "10048390048",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Joos, Fabian",
+                    "uciCode": "10045787822",
+                    "regular": true
+                },
+                {
+                    "name": "Häringer, Marco",
+                    "uciCode": "10073088268",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Dufner, Roman",
+                    "uciCode": "10073096352",
+                    "regular": true
+                },
+                {
+                    "name": "Haus, Jason",
+                    "uciCode": "10097266631",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weil im Schönbuch 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Eissler, Ben",
+                    "uciCode": "10084248423",
+                    "regular": true
+                },
+                {
+                    "name": "Leinich, Silas",
+                    "uciCode": "10085395649",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fink, Ariane",
+                    "uciCode": "10052540234",
+                    "regular": true
+                },
+                {
+                    "name": "Gerlach, Jule",
+                    "uciCode": "10053686046",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Halder, Laura Nele",
+                    "uciCode": "10053680184",
+                    "regular": true
+                },
+                {
+                    "name": "Leicht, Mario",
+                    "uciCode": "10052529423",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Elsäßer, Mia",
+                    "uciCode": "10052521137",
+                    "regular": true
+                },
+                {
+                    "name": "Kendl, Jana",
+                    "uciCode": "10052527807",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Prechtal 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 2",
+            "teamB": "Prechtal 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Prechtal 3",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 2",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 2",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 2",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Prechtal 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Prechtal 3",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 2",
+            "teamB": "Prechtal 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Prechtal 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Prechtal 3",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 14,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Hardt 1"
+        }
+    ]
+}

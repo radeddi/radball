@@ -1,0 +1,186 @@
+{
+    "leagueShortName": "bk1",
+    "leagueLongName": "Bezirksliga Staffel I",
+    "number": 10,
+    "start": "2021-03-20T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "street": "Sulgauer Str. 7",
+        "zip": "78713",
+        "city": "Schramberg-Sulgen",
+        "phone": "0171 342 865 8"
+    },
+    "hostClub": "Sulgen",
+    "lastImport": "2020-08-30T08:52:28.034Z",
+    "teams": [
+        {
+            "name": "Schwenningen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfister, Thomas",
+                    "uciCode": "10093873651",
+                    "regular": true
+                },
+                {
+                    "name": "Schuhbauer, Dirk",
+                    "uciCode": "10093859911",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Ailingen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lunenberg, Simon",
+                    "uciCode": "10095763232",
+                    "regular": true
+                },
+                {
+                    "name": "Braunger, Christian",
+                    "uciCode": "10036305464",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Langenschiltach 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weißer, Christoph",
+                    "uciCode": "10045727400",
+                    "regular": true
+                },
+                {
+                    "name": "Oehl, Jürgen",
+                    "uciCode": "10045742453",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weber, Maximilian",
+                    "uciCode": "10036155217",
+                    "regular": true
+                },
+                {
+                    "name": "Holzer, Danielle",
+                    "uciCode": "10036162994",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 8",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seiler, Torsten",
+                    "uciCode": "10045716686",
+                    "regular": true
+                },
+                {
+                    "name": "Schmid, Michael",
+                    "uciCode": "10048350036",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauffen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fischer, Tom",
+                    "uciCode": "10036299303",
+                    "regular": true
+                },
+                {
+                    "name": "Fischer, Philipp",
+                    "uciCode": "10036319410",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwenningen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Brugger, Harald",
+                    "uciCode": "10093877186",
+                    "regular": true
+                },
+                {
+                    "name": "Schurer, Hansi",
+                    "uciCode": "10093852534",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Schwenningen 1",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Langenschiltach 3",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Ailingen 5",
+            "teamB": "Prechtal 6"
+        },
+        {
+            "number": 4,
+            "teamA": "Schwenningen 1",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Sulgen 8",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 5",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Schwenningen 1",
+            "teamB": "Sulgen 8"
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 6",
+            "teamB": "Schwenningen 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Ailingen 5",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Prechtal 6",
+            "teamB": "Lauffen 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Sulgen 8",
+            "teamB": "Schwenningen 2"
+        }
+    ]
+}

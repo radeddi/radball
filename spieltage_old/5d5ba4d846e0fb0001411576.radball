@@ -1,0 +1,139 @@
+{
+    "id": "5d5ba4d846e0fb0001411576",
+    "number": 4,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2019-11-09T13:00:00.000Z",
+    "gym": {
+        "name": "Rotachhalle Ailingen",
+        "city": "Friedrichshafen-Ailingen",
+        "zip": "88048",
+        "street": "Leonie Fürst Straße",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "24d2ed6f-c3b3-4e4c-a3b8-13d51e4314bb",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448af3",
+            "present": true,
+            "players": [
+                "Nils Guse",
+                "Jonathan Ben Hartmann"
+            ]
+        },
+        {
+            "id": "e9f4f79b-9f1a-4254-8451-ca11e5e8919e",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7b6c46e0fb0001448aeb",
+            "present": true,
+            "players": [
+                "David Egl",
+                "Silas Öhlert"
+            ]
+        },
+        {
+            "id": "2402ca32-59c6-49e0-8ddf-d0461ef99525",
+            "teamName": "Denkendorf 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae7",
+            "present": true,
+            "players": [
+                "David Endriss",
+                "Leonard Hartmann"
+            ]
+        },
+        {
+            "id": "fb36e8e0-b88e-4a51-92ae-064736cb0a12",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7b6c46e0fb0001448aef",
+            "present": true,
+            "players": [
+                "Nick Hundsdörfer",
+                "Jan Böhrer"
+            ]
+        },
+        {
+            "id": "ada1fd50-4567-4190-8a6d-d0c54eb9bbf2",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae9",
+            "present": true,
+            "players": [
+                "Paul Hildbrand",
+                "Lucas Flaig"
+            ]
+        },
+        {
+            "id": "c1fcd068-fe4c-4500-a0ce-9b73f68b2808",
+            "teamName": "Ailingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae3",
+            "present": true,
+            "players": [
+                "Jakob Schlegel",
+                "Nelio Böck"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Denkendorf 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Ailingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Hofen 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 1",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Ailingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Konstanz 1",
+            "teamB": "Hofen 1"
+        }
+    ],
+    "permissions": [
+        "LeagueRead",
+        "TeamsRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "id": "5d4d2b9c46e0fb00019b3dc0",
+    "number": 7,
+    "league": "5d3d715546e0fb0001e27497",
+    "leagueName": "Verbandsliga Staffel I",
+    "start": "2020-01-18T17:00:00.000Z",
+    "gym": {
+        "name": "Rotachhalle Ailingen",
+        "city": "Friedrichshafen-Ailingen",
+        "zip": "88048",
+        "street": "Leonie Fürst Straße",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "2853c4ca-ba36-4365-8cbb-ecb55d697ff2",
+            "teamName": "Ailingen 2",
+            "teamId": "5d3d715546e0fb0001e27499",
+            "present": true,
+            "players": [
+                "Pascal Salomon",
+                "Matthias Blab"
+            ]
+        },
+        {
+            "id": "26b3cae1-7cf4-4a22-8d4d-35b8930501ae",
+            "teamName": "Ailingen 3",
+            "teamId": "5d3d715546e0fb0001e2749b",
+            "present": true,
+            "players": [
+                "Sven Braunger",
+                "Marco Braunger"
+            ]
+        },
+        {
+            "id": "dd637ed6-aac4-4ae2-9844-2fe3d871205e",
+            "teamName": "Ailingen 4",
+            "teamId": "5d3d715546e0fb0001e2749d",
+            "present": true,
+            "players": [
+                "Manuel Maier",
+                "Marcel Weißenrieder"
+            ]
+        },
+        {
+            "id": "6e230803-5acc-494f-9ef7-3bf7cbc3d266",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d715546e0fb0001e274a1",
+            "present": true,
+            "players": [
+                "Kevin Wahlenmeier",
+                "Mathias Haas"
+            ]
+        },
+        {
+            "id": "05a01876-eab8-4658-8f7e-343b949be138",
+            "teamName": "Lauterbach 1",
+            "teamId": "5d3d715546e0fb0001e274a7",
+            "present": true,
+            "players": [
+                "Julian Müller",
+                "Christian Haas"
+            ]
+        },
+        {
+            "id": "6488b2ee-187b-4dff-ae76-7c2e8cab372e",
+            "teamName": "Lauterbach 2",
+            "teamId": "5d3d715546e0fb0001e274a9",
+            "present": true,
+            "players": [
+                "Marco Kohler",
+                "Jannic King"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 2",
+            "teamB": "Ailingen 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Ailingen 4",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Ailingen 2",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Ailingen 4",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Lauterbach 2",
+            "teamB": "Ailingen 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 2",
+            "teamB": "Hardt 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Ailingen 4",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Ailingen 2",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 2",
+            "teamB": "Ailingen 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Lauterbach 1",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Ailingen 4",
+            "teamB": "Ailingen 2"
+        },
+        {
+            "number": 12,
+            "teamA": "Ailingen 3",
+            "teamB": "Lauterbach 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

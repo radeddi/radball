@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "sa2",
+    "leagueLongName": "U15 Schüler A Staffel II",
+    "number": 11,
+    "start": "2021-03-06T14:00:00.000Z",
+    "gym": {
+        "name": "Glück-Auf-Halle",
+        "street": "Kappelbergstr. 34",
+        "zip": "73433",
+        "city": "Aalen-Hofen",
+        "phone": "0170-4779082"
+    },
+    "hostClub": "Hofen",
+    "lastImport": "2020-08-31T14:47:59.582Z",
+    "teams": [
+        {
+            "name": "Karlsruhe 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wagner, Tizian",
+                    "uciCode": "10072450492",
+                    "regular": true
+                },
+                {
+                    "name": "Rohloff, Toni",
+                    "uciCode": "10059205043",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Karlsruhe 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Geibel, Maxim",
+                    "uciCode": "10059207467",
+                    "regular": true
+                },
+                {
+                    "name": "Wahner, Thomas",
+                    "uciCode": "10072546280",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Karlsruhe 3 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Heinemann, Leon",
+                    "uciCode": "10043833371",
+                    "regular": true
+                },
+                {
+                    "name": "Gacis, Joel",
+                    "uciCode": "10069106319",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Lange, Noah Maxim",
+                    "uciCode": "10045712646",
+                    "regular": true
+                },
+                {
+                    "name": "Förster, Jakob",
+                    "uciCode": "10045712343",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hofen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schiele, Lars",
+                    "uciCode": "10053700190",
+                    "regular": true
+                },
+                {
+                    "name": "Rettenmeier, Theo",
+                    "uciCode": "10053700800",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Junginger, Mathis",
+                    "uciCode": "10073994917",
+                    "regular": true
+                },
+                {
+                    "name": "Linder, Tobias",
+                    "uciCode": "10096949056",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Karlsruhe 3 a.K."
+        },
+        {
+            "number": 2,
+            "teamA": "Hofen 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Karlsruhe 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Karlsruhe 3 a.K.",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Hofen 1",
+            "teamB": "Karlsruhe 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Karlsruhe 3 a.K.",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Karlsruhe 2",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Karlsruhe 3 a.K.",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Karlsruhe 1"
+        }
+    ]
+}

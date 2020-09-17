@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll4",
+    "leagueLongName": "Landesliga Staffel IV",
+    "number": 9,
+    "start": "2021-02-27T17:00:00.000Z",
+    "gym": {
+        "name": "Anne-Frank-Schule",
+        "street": "Bonhoeferstr. 12",
+        "zip": "76189",
+        "city": "Karlsruhe",
+        "phone": "1794268400"
+    },
+    "hostClub": "Karlsruhe",
+    "lastImport": "2020-09-07T07:40:35.957Z",
+    "teams": [
+        {
+            "name": "Gerlingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bedarf, Frank",
+                    "uciCode": "10048550201",
+                    "regular": true
+                },
+                {
+                    "name": "Wagner, Tobias",
+                    "uciCode": "10048521606",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Gerlingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rapp, Stefan",
+                    "uciCode": "10048523323",
+                    "regular": true
+                },
+                {
+                    "name": "Katz, Sebastian",
+                    "uciCode": "10048360847",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Karlsruhe 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Holzapfel, Peter",
+                    "uciCode": "10043831048",
+                    "regular": true
+                },
+                {
+                    "name": "Groff, Etienne",
+                    "uciCode": "10043824176",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kieselbronn 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Dürrwächter, German",
+                    "uciCode": "10036407215",
+                    "regular": true
+                },
+                {
+                    "name": "Burger, Martin",
+                    "uciCode": "10036415093",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kieselbronn 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahn, Knut",
+                    "uciCode": "10036403373",
+                    "regular": true
+                },
+                {
+                    "name": "Häußermann, Timo",
+                    "uciCode": "10036410750",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Forst 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beste, Paul",
+                    "uciCode": "10015525943",
+                    "regular": true
+                },
+                {
+                    "name": "Kreimes, Alan",
+                    "uciCode": "10048394492",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kieselbronn 2",
+            "teamB": "Forst 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Gerlingen 2",
+            "teamB": "Karlsruhe 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Kieselbronn 1",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Kieselbronn 2",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Forst 2",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Kieselbronn 2",
+            "teamB": "Karlsruhe 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Gerlingen 2",
+            "teamB": "Kieselbronn 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Forst 2",
+            "teamB": "Karlsruhe 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Kieselbronn 2",
+            "teamB": "Gerlingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Forst 2",
+            "teamB": "Gerlingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Karlsruhe 3",
+            "teamB": "Kieselbronn 1"
+        }
+    ]
+}

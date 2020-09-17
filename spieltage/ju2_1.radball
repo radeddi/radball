@@ -1,0 +1,180 @@
+{
+    "leagueShortName": "ju2",
+    "leagueLongName": "U19 Junioren Staffel II",
+    "number": 1,
+    "start": "2020-09-26T12:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Langenbachstr. 16",
+        "zip": "71522",
+        "city": "Backnang Waldrems",
+        "phone": "07191-86957"
+    },
+    "hostClub": "Waldrems",
+    "lastImport": "2020-09-07T07:50:07.578Z",
+    "teams": [
+        {
+            "name": "Waldrems 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Zahs, Tom",
+                    "uciCode": "10036297885",
+                    "regular": true
+                },
+                {
+                    "name": "Fuchs, Robin",
+                    "uciCode": "10036320824",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Heckelmann, Mika",
+                    "uciCode": "10036300212",
+                    "regular": true
+                },
+                {
+                    "name": "Häußermann, Kai",
+                    "uciCode": "10084247615",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 5 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hettrich, Moritz",
+                    "uciCode": "10036339820",
+                    "regular": true
+                },
+                {
+                    "name": "Haan, Tobias",
+                    "uciCode": "",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Guse, Nils",
+                    "uciCode": "10045728410",
+                    "regular": true
+                },
+                {
+                    "name": "Hartmann, Jonathan Ben",
+                    "uciCode": "10045720629",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Maibaum, Niklas",
+                    "uciCode": "10045713151",
+                    "regular": true
+                },
+                {
+                    "name": "Groll, Moritz",
+                    "uciCode": "10069953047",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Rechthaler, Kai",
+                    "uciCode": "10045731137",
+                    "regular": true
+                },
+                {
+                    "name": "Böhm, Philipp",
+                    "uciCode": "10084603784",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Niederstotzingen 2",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 3",
+            "teamB": "Waldrems 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Waldrems 5 a.K.",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Waldrems 4",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Waldrems 3",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 5 a.K.",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Waldrems 3",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Waldrems 4",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Waldrems 5 a.K.",
+            "teamB": "Niederstotzingen 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Waldrems 4",
+            "teamB": "Niederstotzingen 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Waldrems 3",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Waldrems 4",
+            "teamB": "Waldrems 5 a.K."
+        }
+    ]
+}

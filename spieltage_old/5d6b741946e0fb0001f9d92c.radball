@@ -1,0 +1,139 @@
+{
+    "id": "5d6b741946e0fb0001f9d92c",
+    "number": 12,
+    "league": "5d3d748a46e0fb0001e27510",
+    "leagueName": "Landesliga Staffel II",
+    "start": "2020-02-15T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "city": "Backnang Waldrems",
+        "zip": "71522",
+        "street": "Langenbachstr. 16",
+        "phone": "07191-86957"
+    },
+    "teams": [
+        {
+            "id": "d2490a35-640e-4d01-9c1d-24530f458015",
+            "teamName": "Reutlingen 1",
+            "teamId": "5d3d748a46e0fb0001e27520",
+            "present": true,
+            "players": [
+                "Thomas Barth",
+                "Volker Wischett"
+            ]
+        },
+        {
+            "id": "0cf3504d-08b1-4e23-beba-7d145da25b32",
+            "teamName": "Sulgen 5",
+            "teamId": "5d3d748a46e0fb0001e27522",
+            "present": true,
+            "players": [
+                "Markus Schlecht",
+                "Torsten Kimmich"
+            ]
+        },
+        {
+            "id": "3e377878-ed45-4169-a951-58542fca52b5",
+            "teamName": "Sulgen 6",
+            "teamId": "5d3d748a46e0fb0001e27524",
+            "present": true,
+            "players": [
+                "Tobias Pfundstein",
+                "Björn Lohrer"
+            ]
+        },
+        {
+            "id": "e0304cbc-7486-4d91-971a-c3a6d97c26f8",
+            "teamName": "Waldrems 6",
+            "teamId": "5d3d748a46e0fb0001e27526",
+            "present": true,
+            "players": [
+                "Stefan Winter",
+                "Jürgen Winter"
+            ]
+        },
+        {
+            "id": "b8977045-5e27-4b2d-b8ae-2bcea3320d97",
+            "teamName": "Weingarten 1",
+            "teamId": "5d3d748a46e0fb0001e27528",
+            "present": true,
+            "players": [
+                "Fritz Gann",
+                "Günther Braungart"
+            ]
+        },
+        {
+            "id": "299cd749-012e-4f45-937f-54e6b716653d",
+            "teamName": "Ailingen 5",
+            "teamId": "5d3d748a46e0fb0001e27512",
+            "present": true,
+            "players": [
+                "Patrick Mayer",
+                "Ken Tautenhahn"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Reutlingen 1",
+            "teamB": "Sulgen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 6",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Sulgen 6",
+            "teamB": "Ailingen 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Sulgen 5",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Reutlingen 1",
+            "teamB": "Ailingen 5"
+        },
+        {
+            "number": 6,
+            "teamA": "Sulgen 6",
+            "teamB": "Waldrems 6"
+        },
+        {
+            "number": 7,
+            "teamA": "Reutlingen 1",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Sulgen 5",
+            "teamB": "Waldrems 6"
+        },
+        {
+            "number": 9,
+            "teamA": "Sulgen 6",
+            "teamB": "Weingarten 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Sulgen 5",
+            "teamB": "Ailingen 5"
+        },
+        {
+            "number": 11,
+            "teamA": "Reutlingen 1",
+            "teamB": "Waldrems 6"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

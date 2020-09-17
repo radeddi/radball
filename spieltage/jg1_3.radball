@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "jg1",
+    "leagueLongName": "U17 Jugend Staffel I",
+    "number": 3,
+    "start": "2020-11-14T14:00:00.000Z",
+    "gym": {
+        "name": "VMC Radsporthalle",
+        "street": "Salesianerweg 8",
+        "zip": "78464",
+        "city": "Konstanz",
+        "phone": "0 170 29 39 883"
+    },
+    "hostClub": "Konstanz",
+    "lastImport": "2020-08-31T14:09:52.303Z",
+    "teams": [
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kern, Henrik",
+                    "uciCode": "10036515733",
+                    "regular": true
+                },
+                {
+                    "name": "Weißer, Ricco",
+                    "uciCode": "10036535739",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 3 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hils, Julian",
+                    "uciCode": "10048358524",
+                    "regular": true
+                },
+                {
+                    "name": "Hug, Maximilian",
+                    "uciCode": "10097990188",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weißer, Marcel",
+                    "uciCode": "10045732551",
+                    "regular": true
+                },
+                {
+                    "name": "Kopp, Michael",
+                    "uciCode": "10045722952",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sulgen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seeber, Michelle",
+                    "uciCode": "10036511790",
+                    "regular": true
+                },
+                {
+                    "name": "Seeber, Jacqueline",
+                    "uciCode": "10036548368",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Konstanz 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schien, Anton",
+                    "uciCode": "10065368078",
+                    "regular": true
+                },
+                {
+                    "name": "Trempa, Matti",
+                    "uciCode": "10065368785",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Singen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Beuscher, Timon",
+                    "uciCode": "10064909855",
+                    "regular": true
+                },
+                {
+                    "name": "Richmond, Jason",
+                    "uciCode": "10064909754",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Konstanz 2",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 1",
+            "teamB": "Sulgen 3 a.K."
+        },
+        {
+            "number": 3,
+            "teamA": "Sulgen 1",
+            "teamB": "Konstanz 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Singen 1",
+            "teamB": "Sulgen 3 a.K."
+        },
+        {
+            "number": 5,
+            "teamA": "Sulgen 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Sulgen 2",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Konstanz 2",
+            "teamB": "Sulgen 3 a.K."
+        },
+        {
+            "number": 8,
+            "teamA": "Sulgen 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Sulgen 1",
+            "teamB": "Singen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Sulgen 2",
+            "teamB": "Konstanz 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Singen 1",
+            "teamB": "Hardt 1"
+        }
+    ]
+}

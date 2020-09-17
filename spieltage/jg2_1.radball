@@ -1,0 +1,175 @@
+{
+    "leagueShortName": "jg2",
+    "leagueLongName": "U17 Jugend Staffel II",
+    "number": 1,
+    "start": "2020-09-19T13:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Römerstr. 71",
+        "zip": "70794",
+        "city": "Filderstadt",
+        "phone": "0711-7738175"
+    },
+    "hostClub": "Plattenhardt",
+    "lastImport": "2020-09-01T12:14:06.890Z",
+    "teams": [
+        {
+            "name": "Kemnat 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Breining, Finn Ben",
+                    "uciCode": "10036300616",
+                    "regular": true
+                },
+                {
+                    "name": "Fröschle, Yannik",
+                    "uciCode": "10036310013",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Merklingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Pfäffle, Andreas",
+                    "uciCode": "10036324359",
+                    "regular": true
+                },
+                {
+                    "name": "Braungart, Till",
+                    "uciCode": "10036321228",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Reichenbach 3 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schall, Marius",
+                    "uciCode": "10053701204",
+                    "regular": true
+                },
+                {
+                    "name": "Hohlbauch, Marcel",
+                    "uciCode": "10036276768",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weingarten 1 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hauck, Matti",
+                    "uciCode": "",
+                    "regular": true
+                },
+                {
+                    "name": "Binder, Julian",
+                    "uciCode": "",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Plattenhardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Cejnek, Felix",
+                    "uciCode": "10054410415",
+                    "regular": true
+                },
+                {
+                    "name": "Blum, Raphael",
+                    "uciCode": "10054416172",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Plattenhardt 2 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gentzcke, Lena",
+                    "uciCode": "10085011790",
+                    "regular": true
+                },
+                {
+                    "name": "Maier, Daniel",
+                    "uciCode": "10054414455",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Plattenhardt 2 a.K."
+        },
+        {
+            "number": 2,
+            "teamA": "Kemnat 2",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 3 a.K.",
+            "teamB": "Plattenhardt 2 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 2",
+            "teamB": "Weingarten 1 a.K."
+        },
+        {
+            "number": 5,
+            "teamA": "Reichenbach 3 a.K.",
+            "teamB": "Merklingen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Weingarten 1 a.K.",
+            "teamB": "Plattenhardt 2 a.K."
+        },
+        {
+            "number": 7,
+            "teamA": "Kemnat 2",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Merklingen 1",
+            "teamB": "Weingarten 1 a.K."
+        },
+        {
+            "number": 9,
+            "teamA": "Reichenbach 3 a.K.",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Plattenhardt 2 a.K.",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 11,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Weingarten 1 a.K."
+        },
+        {
+            "number": 12,
+            "teamA": "Merklingen 1",
+            "teamB": "Plattenhardt 2 a.K."
+        }
+    ]
+}

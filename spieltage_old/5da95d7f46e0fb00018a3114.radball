@@ -1,0 +1,164 @@
+{
+    "id": "5da95d7f46e0fb00018a3114",
+    "number": 7,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2020-02-01T14:00:00.000Z",
+    "gym": {
+        "name": "Mehrzwecksporthalle Peterzell",
+        "city": "St. Georgen-Peterzell",
+        "zip": "78112",
+        "street": "Bärlochtalstr. 3",
+        "phone": ""
+    },
+    "teams": [
+        {
+            "id": "4b9c672c-e495-471a-8d2a-26f1dc47fb36",
+            "teamName": "Ailingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae3",
+            "present": true,
+            "players": [
+                "Jakob Schlegel",
+                "Nelio Böck"
+            ]
+        },
+        {
+            "id": "73f5aac9-940c-4dd5-b394-9579426740a0",
+            "teamName": "Alpirsbach 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae5",
+            "present": true,
+            "players": [
+                "Moritz Klemm",
+                "Jonas Kaltenbach"
+            ]
+        },
+        {
+            "id": "9fab70e8-7592-4ea3-98ff-2208ad4d0a6b",
+            "teamName": "Langenschiltach 1",
+            "teamId": "5d3d7b6c46e0fb0001448af1",
+            "present": true,
+            "players": [
+                "Jonas Schultheiss",
+                "Silas Dold"
+            ]
+        },
+        {
+            "id": "6bd3e755-2502-4727-a915-f09d062a501f",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7d7646e0fb0001e2768b",
+            "present": true,
+            "players": [
+                "Elias Engel",
+                "Felix Hinnenberger"
+            ]
+        },
+        {
+            "id": "012be876-b921-40ae-ba10-4e7f63a6cddb",
+            "teamName": "Hofen 1",
+            "teamId": "5d3d7b6c46e0fb0001448aeb",
+            "present": true,
+            "players": [
+                "David Egl",
+                "Silas Öhlert"
+            ]
+        },
+        {
+            "id": "09277ba8-3164-4081-9b3e-61b9bcfbaeb7",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7b6c46e0fb0001448aef",
+            "present": true,
+            "players": [
+                "Nick Hundsdörfer",
+                "Jan Böhrer"
+            ]
+        },
+        {
+            "id": "affd03a6-ca94-4998-9472-bc87c9f42de8",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448af3",
+            "present": true,
+            "players": [
+                "Nils Guse",
+                "Jonathan Ben Hartmann"
+            ]
+        },
+        {
+            "id": "0e3c1866-dd2c-4eab-9501-873f41fd13c8",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae9",
+            "present": true,
+            "players": [
+                "Paul Hildbrand",
+                "Lucas Flaig"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ailingen 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Konstanz 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Öflingen 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Ailingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Öflingen 1",
+            "teamB": "Hofen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Ailingen 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Niederstotzingen 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Konstanz 1"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

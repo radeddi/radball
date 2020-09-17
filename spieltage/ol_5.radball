@@ -1,0 +1,207 @@
+{
+    "leagueShortName": "ol",
+    "leagueLongName": "Oberliga",
+    "number": 5,
+    "start": "2020-12-05T17:00:00.000Z",
+    "gym": {
+        "name": "Sporthalle Kemnat",
+        "street": "Haldenstr. 42",
+        "zip": "73760",
+        "city": "Ostfildern",
+        "phone": "01779 777876"
+    },
+    "hostClub": "Kemnat",
+    "lastImport": "2020-08-29T15:04:18.329Z",
+    "teams": [
+        {
+            "name": "Lauterbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Julian",
+                    "uciCode": "10036509770",
+                    "regular": true
+                },
+                {
+                    "name": "Haas, Christian",
+                    "uciCode": "10048350945",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wisser, Simon",
+                    "uciCode": "10036155318",
+                    "regular": true
+                },
+                {
+                    "name": "Volk, Patrick",
+                    "uciCode": "10023465795",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kemnat 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fröschle, Manuel",
+                    "uciCode": "10036297683",
+                    "regular": true
+                },
+                {
+                    "name": "Fröschle, Florian",
+                    "uciCode": "10036322440",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Kemnat 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Balz, Jonas",
+                    "uciCode": "10023465290",
+                    "regular": true
+                },
+                {
+                    "name": "Schmidt, Dominik",
+                    "uciCode": "10023465189",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Henn, Sascha",
+                    "uciCode": "10013020313",
+                    "regular": true
+                },
+                {
+                    "name": "Eberhardt-Schneider, Simon",
+                    "uciCode": "10036293845",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Denkendorf 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Stahl, Andreas",
+                    "uciCode": "10036319107",
+                    "regular": true
+                },
+                {
+                    "name": "Berner, Stefan",
+                    "uciCode": "10036317386",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauffen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Käufer, Marc",
+                    "uciCode": "10036330221",
+                    "regular": true
+                },
+                {
+                    "name": "Keller, Thomas",
+                    "uciCode": "10036304252",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Müller, Mathias",
+                    "uciCode": "10036535335",
+                    "regular": true
+                },
+                {
+                    "name": "Müller, Florian",
+                    "uciCode": "10015102476",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Lauterbach 1",
+            "teamB": "Kemnat 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Lauffen 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Kemnat 2",
+            "teamB": "Denkendorf 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Prechtal 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Kemnat 3",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Lauterbach 1",
+            "teamB": "Kemnat 2"
+        },
+        {
+            "number": 7,
+            "teamA": "Denkendorf 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Kemnat 3",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 9,
+            "teamA": "Lauterbach 1",
+            "teamB": "Prechtal 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 2",
+            "teamB": "Lauffen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Denkendorf 3",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Prechtal 2",
+            "teamB": "Denkendorf 2"
+        }
+    ]
+}

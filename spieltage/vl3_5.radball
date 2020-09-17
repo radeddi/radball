@@ -1,0 +1,165 @@
+{
+    "leagueShortName": "vl3",
+    "leagueLongName": "Verbandsliga Staffel III",
+    "number": 5,
+    "start": "2020-12-19T17:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Badstr.",
+        "zip": "71409",
+        "city": "Schwaikheim",
+        "phone": "0175-9362062"
+    },
+    "hostClub": "Schwaikheim",
+    "lastImport": "2020-08-30T08:45:49.692Z",
+    "teams": [
+        {
+            "name": "Oberesslingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Theilinger, Markus",
+                    "uciCode": "10036308902",
+                    "regular": true
+                },
+                {
+                    "name": "Bläsi, Philipp",
+                    "uciCode": "10036278384",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Paxian, Jakob Felix",
+                    "uciCode": "10036299101",
+                    "regular": true
+                },
+                {
+                    "name": "Lutz, Manuel",
+                    "uciCode": "10036344264",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Waldrems 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Weller, Markus",
+                    "uciCode": "10036339416",
+                    "regular": true
+                },
+                {
+                    "name": "Schneider, Matthias",
+                    "uciCode": "10036287579",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fleischmann, Patrick",
+                    "uciCode": "10045725982",
+                    "regular": true
+                },
+                {
+                    "name": "Trautwein, Mike",
+                    "uciCode": "10045737100",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Bareiß, Ingo",
+                    "uciCode": "10048353571",
+                    "regular": true
+                },
+                {
+                    "name": "Braun, Sebastian",
+                    "uciCode": "10048350743",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Schwaikheim 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schwarzer, Benjamin",
+                    "uciCode": "10045730632",
+                    "regular": true
+                },
+                {
+                    "name": "Schwarzer, Tobias",
+                    "uciCode": "10084431814",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Waldrems 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Schwaikheim 3"
+        },
+        {
+            "number": 3,
+            "teamA": "Waldrems 5",
+            "teamB": "Schwaikheim 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Schwaikheim 2"
+        },
+        {
+            "number": 5,
+            "teamA": "Waldrems 5",
+            "teamB": "Schwaikheim 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Schwaikheim 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 5",
+            "teamB": "Schwaikheim 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Schwaikheim 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Oberesslingen 2",
+            "teamB": "Schwaikheim 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Oberesslingen 3",
+            "teamB": "Schwaikheim 2"
+        }
+    ]
+}

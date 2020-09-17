@@ -1,0 +1,139 @@
+{
+    "id": "5d4e8fd746e0fb00019a4a7d",
+    "number": 12,
+    "league": "5d3d79c346e0fb00014489f9",
+    "leagueName": "Bezirksliga Staffel I",
+    "start": "2020-03-21T17:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "city": "Schramberg-Sulgen",
+        "zip": "78713",
+        "street": "Sulgauer Str. 7",
+        "phone": "0171 342 865 8"
+    },
+    "teams": [
+        {
+            "id": "c1f3cd7d-a2e1-47ae-b620-c56918607591",
+            "teamName": "Ehrenkirchen 1",
+            "teamId": "5d3d79c346e0fb00014489fd",
+            "present": true,
+            "players": [
+                "Eric van Steenis",
+                "Christian Weinmann"
+            ]
+        },
+        {
+            "id": "91312e24-84f3-4c50-b5db-06a978d8ece4",
+            "teamName": "Hardt 7",
+            "teamId": "5d3d79c346e0fb0001448a01",
+            "present": true,
+            "players": [
+                "Pascal Bammert",
+                "Leon Woelki"
+            ]
+        },
+        {
+            "id": "22907bba-ad3a-4247-b18f-50528a527a68",
+            "teamName": "Hardt 6",
+            "teamId": "5d3d79c346e0fb00014489ff",
+            "present": true,
+            "players": [
+                "Christian Hug",
+                "Rolf Weißer"
+            ]
+        },
+        {
+            "id": "8bf445d8-9789-40cd-85e1-6d51d00f6cd7",
+            "teamName": "Langenschiltach 4",
+            "teamId": "5d3d79c346e0fb0001448a05",
+            "present": true,
+            "players": [
+                "Christoph Weißer",
+                "Jürgen Oehl"
+            ]
+        },
+        {
+            "id": "9896301e-5109-412b-a58f-347a6461e837",
+            "teamName": "Sulgen 7",
+            "teamId": "5d3d79c346e0fb0001448a0f",
+            "present": true,
+            "players": [
+                "Patrick Klausmann",
+                "Patrick Ehrmann"
+            ]
+        },
+        {
+            "id": "1cb88a66-2a95-4a8f-ae8f-f4388122e5de",
+            "teamName": "Sulgen 8",
+            "teamId": "5d3d79c346e0fb0001448a11",
+            "present": true,
+            "players": [
+                "Torsten Seiler",
+                "Michael Schmid"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Ehrenkirchen 1",
+            "teamB": "Langenschiltach 4"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 7",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 3,
+            "teamA": "Hardt 6",
+            "teamB": "Langenschiltach 4"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 7",
+            "teamB": "Sulgen 8"
+        },
+        {
+            "number": 5,
+            "teamA": "Sulgen 7",
+            "teamB": "Ehrenkirchen 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Hardt 6",
+            "teamB": "Sulgen 8"
+        },
+        {
+            "number": 7,
+            "teamA": "Hardt 7",
+            "teamB": "Langenschiltach 4"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 6",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 9,
+            "teamA": "Sulgen 8",
+            "teamB": "Ehrenkirchen 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Langenschiltach 4",
+            "teamB": "Sulgen 7"
+        },
+        {
+            "number": 11,
+            "teamA": "Ehrenkirchen 1",
+            "teamB": "Hardt 7"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

@@ -1,0 +1,159 @@
+{
+    "id": "5d5c020a46e0fb00013a1c84",
+    "number": 6,
+    "league": "5d3d7bba46e0fb0001448b14",
+    "leagueName": "U17 Jugend Staffel I",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "city": "Schramberg-Sulgen",
+        "zip": "78713",
+        "street": "Sulgauer Str. 7",
+        "phone": "0171 342 865 8"
+    },
+    "teams": [
+        {
+            "id": "fa3f0dec-4d2d-4caa-9adb-76fd25387c6c",
+            "teamName": "Hardt 2",
+            "teamId": "5d3d7bba46e0fb0001448b1c",
+            "present": true,
+            "players": [
+                "Henrik Kern",
+                "Ricco Weißer"
+            ]
+        },
+        {
+            "id": "58aa3438-4cba-46af-8df8-2a1d5cbf3e35",
+            "teamName": "SG Langenschiltach/Prechtal 2",
+            "teamId": "5d3d7bba46e0fb0001448b24",
+            "present": true,
+            "players": [
+                "Lasse Lützow",
+                "Niklas Joos"
+            ]
+        },
+        {
+            "id": "9fc141a2-411b-4f94-a243-9485f7ed9ade",
+            "teamName": "Sulgen 1",
+            "teamId": "5d3d7bba46e0fb0001448b25",
+            "present": true,
+            "players": [
+                "Cedric Miseria",
+                "Mike Petri"
+            ]
+        },
+        {
+            "id": "bd4bd6f4-b7d5-4006-81c5-66b60760f8a1",
+            "teamName": "Sulgen 2",
+            "teamId": "5d3d7bba46e0fb0001448b27",
+            "present": true,
+            "players": [
+                "Julian Hils",
+                "Maximilian Hug"
+            ]
+        },
+        {
+            "id": "855aa339-c58c-4d18-bc53-36d3c82ccb98",
+            "teamName": "Denkendorf 3",
+            "teamId": "5d3d7bba46e0fb0001448b16",
+            "present": true,
+            "players": [
+                "Leon Binder",
+                "Felix Bauer"
+            ]
+        },
+        {
+            "id": "4f3c6b10-9655-4794-8678-268efbcd12dd",
+            "teamName": "Denkendorf 4",
+            "teamId": "5d3d7bba46e0fb0001448b18",
+            "present": true,
+            "players": [
+                "Pablo Geyer",
+                "Elias Zschoke"
+            ]
+        },
+        {
+            "id": "97d81d9e-5b18-48a2-9137-6219f0741051",
+            "teamName": "Reutlingen 1 a.K.",
+            "teamId": "5d3d7dea46e0fb0001e276b5",
+            "present": true,
+            "players": [
+                "Leon Geiselhart",
+                "Jannik Schneider"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Sulgen 1",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 2,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 3,
+            "teamA": "Sulgen 2",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 5,
+            "teamA": "Sulgen 1",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 6,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 7,
+            "teamA": "Sulgen 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 8,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Sulgen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Hardt 2",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 10,
+            "teamA": "Sulgen 2",
+            "teamB": "Denkendorf 4"
+        },
+        {
+            "number": 11,
+            "teamA": "SG Langenschiltach/Prechtal 2",
+            "teamB": "Denkendorf 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Sulgen 1",
+            "teamB": "Reutlingen 1 a.K."
+        },
+        {
+            "number": 13,
+            "teamA": "Hardt 2",
+            "teamB": "Denkendorf 4"
+        }
+    ],
+    "permissions": [
+        "LeagueRead",
+        "TeamsRead",
+        "ClubsRead",
+        "MatchdayRead"
+    ]
+}

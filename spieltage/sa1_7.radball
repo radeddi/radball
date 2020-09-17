@@ -1,0 +1,185 @@
+{
+    "leagueShortName": "sa1",
+    "leagueLongName": "U15 Schüler A Staffel I",
+    "number": 7,
+    "start": "2021-01-30T14:00:00.000Z",
+    "gym": {
+        "name": "Radsporthalle",
+        "street": "Im Seetal 1",
+        "zip": "71093",
+        "city": "Weil im Schönbuch",
+        "phone": "07157-64820"
+    },
+    "hostClub": "Weil im Schönbuch",
+    "lastImport": "2020-09-07T08:00:30.780Z",
+    "teams": [
+        {
+            "name": "Plattenhardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gentzcke, Luca",
+                    "uciCode": "10076661003",
+                    "regular": true
+                },
+                {
+                    "name": "Cejnek, Moritz",
+                    "uciCode": "10075496902",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Sindelfingen 1 a.K.",
+            "present": true,
+            "players": [
+                {
+                    "name": "Gutzke, Kai Alex",
+                    "uciCode": "10064865496",
+                    "regular": true
+                },
+                {
+                    "name": "Gutzke, Nic",
+                    "uciCode": "10072548203",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Weil im Schönbuch 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Eissler, Ben",
+                    "uciCode": "10084248423",
+                    "regular": true
+                },
+                {
+                    "name": "Leinich, Silas",
+                    "uciCode": "10085395649",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wernet, Lukas",
+                    "uciCode": "10065367472",
+                    "regular": true
+                },
+                {
+                    "name": "Winterer, Joscha",
+                    "uciCode": "10048390048",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Joos, Fabian",
+                    "uciCode": "10045787822",
+                    "regular": true
+                },
+                {
+                    "name": "Häringer, Marco",
+                    "uciCode": "10073088268",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Prechtal 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Dufner, Roman",
+                    "uciCode": "10073096352",
+                    "regular": true
+                },
+                {
+                    "name": "Haus, Jason",
+                    "uciCode": "10097266631",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Prechtal 1",
+            "teamB": "Prechtal 2"
+        },
+        {
+            "number": 2,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Sindelfingen 1 a.K."
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 3",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Prechtal 1",
+            "teamB": "Sindelfingen 1 a.K."
+        },
+        {
+            "number": 5,
+            "teamA": "Prechtal 2",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Prechtal 2",
+            "teamB": "Prechtal 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Plattenhardt 1",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Prechtal 3",
+            "teamB": "Sindelfingen 1 a.K."
+        },
+        {
+            "number": 10,
+            "teamA": "Prechtal 2",
+            "teamB": "Weil im Schönbuch 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Prechtal 1",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Prechtal 2",
+            "teamB": "Sindelfingen 1 a.K."
+        },
+        {
+            "number": 13,
+            "teamA": "Prechtal 3",
+            "teamB": "Plattenhardt 1"
+        },
+        {
+            "number": 14,
+            "teamA": "Weil im Schönbuch 1",
+            "teamB": "Sindelfingen 1 a.K."
+        }
+    ]
+}

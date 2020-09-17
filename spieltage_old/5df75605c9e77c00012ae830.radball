@@ -1,0 +1,144 @@
+{
+    "id": "5df75605c9e77c00012ae830",
+    "number": 3,
+    "league": "5d3d749946e0fb0001e2753e",
+    "leagueName": "Landesliga Staffel III",
+    "start": "2019-12-14T17:00:00.000Z",
+    "gym": {
+        "name": "Turnhalle Parler-Gymnasium",
+        "city": "Schwäbisch Gmünd",
+        "zip": "73525",
+        "street": "Haussmannstr. 34",
+        "phone": "0151-51030886"
+    },
+    "teams": [
+        {
+            "id": "0262cbbc-5ccb-4f3f-aa29-404fdb40c96a",
+            "teamName": "Schwäbisch Gmünd 1",
+            "teamId": "5d3d749946e0fb0001e27550",
+            "present": true,
+            "players": [
+                "Stephan Friedrich",
+                "Benjamin Hofer"
+            ]
+        },
+        {
+            "id": "b61bfec5-a180-4c96-ad2f-10369cbbcd73",
+            "teamName": "Hofen 4",
+            "teamId": "5d3d749946e0fb0001e27546",
+            "present": true,
+            "players": [
+                "Julian Schwarzer",
+                "Raphael Fröbe"
+            ]
+        },
+        {
+            "id": "4cd8ecba-0d4a-4af5-9f42-79e80c34ccdb",
+            "teamName": "Niederstotzingen 1",
+            "teamId": "5d3d749946e0fb0001e27548",
+            "present": true,
+            "players": [
+                "Hannes Wetzler",
+                "Andreas Miller"
+            ]
+        },
+        {
+            "id": "315a8f56-003a-40ef-b158-50a5b13ec940",
+            "teamName": "Hofen 2",
+            "teamId": "5d3d749946e0fb0001e27542",
+            "present": true,
+            "players": [
+                "Rudi Stephan",
+                "Judith Wolf"
+            ]
+        },
+        {
+            "id": "7fc1a442-555a-4813-a317-88ec0db97adc",
+            "teamName": "Ebersbach 2",
+            "teamId": "5d3d749946e0fb0001e27540",
+            "present": true,
+            "players": [
+                "Mathias Berger",
+                "Jens Eggelhöfer"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Schwäbisch Gmünd 1",
+            "score": {
+                "goalsA": 1,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Hofen 4",
+            "teamB": "Ebersbach 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Schwäbisch Gmünd 1",
+            "teamB": "Ebersbach 2",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 7,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Hofen 2",
+            "score": {
+                "goalsA": 7,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Schwäbisch Gmünd 1",
+            "teamB": "Hofen 2",
+            "score": {
+                "goalsA": 8,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Ebersbach 2",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Hofen 2",
+            "teamB": "Hofen 4",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

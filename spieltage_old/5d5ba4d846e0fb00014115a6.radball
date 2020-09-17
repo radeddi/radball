@@ -1,0 +1,139 @@
+{
+    "id": "5d5ba4d846e0fb00014115a6",
+    "number": 8,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2020-01-11T14:00:00.000Z",
+    "gym": {
+        "name": "Arthur-Bantle-Halle",
+        "city": "Hardt",
+        "zip": "78739",
+        "street": "Ostlandstr. 10",
+        "phone": "0171 7059873"
+    },
+    "teams": [
+        {
+            "id": "bc4630b3-ca63-4d1c-8db9-101d3ec036f9",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7b6c46e0fb0001448af6",
+            "present": true,
+            "players": [
+                "Jan Österle",
+                "Marco Gross"
+            ]
+        },
+        {
+            "id": "17f3910f-7a92-49aa-bb21-3bf6c14edd00",
+            "teamName": "Alpirsbach 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae5",
+            "present": true,
+            "players": [
+                "Moritz Klemm",
+                "Jonas Kaltenbach"
+            ]
+        },
+        {
+            "id": "71a6384e-e6cb-42c8-a6a7-72b6fe7e890c",
+            "teamName": "Denkendorf 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae7",
+            "present": true,
+            "players": [
+                "David Endriss",
+                "Leonard Hartmann"
+            ]
+        },
+        {
+            "id": "dd9b1b11-c8de-4f76-9374-1fc165d6d12f",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7b6c46e0fb0001448aef",
+            "present": true,
+            "players": [
+                "Nick Hundsdörfer",
+                "Jan Böhrer"
+            ]
+        },
+        {
+            "id": "3e03853f-8e80-47d7-8847-2591b215b55e",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae9",
+            "present": true,
+            "players": [
+                "Paul Hildbrand",
+                "Lucas Flaig"
+            ]
+        },
+        {
+            "id": "a87ef542-056c-4c54-9f06-e2dd65b0ac5a",
+            "teamName": "Ailingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae3",
+            "present": true,
+            "players": [
+                "Jakob Schlegel",
+                "Nelio Böck"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Denkendorf 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Ailingen 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Alpirsbach 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Denkendorf 1",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Waldrems 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Denkendorf 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Ailingen 1",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Waldrems 1",
+            "teamB": "Konstanz 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Denkendorf 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Waldrems 1",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Konstanz 1",
+            "teamB": "Alpirsbach 1"
+        }
+    ],
+    "permissions": [
+        "MatchdayRead",
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead"
+    ]
+}

@@ -1,0 +1,164 @@
+{
+    "id": "5d6cc9da46e0fb0001bb6ca1",
+    "number": 6,
+    "league": "5d3d7e6d46e0fb0001e2770e",
+    "leagueName": "U15 Schüler A Staffel I",
+    "start": "2020-01-18T14:00:00.000Z",
+    "gym": {
+        "name": "Turn- und Festhalle",
+        "city": "Schramberg-Sulgen",
+        "zip": "78713",
+        "street": "Sulgauer Str. 7",
+        "phone": "0171 342 865 8"
+    },
+    "teams": [
+        {
+            "id": "b0acc567-3588-4d6e-a574-a69a5e4ed1f5",
+            "teamName": "Prechtal 1",
+            "teamId": "5d3d7e6d46e0fb0001e2771a",
+            "present": true,
+            "players": [
+                "Verena Volk",
+                "Fabian Volk"
+            ]
+        },
+        {
+            "id": "9c4d9b13-2a93-44e0-9f86-fa5890a9125d",
+            "teamName": "Prechtal 2",
+            "teamId": "5d3d7e6d46e0fb0001e2771c",
+            "present": true,
+            "players": [
+                "Lukas Wernet",
+                "Joscha Winterer"
+            ]
+        },
+        {
+            "id": "1f6c610a-1681-4697-abf9-cece28d06065",
+            "teamName": "Langenschiltach 1",
+            "teamId": "5d3d7e6d46e0fb0001e27712",
+            "present": true,
+            "players": [
+                "Lukas Loch",
+                "Finn Burgbacher"
+            ]
+        },
+        {
+            "id": "7c6cc007-84df-4547-be7b-b9489d4483f5",
+            "teamName": "Sulgen 1",
+            "teamId": "5d3d7e6d46e0fb0001e2771e",
+            "present": true,
+            "players": [
+                "Marcel Weißer",
+                "Michael Kopp"
+            ]
+        },
+        {
+            "id": "0742d769-a9d5-47c2-bfd9-ffed0e4618ce",
+            "teamName": "Langenschiltach 2",
+            "teamId": "5d3d7e6d46e0fb0001e27714",
+            "present": true,
+            "players": [
+                "Fabian Rapp",
+                "Yannik Flaig"
+            ]
+        },
+        {
+            "id": "76fcbfda-33d6-4e9d-94f4-9895d68f7b37",
+            "teamName": "Langenschiltach 3",
+            "teamId": "5d3d7e6d46e0fb0001e27716",
+            "present": true,
+            "players": [
+                "Konrad Kohnen",
+                "Pablo Lützow"
+            ]
+        },
+        {
+            "id": "e79abfea-e553-405b-8dde-e9c3dd99f014",
+            "teamName": "Sulgen 2 a.K.",
+            "teamId": "5d3d7e6d46e0fb0001e27720",
+            "present": true,
+            "players": [
+                "Michelle Seeber",
+                "Jacqueline Seeber"
+            ]
+        },
+        {
+            "id": "f1e44375-0bf7-4786-abb0-61e3bc51edeb",
+            "teamName": "Alpirsbach 1",
+            "teamId": "5d3d7e6d46e0fb0001e27710",
+            "present": true,
+            "players": [
+                "Josef Klemm",
+                "Jona Fahrbach"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 2,
+            "teamA": "Sulgen 1",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Prechtal 2",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Prechtal 1",
+            "teamB": "Sulgen 2 a.K."
+        },
+        {
+            "number": 5,
+            "teamA": "Sulgen 1",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 6,
+            "teamA": "Prechtal 2",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Sulgen 2 a.K.",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Prechtal 1",
+            "teamB": "Langenschiltach 2"
+        },
+        {
+            "number": 9,
+            "teamA": "Prechtal 2",
+            "teamB": "Langenschiltach 3"
+        },
+        {
+            "number": 10,
+            "teamA": "Sulgen 1",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Prechtal 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 12,
+            "teamA": "Langenschiltach 2",
+            "teamB": "Sulgen 2 a.K."
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

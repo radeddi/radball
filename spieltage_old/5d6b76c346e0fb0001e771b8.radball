@@ -1,0 +1,139 @@
+{
+    "id": "5d6b76c346e0fb0001e771b8",
+    "number": 12,
+    "league": "5d3d7ab046e0fb0001e275d3",
+    "leagueName": "U19O Junioren-Oberliga",
+    "start": "2020-02-08T13:00:00.000Z",
+    "gym": {
+        "name": "Sport- und Festhalle Lauffen",
+        "city": "Deißlingen-Lauffen",
+        "zip": "78652",
+        "street": "Bäumlesweg 7",
+        "phone": "07420-93780"
+    },
+    "teams": [
+        {
+            "id": "0319a657-7c2d-4050-a9ac-4eca0d3c1a19",
+            "teamName": "Gärtringen 1",
+            "teamId": "5d3d7ab046e0fb0001e275d5",
+            "present": true,
+            "players": [
+                "Luis Müller",
+                "Loris Ferrari"
+            ]
+        },
+        {
+            "id": "0a0cfb2f-00db-436a-a664-548f913f68c8",
+            "teamName": "Gärtringen 2",
+            "teamId": "5d3d7ab046e0fb0001e275d7",
+            "present": true,
+            "players": [
+                "Till Ganser",
+                "Nico Quast"
+            ]
+        },
+        {
+            "id": "afdf3b2d-54ff-4a00-9d40-12e510161c37",
+            "teamName": "Lauffen 1",
+            "teamId": "5d3d7ab046e0fb0001e275dd",
+            "present": true,
+            "players": [
+                "Paul Fischer",
+                "Tom Fischer"
+            ]
+        },
+        {
+            "id": "287a7c44-5dab-4bd8-a938-3f13d4dbec6a",
+            "teamName": "Oberesslingen 1",
+            "teamId": "5d3d7ab046e0fb0001e275df",
+            "present": true,
+            "players": [
+                "Tarik Nas",
+                "Moritz Bracht"
+            ]
+        },
+        {
+            "id": "dba8e2da-b1c5-4eee-a234-48d8465a9a22",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d7ab046e0fb0001e275e9",
+            "present": true,
+            "players": [
+                "Benjamin Mayer",
+                "Jonas Frank"
+            ]
+        },
+        {
+            "id": "fd2118f0-c681-499f-b3ab-99646eed62ff",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7ab046e0fb0001e275eb",
+            "present": true,
+            "players": [
+                "Philipp Völk",
+                "Moritz Völk"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Lauffen 1",
+            "teamB": "Gärtringen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Waldrems 1",
+            "teamB": "Oberesslingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Gärtringen 2",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Lauffen 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Gärtringen 1",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Lauffen 1",
+            "teamB": "Oberesslingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Waldrems 1",
+            "teamB": "Gärtringen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Gärtringen 1",
+            "teamB": "Oberesslingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Lauffen 1",
+            "teamB": "Schwaikheim 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Gärtringen 1",
+            "teamB": "Waldrems 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Gärtringen 2"
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "MatchdayRead",
+        "TeamsRead",
+        "LeagueRead"
+    ]
+}

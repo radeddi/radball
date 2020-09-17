@@ -1,0 +1,139 @@
+{
+    "id": "5d5ba4d846e0fb00011adfdd",
+    "number": 9,
+    "league": "5d3d7b6c46e0fb0001448ae1",
+    "leagueName": "U17O Jugend-Oberliga",
+    "start": "2020-01-25T14:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Wehr-Öflingen",
+        "zip": "79664",
+        "street": "Wehratalstr. 48",
+        "phone": "07761-2577"
+    },
+    "teams": [
+        {
+            "id": "5332fd9e-550a-40e4-a99a-02cdc2378b1f",
+            "teamName": "Konstanz 1",
+            "teamId": "5d3d7b6c46e0fb0001448aef",
+            "present": true,
+            "players": [
+                "Nick Hundsdörfer",
+                "Jan Böhrer"
+            ]
+        },
+        {
+            "id": "b85edf96-5bd8-4c25-bfb3-c031396cae94",
+            "teamName": "Hardt 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae9",
+            "present": true,
+            "players": [
+                "Paul Hildbrand",
+                "Lucas Flaig"
+            ]
+        },
+        {
+            "id": "b2544eda-55ba-40fe-8b72-f41029e25f04",
+            "teamName": "Ailingen 1",
+            "teamId": "5d3d7b6c46e0fb0001448ae3",
+            "present": true,
+            "players": [
+                "Jakob Schlegel",
+                "Nelio Böck"
+            ]
+        },
+        {
+            "id": "24efd48d-8010-4d73-9df1-8f1d9f5ec890",
+            "teamName": "Öflingen 1",
+            "teamId": "5d3d7d7646e0fb0001e2768b",
+            "present": true,
+            "players": [
+                "Elias Engel",
+                "Felix Hinnenberger"
+            ]
+        },
+        {
+            "id": "84564a42-85f7-4df2-9c0d-0ca2b197b00e",
+            "teamName": "Langenschiltach 1",
+            "teamId": "5d3d7b6c46e0fb0001448af1",
+            "present": true,
+            "players": [
+                "Jonas Schultheiss",
+                "Silas Dold"
+            ]
+        },
+        {
+            "id": "6f3671d1-4665-44d1-8d5c-d7c68d73ad8f",
+            "teamName": "Wallbach 1",
+            "teamId": "5d3d7b6c46e0fb0001448af8",
+            "present": true,
+            "players": [
+                "Lukas Stocker",
+                "Mika Schrott"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Konstanz 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Öflingen 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Ailingen 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 4,
+            "teamA": "Konstanz 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Hardt 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Konstanz 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Öflingen 1",
+            "teamB": "Ailingen 1"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 1",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Konstanz 1",
+            "teamB": "Wallbach 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Hardt 1",
+            "teamB": "Öflingen 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Ailingen 1"
+        }
+    ],
+    "permissions": [
+        "MatchdayRead",
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead"
+    ]
+}

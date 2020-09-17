@@ -1,0 +1,194 @@
+{
+    "id": "5d6b76c346e0fb0001f9da4e",
+    "number": 9,
+    "league": "5d3d7ab046e0fb0001e275d3",
+    "leagueName": "U19O Junioren-Oberliga",
+    "start": "2019-12-14T13:00:00.000Z",
+    "gym": {
+        "name": "Schulsporthalle",
+        "city": "Reichenbach/Fils",
+        "zip": "73262",
+        "street": "Schulstr. 40",
+        "phone": "07153-59448"
+    },
+    "teams": [
+        {
+            "id": "503b1c26-304e-43a7-bdaf-29a88b92848f",
+            "teamName": "Kemnat 1",
+            "teamId": "5d3d7ab046e0fb0001e275d9",
+            "present": true,
+            "players": [
+                "Chris Rapp",
+                "Robin Bluthardt"
+            ]
+        },
+        {
+            "id": "0a9493c7-1a21-4a0c-a02f-60e019ab828b",
+            "teamName": "Kemnat 2",
+            "teamId": "5d3d7ab046e0fb0001e275db",
+            "present": true,
+            "players": [
+                "Giuliano Klatt",
+                "Luca Spreter"
+            ]
+        },
+        {
+            "id": "4d687513-dd25-4c6e-bf04-2ed71b344f08",
+            "teamName": "Reichenbach 1",
+            "teamId": "5d3d7ab046e0fb0001e275e7",
+            "present": true,
+            "players": [
+                "Marc Schuch",
+                "Felix Thamm"
+            ]
+        },
+        {
+            "id": "782500dd-e54b-426a-b84c-5897fbb0522d",
+            "teamName": "Oberesslingen 1",
+            "teamId": "5d3d7ab046e0fb0001e275df",
+            "present": true,
+            "players": [
+                "Tarik Nas",
+                "Moritz Bracht"
+            ]
+        },
+        {
+            "id": "232b4ee0-0509-4bf1-b9d1-8f8b125033a1",
+            "teamName": "Schwaikheim 1",
+            "teamId": "5d3d7ab046e0fb0001e275e9",
+            "present": true,
+            "players": [
+                "Benjamin Mayer",
+                "Jonas Frank"
+            ]
+        },
+        {
+            "id": "3c7831c8-6bcf-47ae-8cf9-1019f31febc0",
+            "teamName": "Waldrems 1",
+            "teamId": "5d3d7ab046e0fb0001e275eb",
+            "present": true,
+            "players": [
+                "Philipp Völk",
+                "Moritz Völk"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Kemnat 1",
+            "teamB": "Kemnat 2",
+            "score": {
+                "goalsA": 9,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 2,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Schwaikheim 1",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 3,
+            "teamA": "Reichenbach 1",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 2,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 4,
+            "teamA": "Kemnat 1",
+            "teamB": "Oberesslingen 1",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 3,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 5,
+            "teamA": "Kemnat 2",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 4,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 6,
+            "teamA": "Kemnat 1",
+            "teamB": "Schwaikheim 1",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 7,
+            "teamA": "Oberesslingen 1",
+            "teamB": "Reichenbach 1",
+            "score": {
+                "goalsA": 6,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 8,
+            "teamA": "Kemnat 2",
+            "teamB": "Schwaikheim 1",
+            "score": {
+                "goalsA": 4,
+                "goalsB": 0,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 9,
+            "teamA": "Kemnat 1",
+            "teamB": "Waldrems 1",
+            "score": {
+                "goalsA": 7,
+                "goalsB": 1,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 10,
+            "teamA": "Kemnat 2",
+            "teamB": "Oberesslingen 1",
+            "score": {
+                "goalsA": 5,
+                "goalsB": 5,
+                "bothLost": false
+            }
+        },
+        {
+            "number": 11,
+            "teamA": "Schwaikheim 1",
+            "teamB": "Reichenbach 1",
+            "score": {
+                "goalsA": 3,
+                "goalsB": 7,
+                "bothLost": false
+            }
+        }
+    ],
+    "permissions": [
+        "ClubsRead",
+        "LeagueRead",
+        "TeamsRead",
+        "MatchdayRead"
+    ]
+}

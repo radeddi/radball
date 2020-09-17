@@ -1,0 +1,206 @@
+{
+    "leagueShortName": "sa1",
+    "leagueLongName": "U15 Schüler A Staffel I",
+    "number": 8,
+    "start": "2021-01-30T14:00:00.000Z",
+    "gym": {
+        "name": "Mehrzwecksporthalle Peterzell",
+        "street": "Bärlochtalstr. 3",
+        "zip": "78112",
+        "city": "St. Georgen-Peterzell",
+        "phone": ""
+    },
+    "hostClub": "Langenschiltach",
+    "lastImport": "2020-09-07T08:00:31.500Z",
+    "teams": [
+        {
+            "name": "Langenschiltach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Kohnen, Konrad",
+                    "uciCode": "10053698473",
+                    "regular": true
+                },
+                {
+                    "name": "Flaig, Yannik",
+                    "uciCode": "10036544429",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fischer, Patrick",
+                    "uciCode": "10036562314",
+                    "regular": true
+                },
+                {
+                    "name": "Fieberg, Phillip",
+                    "uciCode": "10050810503",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Lauterbach 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Echtle, Max",
+                    "uciCode": "10036505427",
+                    "regular": true
+                },
+                {
+                    "name": "Held, Lenny",
+                    "uciCode": "10071826359",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Alpirsbach 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Klemm, Josef",
+                    "uciCode": "10071825955",
+                    "regular": true
+                },
+                {
+                    "name": "Fahrbach, Jona",
+                    "uciCode": "10071823026",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Fink, Ariane",
+                    "uciCode": "10052540234",
+                    "regular": true
+                },
+                {
+                    "name": "Gerlach, Jule",
+                    "uciCode": "10053686046",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Halder, Laura Nele",
+                    "uciCode": "10053680184",
+                    "regular": true
+                },
+                {
+                    "name": "Leicht, Mario",
+                    "uciCode": "10052529423",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Elsäßer, Mia",
+                    "uciCode": "10052521137",
+                    "regular": true
+                },
+                {
+                    "name": "Kendl, Jana",
+                    "uciCode": "10052527807",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Hardt 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Lauterbach 1",
+            "teamB": "Lauterbach 2"
+        },
+        {
+            "number": 3,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 4,
+            "teamA": "Hardt 2",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 5,
+            "teamA": "Lauterbach 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 6,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 2",
+            "teamB": "Lauterbach 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Langenschiltach 1",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 10,
+            "teamA": "Lauterbach 2",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 11,
+            "teamA": "Lauterbach 1",
+            "teamB": "Hardt 3"
+        },
+        {
+            "number": 12,
+            "teamA": "Hardt 2",
+            "teamB": "Langenschiltach 1"
+        },
+        {
+            "number": 13,
+            "teamA": "Lauterbach 2",
+            "teamB": "Hardt 1"
+        },
+        {
+            "number": 14,
+            "teamA": "Lauterbach 1",
+            "teamB": "Alpirsbach 1"
+        },
+        {
+            "number": 15,
+            "teamA": "Hardt 2",
+            "teamB": "Lauterbach 2"
+        }
+    ]
+}

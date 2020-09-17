@@ -1,0 +1,175 @@
+{
+    "leagueShortName": "ll2",
+    "leagueLongName": "Landesliga Staffel II",
+    "number": 10,
+    "start": "2021-02-06T17:00:00.000Z",
+    "gym": {
+        "name": "Ludwig-Jahn-Sporthalle",
+        "street": "am Ende der Adlerstr.",
+        "zip": "73760",
+        "city": "Ostfildern-Nellingen",
+        "phone": ""
+    },
+    "hostClub": "Nellingen",
+    "lastImport": "2020-08-30T08:50:40.293Z",
+    "teams": [
+        {
+            "name": "Hardt 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Broghammer, Thomas",
+                    "uciCode": "10036556048",
+                    "regular": true
+                },
+                {
+                    "name": "Herzog, Markus",
+                    "uciCode": "10036527352",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Hardt 6",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hug, Christian",
+                    "uciCode": "10036552614",
+                    "regular": true
+                },
+                {
+                    "name": "Weißer, Rolf",
+                    "uciCode": "10036512400",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Nellingen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Schreiber, Kai-Uwe",
+                    "uciCode": "10036289300",
+                    "regular": true
+                },
+                {
+                    "name": "Senke, Andreas",
+                    "uciCode": "10036311427",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Nellingen 5",
+            "present": true,
+            "players": [
+                {
+                    "name": "Federle, Michael",
+                    "uciCode": "10036339517",
+                    "regular": true
+                },
+                {
+                    "name": "Schmid, Thilo",
+                    "uciCode": "10036332241",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Söflingen 3",
+            "present": true,
+            "players": [
+                {
+                    "name": "Nägele, Fabian",
+                    "uciCode": "10036344971",
+                    "regular": true
+                },
+                {
+                    "name": "Ströbele, Patrick",
+                    "uciCode": "10036340426",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Söflingen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Nägele, Knut",
+                    "uciCode": "10036325470",
+                    "regular": true
+                },
+                {
+                    "name": "Pfinder, Manfred",
+                    "uciCode": "10036308595",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Söflingen 3",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 2,
+            "teamA": "Hardt 4",
+            "teamB": "Hardt 6"
+        },
+        {
+            "number": 3,
+            "teamA": "Nellingen 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 4,
+            "teamA": "Söflingen 3",
+            "teamB": "Hardt 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Söflingen 4",
+            "teamB": "Hardt 6"
+        },
+        {
+            "number": 6,
+            "teamA": "Söflingen 3",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 7,
+            "teamA": "Söflingen 4",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 8,
+            "teamA": "Hardt 4",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 9,
+            "teamA": "Söflingen 3",
+            "teamB": "Hardt 6"
+        },
+        {
+            "number": 10,
+            "teamA": "Söflingen 4",
+            "teamB": "Nellingen 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Hardt 6",
+            "teamB": "Nellingen 5"
+        },
+        {
+            "number": 12,
+            "teamA": "Söflingen 4",
+            "teamB": "Hardt 4"
+        }
+    ]
+}

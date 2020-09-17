@@ -1,0 +1,170 @@
+{
+    "leagueShortName": "ll3",
+    "leagueLongName": "Landesliga Staffel III",
+    "number": 10,
+    "start": "2021-02-06T17:00:00.000Z",
+    "gym": {
+        "name": "Gem.schule am Schillerpark",
+        "street": "Blumenstr. 10",
+        "zip": "73728",
+        "city": "Esslingen",
+        "phone": "0160-5313704"
+    },
+    "hostClub": "Esslingen",
+    "lastImport": "2020-08-30T08:51:25.934Z",
+    "teams": [
+        {
+            "name": "Söflingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Swensson, Reiner",
+                    "uciCode": "10036318703",
+                    "regular": true
+                },
+                {
+                    "name": "Welke, Jürgen",
+                    "uciCode": "10036286569",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Söflingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Jungmichel, Uwe",
+                    "uciCode": "10036302939",
+                    "regular": true
+                },
+                {
+                    "name": "Nolle, Norbert",
+                    "uciCode": "10036328302",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Niederstotzingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Wetzler, Hannes",
+                    "uciCode": "10045739524",
+                    "regular": true
+                },
+                {
+                    "name": "Miller, Andreas",
+                    "uciCode": "10048346501",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Esslingen 1",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seybold, Matthias",
+                    "uciCode": "10036328605",
+                    "regular": true
+                },
+                {
+                    "name": "Höflich, Harald",
+                    "uciCode": "10036297279",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Esslingen 2",
+            "present": true,
+            "players": [
+                {
+                    "name": "Seybold, Alexander",
+                    "uciCode": "10036322541",
+                    "regular": true
+                },
+                {
+                    "name": "Heubach, Jochen",
+                    "uciCode": "10036287983",
+                    "regular": true
+                }
+            ]
+        },
+        {
+            "name": "Oberesslingen 4",
+            "present": true,
+            "players": [
+                {
+                    "name": "Hahn, Daniel",
+                    "uciCode": "10036281822",
+                    "regular": true
+                },
+                {
+                    "name": "Langbein, Matthias",
+                    "uciCode": "10036307181",
+                    "regular": true
+                }
+            ]
+        }
+    ],
+    "games": [
+        {
+            "number": 1,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Söflingen 1"
+        },
+        {
+            "number": 2,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Esslingen 1"
+        },
+        {
+            "number": 3,
+            "teamA": "Söflingen 2",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 4,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Oberesslingen 4"
+        },
+        {
+            "number": 5,
+            "teamA": "Söflingen 1",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 6,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Esslingen 1"
+        },
+        {
+            "number": 7,
+            "teamA": "Oberesslingen 4",
+            "teamB": "Söflingen 2"
+        },
+        {
+            "number": 8,
+            "teamA": "Söflingen 1",
+            "teamB": "Esslingen 1"
+        },
+        {
+            "number": 9,
+            "teamA": "Niederstotzingen 1",
+            "teamB": "Esslingen 2"
+        },
+        {
+            "number": 10,
+            "teamA": "Söflingen 1",
+            "teamB": "Oberesslingen 4"
+        },
+        {
+            "number": 11,
+            "teamA": "Esslingen 1",
+            "teamB": "Söflingen 2"
+        }
+    ]
+}
