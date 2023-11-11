@@ -26,4 +26,5 @@ while True:
             sys.exit(1)
     else:
         # got a message, do something :)
+        print("message")
         pass

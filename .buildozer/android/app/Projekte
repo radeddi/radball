@@ -28,12 +28,8 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=2
-FILE_NAME_0=535;None;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FRadballKivy2.0%2Fbuildozer.spec;0;4
-FILE_NAME_1=0;Python;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FRadballKivy2.0%2Ftest_dropdown.py;0;4
-FILE_NAME_2=6234;Python;0;EUTF-8;0;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FRadballKivy2.0%2Fmain.py;0;4
-FILE_NAME_3=50;Python;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FRadballKivy2.0%2Ftest_reciever.py;0;4
-FILE_NAME_4=70;Python;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FRadballKivy2.0%2Fservice%2Fmain.py;0;4
+current_page=0
+FILE_NAME_0=0;Python;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FRadballKivy2.0%2Fmain.py;0;4
 
 [VTE]
 last_dir=/home/etienne

@@ -26,6 +26,7 @@ import requests
 import random
 
 import datetime
+from datetime import timedelta
 from functools import partial
 
 from collections import deque
@@ -39,13 +40,15 @@ from concurrent.futures import ThreadPoolExecutor
 import socket 
 from kivy.utils import platform
 
+from kivy.config import Config
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(("", 5556))
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+#sock.bind(("", 5556))
+#sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 kivy.require("1.10.1")
 
-
+Config.set('kivy', 'exit_on_escape', '0')
 
 
 # Simple information/error page
@@ -93,7 +96,7 @@ class SelectorPage(GridLayout):
         print("going back")
         chat_app.screen_manager.current = 'Start'
     def goFurther(self,instance):
-        chat_app.pin_page.load_PinPage(self.gameId)
+        chat_app.pin_page.load_PinPage(self.gameId,self.league_short)
         
         # Called with a message, to update message text in widget
     def update_info(self):
@@ -106,10 +109,10 @@ class SelectorPage(GridLayout):
             self.spieltage[datei]=game_json
             print(game_json)
             print(type(game_json))
-            if game_json['league'] in self.leagues.keys():
-               self.leagues[game_json['league']].append(game_json)
+            if game_json['leagueLongName'] in self.leagues.keys():
+               self.leagues[game_json['leagueLongName']].append(game_json)
             else:
-                self.leagues[game_json['league']]=[game_json]
+                self.leagues[game_json['leagueLongName']]=[game_json]
         for key in self.leagues.keys():
             print(key)
         self.dropdownLeague.clear_widgets()
@@ -119,7 +122,7 @@ class SelectorPage(GridLayout):
             # (disabling the size_hint_y) so the dropdown can calculate
             # the area it needs.
 
-            btn = Button(text=self.leagues[index][0]["leagueName"], size_hint_y=None, height=80,font_size=25)
+            btn = Button(text=self.leagues[index][0]["leagueLongName"], size_hint_y=None, height=80,font_size=25)
 
             # for each button, attach a callback that will call the select() method
             # on the dropdown. We'll pass the text of the button as the data of the
@@ -147,17 +150,18 @@ class SelectorPage(GridLayout):
                     date = spieltag["start"][8:10]+"."+spieltag["start"][5:7]+"."+spieltag["start"][0:4]
                     city = spieltag["gym"]["city"]
                      
-                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=80,font_size=25),spieltag["number"],spieltag["id"],city])
+                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=80,font_size=25),spieltag["number"],spieltag["number"],city])
                     
                 for btnL in sorted(btnList, key=lambda tup: tup[1]):  
                     btn=btnL[0]
                     #btn.bind(on_release=lambda btn: self.dropdownDay.select(btn.text))
-                    btn.bind(on_release=lambda btn,btnL=btnL: self.dropdownDayAction(btn,btnL[2],btnL[3]))
+                    btn.bind(on_release=lambda btn,btnL=btnL: self.dropdownDayAction(btn,btnL[2],btnL[3],spieltag["leagueShortName"]))
                     self.dropdownDay.add_widget(btn)    
-    def dropdownDayAction(self, btn,index,city):
+    def dropdownDayAction(self, btn,index,city,league_short):
         self.dropdownDay.select(btn.text)
         self.labelCity.text=city
         self.gameId=index
+        self.league_short = league_short
         self.furtherButton.disabled=False
         
     # Called on label width update, so we can set text width properly - to 90% of label width
@@ -168,9 +172,9 @@ class PinPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
-    def load_PinPage(self,game_id):
+    def load_PinPage(self,game_id,league_short):
         self.gameId=game_id
-        
+        self.league_short = league_short
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
         self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
@@ -191,14 +195,14 @@ class PinPage(GridLayout):
         chat_app.screen_manager.current = 'Selector'
         print("going back")
     def goFurther(self,instance):
-        chat_app.present_page.load_PresentPage(self.gameId,(self.textinput.text))
+        chat_app.present_page.load_PresentPage(self.gameId,self.league_short,(self.textinput.text))
         print("go on")   
 
 class PresentPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
-    def load_PresentPage(self,game_id,pin=0):
+    def load_PresentPage(self,game_id,league_short,pin=0):
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
         self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
@@ -211,7 +215,7 @@ class PresentPage(GridLayout):
         
         
         chat_app.screen_manager.current = 'Present'
-        f=open(app_folder+"/spieltage/"+game_id+".radball","r",encoding='utf-8')
+        f=open(app_folder+"/spieltage/"+league_short+"_"+str(game_id)+".radball","r",encoding='utf-8')
         self.game_json=(json.loads(f.read()))
         if pin != "":
             self.game_json["pin"]=int(pin)
@@ -228,7 +232,7 @@ class PresentPage(GridLayout):
             #bx=CheckBox()
             #bx.active=True
             #teamLayout.add_widget(bx)
-            lb=ToggleButton(text=team["teamName"],font_size=25,background_color = (0, 1, 0, 1))
+            lb=ToggleButton(text=team["name"],font_size=25,background_color = (0, 1, 0, 1))
             #teamLayout.bind(on_prese=lambda lb=lb: self.set_box(lb))
             lb.bind(on_press=lambda lb: self.unset_box(self,lb))
             lb.state="down"
@@ -400,7 +404,16 @@ class GamePage(GridLayout):
         self.add_widget(self.thirdLine)
         self.add_widget(self.fourthLine)
         self.add_widget(self.fifthLine)
+        
         self.gameNr=0
+        self.gameStatus=0
+        # 0 = stopped
+        # 1 = running
+        # 2 = halftime
+        self.halfTime = timedelta ( minutes = 2)
+        self.timeLeft = timedelta ( minutes = 0, seconds = 15)
+        self.playingTime = timedelta ( minutes = 7)
+        self.startTime = datetime.datetime.now()
         
         
         self.teamALabel=Label(size_hint = (0.4, 1),text="Team 1",font_size=25)
@@ -428,6 +441,13 @@ class GamePage(GridLayout):
         self.thirdLine.add_widget(self.teamBp)
         self.thirdLine.add_widget(self.teamBm)
         
+        self.sideButton.bind(on_release=self.sideChange)
+        self.teamAp.bind(on_release=self.teamApCB)
+        self.teamAm.bind(on_release=self.teamAmCB)
+        self.teamBp.bind(on_release=self.teamBpCB)
+        self.teamBm.bind(on_release=self.teamBmCB)
+
+        
         self.rszButton=Button(size_hint =(0.3, 1),text="Restspielzeit",font_size=25)
         self.pauseButton=Button(size_hint =(0.4, 1),text="Halbzeitpause starten",font_size=25)
         self.settingsButton=Button(size_hint =(0.3, 1),text="Einstellungen",font_size=25)
@@ -439,6 +459,7 @@ class GamePage(GridLayout):
         self.lastButton.bind(on_release=self.lastGame)
         
         self.startStopButton=Button(size_hint =(0.4, 1),text="Zeit starten",font_size=25)
+        self.startStopButton.bind(on_release=self.startGame)
 
         self.nextButton=Button(size_hint =(0.3, 1),text="nächstes Spiel",font_size=25)
         self.nextButton.bind(on_release=self.nextGame)
@@ -448,6 +469,7 @@ class GamePage(GridLayout):
         self.fifthLine.add_widget(self.nextButton)
 
     def load_GamePage(self,game_json,sequence):
+        Clock.schedule_interval(self.refreshTime, 0.1)
         print(sequence)
         self.sequence = sequence
         self.game_json = game_json
@@ -459,7 +481,7 @@ class GamePage(GridLayout):
             self.load_Game()
     def load_Game (self):
         print(self.gameNr)
-        
+        self.timeLeft = self.playingTime
         self.teamALabel.text=self.game_json["games"][self.gameNr]["teamA"]
         self.teamBLabel.text=self.game_json["games"][self.gameNr]["teamB"]
         if "score" in self.game_json["games"][self.gameNr]:
@@ -487,11 +509,136 @@ class GamePage(GridLayout):
             self.nextButton.disabled=False
     
     def nextGame (self,instance):
+        score = {}
+        if self.game_json["games"][self.gameNr]["teamA"] == self.teamALabel.text:
+            score["bothLost"]=False
+            score["goalsA"]=int(self.goalALabel.text)
+            score["goalsB"]=int(self.goalBLabel.text)
+            self.game_json["games"][self.gameNr]["score"]=score
+        elif self.teamBLabel.text == self.game_json["games"][self.gameNr]["teamA"]:
+            score["bothLost"]=False
+            score["goalsA"]=int(self.goalBLabel.text)
+            score["goalsB"]=int(self.goalALabel.text)
+            self.game_json["games"][self.gameNr]["score"]=score
+            
+        else: 
+            print("there is a big error")
         self.gameNr+=1
         self.load_Game()
     def lastGame (self,instance):        
+        score = {}
+        if self.game_json["games"][self.gameNr]["teamA"] == self.teamALabel.text:
+            score["bothLost"]=False
+            score["goalsA"]=int(self.goalALabel.text)
+            score["goalsB"]=int(self.goalBLabel.text)
+            self.game_json["games"][self.gameNr]["score"]=score
+        elif self.teamBLabel.text == self.game_json["games"][self.gameNr]["teamA"]:
+            score["bothLost"]=False
+            score["goalsA"]=int(self.goalBLabel.text)
+            score["goalsB"]=int(self.goalALabel.text)
+            self.game_json["games"][self.gameNr]["score"]=score
+            
+        else: 
+            print("there is a big error")
         self.gameNr-=1
         self.load_Game()     
+    def refreshTime (self,instance):
+        if self.gameStatus == 0:
+            remTime = self.timeLeft
+            if remTime < timedelta ( minutes = 0):
+                
+                self.timeLabel.text = "0:00"
+            elif remTime < timedelta ( seconds = 10):
+                
+               
+                total_seconds = (remTime.total_seconds())
+                hours, remainder = divmod(total_seconds,60*60)
+                minutes, seconds = divmod(remainder,60)
+          #      seconds, remainder = divmod(remainder,1)
+                
+                self.timeLabel.text = '{}:{}'.format("{:02.0f}".format(minutes),"{:04.1f}".format(seconds))
+                        
+        
+            else :    
+                total_seconds = int(remTime.total_seconds())
+                hours, remainder = divmod(total_seconds,60*60)
+                minutes, remainder = divmod(remainder,60)
+                seconds, remainder = divmod(remainder,1)
+                self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        elif self.gameStatus == 1:
+            remTime = -(datetime.datetime.now() - self.startTime) + self.timeLeft
+            if remTime < timedelta ( minutes = 0):
+                self.timeLabel.text = "0:00"
+                self.stopGame(self)
+                self.pauseButton.disabled = False
+
+            elif remTime < timedelta ( seconds = 10):
+                total_seconds = (remTime.total_seconds())
+                hours, remainder = divmod(total_seconds,60*60)
+                minutes, seconds = divmod(remainder,60)
+           #     seconds, remainder = divmod(remainder,1)
+                
+                self.timeLabel.text = '{}:{}'.format("{:02.0f}".format(minutes),"{:04.1f}".format(seconds))
+            else :    
+                total_seconds = int(remTime.total_seconds())
+                hours, remainder = divmod(total_seconds,60*60)
+                minutes, remainder = divmod(remainder,60)
+                seconds, remainder = divmod(remainder,1)
+                self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        sock.sendto((self.timeLabel.text+" \n").encode(), ("127.0.0.1", 5555))
+        
+    def startGame (self,instance):
+        self.startStopButton.text="Zeit stoppen"
+        self.startTime = datetime.datetime.now()    
+        self.startStopButton.unbind(on_release=self.startGame)
+        self.startStopButton.bind(on_release=self.stopGame)
+        self.rszButton.disabled = True
+        self.pauseButton.disabled = True
+        self.settingsButton.disabled = True
+        self.lastButton.disabled = True
+        self.nextButton.disabled = True
+        
+
+        self.gameStatus=1 
+    def stopGame (self,instance):
+        self.startStopButton.text="Zeit starten"
+        self.timeLeft= -(datetime.datetime.now() - self.startTime) + self.timeLeft
+        self.startStopButton.unbind(on_release=self.stopGame)         
+        self.startStopButton.bind(on_release=self.startGame)
+        self.rszButton.disabled = False
+        self.settingsButton.disabled = False
+        if self.gameNr == 0:
+            #game is first game
+            self.lastButton.disabled=True
+        else:
+            self.lastButton.disabled=False
+        if self.gameNr == len(self.sequence)-1:
+            #game is last game
+            self.nextButton.disabled=True
+        else:
+            self.nextButton.disabled=False
+
+        self.gameStatus=0
+        
+    def sideChange (self,instance):    
+        teamA = self.teamALabel.text
+        goalA = self.goalALabel.text
+        self.teamALabel.text = self.teamBLabel.text
+        self.teamBLabel.text = teamA
+        self.goalALabel.text = self.goalBLabel.text
+        self.goalBLabel.text = goalA
+
+    def teamApCB (self,instance):
+        self.goalALabel.text = str(int(self.goalALabel.text) + 1)             
+    def teamAmCB (self,instance):
+        if int(self.goalALabel.text) > 0 :
+            self.goalALabel.text = str(int(self.goalALabel.text) - 1)
+    def teamBpCB (self,instance):
+        self.goalBLabel.text = str(int(self.goalBLabel.text) + 1)
+    def teamBmCB (self,instance):        
+        if int(self.goalBLabel.text) > 0 :
+            self.goalBLabel.text = str(int(self.goalBLabel.text) - 1)
+           
 class StartPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -581,7 +728,7 @@ class StartPage(GridLayout):
         self.waitlist=[]
         self.unbind_buttons()
         Clock.schedule_once(partial(self.update_button_text,self,"Verbinden"), -1)
-        req = UrlRequest('https://bw.cycleball.eu/leagues', on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)#, on_failure=
+        req = UrlRequest('https://bw.cycleball.eu/api/leagues', on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)#, on_failure=
         self.reqList.append(req)
         Clock.schedule_once(self.check_all_req,0.5)
     def extract_leagues(self,req,result):
@@ -590,18 +737,27 @@ class StartPage(GridLayout):
         
         self.list_of_urls = []
         self.leaguesList = []
+        print(result)
         for league in result:
-            self.leaguesList.append(league['league'])
-            self.list_of_urls.append("https://bw.cycleball.eu/leagues/"+league['id'])
-            req = UrlRequest("https://bw.cycleball.eu/leagues/"+league['id'], on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)#, on_failure=
+            print(league)
+            print("#############")
+            self.leaguesList.append(league['longName'])
+            self.list_of_urls.append("https://bw.cycleball.eu/api/leagues/"+league['shortName'])
+            req = UrlRequest("https://bw.cycleball.eu/api/leagues/"+league['shortName']+"/matchdays", on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)#, on_failure=
             self.reqList.append(req)
         print(self.list_of_urls)
         
         
     def add_spieltag(self,req,result):
         Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Spieltagen"), -1)
-        for day in result['days']:
-            req = UrlRequest('https://bw.cycleball.eu/matchdays/'+str(day["id"]), on_success=self.export_spieltag,ca_file=None, verify=False, timeout=10)
+        print(result[0])
+        leagueName = result[0]['leagueShortName']
+        print("#######")
+        #print(req.get_full_url)
+        print("#######")
+        for day in result:
+            print('https://bw.cycleball.eu/api/leagues/'+leagueName +'/matchdays/'+str(day["number"]))
+            req = UrlRequest('https://bw.cycleball.eu/api/leagues/'+leagueName +'/matchdays/'+str(day["number"]), on_success=self.export_spieltag,ca_file=None, verify=False, timeout=10)
             self.reqList.append(req)
         
     def check_all_req(self,instance): 
@@ -652,11 +808,11 @@ class StartPage(GridLayout):
             if count <= max_req:
                 self.waitlist.remove(req_old)
                 #print(req_old.url)
-                if "https://bw.cycleball.eu/leagues/" in req_old.url:
+                if "https://bw.cycleball.eu/api/leagues/" in req_old.url:
                     req = UrlRequest(req_old.url, on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)
-                elif "https://bw.cycleball.eu/leagues" in req_old.url:
+                elif "https://bw.cycleball.eu/api/leagues" in req_old.url:
                     req = UrlRequest(req_old.url, on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)
-                elif 'https://bw.cycleball.eu/matchdays/' in req_old.url:
+                elif 'https://bw.cycleball.eu/api/matchdays/' in req_old.url:
                     req = UrlRequest(req_old.url, on_success=self.export_spieltag,ca_file=None, verify=False, timeout=310)
                 else:
                     print("something is wrong with url")
@@ -671,7 +827,7 @@ class StartPage(GridLayout):
     def export_spieltag(self,req,result):         
         if self.run:
             print(result)
-            f= open(app_folder+"/spieltage/"+str(result['id'])+".radball","w+",encoding='utf-8')
+            f= open(app_folder+"/spieltage/"+str(result['leagueShortName'])+"_"+str(result['number'])+".radball","w+",encoding='utf-8')
             #print(type(day))
             f.write(json.dumps(result, indent=4, ensure_ascii=False))
             #print(day)
@@ -680,11 +836,40 @@ class StartPage(GridLayout):
   
 
 class EpicApp(App):
+    service = ""
+    def on_request_close(self, *args):
+        self.textpopup(title='', text='Programm beenden?')
+        return True
+
+    def close_app(self, *args):
+        if platform == 'android':
+            self.service.stop()
+        self.stop()
+    def textpopup(self, title='', text=''):
+        """Open the pop-up with the name.
+
+        :param title: title of the pop-up to open
+        :type title: str
+        :param text: main text of the pop-up to open
+        :type text: str
+        :rtype: None
+        """
+        box = BoxLayout(orientation='vertical')
+        box.add_widget(Label(text=text))
+        mybutton = Button(text='OK', size_hint=(1, 0.25))
+        box.add_widget(mybutton)
+        popup = Popup(title=title, content=box, size_hint=(None, None), size=(600, 300))
+        mybutton.bind(on_release=self.close_app)
+        popup.open()
+    
+    def on_key(self, window, key, *args):
+        if key == 27:  # the esc key
+            EpicApp.on_request_close(self)
     def build(self):
         if platform == 'android':
             import android
-            service = android.AndroidService('Notification Name', 'Notification Message')
-            service.start('Service args')
+            self.service = android.AndroidService('Notification Name', 'Notification Message')
+            self.service.start('Service args')
 
         
         
@@ -729,7 +914,9 @@ class EpicApp(App):
         self.screen_manager.add_widget(screen)
         
         
-        
+        Window.bind(on_request_close=self.on_request_close)
+        Window.bind(on_keyboard=self.on_key)
+
         return self.screen_manager
     
 		

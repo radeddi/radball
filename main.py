@@ -40,13 +40,15 @@ from concurrent.futures import ThreadPoolExecutor
 import socket 
 from kivy.utils import platform
 
+from kivy.config import Config
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(("", 5556))
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+#sock.bind(("", 5556))
+#sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 kivy.require("1.10.1")
 
-
+Config.set('kivy', 'exit_on_escape', '0')
 
 
 # Simple information/error page
@@ -540,7 +542,7 @@ class GamePage(GridLayout):
             print("there is a big error")
         self.gameNr-=1
         self.load_Game()     
-    def refreshTime (self,instance):        
+    def refreshTime (self,instance):
         if self.gameStatus == 0:
             remTime = self.timeLeft
             if remTime < timedelta ( minutes = 0):
@@ -555,6 +557,8 @@ class GamePage(GridLayout):
           #      seconds, remainder = divmod(remainder,1)
                 
                 self.timeLabel.text = '{}:{}'.format("{:02.0f}".format(minutes),"{:04.1f}".format(seconds))
+                        
+        
             else :    
                 total_seconds = int(remTime.total_seconds())
                 hours, remainder = divmod(total_seconds,60*60)
@@ -581,7 +585,8 @@ class GamePage(GridLayout):
                 minutes, remainder = divmod(remainder,60)
                 seconds, remainder = divmod(remainder,1)
                 self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-                
+        sock.sendto((self.timeLabel.text+" \n").encode(), ("127.0.0.1", 5555))
+        
     def startGame (self,instance):
         self.startStopButton.text="Zeit stoppen"
         self.startTime = datetime.datetime.now()    
@@ -592,9 +597,8 @@ class GamePage(GridLayout):
         self.settingsButton.disabled = True
         self.lastButton.disabled = True
         self.nextButton.disabled = True
-        
-
         self.gameStatus=1 
+        
     def stopGame (self,instance):
         self.startStopButton.text="Zeit starten"
         self.timeLeft= -(datetime.datetime.now() - self.startTime) + self.timeLeft
@@ -655,7 +659,7 @@ class StartPage(GridLayout):
         self.add_widget(self.new_day)
 
         #spieltage online laden
-        self.update_days = Button(text="Spieltage online aktualisieren",font_size=25,id="up_da")
+        self.update_days = Button(text="Spieltage online aktualisieren",font_size=25)#,id="up_da")
         self.add_widget(self.update_days)
 
         self.bind_buttons()
@@ -737,8 +741,8 @@ class StartPage(GridLayout):
             print(league)
             print("#############")
             self.leaguesList.append(league['longName'])
-            self.list_of_urls.append("https://bw.cycleball.eu/api/leagues/"+league['shortName'])
-            req = UrlRequest("https://bw.cycleball.eu/api/leagues/"+league['shortName']+"/matchdays", on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)#, on_failure=
+            self.list_of_urls.append("https://bw.cycleball.eu/api/leagues/"+league['shortName'].replace(" ", "%20"))
+            req = UrlRequest("https://bw.cycleball.eu/api/leagues/"+league['shortName'].replace(" ", "%20")+"/matchdays", on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)#, on_failure=
             self.reqList.append(req)
         print(self.list_of_urls)
         
@@ -746,7 +750,7 @@ class StartPage(GridLayout):
     def add_spieltag(self,req,result):
         Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Spieltagen"), -1)
         print(result[0])
-        leagueName = result[0]['leagueShortName']
+        leagueName = result[0]['leagueShortName'].replace(" ","%20")
         print("#######")
         #print(req.get_full_url)
         print("#######")
@@ -764,7 +768,7 @@ class StartPage(GridLayout):
                 if not req.is_finished:
                     i+=1
                 elif req.error != None:
-                    #print(req.error)
+                    print(req.error)
                     i+=1
                     self.reqList.remove(req)
                     self.waitlist.append(req)
@@ -821,7 +825,8 @@ class StartPage(GridLayout):
             self.reqList=[]
     def export_spieltag(self,req,result):         
         if self.run:
-            print(result)
+            print(req.url)
+            print(req)
             f= open(app_folder+"/spieltage/"+str(result['leagueShortName'])+"_"+str(result['number'])+".radball","w+",encoding='utf-8')
             #print(type(day))
             f.write(json.dumps(result, indent=4, ensure_ascii=False))
@@ -831,11 +836,40 @@ class StartPage(GridLayout):
   
 
 class EpicApp(App):
+    service = ""
+    def on_request_close(self, *args):
+        self.textpopup(title='', text='Programm beenden?')
+        return True
+
+    def close_app(self, *args):
+        if platform == 'android':
+            self.service.stop()
+        self.stop()
+    def textpopup(self, title='', text=''):
+        """Open the pop-up with the name.
+
+        :param title: title of the pop-up to open
+        :type title: str
+        :param text: main text of the pop-up to open
+        :type text: str
+        :rtype: None
+        """
+        box = BoxLayout(orientation='vertical')
+        box.add_widget(Label(text=text))
+        mybutton = Button(text='OK', size_hint=(1, 0.25))
+        box.add_widget(mybutton)
+        popup = Popup(title=title, content=box, size_hint=(None, None), size=(600, 300))
+        mybutton.bind(on_release=self.close_app)
+        popup.open()
+    
+    def on_key(self, window, key, *args):
+        if key == 27:  # the esc key
+            EpicApp.on_request_close(self)
     def build(self):
         if platform == 'android':
             import android
-            service = android.AndroidService('Notification Name', 'Notification Message')
-            service.start('Service args')
+            self.service = android.AndroidService('Notification Name', 'Notification Message')
+            self.service.start('Service args')
 
         
         
@@ -880,7 +914,9 @@ class EpicApp(App):
         self.screen_manager.add_widget(screen)
         
         
-        
+        Window.bind(on_request_close=self.on_request_close)
+        Window.bind(on_keyboard=self.on_key)
+
         return self.screen_manager
     
 		

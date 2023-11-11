@@ -1,0 +1,7 @@
+bin/
+buildozer/
+kivy_venv/
+logs/
+spieltage/
+spieltage_old/
+.buildozer/
