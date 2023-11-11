@@ -147,14 +147,12 @@ The :mod:`locale` module defines the following exception and functions:
    | ``CHAR_MAX`` | Nothing is specified in this locale.    |
    +--------------+-----------------------------------------+
 
-   The function sets temporarily the ``LC_CTYPE`` locale to the ``LC_NUMERIC``
-   locale to decode ``decimal_point`` and ``thousands_sep`` byte strings if
-   they are non-ASCII or longer than 1 byte, and the ``LC_NUMERIC`` locale is
-   different than the ``LC_CTYPE`` locale. This temporary change affects other
-   threads.
+   The function temporarily sets the ``LC_CTYPE`` locale to the ``LC_NUMERIC``
+   locale or the ``LC_MONETARY`` locale if locales are different and numeric or
+   monetary strings are non-ASCII. This temporary change affects other threads.
 
    .. versionchanged:: 3.7
-      The function now sets temporarily the ``LC_CTYPE`` locale to the
+      The function now temporarily sets the ``LC_CTYPE`` locale to the
       ``LC_NUMERIC`` locale in some cases.
 
 
@@ -229,15 +227,17 @@ The :mod:`locale` module defines the following exception and functions:
       Get a regular expression that can be used with the regex function to
       recognize a positive response to a yes/no question.
 
-      .. note::
-
-         The expression is in the syntax suitable for the :c:func:`regex` function
-         from the C library, which might differ from the syntax used in :mod:`re`.
-
    .. data:: NOEXPR
 
       Get a regular expression that can be used with the regex(3) function to
       recognize a negative response to a yes/no question.
+
+      .. note::
+
+         The regular expressions for :const:`YESEXPR` and
+         :const:`NOEXPR` use syntax suitable for the
+         :c:func:`regex` function from the C library, which might
+         differ from the syntax used in :mod:`re`.
 
    .. data:: CRNCYSTR
 
@@ -317,21 +317,25 @@ The :mod:`locale` module defines the following exception and functions:
 
 .. function:: getpreferredencoding(do_setlocale=True)
 
-   Return the encoding used for text data, according to user preferences.  User
-   preferences are expressed differently on different systems, and might not be
-   available programmatically on some systems, so this function only returns a
-   guess.
+   Return the :term:`locale encoding` used for text data, according to user
+   preferences.  User preferences are expressed differently on different
+   systems, and might not be available programmatically on some systems, so
+   this function only returns a guess.
 
-   On some systems, it is necessary to invoke :func:`setlocale` to obtain the user
-   preferences, so this function is not thread-safe. If invoking setlocale is not
-   necessary or desired, *do_setlocale* should be set to ``False``.
+   On some systems, it is necessary to invoke :func:`setlocale` to obtain the
+   user preferences, so this function is not thread-safe. If invoking setlocale
+   is not necessary or desired, *do_setlocale* should be set to ``False``.
 
-   On Android or in the UTF-8 mode (:option:`-X` ``utf8`` option), always
-   return ``'UTF-8'``, the locale and the *do_setlocale* argument are ignored.
+   On Android or if the :ref:`Python UTF-8 Mode <utf8-mode>` is enabled, always
+   return ``'UTF-8'``, the :term:`locale encoding` and the *do_setlocale*
+   argument are ignored.
+
+   The :ref:`Python preinitialization <c-preinit>` configures the LC_CTYPE
+   locale. See also the :term:`filesystem encoding and error handler`.
 
    .. versionchanged:: 3.7
-      The function now always returns ``UTF-8`` on Android or if the UTF-8 mode
-      is enabled.
+      The function now always returns ``UTF-8`` on Android or if the
+      :ref:`Python UTF-8 Mode <utf8-mode>` is enabled.
 
 
 .. function:: normalize(localename)
@@ -373,7 +377,7 @@ The :mod:`locale` module defines the following exception and functions:
 
    Formats a number *val* according to the current :const:`LC_NUMERIC` setting.
    The format follows the conventions of the ``%`` operator.  For floating point
-   values, the decimal point is modified if appropriate.  If *grouping* is true,
+   values, the decimal point is modified if appropriate.  If *grouping* is ``True``,
    also takes the grouping into account.
 
    If *monetary* is true, the conversion uses monetary thousands separator and
@@ -403,12 +407,14 @@ The :mod:`locale` module defines the following exception and functions:
    Formats a number *val* according to the current :const:`LC_MONETARY` settings.
 
    The returned string includes the currency symbol if *symbol* is true, which is
-   the default. If *grouping* is true (which is not the default), grouping is done
-   with the value. If *international* is true (which is not the default), the
+   the default. If *grouping* is ``True`` (which is not the default), grouping is done
+   with the value. If *international* is ``True`` (which is not the default), the
    international currency symbol is used.
 
-   Note that this function will not work with the 'C' locale, so you have to set a
-   locale via :func:`setlocale` first.
+   .. note::
+
+     This function will not work with the 'C' locale, so you have to set a
+     locale via :func:`setlocale` first.
 
 
 .. function:: str(float)
@@ -425,10 +431,18 @@ The :mod:`locale` module defines the following exception and functions:
     .. versionadded:: 3.5
 
 
-.. function:: atof(string)
+.. function:: localize(string, grouping=False, monetary=False)
 
-   Converts a string to a floating point number, following the :const:`LC_NUMERIC`
-   settings.
+    Converts a normalized number string into a formatted string following the
+    :const:`LC_NUMERIC` settings.
+
+    .. versionadded:: 3.10
+
+
+.. function:: atof(string, func=float)
+
+   Converts a string to a number, following the :const:`LC_NUMERIC` settings,
+   by calling *func* on the result of calling :func:`delocalize` on *string*.
 
 
 .. function:: atoi(string)
@@ -470,6 +484,9 @@ The :mod:`locale` module defines the following exception and functions:
    system, like those returned by :func:`os.strerror` might be affected by this
    category.
 
+   This value may not be available on operating systems not conforming to the
+   POSIX standard, most notably Windows.
+
 
 .. data:: LC_NUMERIC
 
@@ -510,7 +527,7 @@ Background, details, hints, tips and caveats
 --------------------------------------------
 
 The C standard defines the locale as a program-wide property that may be
-relatively expensive to change.  On top of that, some implementation are broken
+relatively expensive to change.  On top of that, some implementations are broken
 in such a way that frequent locale changes may cause core dumps.  This makes the
 locale somewhat painful to use correctly.
 
@@ -587,4 +604,3 @@ applications that link with additional C libraries which internally invoke
 :c:func:`gettext` or :c:func:`dcgettext`.  For these applications, it may be
 necessary to bind the text domain, so that the libraries can properly locate
 their message catalogs.
-

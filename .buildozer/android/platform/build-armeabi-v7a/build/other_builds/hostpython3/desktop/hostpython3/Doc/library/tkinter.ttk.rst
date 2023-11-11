@@ -58,7 +58,7 @@ for improved styling effects.
 
 .. seealso::
 
-   `Converting existing applications to use Tile widgets <http://tktable.sourceforge.net/tile/doc/converting.txt>`_
+   `Converting existing applications to use Tile widgets <https://tktable.sourceforge.net/tile/doc/converting.txt>`_
      A monograph (using Tcl terminology) about differences typically
      encountered when moving applications to use the new widgets.
 
@@ -288,7 +288,7 @@ methods :meth:`tkinter.Widget.cget` and :meth:`tkinter.Widget.configure`.
       Modify or inquire widget state. If *statespec* is specified, sets the
       widget state according to it and return a new *statespec* indicating
       which flags were changed. If *statespec* is not specified, returns
-      the currently-enabled state flags.
+      the currently enabled state flags.
 
    *statespec* will usually be a list or a tuple.
 
@@ -467,7 +467,7 @@ Notebook
 
 Ttk Notebook widget manages a collection of windows and displays a single
 one at a time. Each child window is associated with a tab, which the user
-may select to change the currently-displayed window.
+may select to change the currently displayed window.
 
 
 Options
@@ -545,7 +545,7 @@ of the following forms:
 * An integer between zero and the number of tabs
 * The name of a child window
 * A positional specification of the form "@x,y", which identifies the tab
-* The literal string "current", which identifies the currently-selected tab
+* The literal string "current", which identifies the currently selected tab
 * The literal string "end", which returns the number of tabs (only valid for
   :meth:`Notebook.index`)
 
@@ -615,7 +615,7 @@ ttk.Notebook
       Selects the specified *tab_id*.
 
       The associated child window will be displayed, and the
-      previously-selected window (if different) is unmapped. If *tab_id* is
+      previously selected window (if different) is unmapped. If *tab_id* is
       omitted, returns the widget name of the currently selected pane.
 
 
@@ -759,7 +759,7 @@ ones inherited from :class:`ttk.Widget`.
 Platform-specific notes
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-* On MacOS X, toplevel windows automatically include a built-in size grip
+* On macOS, toplevel windows automatically include a built-in size grip
   by default. Adding a :class:`Sizegrip` is harmless, since the built-in
   grip will just mask the widget.
 
@@ -871,8 +871,8 @@ widget commands.
    |        | remaining values are assumed empty. If there are more values  |
    |        | than columns, the extra values are ignored.                   |
    +--------+---------------------------------------------------------------+
-   | open   | True/False value indicating whether the item's children should|
-   |        | be displayed or hidden.                                       |
+   | open   | ``True``/``False`` value indicating whether the item's        |
+   |        | children should be displayed or hidden.                       |
    +--------+---------------------------------------------------------------+
    | tags   | A list of tags associated with this item.                     |
    +--------+---------------------------------------------------------------+
@@ -997,7 +997,7 @@ ttk.Treeview
          The minimum width of the column in pixels. The treeview widget will
          not make the column any smaller than specified by this option when
          the widget is resized or the user drags a column.
-      * stretch: True/False
+      * stretch: ``True``/``False``
          Specifies whether the column's width should be adjusted when
          the widget is resized.
       * width: width
@@ -1175,14 +1175,13 @@ ttk.Treeview
       the tree.
 
 
-   .. method:: selection(selop=None, items=None)
+   .. method:: selection()
 
-      If *selop* is not specified, returns selected items. Otherwise, it will
-      act according to the following selection methods.
+      Returns a tuple of selected items.
 
-      .. deprecated-removed:: 3.6 3.8
-         Using ``selection()`` for changing the selection state is deprecated.
-         Use the following selection methods instead.
+      .. versionchanged:: 3.8
+         ``selection()`` no longer takes arguments.  For changing the selection
+         state use the following selection methods.
 
 
    .. method:: selection_set(*items)
@@ -1275,7 +1274,7 @@ option. If you don't know the class name of a widget, use the method
 
 .. seealso::
 
-   `Tcl'2004 conference presentation <http://tktable.sourceforge.net/tile/tile-tcl2004.pdf>`_
+   `Tcl'2004 conference presentation <https://tktable.sourceforge.net/tile/tile-tcl2004.pdf>`_
       This document explains how the theme engine works
 
 

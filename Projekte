@@ -39,5 +39,5 @@ last_dir=/home/etienne
 
 [build-menu]
 EX_00_LB=_Execute
-EX_00_CM=/home/etienne/kivy_venv/bin/python3.6 "%f"
+EX_00_CM=/home/etienne/kivy_venv/bin/python3.10 "%f"
 EX_00_WD=

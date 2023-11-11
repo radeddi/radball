@@ -15,7 +15,7 @@ There are four basic concrete server classes:
 
 .. class:: TCPServer(server_address, RequestHandlerClass, bind_and_activate=True)
 
-   This uses the Internet TCP protocol, which provides for
+   This uses the internet TCP protocol, which provides for
    continuous streams of data between the client and server.
    If *bind_and_activate* is true, the constructor automatically attempts to
    invoke :meth:`~BaseServer.server_bind` and
@@ -57,7 +57,7 @@ the server in a :keyword:`with` statement. Then call the
 :meth:`~BaseServer.handle_request` or
 :meth:`~BaseServer.serve_forever` method of the server object to
 process one or many requests.  Finally, call :meth:`~BaseServer.server_close`
-to close the socket (unless you used a :keyword:`with` statement).
+to close the socket (unless you used a :keyword:`!with` statement).
 
 When inheriting from :class:`ThreadingMixIn` for threaded connection behavior,
 you should explicitly declare how you want your threads to behave on an abrupt
@@ -94,8 +94,7 @@ synchronous servers of four types::
 
 Note that :class:`UnixDatagramServer` derives from :class:`UDPServer`, not from
 :class:`UnixStreamServer` --- the only difference between an IP and a Unix
-stream server is the address family, which is simply repeated in both Unix
-server classes.
+server is the address family.
 
 
 .. class:: ForkingMixIn
@@ -237,6 +236,8 @@ Server Objects
    .. method:: shutdown()
 
       Tell the :meth:`serve_forever` loop to stop and wait until it does.
+      :meth:`shutdown` must be called while :meth:`serve_forever` is running in a
+      different thread otherwise it will deadlock.
 
 
    .. method:: server_close()
@@ -261,7 +262,7 @@ Server Objects
       The address on which the server is listening.  The format of addresses varies
       depending on the protocol family;
       see the documentation for the :mod:`socket` module
-      for details.  For Internet protocols, this is a tuple containing a string giving
+      for details.  For internet protocols, this is a tuple containing a string giving
       the address, and an integer port number: ``('127.0.0.1', 80)``, for example.
 
 
@@ -428,11 +429,8 @@ Request Handler Objects
    The :attr:`self.rfile` and :attr:`self.wfile` attributes can be
    read or written, respectively, to get the request data or return data
    to the client.
-
-   The :attr:`rfile` attributes of both classes support the
-   :class:`io.BufferedIOBase` readable interface, and
-   :attr:`DatagramRequestHandler.wfile` supports the
-   :class:`io.BufferedIOBase` writable interface.
+   The :attr:`!rfile` attributes support the :class:`io.BufferedIOBase` readable interface,
+   and :attr:`!wfile` attributes support the :class:`!io.BufferedIOBase` writable interface.
 
    .. versionchanged:: 3.6
       :attr:`StreamRequestHandler.wfile` also supports the

@@ -11,6 +11,9 @@ import pickle
 from functools import reduce
 import sys
 import struct
+import threading
+import gc
+
 maxsize = support.MAX_Py_ssize_t
 minsize = -maxsize-1
 
@@ -147,6 +150,12 @@ class TestBasicOps(unittest.TestCase):
             list(accumulate(s, chr))                                # unary-operation
         for proto in range(pickle.HIGHEST_PROTOCOL + 1):
             self.pickletest(proto, accumulate(range(10)))           # test pickling
+            self.pickletest(proto, accumulate(range(10), initial=7))
+        self.assertEqual(list(accumulate([10, 5, 1], initial=None)), [10, 15, 16])
+        self.assertEqual(list(accumulate([10, 5, 1], initial=100)), [100, 110, 115, 116])
+        self.assertEqual(list(accumulate([], initial=100)), [100])
+        with self.assertRaises(TypeError):
+            list(accumulate([10, 20], 100))
 
     def test_chain(self):
 
@@ -625,6 +634,7 @@ class TestBasicOps(unittest.TestCase):
         self.assertRaises(TypeError, cycle, 5)
         self.assertEqual(list(islice(cycle(gen3()),10)), [0,1,2,0,1,2,0,1,2,0])
 
+    def test_cycle_copy_pickle(self):
         # check copy, deepcopy, pickle
         c = cycle('abc')
         self.assertEqual(next(c), 'a')
@@ -659,6 +669,37 @@ class TestBasicOps(unittest.TestCase):
             p = pickle.dumps(c, proto)
             d = pickle.loads(p)                  # rebuild the cycle object
             self.assertEqual(take(20, d), list('cdeabcdeabcdeabcdeab'))
+
+    def test_cycle_unpickle_compat(self):
+        testcases = [
+            b'citertools\ncycle\n(c__builtin__\niter\n((lI1\naI2\naI3\natRI1\nbtR((lI1\naI0\ntb.',
+            b'citertools\ncycle\n(c__builtin__\niter\n(](K\x01K\x02K\x03etRK\x01btR(]K\x01aK\x00tb.',
+            b'\x80\x02citertools\ncycle\nc__builtin__\niter\n](K\x01K\x02K\x03e\x85RK\x01b\x85R]K\x01aK\x00\x86b.',
+            b'\x80\x03citertools\ncycle\ncbuiltins\niter\n](K\x01K\x02K\x03e\x85RK\x01b\x85R]K\x01aK\x00\x86b.',
+            b'\x80\x04\x95=\x00\x00\x00\x00\x00\x00\x00\x8c\titertools\x8c\x05cycle\x93\x8c\x08builtins\x8c\x04iter\x93](K\x01K\x02K\x03e\x85RK\x01b\x85R]K\x01aK\x00\x86b.',
+
+            b'citertools\ncycle\n(c__builtin__\niter\n((lp0\nI1\naI2\naI3\natRI1\nbtR(g0\nI1\ntb.',
+            b'citertools\ncycle\n(c__builtin__\niter\n(]q\x00(K\x01K\x02K\x03etRK\x01btR(h\x00K\x01tb.',
+            b'\x80\x02citertools\ncycle\nc__builtin__\niter\n]q\x00(K\x01K\x02K\x03e\x85RK\x01b\x85Rh\x00K\x01\x86b.',
+            b'\x80\x03citertools\ncycle\ncbuiltins\niter\n]q\x00(K\x01K\x02K\x03e\x85RK\x01b\x85Rh\x00K\x01\x86b.',
+            b'\x80\x04\x95<\x00\x00\x00\x00\x00\x00\x00\x8c\titertools\x8c\x05cycle\x93\x8c\x08builtins\x8c\x04iter\x93]\x94(K\x01K\x02K\x03e\x85RK\x01b\x85Rh\x00K\x01\x86b.',
+
+            b'citertools\ncycle\n(c__builtin__\niter\n((lI1\naI2\naI3\natRI1\nbtR((lI1\naI00\ntb.',
+            b'citertools\ncycle\n(c__builtin__\niter\n(](K\x01K\x02K\x03etRK\x01btR(]K\x01aI00\ntb.',
+            b'\x80\x02citertools\ncycle\nc__builtin__\niter\n](K\x01K\x02K\x03e\x85RK\x01b\x85R]K\x01a\x89\x86b.',
+            b'\x80\x03citertools\ncycle\ncbuiltins\niter\n](K\x01K\x02K\x03e\x85RK\x01b\x85R]K\x01a\x89\x86b.',
+            b'\x80\x04\x95<\x00\x00\x00\x00\x00\x00\x00\x8c\titertools\x8c\x05cycle\x93\x8c\x08builtins\x8c\x04iter\x93](K\x01K\x02K\x03e\x85RK\x01b\x85R]K\x01a\x89\x86b.',
+
+            b'citertools\ncycle\n(c__builtin__\niter\n((lp0\nI1\naI2\naI3\natRI1\nbtR(g0\nI01\ntb.',
+            b'citertools\ncycle\n(c__builtin__\niter\n(]q\x00(K\x01K\x02K\x03etRK\x01btR(h\x00I01\ntb.',
+            b'\x80\x02citertools\ncycle\nc__builtin__\niter\n]q\x00(K\x01K\x02K\x03e\x85RK\x01b\x85Rh\x00\x88\x86b.',
+            b'\x80\x03citertools\ncycle\ncbuiltins\niter\n]q\x00(K\x01K\x02K\x03e\x85RK\x01b\x85Rh\x00\x88\x86b.',
+            b'\x80\x04\x95;\x00\x00\x00\x00\x00\x00\x00\x8c\titertools\x8c\x05cycle\x93\x8c\x08builtins\x8c\x04iter\x93]\x94(K\x01K\x02K\x03e\x85RK\x01b\x85Rh\x00\x88\x86b.',
+        ]
+        assert len(testcases) == 20
+        for t in testcases:
+            it = pickle.loads(t)
+            self.assertEqual(take(10, it), [2, 3, 1, 2, 3, 1, 2, 3, 1, 2])
 
     def test_cycle_setstate(self):
         # Verify both modes for restoring state
@@ -965,6 +1006,18 @@ class TestBasicOps(unittest.TestCase):
             self.pickletest(proto, zip_longest("abc", "defgh", fillvalue=1))
             self.pickletest(proto, zip_longest("", "defgh"))
 
+    def test_zip_longest_bad_iterable(self):
+        exception = TypeError()
+
+        class BadIterable:
+            def __iter__(self):
+                raise exception
+
+        with self.assertRaises(TypeError) as cm:
+            zip_longest(BadIterable())
+
+        self.assertIs(cm.exception, exception)
+
     def test_bug_7244(self):
 
         class Repeater:
@@ -1004,6 +1057,25 @@ class TestBasicOps(unittest.TestCase):
         self.assertEqual(next(it), (1, 2))
         self.assertEqual(next(it), (1, 2))
         self.assertRaises(RuntimeError, next, it)
+
+    def test_pairwise(self):
+        self.assertEqual(list(pairwise('')), [])
+        self.assertEqual(list(pairwise('a')), [])
+        self.assertEqual(list(pairwise('ab')),
+                              [('a', 'b')]),
+        self.assertEqual(list(pairwise('abcde')),
+                              [('a', 'b'), ('b', 'c'), ('c', 'd'), ('d', 'e')])
+        self.assertEqual(list(pairwise(range(10_000))),
+                         list(zip(range(10_000), range(1, 10_000))))
+
+        with self.assertRaises(TypeError):
+            pairwise()                                      # too few arguments
+        with self.assertRaises(TypeError):
+            pairwise('abc', 10)                             # too many arguments
+        with self.assertRaises(TypeError):
+            pairwise(iterable='abc')                        # keyword arguments
+        with self.assertRaises(TypeError):
+            pairwise(None)                                  # non-iterable argument
 
     def test_product(self):
         for args, result in [
@@ -1402,6 +1474,7 @@ class TestBasicOps(unittest.TestCase):
         p = weakref.proxy(a)
         self.assertEqual(getattr(p, '__class__'), type(b))
         del a
+        support.gc_collect()  # For PyPy or other GCs.
         self.assertRaises(ReferenceError, getattr, p, '__class__')
 
         ans = list('abc')
@@ -1476,6 +1549,42 @@ class TestBasicOps(unittest.TestCase):
             del forward, backward
             raise
 
+    def test_tee_reenter(self):
+        class I:
+            first = True
+            def __iter__(self):
+                return self
+            def __next__(self):
+                first = self.first
+                self.first = False
+                if first:
+                    return next(b)
+
+        a, b = tee(I())
+        with self.assertRaisesRegex(RuntimeError, "tee"):
+            next(a)
+
+    def test_tee_concurrent(self):
+        start = threading.Event()
+        finish = threading.Event()
+        class I:
+            def __iter__(self):
+                return self
+            def __next__(self):
+                start.set()
+                finish.wait()
+
+        a, b = tee(I())
+        thread = threading.Thread(target=next, args=[a])
+        thread.start()
+        try:
+            start.wait()
+            with self.assertRaisesRegex(RuntimeError, "tee"):
+                next(b)
+        finally:
+            finish.set()
+            thread.join()
+
     def test_StopIteration(self):
         self.assertRaises(StopIteration, next, zip())
 
@@ -1498,6 +1607,51 @@ class TestBasicOps(unittest.TestCase):
         for f in (filter, filterfalse, map, takewhile, dropwhile, starmap):
             self.assertRaises(StopIteration, next, f(lambda x:x, []))
             self.assertRaises(StopIteration, next, f(lambda x:x, StopNow()))
+
+    @support.cpython_only
+    def test_combinations_result_gc(self):
+        # bpo-42536: combinations's tuple-reuse speed trick breaks the GC's
+        # assumptions about what can be untracked. Make sure we re-track result
+        # tuples whenever we reuse them.
+        it = combinations([None, []], 1)
+        next(it)
+        gc.collect()
+        # That GC collection probably untracked the recycled internal result
+        # tuple, which has the value (None,). Make sure it's re-tracked when
+        # it's mutated and returned from __next__:
+        self.assertTrue(gc.is_tracked(next(it)))
+
+    @support.cpython_only
+    def test_combinations_with_replacement_result_gc(self):
+        # Ditto for combinations_with_replacement.
+        it = combinations_with_replacement([None, []], 1)
+        next(it)
+        gc.collect()
+        self.assertTrue(gc.is_tracked(next(it)))
+
+    @support.cpython_only
+    def test_permutations_result_gc(self):
+        # Ditto for permutations.
+        it = permutations([None, []], 1)
+        next(it)
+        gc.collect()
+        self.assertTrue(gc.is_tracked(next(it)))
+
+    @support.cpython_only
+    def test_product_result_gc(self):
+        # Ditto for product.
+        it = product([None, []])
+        next(it)
+        gc.collect()
+        self.assertTrue(gc.is_tracked(next(it)))
+
+    @support.cpython_only
+    def test_zip_longest_result_gc(self):
+        # Ditto for zip_longest.
+        it = zip_longest([[]])
+        gc.collect()
+        self.assertTrue(gc.is_tracked(next(it)))
+
 
 class TestExamples(unittest.TestCase):
 
@@ -1732,6 +1886,10 @@ class TestGC(unittest.TestCase):
         a = []
         self.makecycle(islice([a]*2, None), a)
 
+    def test_pairwise(self):
+        a = []
+        self.makecycle(pairwise([a]*5), a)
+
     def test_permutations(self):
         a = []
         self.makecycle(permutations([1,2,a,3], 3), a)
@@ -1940,6 +2098,17 @@ class TestVariousIteratorArgs(unittest.TestCase):
             self.assertRaises(TypeError, islice, N(s), 10)
             self.assertRaises(ZeroDivisionError, list, islice(E(s), 10))
 
+    def test_pairwise(self):
+        for s in ("123", "", range(1000), ('do', 1.2), range(2000,2200,5)):
+            for g in (G, I, Ig, S, L, R):
+                seq = list(g(s))
+                expected = list(zip(seq, seq[1:]))
+                actual = list(pairwise(g(s)))
+                self.assertEqual(actual, expected)
+            self.assertRaises(TypeError, pairwise, X(s))
+            self.assertRaises(TypeError, pairwise, N(s))
+            self.assertRaises(ZeroDivisionError, list, pairwise(E(s)))
+
     def test_starmap(self):
         for s in (range(10), range(0), range(100), (7,11), range(20,50,5)):
             for g in (G, I, Ig, S, L, R):
@@ -2056,6 +2225,7 @@ class RegressionTests(unittest.TestCase):
         self.assertRaises(AssertionError, list, cycle(gen1()))
         self.assertEqual(hist, [0,1])
 
+    @support.skip_if_pgo_task
     def test_long_chain_of_empty_iterables(self):
         # Make sure itertools.chain doesn't run into recursion limits when
         # dealing with long chains of empty iterables. Even with a high
@@ -2234,7 +2404,7 @@ Samuele
 ...     "Count how many times the predicate is true"
 ...     return sum(map(pred, iterable))
 
->>> def padnone(iterable):
+>>> def pad_none(iterable):
 ...     "Returns the sequence elements and then returns None indefinitely"
 ...     return chain(iterable, repeat(None))
 
@@ -2256,19 +2426,37 @@ Samuele
 ...     else:
 ...         return starmap(func, repeat(args, times))
 
->>> def pairwise(iterable):
-...     "s -> (s0,s1), (s1,s2), (s2, s3), ..."
-...     a, b = tee(iterable)
-...     try:
-...         next(b)
-...     except StopIteration:
-...         pass
-...     return zip(a, b)
-
->>> def grouper(n, iterable, fillvalue=None):
-...     "grouper(3, 'ABCDEFG', 'x') --> ABC DEF Gxx"
+>>> def grouper(iterable, n, *, incomplete='fill', fillvalue=None):
+...     "Collect data into non-overlapping fixed-length chunks or blocks"
+...     # grouper('ABCDEFG', 3, fillvalue='x') --> ABC DEF Gxx
+...     # grouper('ABCDEFG', 3, incomplete='strict') --> ABC DEF ValueError
+...     # grouper('ABCDEFG', 3, incomplete='ignore') --> ABC DEF
 ...     args = [iter(iterable)] * n
-...     return zip_longest(*args, fillvalue=fillvalue)
+...     if incomplete == 'fill':
+...         return zip_longest(*args, fillvalue=fillvalue)
+...     if incomplete == 'strict':
+...         return zip(*args, strict=True)
+...     if incomplete == 'ignore':
+...         return zip(*args)
+...     else:
+...         raise ValueError('Expected fill, strict, or ignore')
+
+>>> def triplewise(iterable):
+...     "Return overlapping triplets from an iterable"
+...     # pairwise('ABCDEFG') -> ABC BCD CDE DEF EFG
+...     for (a, _), (b, c) in pairwise(pairwise(iterable)):
+...         yield a, b, c
+
+>>> import collections
+>>> def sliding_window(iterable, n):
+...     # sliding_window('ABCDEFG', 4) -> ABCD BCDE CDEF DEFG
+...     it = iter(iterable)
+...     window = collections.deque(islice(it, n), maxlen=n)
+...     if len(window) == n:
+...         yield tuple(window)
+...     for x in it:
+...         window.append(x)
+...         yield tuple(window)
 
 >>> def roundrobin(*iterables):
 ...     "roundrobin('ABC', 'D', 'EF') --> A D E B F C"
@@ -2282,6 +2470,40 @@ Samuele
 ...         except StopIteration:
 ...             pending -= 1
 ...             nexts = cycle(islice(nexts, pending))
+
+>>> def partition(pred, iterable):
+...     "Use a predicate to partition entries into false entries and true entries"
+...     # partition(is_odd, range(10)) --> 0 2 4 6 8   and  1 3 5 7 9
+...     t1, t2 = tee(iterable)
+...     return filterfalse(pred, t1), filter(pred, t2)
+
+>>> def before_and_after(predicate, it):
+...     ''' Variant of takewhile() that allows complete
+...         access to the remainder of the iterator.
+...
+...         >>> all_upper, remainder = before_and_after(str.isupper, 'ABCdEfGhI')
+...         >>> str.join('', all_upper)
+...         'ABC'
+...         >>> str.join('', remainder)
+...         'dEfGhI'
+...
+...         Note that the first iterator must be fully
+...         consumed before the second iterator can
+...         generate valid results.
+...     '''
+...     it = iter(it)
+...     transition = []
+...     def true_iterator():
+...         for elem in it:
+...             if predicate(elem):
+...                 yield elem
+...             else:
+...                 transition.append(elem)
+...                 return
+...     def remainder_iterator():
+...         yield from transition
+...         yield from it
+...     return true_iterator(), remainder_iterator()
 
 >>> def powerset(iterable):
 ...     "powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
@@ -2395,16 +2617,7 @@ True
 >>> take(5, map(int, repeatfunc(random.random)))
 [0, 0, 0, 0, 0]
 
->>> list(pairwise('abcd'))
-[('a', 'b'), ('b', 'c'), ('c', 'd')]
-
->>> list(pairwise([]))
-[]
-
->>> list(pairwise('a'))
-[]
-
->>> list(islice(padnone('abc'), 0, 6))
+>>> list(islice(pad_none('abc'), 0, 6))
 ['a', 'b', 'c', None, None, None]
 
 >>> list(ncycles('abc', 3))
@@ -2413,11 +2626,46 @@ True
 >>> dotproduct([1,2,3], [4,5,6])
 32
 
->>> list(grouper(3, 'abcdefg', 'x'))
+>>> list(grouper('abcdefg', 3, fillvalue='x'))
 [('a', 'b', 'c'), ('d', 'e', 'f'), ('g', 'x', 'x')]
+
+>>> it = grouper('abcdefg', 3, incomplete='strict')
+>>> next(it)
+('a', 'b', 'c')
+>>> next(it)
+('d', 'e', 'f')
+>>> next(it)
+Traceback (most recent call last):
+  ...
+ValueError: zip() argument 2 is shorter than argument 1
+
+>>> list(grouper('abcdefg', n=3, incomplete='ignore'))
+[('a', 'b', 'c'), ('d', 'e', 'f')]
+
+>>> list(triplewise('ABCDEFG'))
+[('A', 'B', 'C'), ('B', 'C', 'D'), ('C', 'D', 'E'), ('D', 'E', 'F'), ('E', 'F', 'G')]
+
+>>> list(sliding_window('ABCDEFG', 4))
+[('A', 'B', 'C', 'D'), ('B', 'C', 'D', 'E'), ('C', 'D', 'E', 'F'), ('D', 'E', 'F', 'G')]
 
 >>> list(roundrobin('abc', 'd', 'ef'))
 ['a', 'd', 'e', 'b', 'f', 'c']
+
+>>> def is_odd(x):
+...     return x % 2 == 1
+
+>>> evens, odds = partition(is_odd, range(10))
+>>> list(evens)
+[0, 2, 4, 6, 8]
+>>> list(odds)
+[1, 3, 5, 7, 9]
+
+>>> it = iter('ABCdEfGhI')
+>>> all_upper, remainder = before_and_after(str.isupper, it)
+>>> ''.join(all_upper)
+'ABC'
+>>> ''.join(remainder)
+'dEfGhI'
 
 >>> list(powerset([1,2,3]))
 [(), (1,), (2,), (3,), (1, 2), (1, 3), (2, 3), (1, 2, 3)]

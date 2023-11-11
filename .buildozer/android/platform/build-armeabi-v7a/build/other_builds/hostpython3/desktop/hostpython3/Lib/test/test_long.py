@@ -956,6 +956,14 @@ class LongTest(unittest.TestCase):
         self.assertEqual(huge >> (sys.maxsize + 1), (1 << 499) + 5)
         self.assertEqual(huge >> (sys.maxsize + 1000), 0)
 
+    @support.cpython_only
+    def test_small_ints_in_huge_calculation(self):
+        a = 2 ** 100
+        b = -a + 1
+        c = a + 1
+        self.assertIs(a + b, 1)
+        self.assertIs(c - a, 1)
+
     def test_small_ints(self):
         for i in range(-5, 257):
             self.assertIs(i, i + 0)
@@ -1007,6 +1015,17 @@ class LongTest(unittest.TestCase):
             self.assertEqual((-a).bit_length(), i+1)
             self.assertEqual((a+1).bit_length(), i+1)
             self.assertEqual((-a-1).bit_length(), i+1)
+
+    def test_bit_count(self):
+        for a in range(-1000, 1000):
+            self.assertEqual(a.bit_count(), bin(a).count("1"))
+
+        for exp in [10, 17, 63, 64, 65, 1009, 70234, 1234567]:
+            a = 2**exp
+            self.assertEqual(a.bit_count(), 1)
+            self.assertEqual((a - 1).bit_count(), exp)
+            self.assertEqual((a ^ 63).bit_count(), 7)
+            self.assertEqual(((a - 1) ^ 510).bit_count(), exp - 8)
 
     def test_round(self):
         # check round-half-even algorithm. For round to nearest ten;
@@ -1331,6 +1350,26 @@ class LongTest(unittest.TestCase):
         self.assertEqual(i, 1)
         self.assertEqual(getattr(i, 'foo', 'none'), 'bar')
 
+        class ValidBytes:
+            def __bytes__(self):
+                return b'\x01'
+        class InvalidBytes:
+            def __bytes__(self):
+                return 'abc'
+        class MissingBytes: ...
+        class RaisingBytes:
+            def __bytes__(self):
+                1 / 0
+
+        for byte_order in ('big', 'little'):
+            self.assertEqual(int.from_bytes(ValidBytes(), byte_order), 1)
+            self.assertRaises(
+                TypeError, int.from_bytes, InvalidBytes(), byte_order)
+            self.assertRaises(
+                TypeError, int.from_bytes, MissingBytes(), byte_order)
+            self.assertRaises(
+                ZeroDivisionError, int.from_bytes, RaisingBytes(), byte_order)
+
     def test_access_to_nonexistent_digit_0(self):
         # http://bugs.python.org/issue14630: A bug in _PyLong_Copy meant that
         # ob_digit[0] was being incorrectly accessed for instances of a
@@ -1351,6 +1390,16 @@ class LongTest(unittest.TestCase):
             for shift in (0, 2):
                 self.assertEqual(type(value << shift), int)
                 self.assertEqual(type(value >> shift), int)
+
+    def test_as_integer_ratio(self):
+        class myint(int):
+            pass
+        tests = [10, 0, -10, 1, sys.maxsize + 1, True, False, myint(42)]
+        for value in tests:
+            numerator, denominator = value.as_integer_ratio()
+            self.assertEqual((numerator, denominator), (int(value), 1))
+            self.assertEqual(type(numerator), int)
+            self.assertEqual(type(denominator), int)
 
 
 if __name__ == "__main__":

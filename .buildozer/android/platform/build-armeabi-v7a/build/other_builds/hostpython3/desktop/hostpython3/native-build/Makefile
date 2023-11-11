@@ -21,27 +21,28 @@
 
 # === Variables set by makesetup ===
 
-MODBUILT_NAMES=      posix  errno  pwd  _sre  _codecs  _weakref  _functools  _operator  _collections  _abc  itertools  atexit  _signal  _stat  time  _thread  _locale  _io  zipimport  faulthandler  _tracemalloc  _symtable  xxsubtype
+MODBUILT_NAMES=      posix  errno  pwd  _sre  _codecs  _weakref  _functools  _operator  _collections  _abc  itertools  atexit  _signal  _stat  time  _thread  _locale  _io  faulthandler  _tracemalloc  _symtable  xxsubtype
 MODDISABLED_NAMES= 
-MODOBJS=             Modules/posixmodule.o  Modules/errnomodule.o  Modules/pwdmodule.o  Modules/_sre.o  Modules/_codecsmodule.o  Modules/_weakref.o  Modules/_functoolsmodule.o  Modules/_operator.o  Modules/_collectionsmodule.o  Modules/_abc.o  Modules/itertoolsmodule.o  Modules/atexitmodule.o  Modules/signalmodule.o  Modules/_stat.o  Modules/timemodule.o  Modules/_threadmodule.o  Modules/_localemodule.o  Modules/_iomodule.o Modules/iobase.o Modules/fileio.o Modules/bytesio.o Modules/bufferedio.o Modules/textio.o Modules/stringio.o  Modules/zipimport.o  Modules/faulthandler.o  Modules/_tracemalloc.o Modules/hashtable.o  Modules/symtablemodule.o  Modules/xxsubtype.o
+MODOBJS=             Modules/posixmodule.o  Modules/errnomodule.o  Modules/pwdmodule.o  Modules/_sre.o  Modules/_codecsmodule.o  Modules/_weakref.o  Modules/_functoolsmodule.o  Modules/_operator.o  Modules/_collectionsmodule.o  Modules/_abc.o  Modules/itertoolsmodule.o  Modules/atexitmodule.o  Modules/signalmodule.o  Modules/_stat.o  Modules/timemodule.o  Modules/_threadmodule.o  Modules/_localemodule.o  Modules/_iomodule.o Modules/iobase.o Modules/fileio.o Modules/bytesio.o Modules/bufferedio.o Modules/textio.o Modules/stringio.o  Modules/faulthandler.o  Modules/_tracemalloc.o  Modules/symtablemodule.o  Modules/xxsubtype.o
 MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
-VERSION=	3.7
+VERSION=	3.10
 srcdir=		/home/etienne/Dokumente/Projekte/RadballKivy2.0/.buildozer/android/platform/build-armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
 VPATH=		/home/etienne/Dokumente/Projekte/RadballKivy2.0/.buildozer/android/platform/build-armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
 abs_srcdir=	/home/etienne/Dokumente/Projekte/RadballKivy2.0/.buildozer/android/platform/build-armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
 abs_builddir=	/home/etienne/Dokumente/Projekte/RadballKivy2.0/.buildozer/android/platform/build-armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3/native-build
 
 
-CC=		gcc -pthread
-CXX=		g++ -pthread
+CC=		gcc
+CXX=		g++
 MAINCC=		$(CC)
 LINKCC=		$(PURIFY) $(MAINCC)
 AR=		ar
 READELF=	readelf
-SOABI=		cpython-37m-x86_64-linux-gnu
+SOABI=		cpython-310-x86_64-linux-gnu
 LDVERSION=	$(VERSION)$(ABIFLAGS)
+LIBPYTHON=	
 GITVERSION=	
 GITTAG=		
 GITBRANCH=	
@@ -70,10 +71,9 @@ INSTALL_SCRIPT= ${INSTALL}
 INSTALL_DATA=	${INSTALL} -m 644
 # Shared libraries must be installed with executable mode on some systems;
 # rather than figuring out exactly which, we always give them executable mode.
-# Also, making them read-only seems to be a good idea...
-INSTALL_SHARED= ${INSTALL} -m 555
+INSTALL_SHARED= ${INSTALL} -m 755
 
-MKDIR_P=	/bin/mkdir -p
+MKDIR_P=	/usr/bin/mkdir -p
 
 MAKESETUP=      $(srcdir)/Modules/makesetup
 
@@ -85,30 +85,38 @@ CONFIGURE_CFLAGS=
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
-CONFIGURE_CFLAGS_NODIST= -std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers -Werror=implicit-function-declaration
+CONFIGURE_CFLAGS_NODIST= -std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers -Werror=implicit-function-declaration -fvisibility=hidden
+# LDFLAGS_NODIST is used in the same manner as CFLAGS_NODIST.
+# Use it when a linker flag should _not_ be part of the distutils LDFLAGS
+# once Python is installed (bpo-35257)
+CONFIGURE_LDFLAGS_NODIST=
 CONFIGURE_CPPFLAGS=	
 CONFIGURE_LDFLAGS=	
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
 # command line to append to these values without stomping the pre-set
 # values.
 PY_CFLAGS=	$(BASECFLAGS) $(OPT) $(CONFIGURE_CFLAGS) $(CFLAGS) $(EXTRA_CFLAGS)
-PY_CFLAGS_NODIST=$(CONFIGURE_CFLAGS_NODIST) $(CFLAGS_NODIST)
+PY_CFLAGS_NODIST=$(CONFIGURE_CFLAGS_NODIST) $(CFLAGS_NODIST) -I$(srcdir)/Include/internal
 # Both CPPFLAGS and LDFLAGS need to contain the shell's value for setup.py to
 # be able to build extension modules using the directories specified in the
 # environment variables
 PY_CPPFLAGS=	$(BASECPPFLAGS) -I. -I$(srcdir)/Include $(CONFIGURE_CPPFLAGS) $(CPPFLAGS)
 PY_LDFLAGS=	$(CONFIGURE_LDFLAGS) $(LDFLAGS)
+PY_LDFLAGS_NODIST=$(CONFIGURE_LDFLAGS_NODIST) $(LDFLAGS_NODIST)
 NO_AS_NEEDED=	-Wl,--no-as-needed
-LDLAST=		
-SGI_ABI=	@SGI_ABI@
 CCSHARED=	-fPIC
+# LINKFORSHARED are the flags passed to the $(CC) command that links
+# the python executable -- this is only needed for a few systems
 LINKFORSHARED=	-Xlinker -export-dynamic
 ARFLAGS=	rcs
 # Extra C flags added for building the interpreter object files.
 CFLAGSFORSHARED=
 # C flags used for building the interpreter object files
 PY_STDMODULE_CFLAGS= $(PY_CFLAGS) $(PY_CFLAGS_NODIST) $(PY_CPPFLAGS) $(CFLAGSFORSHARED)
+PY_BUILTIN_MODULE_CFLAGS= $(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE_BUILTIN
 PY_CORE_CFLAGS=	$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE
+# Linker flags used for building the interpreter object files
+PY_CORE_LDFLAGS=$(PY_LDFLAGS) $(PY_LDFLAGS_NODIST)
 # Strict or non-strict aliasing flags used to compile dtoa.c, see above
 CFLAGS_ALIASING=
 
@@ -135,8 +143,11 @@ LIBDIR=		${exec_prefix}/lib
 MANDIR=		${datarootdir}/man
 INCLUDEDIR=	${prefix}/include
 CONFINCLUDEDIR=	$(exec_prefix)/include
-SCRIPTDIR=	$(prefix)/lib
-ABIFLAGS=	m
+PLATLIBDIR=	lib
+SCRIPTDIR=	$(prefix)/$(PLATLIBDIR)
+ABIFLAGS=	
+# Variable used by ensurepip
+WHEEL_PKG_DIR=	
 
 # Detailed destination directories
 BINLIBDEST=	$(LIBDIR)/python$(VERSION)
@@ -146,11 +157,15 @@ CONFINCLUDEPY=	$(CONFINCLUDEDIR)/python$(LDVERSION)
 
 # Symbols used for using shared libraries
 SHLIB_SUFFIX=	.so
-EXT_SUFFIX=	.cpython-37m-x86_64-linux-gnu.so
+EXT_SUFFIX=	.cpython-310-x86_64-linux-gnu.so
 LDSHARED=	$(CC) -shared $(PY_LDFLAGS)
-BLDSHARED=	$(CC) -shared $(PY_LDFLAGS)
+BLDSHARED=	$(CC) -shared $(PY_CORE_LDFLAGS)
 LDCXXSHARED=	$(CXX) -shared
 DESTSHARED=	$(BINLIBDEST)/lib-dynload
+
+# List of exported symbols for AIX
+EXPORTSYMS=	
+EXPORTSFROM=	
 
 # Executable suffix (.exe on Windows and Mac OS X)
 EXE=		
@@ -174,6 +189,9 @@ STRIPFLAG=-s
 # Flags to lipo to produce a 32-bit-only universal executable
 LIPO_32BIT_FLAGS=
 
+# Flags to lipo to produce an intel-64-only universal executable
+LIPO_INTEL64_FLAGS=
+
 # Options to enable prebinding (for fast startup prior to Mac OS X 10.3)
 OTHER_LIBTOOL_OPT=
 
@@ -187,6 +205,10 @@ ENSUREPIP=      upgrade
 OPENSSL_INCLUDES=
 OPENSSL_LIBS=-lssl -lcrypto
 OPENSSL_LDFLAGS=
+OPENSSL_RPATH=
+
+# Default zoneinfo.TZPATH. Added here to expose it in sysconfig.get_config_var
+TZPATH=/usr/share/zoneinfo:/usr/lib/zoneinfo:/usr/share/lib/zoneinfo:/etc/zoneinfo
 
 # Modes for directories, executables and data files created by the
 # install process.  Default to user-only-writable for all file types.
@@ -195,11 +217,11 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	
+CONFIG_ARGS=	 'PKG_CONFIG_PATH='
 
 
 # Subdirectories with code
-SRCDIRS= 	Parser Objects Python Modules Programs
+SRCDIRS= 	Parser Objects Python Modules Modules/_io Programs
 
 # Other subdirectories
 SUBDIRSTOO=	Include Lib Misc
@@ -218,9 +240,12 @@ PY3LIBRARY=
 DLLLIBRARY=	
 LDLIBRARYDIR=   
 INSTSONAME=	$(LDLIBRARY)
+LIBRARY_DEPS=	$(LIBRARY) $(PY3LIBRARY) $(EXPORTSYMS)
+PY_ENABLE_SHARED=	0
+STATIC_LIBPYTHON=	1
 
 
-LIBS=		-lpthread -ldl  -lutil
+LIBS=		-lcrypt -ldl  -lm
 LIBM=		-lm
 LIBC=		
 SYSLIBS=	$(LIBM) $(LIBC)
@@ -235,21 +260,22 @@ LIBOBJS=
 PYTHON=		python$(EXE)
 BUILDPYTHON=	python$(BUILDEXE)
 
-PYTHON_FOR_REGEN=python3
-UPDATE_FILE=python3 $(srcdir)/Tools/scripts/update_file.py
+PYTHON_FOR_REGEN?=python3.10
+UPDATE_FILE=$(PYTHON_FOR_REGEN) $(srcdir)/Tools/scripts/update_file.py
 PYTHON_FOR_BUILD=./$(BUILDPYTHON) -E
 _PYTHON_HOST_PLATFORM=
 BUILD_GNU_TYPE=	x86_64-pc-linux-gnu
 HOST_GNU_TYPE=	x86_64-pc-linux-gnu
 
 # Tcl and Tk config info from --with-tcltk-includes and -libs options
-TCLTK_INCLUDES=	
-TCLTK_LIBS=	
+TCLTK_INCLUDES=	-I/usr/include/tcl8.6
+TCLTK_LIBS=	-ltk8.6 -ltkstub8.6 -ltcl8.6 -ltclstub8.6
 
 # The task to run while instrumented when building the profile-opt target.
-# We exclude unittests with -x that take a rediculious amount of time to
-# run in the instrumented training build or do not provide much value.
-PROFILE_TASK=-m test.regrtest --pgo
+# To speed up profile generation, we don't run the full unit test suite
+# by default. The default is "-m test --pgo". To run more tests, use
+# PROFILE_TASK="-m test --pgo-extended"
+PROFILE_TASK=	-m test --pgo --timeout=$(TESTTIMEOUT)
 
 # report files for gcov / lcov coverage report
 COVERAGE_INFO=	$(abs_builddir)/coverage.info
@@ -259,7 +285,7 @@ COVERAGE_REPORT_OPTIONS=--no-branch-coverage --title "CPython lcov report"
 
 # === Definitions added by makesetup ===
 
-LOCALMODLIBS=                       
+LOCALMODLIBS=                      
 BASEMODLIBS=
 PYTHONPATH=$(COREPYTHONPATH)
 COREPYTHONPATH=$(DESTPATH)$(SITEPATH)$(TESTPATH)
@@ -296,38 +322,27 @@ LIBFFI_INCLUDEDIR=
 
 ##########################################################################
 # Parser
-PGEN=		Parser/pgen$(EXE)
+
+PEGEN_OBJS=		\
+		Parser/pegen.o \
+		Parser/parser.o \
+		Parser/string_parser.o \
+		Parser/peg_api.o
+
+
+PEGEN_HEADERS= \
+		$(srcdir)/Include/internal/pycore_parser.h \
+		$(srcdir)/Parser/pegen.h \
+		$(srcdir)/Parser/string_parser.h
 
 POBJS=		\
-		Parser/acceler.o \
-		Parser/grammar1.o \
-		Parser/listnode.o \
-		Parser/node.o \
-		Parser/parser.o \
-		Parser/bitset.o \
-		Parser/metagrammar.o \
-		Parser/firstsets.o \
-		Parser/grammar.o \
-		Parser/pgen.o
+		Parser/token.o \
 
-PARSER_OBJS=	$(POBJS) Parser/myreadline.o Parser/parsetok.o Parser/tokenizer.o
-
-PGOBJS=		\
-		Objects/obmalloc.o \
-		Python/dynamic_annotations.o \
-		Python/mysnprintf.o \
-		Python/pyctype.o \
-		Parser/tokenizer_pgen.o \
-		Parser/printgrammar.o \
-		Parser/parsetok_pgen.o \
-		Parser/pgenmain.o
+PARSER_OBJS=	$(POBJS) $(PEGEN_OBJS) Parser/myreadline.o Parser/tokenizer.o
 
 PARSER_HEADERS= \
-		$(srcdir)/Parser/parser.h \
-		$(srcdir)/Include/parsetok.h \
+		$(PEGEN_HEADERS) \
 		$(srcdir)/Parser/tokenizer.h
-
-PGENOBJS=	$(POBJS) $(PGOBJS)
 
 ##########################################################################
 # Python
@@ -341,8 +356,9 @@ PYTHON_OBJS=	\
 		Python/ast_unparse.o \
 		Python/bltinmodule.o \
 		Python/ceval.o \
-		Python/compile.o \
 		Python/codecs.o \
+		Python/compile.o \
+		Python/context.o \
 		Python/dynamic_annotations.o \
 		Python/errors.o \
 		Python/frozenmain.o \
@@ -352,15 +368,17 @@ PYTHON_OBJS=	\
 		Python/getcopyright.o \
 		Python/getplatform.o \
 		Python/getversion.o \
-		Python/graminit.o \
+		Python/hamt.o \
+		Python/hashtable.o \
 		Python/import.o \
 		Python/importdl.o \
+		Python/initconfig.o \
 		Python/marshal.o \
 		Python/modsupport.o \
 		Python/mysnprintf.o \
 		Python/mystrtoul.o \
 		Python/pathconfig.o \
-		Python/peephole.o \
+		Python/preconfig.o \
 		Python/pyarena.o \
 		Python/pyctype.o \
 		Python/pyfpe.o \
@@ -368,8 +386,6 @@ PYTHON_OBJS=	\
 		Python/pylifecycle.o \
 		Python/pymath.o \
 		Python/pystate.o \
-		Python/context.o \
-		Python/hamt.o \
 		Python/pythonrun.o \
 		Python/pytime.o \
 		Python/bootstrap_hash.o \
@@ -385,6 +401,7 @@ PYTHON_OBJS=	\
 		Python/dtoa.o \
 		Python/formatter_unicode.o \
 		Python/fileutils.o \
+		Python/suggestions.o \
 		Python/$(DYNLOADFILE) \
 		$(LIBOBJS) \
 		$(MACHDEP_OBJS) \
@@ -401,6 +418,7 @@ OBJECT_OBJS=	\
 		Objects/bytearrayobject.o \
 		Objects/bytesobject.o \
 		Objects/call.o \
+		Objects/capsule.o \
 		Objects/cellobject.o \
 		Objects/classobject.o \
 		Objects/codeobject.o \
@@ -408,11 +426,13 @@ OBJECT_OBJS=	\
 		Objects/descrobject.o \
 		Objects/enumobject.o \
 		Objects/exceptions.o \
+		Objects/genericaliasobject.o \
 		Objects/genobject.o \
 		Objects/fileobject.o \
 		Objects/floatobject.o \
 		Objects/frameobject.o \
 		Objects/funcobject.o \
+		Objects/interpreteridobject.o \
 		Objects/iterobject.o \
 		Objects/listobject.o \
 		Objects/longobject.o \
@@ -424,7 +444,7 @@ OBJECT_OBJS=	\
 		Objects/namespaceobject.o \
 		Objects/object.o \
 		Objects/obmalloc.o \
-		Objects/capsule.o \
+		Objects/picklebufobject.o \
 		Objects/rangeobject.o \
 		Objects/setobject.o \
 		Objects/sliceobject.o \
@@ -433,6 +453,7 @@ OBJECT_OBJS=	\
 		Objects/typeobject.o \
 		Objects/unicodeobject.o \
 		Objects/unicodectype.o \
+		Objects/unionobject.o \
 		Objects/weakrefobject.o
 
 ##########################################################################
@@ -455,8 +476,7 @@ LIBRARY_OBJS=	\
 # On some systems, object files that reference DTrace probes need to be modified
 # in-place by dtrace(1).
 DTRACE_DEPS = \
-	Python/ceval.o
-# XXX: should gcmodule, etc. be here, too?
+	Python/ceval.o Python/import.o Python/sysmodule.o Modules/gcmodule.o
 
 #########################################################################
 # Rules
@@ -477,7 +497,7 @@ check-clean-src:
 
 # Profile generation build must start from a clean tree.
 profile-clean-stamp:
-	$(MAKE) clean profile-removal
+	$(MAKE) clean
 	touch $@
 
 # Compile with profile generation enabled.
@@ -501,14 +521,14 @@ profile-run-stamp:
 	$(MAKE) run_profile_task
 	$(MAKE) build_all_merge_profile
 	# Remove profile generation binary since we are done with it.
-	$(MAKE) clean
+	$(MAKE) clean-retain-profile
 	# This is an expensive target to build and it does not have proper
 	# makefile dependency information.  So, we create a "stamp" file
 	# to record its completion and avoid re-running it.
 	touch $@
 
 build_all_generate_profile:
-	$(MAKE) all CFLAGS_NODIST="$(CFLAGS) $(PGO_PROF_GEN_FLAG)" LDFLAGS="$(LDFLAGS) $(PGO_PROF_GEN_FLAG)" LIBS="$(LIBS)"
+	$(MAKE) all CFLAGS_NODIST="$(CFLAGS_NODIST) $(PGO_PROF_GEN_FLAG)" LDFLAGS_NODIST="$(LDFLAGS_NODIST) $(PGO_PROF_GEN_FLAG)" LIBS="$(LIBS)"
 
 run_profile_task:
 	@ # FIXME: can't run for a cross build
@@ -522,14 +542,14 @@ build_all_merge_profile:
 profile-opt: profile-run-stamp
 	@echo "Rebuilding with profile guided optimizations:"
 	-rm -f profile-clean-stamp
-	$(MAKE) all CFLAGS_NODIST="$(CFLAGS) $(PGO_PROF_USE_FLAG)" LDFLAGS="$(LDFLAGS)"
+	$(MAKE) all CFLAGS_NODIST="$(CFLAGS_NODIST) $(PGO_PROF_USE_FLAG)" LDFLAGS_NODIST="$(LDFLAGS_NODIST)"
 
 # Compile and run with gcov
 .PHONY=coverage coverage-lcov coverage-report
 coverage:
 	@echo "Building with support for coverage checking:"
-	$(MAKE) clean profile-removal
-	$(MAKE) all CFLAGS="$(CFLAGS) -O0 -pg -fprofile-arcs -ftest-coverage" LIBS="$(LIBS) -lgcov"
+	$(MAKE) clean
+	$(MAKE) all CFLAGS="$(CFLAGS) -O0 -pg --coverage" LIBS="$(LIBS) --coverage"
 
 coverage-lcov:
 	@echo "Creating Coverage HTML report with LCOV:"
@@ -550,7 +570,6 @@ coverage-lcov:
 	    '*/Modules/zlib/*' \
 	    '*/Include/*' \
 	    '*/Modules/xx*.c' \
-	    '*/Parser/listnode.c' \
 	    '*/Python/pyfpe.c' \
 	    '*/Python/pystrcmp.c' \
 	    '/usr/include/*' \
@@ -564,7 +583,7 @@ coverage-lcov:
 	@echo
 
 # Force regeneration of parser and importlib
-coverage-report: regen-grammar regen-importlib
+coverage-report: regen-token regen-importlib
 	@ # build with coverage info
 	$(MAKE) coverage
 	@ # run tests, ignore failures
@@ -578,8 +597,8 @@ clinic: check-clean-src $(srcdir)/Modules/_blake2/blake2s_impl.c
 	$(PYTHON_FOR_REGEN) $(srcdir)/Tools/clinic/clinic.py --make --srcdir $(srcdir)
 
 # Build the interpreter
-$(BUILDPYTHON):	Programs/python.o $(LIBRARY) $(LDLIBRARY) $(PY3LIBRARY)
-	$(LINKCC) $(PY_LDFLAGS) $(LINKFORSHARED) -o $@ Programs/python.o $(BLDLIBRARY) $(LIBS) $(MODLIBS) $(SYSLIBS) $(LDLAST)
+$(BUILDPYTHON):	Programs/python.o $(LIBRARY_DEPS)
+	$(LINKCC) $(PY_CORE_LDFLAGS) $(LINKFORSHARED) -o $@ Programs/python.o $(BLDLIBRARY) $(LIBS) $(MODLIBS) $(SYSLIBS)
 
 platform: $(BUILDPYTHON) pybuilddir.txt
 	$(RUNSHARED) $(PYTHON_FOR_BUILD) -c 'import sys ; from sysconfig import get_platform ; print("%s-%d.%d" % (get_platform(), *sys.version_info[:2]))' >platform
@@ -632,23 +651,27 @@ $(LIBRARY): $(LIBRARY_OBJS)
 	-rm -f $@
 	$(AR) $(ARFLAGS) $@ $(LIBRARY_OBJS)
 
-libpython$(LDVERSION).so: $(LIBRARY_OBJS)
+libpython$(LDVERSION).so: $(LIBRARY_OBJS) $(DTRACE_OBJS)
 	if test $(INSTSONAME) != $(LDLIBRARY); then \
-		$(BLDSHARED) -Wl,-h$(INSTSONAME) -o $(INSTSONAME) $(LIBRARY_OBJS) $(MODLIBS) $(SHLIBS) $(LIBC) $(LIBM) $(LDLAST); \
+		$(BLDSHARED) -Wl,-h$(INSTSONAME) -o $(INSTSONAME) $(LIBRARY_OBJS) $(MODLIBS) $(SHLIBS) $(LIBC) $(LIBM); \
 		$(LN) -f $(INSTSONAME) $@; \
 	else \
-		$(BLDSHARED) -o $@ $(LIBRARY_OBJS) $(MODLIBS) $(SHLIBS) $(LIBC) $(LIBM) $(LDLAST); \
+		$(BLDSHARED) -o $@ $(LIBRARY_OBJS) $(MODLIBS) $(SHLIBS) $(LIBC) $(LIBM); \
 	fi
 
 libpython3.so:	libpython$(LDVERSION).so
 	$(BLDSHARED) $(NO_AS_NEEDED) -o $@ -Wl,-h$@ $^
 
 libpython$(LDVERSION).dylib: $(LIBRARY_OBJS)
-	 $(CC) -dynamiclib -Wl,-single_module $(PY_LDFLAGS) -undefined dynamic_lookup -Wl,-install_name,$(prefix)/lib/libpython$(LDVERSION).dylib -Wl,-compatibility_version,$(VERSION) -Wl,-current_version,$(VERSION) -o $@ $(LIBRARY_OBJS) $(SHLIBS) $(LIBC) $(LIBM) $(LDLAST); \
+	 $(CC) -dynamiclib -Wl,-single_module $(PY_CORE_LDFLAGS) -undefined dynamic_lookup -Wl,-install_name,$(prefix)/lib/libpython$(LDVERSION).dylib -Wl,-compatibility_version,$(VERSION) -Wl,-current_version,$(VERSION) -o $@ $(LIBRARY_OBJS) $(DTRACE_OBJS) $(SHLIBS) $(LIBC) $(LIBM); \
 
 
 libpython$(VERSION).sl: $(LIBRARY_OBJS)
-	$(LDSHARED) -o $@ $(LIBRARY_OBJS) $(MODLIBS) $(SHLIBS) $(LIBC) $(LIBM) $(LDLAST)
+	$(LDSHARED) -o $@ $(LIBRARY_OBJS) $(MODLIBS) $(SHLIBS) $(LIBC) $(LIBM)
+
+# List of exported symbols for AIX
+Modules/python.exp: $(LIBRARY)
+	$(srcdir)/Modules/makexp_aix $@ "$(EXPORTSFROM)" $?
 
 # Copy up the gdb python hooks into a position where they can be automatically
 # loaded by gdb during Lib/test/test_gdb.py
@@ -669,7 +692,7 @@ $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK): \
 		$(LIBRARY) \
 		$(RESSRCDIR)/Info.plist
 	$(INSTALL) -d -m $(DIRMODE) $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)
-	$(CC) -o $(LDLIBRARY) $(PY_LDFLAGS) -dynamiclib \
+	$(CC) -o $(LDLIBRARY) $(PY_CORE_LDFLAGS) -dynamiclib \
 		-all_load $(LIBRARY) -Wl,-single_module \
 		-install_name $(DESTDIR)$(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK) \
 		-compatibility_version $(VERSION) \
@@ -688,7 +711,7 @@ $(PYTHONFRAMEWORKDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK): \
 $(DLLLIBRARY) libpython$(LDVERSION).dll.a: $(LIBRARY_OBJS)
 	if test -n "$(DLLLIBRARY)"; then \
 		$(LDSHARED) -Wl,--out-implib=$@ -o $(DLLLIBRARY) $^ \
-			$(LIBS) $(MODLIBS) $(SYSLIBS) $(LDLAST); \
+			$(LIBS) $(MODLIBS) $(SYSLIBS); \
 	else true; \
 	fi
 
@@ -699,28 +722,18 @@ oldsharedmods: $(SHAREDMODS)
 Makefile Modules/config.c: Makefile.pre \
 				$(srcdir)/Modules/config.c.in \
 				$(MAKESETUP) \
-				Modules/Setup \
+				$(srcdir)/Modules/Setup \
 				Modules/Setup.local
 	$(SHELL) $(MAKESETUP) -c $(srcdir)/Modules/config.c.in \
 				-s Modules \
 				Modules/Setup.local \
-				Modules/Setup
+				$(srcdir)/Modules/Setup
 	@mv config.c Modules
 	@echo "The Makefile was updated, you may need to re-run make."
 
 
-Modules/Setup: $(srcdir)/Modules/Setup.dist
-	@if test -f Modules/Setup; then \
-		echo "-----------------------------------------------"; \
-		echo "Modules/Setup.dist is newer than Modules/Setup;"; \
-		echo "check to make sure you have all the updates you"; \
-		echo "need in your Modules/Setup file."; \
-		echo "Usually, copying Modules/Setup.dist to Modules/Setup will work."; \
-		echo "-----------------------------------------------"; \
-	fi
-
-Programs/_testembed: Programs/_testembed.o $(LIBRARY) $(LDLIBRARY) $(PY3LIBRARY)
-	$(LINKCC) $(PY_LDFLAGS) $(LINKFORSHARED) -o $@ Programs/_testembed.o $(BLDLIBRARY) $(LIBS) $(MODLIBS) $(SYSLIBS) $(LDLAST)
+Programs/_testembed: Programs/_testembed.o $(LIBRARY_DEPS)
+	$(LINKCC) $(PY_CORE_LDFLAGS) $(LINKFORSHARED) -o $@ Programs/_testembed.o $(BLDLIBRARY) $(LIBS) $(MODLIBS) $(SYSLIBS)
 
 ############################################################################
 # Importlib
@@ -728,29 +741,49 @@ Programs/_testembed: Programs/_testembed.o $(LIBRARY) $(LDLIBRARY) $(PY3LIBRARY)
 Programs/_freeze_importlib.o: Programs/_freeze_importlib.c Makefile
 
 Programs/_freeze_importlib: Programs/_freeze_importlib.o $(LIBRARY_OBJS_OMIT_FROZEN)
-	$(LINKCC) $(PY_LDFLAGS) -o $@ Programs/_freeze_importlib.o $(LIBRARY_OBJS_OMIT_FROZEN) $(LIBS) $(MODLIBS) $(SYSLIBS) $(LDLAST)
+	$(LINKCC) $(PY_CORE_LDFLAGS) -o $@ Programs/_freeze_importlib.o $(LIBRARY_OBJS_OMIT_FROZEN) $(LIBS) $(MODLIBS) $(SYSLIBS)
 
 .PHONY: regen-importlib
 regen-importlib: Programs/_freeze_importlib
 	# Regenerate Python/importlib_external.h
 	# from Lib/importlib/_bootstrap_external.py using _freeze_importlib
-	./Programs/_freeze_importlib \
+	./Programs/_freeze_importlib importlib._bootstrap_external \
 	    $(srcdir)/Lib/importlib/_bootstrap_external.py \
 	    $(srcdir)/Python/importlib_external.h.new
 	$(UPDATE_FILE) $(srcdir)/Python/importlib_external.h $(srcdir)/Python/importlib_external.h.new
 	# Regenerate Python/importlib.h from Lib/importlib/_bootstrap.py
 	# using _freeze_importlib
-	./Programs/_freeze_importlib \
+	./Programs/_freeze_importlib importlib._bootstrap \
 	    $(srcdir)/Lib/importlib/_bootstrap.py \
 	    $(srcdir)/Python/importlib.h.new
 	$(UPDATE_FILE) $(srcdir)/Python/importlib.h $(srcdir)/Python/importlib.h.new
+	# Regenerate Python/importlib_zipimport.h from Lib/zipimport.py
+	# using _freeze_importlib
+	./Programs/_freeze_importlib zipimport \
+	    $(srcdir)/Lib/zipimport.py \
+	    $(srcdir)/Python/importlib_zipimport.h.new
+	$(UPDATE_FILE) $(srcdir)/Python/importlib_zipimport.h $(srcdir)/Python/importlib_zipimport.h.new
+
+regen-abidump: all
+	@$(MKDIR_P) $(srcdir)/Doc/data/
+	abidw "libpython$(LDVERSION).so" --no-architecture --out-file $(srcdir)/Doc/data/python$(LDVERSION).abi.new
+	@$(UPDATE_FILE) $(srcdir)/Doc/data/python$(LDVERSION).abi $(srcdir)/Doc/data/python$(LDVERSION).abi.new
+
+check-abidump: all
+		abidiff $(srcdir)/Doc/data/python$(LDVERSION).abi "libpython$(LDVERSION).so" --drop-private-types --no-architecture --no-added-syms
+
+regen-limited-abi: all
+	$(RUNSHARED) ./$(BUILDPYTHON) $(srcdir)/Tools/scripts/stable_abi.py --generate-all $(srcdir)/Misc/stable_abi.txt
 
 
 ############################################################################
 # Regenerate all generated files
 
-regen-all: regen-opcode regen-opcode-targets regen-typeslots regen-grammar \
-	regen-ast regen-importlib clinic
+regen-all: regen-opcode regen-opcode-targets regen-typeslots \
+	regen-token regen-ast regen-keyword regen-importlib clinic \
+	regen-pegen-metaparser regen-pegen regen-frozen
+	@echo
+	@echo "Note: make regen-stdlib-module-names and autoconf should be run manually"
 
 ############################################################################
 # Special rules for object files
@@ -760,6 +793,7 @@ Modules/getbuildinfo.o: $(PARSER_OBJS) \
 		$(PYTHON_OBJS) \
 		$(MODULE_OBJS) \
 		$(MODOBJS) \
+		$(DTRACE_OBJS) \
 		$(srcdir)/Modules/getbuildinfo.c
 	$(CC) -c $(PY_CORE_CFLAGS) \
 	      -DGITVERSION="\"`LC_ALL=C $(GITVERSION)`\"" \
@@ -801,52 +835,53 @@ Python/dynload_hpux.o: $(srcdir)/Python/dynload_hpux.c Makefile
 		-DSHLIB_EXT='"$(EXT_SUFFIX)"' \
 		-o $@ $(srcdir)/Python/dynload_hpux.c
 
-Python/sysmodule.o: $(srcdir)/Python/sysmodule.c Makefile
+Python/sysmodule.o: $(srcdir)/Python/sysmodule.c Makefile $(srcdir)/Include/pydtrace.h
 	$(CC) -c $(PY_CORE_CFLAGS) \
 		-DABIFLAGS='"$(ABIFLAGS)"' \
 		$(MULTIARCH_CPPFLAGS) \
 		-o $@ $(srcdir)/Python/sysmodule.c
 
+Python/initconfig.o: $(srcdir)/Python/initconfig.c
+	$(CC) -c $(PY_CORE_CFLAGS) \
+		-DPLATLIBDIR='"$(PLATLIBDIR)"' \
+		-o $@ $(srcdir)/Python/initconfig.c
+
 $(IO_OBJS): $(IO_H)
 
-$(PGEN): $(PGENOBJS)
-		$(CC) $(OPT) $(PY_LDFLAGS) $(PGENOBJS) $(LIBS) -o $(PGEN)
+.PHONY: regen-pegen-metaparser
+regen-pegen-metaparser:
+	@$(MKDIR_P) $(srcdir)/Tools/peg_generator/pegen
+	PYTHONPATH=$(srcdir)/Tools/peg_generator $(PYTHON_FOR_REGEN) -m pegen -q python \
+	$(srcdir)/Tools/peg_generator/pegen/metagrammar.gram \
+	-o $(srcdir)/Tools/peg_generator/pegen/grammar_parser.py.new
+	$(UPDATE_FILE) $(srcdir)/Tools/peg_generator/pegen/grammar_parser.py \
+	$(srcdir)/Tools/peg_generator/pegen/grammar_parser.py.new
 
-.PHONY: regen-grammar
-regen-grammar: $(PGEN)
-	# Regenerate Include/graminit.h and Python/graminit.c
-	# from Grammar/Grammar using pgen
-	@$(MKDIR_P) Include
-	$(PGEN) $(srcdir)/Grammar/Grammar \
-		$(srcdir)/Include/graminit.h.new \
-		$(srcdir)/Python/graminit.c.new
-	$(UPDATE_FILE) $(srcdir)/Include/graminit.h $(srcdir)/Include/graminit.h.new
-	$(UPDATE_FILE) $(srcdir)/Python/graminit.c $(srcdir)/Python/graminit.c.new
-
-Parser/grammar.o:	$(srcdir)/Parser/grammar.c \
-				$(srcdir)/Include/token.h \
-				$(srcdir)/Include/grammar.h
-Parser/metagrammar.o:	$(srcdir)/Parser/metagrammar.c
-
-Parser/tokenizer_pgen.o:	$(srcdir)/Parser/tokenizer.c
-Parser/parsetok_pgen.o:	$(srcdir)/Parser/parsetok.c
-Parser/printgrammar.o: $(srcdir)/Parser/printgrammar.c
-
-Parser/pgenmain.o:	$(srcdir)/Include/parsetok.h
+.PHONY: regen-pegen
+regen-pegen:
+	@$(MKDIR_P) $(srcdir)/Parser
+	PYTHONPATH=$(srcdir)/Tools/peg_generator $(PYTHON_FOR_REGEN) -m pegen -q c \
+		$(srcdir)/Grammar/python.gram \
+		$(srcdir)/Grammar/Tokens \
+		-o $(srcdir)/Parser/parser.new.c
+	$(UPDATE_FILE) $(srcdir)/Parser/parser.c $(srcdir)/Parser/parser.new.c
 
 .PHONY=regen-ast
 regen-ast:
-	# Regenerate Include/Python-ast.h using Parser/asdl_c.py -h
+	# Regenerate 3 files using using Parser/asdl_c.py:
+	# - Include/internal/pycore_ast.h
+	# - Include/internal/pycore_ast_state.h
+	# - Python/Python-ast.c
 	$(MKDIR_P) $(srcdir)/Include
-	$(PYTHON_FOR_REGEN) $(srcdir)/Parser/asdl_c.py \
-		-h $(srcdir)/Include/Python-ast.h.new \
-		$(srcdir)/Parser/Python.asdl
-	$(UPDATE_FILE) $(srcdir)/Include/Python-ast.h $(srcdir)/Include/Python-ast.h.new
-	# Regenerate Python/Python-ast.c using Parser/asdl_c.py -c
 	$(MKDIR_P) $(srcdir)/Python
 	$(PYTHON_FOR_REGEN) $(srcdir)/Parser/asdl_c.py \
-		-c $(srcdir)/Python/Python-ast.c.new \
-		$(srcdir)/Parser/Python.asdl
+		$(srcdir)/Parser/Python.asdl \
+		-H $(srcdir)/Include/internal/pycore_ast.h.new \
+		-I $(srcdir)/Include/internal/pycore_ast_state.h.new \
+		-C $(srcdir)/Python/Python-ast.c.new
+
+	$(UPDATE_FILE) $(srcdir)/Include/internal/pycore_ast.h $(srcdir)/Include/internal/pycore_ast.h.new
+	$(UPDATE_FILE) $(srcdir)/Include/internal/pycore_ast_state.h $(srcdir)/Include/internal/pycore_ast_state.h.new
 	$(UPDATE_FILE) $(srcdir)/Python/Python-ast.c $(srcdir)/Python/Python-ast.c.new
 
 .PHONY: regen-opcode
@@ -858,7 +893,58 @@ regen-opcode:
 		$(srcdir)/Include/opcode.h.new
 	$(UPDATE_FILE) $(srcdir)/Include/opcode.h $(srcdir)/Include/opcode.h.new
 
-Python/compile.o Python/symtable.o Python/ast_unparse.o Python/ast.o: $(srcdir)/Include/graminit.h $(srcdir)/Include/Python-ast.h
+.PHONY: regen-frozen
+regen-frozen: Programs/_freeze_importlib
+	# Regenerate code for frozen module "__hello__".
+	./Programs/_freeze_importlib hello \
+		$(srcdir)/Tools/freeze/flag.py \
+		$(srcdir)/Python/frozen_hello.h.new
+	$(UPDATE_FILE) $(srcdir)/Python/frozen_hello.h \
+		$(srcdir)/Python/frozen_hello.h.new
+
+.PHONY: regen-token
+regen-token:
+	# Regenerate Doc/library/token-list.inc from Grammar/Tokens
+	# using Tools/scripts/generate_token.py
+	$(PYTHON_FOR_REGEN) $(srcdir)/Tools/scripts/generate_token.py rst \
+		$(srcdir)/Grammar/Tokens \
+		$(srcdir)/Doc/library/token-list.inc
+	# Regenerate Include/token.h from Grammar/Tokens
+	# using Tools/scripts/generate_token.py
+	$(PYTHON_FOR_REGEN) $(srcdir)/Tools/scripts/generate_token.py h \
+		$(srcdir)/Grammar/Tokens \
+		$(srcdir)/Include/token.h
+	# Regenerate Parser/token.c from Grammar/Tokens
+	# using Tools/scripts/generate_token.py
+	$(PYTHON_FOR_REGEN) $(srcdir)/Tools/scripts/generate_token.py c \
+		$(srcdir)/Grammar/Tokens \
+		$(srcdir)/Parser/token.c
+	# Regenerate Lib/token.py from Grammar/Tokens
+	# using Tools/scripts/generate_token.py
+	$(PYTHON_FOR_REGEN) $(srcdir)/Tools/scripts/generate_token.py py \
+		$(srcdir)/Grammar/Tokens \
+		$(srcdir)/Lib/token.py
+
+.PHONY: regen-keyword
+regen-keyword:
+	# Regenerate Lib/keyword.py from Grammar/python.gram and Grammar/Tokens
+	# using Tools/peg_generator/pegen
+	PYTHONPATH=$(srcdir)/Tools/peg_generator $(PYTHON_FOR_REGEN) -m pegen.keywordgen \
+		$(srcdir)/Grammar/python.gram \
+		$(srcdir)/Grammar/Tokens \
+		$(srcdir)/Lib/keyword.py.new
+	$(UPDATE_FILE) $(srcdir)/Lib/keyword.py $(srcdir)/Lib/keyword.py.new
+
+.PHONY: regen-stdlib-module-names
+regen-stdlib-module-names: build_all Programs/_testembed
+	# Regenerate Python/stdlib_module_names.h
+	# using Tools/scripts/generate_stdlib_module_names.py
+	$(RUNSHARED) ./$(BUILDPYTHON) \
+		$(srcdir)/Tools/scripts/generate_stdlib_module_names.py \
+		> $(srcdir)/Python/stdlib_module_names.h.new
+	$(UPDATE_FILE) $(srcdir)/Python/stdlib_module_names.h $(srcdir)/Python/stdlib_module_names.h.new
+
+Python/compile.o Python/symtable.o Python/ast_unparse.o Python/ast.o Python/future.o: $(srcdir)/Include/internal/pycore_ast.h
 
 Python/getplatform.o: $(srcdir)/Python/getplatform.c
 		$(CC) -c $(PY_CORE_CFLAGS) -DPLATFORM='"$(MACHDEP)"' -o $@ $(srcdir)/Python/getplatform.c
@@ -916,9 +1002,11 @@ regen-opcode-targets:
 		$(srcdir)/Python/opcode_targets.h.new
 	$(UPDATE_FILE) $(srcdir)/Python/opcode_targets.h $(srcdir)/Python/opcode_targets.h.new
 
-Python/ceval.o: $(srcdir)/Python/opcode_targets.h $(srcdir)/Python/ceval_gil.h
+Python/ceval.o: $(srcdir)/Python/opcode_targets.h $(srcdir)/Python/ceval_gil.h \
+		$(srcdir)/Python/condvar.h
 
-Python/frozen.o: $(srcdir)/Python/importlib.h $(srcdir)/Python/importlib_external.h
+Python/frozen.o: $(srcdir)/Python/importlib.h $(srcdir)/Python/importlib_external.h \
+		$(srcdir)/Python/importlib_zipimport.h $(srcdir)/Python/frozen_hello.h
 
 # Generate DTrace probe macros, then rename them (PYTHON_ -> PyDTrace_) to
 # follow our naming conventions. dtrace(1) uses the output filename to generate
@@ -929,6 +1017,10 @@ Include/pydtrace_probes.h: $(srcdir)/Include/pydtrace.d
 	: sed in-place edit with POSIX-only tools
 	sed 's/PYTHON_/PyDTrace_/' $@ > $@.tmp
 	mv $@.tmp $@
+
+Python/ceval.o: $(srcdir)/Include/pydtrace.h
+Python/import.o: $(srcdir)/Include/pydtrace.h
+Modules/gcmodule.o: $(srcdir)/Include/pydtrace.h
 
 Python/pydtrace.o: $(srcdir)/Include/pydtrace.d $(DTRACE_DEPS)
 	$(DTRACE) $(DFLAGS) -o $@ -G -s $< $(DTRACE_DEPS)
@@ -950,13 +1042,8 @@ regen-typeslots:
 PYTHON_HEADERS= \
 		$(srcdir)/Include/Python.h \
 		$(srcdir)/Include/abstract.h \
-		$(srcdir)/Include/accu.h \
-		$(srcdir)/Include/asdl.h \
-		$(srcdir)/Include/ast.h \
 		$(srcdir)/Include/bltinmodule.h \
-		$(srcdir)/Include/bitset.h \
 		$(srcdir)/Include/boolobject.h \
-		$(srcdir)/Include/bytes_methods.h \
 		$(srcdir)/Include/bytearrayobject.h \
 		$(srcdir)/Include/bytesobject.h \
 		$(srcdir)/Include/cellobject.h \
@@ -966,9 +1053,9 @@ PYTHON_HEADERS= \
 		$(srcdir)/Include/codecs.h \
 		$(srcdir)/Include/compile.h \
 		$(srcdir)/Include/complexobject.h \
+		$(srcdir)/Include/context.h \
 		$(srcdir)/Include/descrobject.h \
 		$(srcdir)/Include/dictobject.h \
-		$(srcdir)/Include/dtoa.h \
 		$(srcdir)/Include/dynamic_annotations.h \
 		$(srcdir)/Include/enumobject.h \
 		$(srcdir)/Include/errcode.h \
@@ -980,6 +1067,7 @@ PYTHON_HEADERS= \
 		$(srcdir)/Include/funcobject.h \
 		$(srcdir)/Include/genobject.h \
 		$(srcdir)/Include/import.h \
+		$(srcdir)/Include/interpreteridobject.h \
 		$(srcdir)/Include/intrcheck.h \
 		$(srcdir)/Include/iterobject.h \
 		$(srcdir)/Include/listobject.h \
@@ -987,66 +1075,131 @@ PYTHON_HEADERS= \
 		$(srcdir)/Include/longobject.h \
 		$(srcdir)/Include/marshal.h \
 		$(srcdir)/Include/memoryobject.h \
-		$(srcdir)/Include/metagrammar.h \
 		$(srcdir)/Include/methodobject.h \
 		$(srcdir)/Include/modsupport.h \
 		$(srcdir)/Include/moduleobject.h \
 		$(srcdir)/Include/namespaceobject.h \
-		$(srcdir)/Include/node.h \
 		$(srcdir)/Include/object.h \
 		$(srcdir)/Include/objimpl.h \
 		$(srcdir)/Include/opcode.h \
 		$(srcdir)/Include/osdefs.h \
 		$(srcdir)/Include/osmodule.h \
 		$(srcdir)/Include/patchlevel.h \
-		$(srcdir)/Include/pgen.h \
-		$(srcdir)/Include/pgenheaders.h \
-		$(srcdir)/Include/pyarena.h \
-		$(srcdir)/Include/pyatomic.h \
 		$(srcdir)/Include/pycapsule.h \
-		$(srcdir)/Include/pyctype.h \
-		$(srcdir)/Include/pydebug.h \
 		$(srcdir)/Include/pydtrace.h \
 		$(srcdir)/Include/pyerrors.h \
-		$(srcdir)/Include/pyfpe.h \
+		$(srcdir)/Include/pyframe.h \
 		$(srcdir)/Include/pyhash.h \
 		$(srcdir)/Include/pylifecycle.h \
-		$(srcdir)/Include/pymath.h \
+		$(srcdir)/Include/pymacconfig.h \
 		$(srcdir)/Include/pymacro.h \
+		$(srcdir)/Include/pymath.h \
 		$(srcdir)/Include/pymem.h \
 		$(srcdir)/Include/pyport.h \
 		$(srcdir)/Include/pystate.h \
-		$(srcdir)/Include/context.h \
 		$(srcdir)/Include/pystrcmp.h \
-		$(srcdir)/Include/pystrtod.h \
 		$(srcdir)/Include/pystrhex.h \
+		$(srcdir)/Include/pystrtod.h \
 		$(srcdir)/Include/pythonrun.h \
 		$(srcdir)/Include/pythread.h \
-		$(srcdir)/Include/pytime.h \
 		$(srcdir)/Include/rangeobject.h \
 		$(srcdir)/Include/setobject.h \
 		$(srcdir)/Include/sliceobject.h \
 		$(srcdir)/Include/structmember.h \
 		$(srcdir)/Include/structseq.h \
-		$(srcdir)/Include/symtable.h \
 		$(srcdir)/Include/sysmodule.h \
+		$(srcdir)/Include/token.h \
 		$(srcdir)/Include/traceback.h \
+		$(srcdir)/Include/tracemalloc.h \
 		$(srcdir)/Include/tupleobject.h \
-		$(srcdir)/Include/ucnhash.h \
 		$(srcdir)/Include/unicodeobject.h \
 		$(srcdir)/Include/warnings.h \
 		$(srcdir)/Include/weakrefobject.h \
+		\
 		pyconfig.h \
 		$(PARSER_HEADERS) \
-		$(srcdir)/Include/Python-ast.h \
-		$(srcdir)/Include/internal/ceval.h \
-		$(srcdir)/Include/internal/gil.h \
-		$(srcdir)/Include/internal/mem.h \
-		$(srcdir)/Include/internal/pygetopt.h \
-		$(srcdir)/Include/internal/pystate.h \
-		$(srcdir)/Include/internal/context.h \
-		$(srcdir)/Include/internal/warnings.h \
-		$(DTRACE_HEADERS)
+		\
+		$(srcdir)/Include/cpython/abstract.h \
+		$(srcdir)/Include/cpython/bytearrayobject.h \
+		$(srcdir)/Include/cpython/bytesobject.h \
+		$(srcdir)/Include/cpython/ceval.h \
+		$(srcdir)/Include/cpython/code.h \
+		$(srcdir)/Include/cpython/compile.h \
+		$(srcdir)/Include/cpython/dictobject.h \
+		$(srcdir)/Include/cpython/fileobject.h \
+		$(srcdir)/Include/cpython/fileutils.h \
+		$(srcdir)/Include/cpython/frameobject.h \
+		$(srcdir)/Include/cpython/import.h \
+		$(srcdir)/Include/cpython/initconfig.h \
+		$(srcdir)/Include/cpython/interpreteridobject.h \
+		$(srcdir)/Include/cpython/listobject.h \
+		$(srcdir)/Include/cpython/methodobject.h \
+		$(srcdir)/Include/cpython/object.h \
+		$(srcdir)/Include/cpython/objimpl.h \
+		$(srcdir)/Include/cpython/odictobject.h \
+		$(srcdir)/Include/cpython/picklebufobject.h \
+		$(srcdir)/Include/cpython/pyctype.h \
+		$(srcdir)/Include/cpython/pydebug.h \
+		$(srcdir)/Include/cpython/pyerrors.h \
+		$(srcdir)/Include/cpython/pyfpe.h \
+		$(srcdir)/Include/cpython/pylifecycle.h \
+		$(srcdir)/Include/cpython/pymem.h \
+		$(srcdir)/Include/cpython/pystate.h \
+		$(srcdir)/Include/cpython/pythonrun.h \
+		$(srcdir)/Include/cpython/pytime.h \
+		$(srcdir)/Include/cpython/sysmodule.h \
+		$(srcdir)/Include/cpython/traceback.h \
+		$(srcdir)/Include/cpython/tupleobject.h \
+		$(srcdir)/Include/cpython/unicodeobject.h \
+		\
+		$(srcdir)/Include/internal/pycore_abstract.h \
+		$(srcdir)/Include/internal/pycore_accu.h \
+		$(srcdir)/Include/internal/pycore_asdl.h \
+		$(srcdir)/Include/internal/pycore_ast.h \
+		$(srcdir)/Include/internal/pycore_ast_state.h \
+		$(srcdir)/Include/internal/pycore_atomic.h \
+		$(srcdir)/Include/internal/pycore_atomic_funcs.h \
+		$(srcdir)/Include/internal/pycore_bitutils.h \
+		$(srcdir)/Include/internal/pycore_bytes_methods.h \
+		$(srcdir)/Include/internal/pycore_call.h \
+		$(srcdir)/Include/internal/pycore_ceval.h \
+		$(srcdir)/Include/internal/pycore_code.h \
+		$(srcdir)/Include/internal/pycore_compile.h \
+		$(srcdir)/Include/internal/pycore_condvar.h \
+		$(srcdir)/Include/internal/pycore_context.h \
+		$(srcdir)/Include/internal/pycore_dtoa.h \
+		$(srcdir)/Include/internal/pycore_fileutils.h \
+		$(srcdir)/Include/internal/pycore_format.h \
+		$(srcdir)/Include/internal/pycore_getopt.h \
+		$(srcdir)/Include/internal/pycore_gil.h \
+		$(srcdir)/Include/internal/pycore_hamt.h \
+		$(srcdir)/Include/internal/pycore_hashtable.h \
+		$(srcdir)/Include/internal/pycore_import.h \
+		$(srcdir)/Include/internal/pycore_initconfig.h \
+		$(srcdir)/Include/internal/pycore_interp.h \
+		$(srcdir)/Include/internal/pycore_list.h \
+		$(srcdir)/Include/internal/pycore_long.h \
+		$(srcdir)/Include/internal/pycore_moduleobject.h \
+		$(srcdir)/Include/internal/pycore_object.h \
+		$(srcdir)/Include/internal/pycore_pathconfig.h \
+		$(srcdir)/Include/internal/pycore_pyarena.h \
+		$(srcdir)/Include/internal/pycore_pyerrors.h \
+		$(srcdir)/Include/internal/pycore_pyhash.h \
+		$(srcdir)/Include/internal/pycore_pylifecycle.h \
+		$(srcdir)/Include/internal/pycore_pymem.h \
+		$(srcdir)/Include/internal/pycore_pystate.h \
+		$(srcdir)/Include/internal/pycore_runtime.h \
+		$(srcdir)/Include/internal/pycore_structseq.h \
+		$(srcdir)/Include/internal/pycore_symtable.h \
+		$(srcdir)/Include/internal/pycore_sysmodule.h \
+		$(srcdir)/Include/internal/pycore_traceback.h \
+		$(srcdir)/Include/internal/pycore_tuple.h \
+		$(srcdir)/Include/internal/pycore_ucnhash.h \
+		$(srcdir)/Include/internal/pycore_unionobject.h \
+		$(srcdir)/Include/internal/pycore_warnings.h \
+		$(DTRACE_HEADERS) \
+		\
+		$(srcdir)/Python/stdlib_module_names.h
 
 $(LIBRARY_OBJS) $(MODOBJS) Programs/python.o: $(PYTHON_HEADERS)
 
@@ -1059,6 +1212,11 @@ TESTRUNNER=	$(TESTPYTHON) $(srcdir)/Tools/scripts/run_tests.py
 TESTTIMEOUT=	1200
 
 .PHONY: test testall testuniversal buildbottest pythoninfo
+
+# Remove "test_python_*" directories of previous failed test jobs.
+# Pass TESTOPTS options because it can contain --tempdir option.
+cleantest: build_all
+	$(TESTRUNNER) $(TESTOPTS) --cleanup
 
 # Run a basic set of regression tests.
 # This excludes some tests that are particularly resource-intensive.
@@ -1113,10 +1271,10 @@ quicktest:	all platform
 # SSL tests
 .PHONY: multisslcompile multissltest
 multisslcompile: build_all
-	$(RUNSHARED) ./$(BUILDPYTHON) Tools/ssl/multissltests.py --steps=modules
+	$(RUNSHARED) ./$(BUILDPYTHON) $(srcdir)/Tools/ssl/multissltests.py --steps=modules
 
 multissltest: build_all
-	$(RUNSHARED) ./$(BUILDPYTHON) Tools/ssl/multissltests.py
+	$(RUNSHARED) ./$(BUILDPYTHON) $(srcdir)/Tools/ssl/multissltests.py
 
 install:  commoninstall bininstall maninstall 
 	if test "x$(ENSUREPIP)" != "xno"  ; then \
@@ -1186,24 +1344,32 @@ altbininstall: $(BUILDPYTHON)
 		fi; \
 		(cd $(DESTDIR)$(BINDIR); $(LN) python$(LDVERSION)$(EXE) python$(VERSION)$(EXE)); \
 	fi
-	if test -f $(LDLIBRARY) && test "$(PYTHONFRAMEWORKDIR)" = "no-framework" ; then \
-		if test -n "$(DLLLIBRARY)" ; then \
-			$(INSTALL_SHARED) $(DLLLIBRARY) $(DESTDIR)$(BINDIR); \
-		else \
-			$(INSTALL_SHARED) $(LDLIBRARY) $(DESTDIR)$(LIBDIR)/$(INSTSONAME); \
-			if test $(LDLIBRARY) != $(INSTSONAME); then \
-				(cd $(DESTDIR)$(LIBDIR); $(LN) -sf $(INSTSONAME) $(LDLIBRARY)) \
-			fi \
+	@if test "$(PY_ENABLE_SHARED)" = 1 -o "$(STATIC_LIBPYTHON)" = 1; then \
+		if test -f $(LDLIBRARY) && test "$(PYTHONFRAMEWORKDIR)" = "no-framework" ; then \
+			if test -n "$(DLLLIBRARY)" ; then \
+				$(INSTALL_SHARED) $(DLLLIBRARY) $(DESTDIR)$(BINDIR); \
+			else \
+				$(INSTALL_SHARED) $(LDLIBRARY) $(DESTDIR)$(LIBDIR)/$(INSTSONAME); \
+				if test $(LDLIBRARY) != $(INSTSONAME); then \
+					(cd $(DESTDIR)$(LIBDIR); $(LN) -sf $(INSTSONAME) $(LDLIBRARY)) \
+				fi \
+			fi; \
+			if test -n "$(PY3LIBRARY)"; then \
+				$(INSTALL_SHARED) $(PY3LIBRARY) $(DESTDIR)$(LIBDIR)/$(PY3LIBRARY); \
+			fi; \
+		else	true; \
 		fi; \
-		if test -n "$(PY3LIBRARY)"; then \
-			$(INSTALL_SHARED) $(PY3LIBRARY) $(DESTDIR)$(LIBDIR)/$(PY3LIBRARY); \
-		fi; \
-	else	true; \
 	fi
 	if test "x$(LIPO_32BIT_FLAGS)" != "x" ; then \
 		rm -f $(DESTDIR)$(BINDIR)python$(VERSION)-32$(EXE); \
 		lipo $(LIPO_32BIT_FLAGS) \
 			-output $(DESTDIR)$(BINDIR)/python$(VERSION)-32$(EXE) \
+			$(DESTDIR)$(BINDIR)/python$(VERSION)$(EXE); \
+	fi
+	if test "x$(LIPO_INTEL64_FLAGS)" != "x" ; then \
+		rm -f $(DESTDIR)$(BINDIR)python$(VERSION)-intel64$(EXE); \
+		lipo $(LIPO_INTEL64_FLAGS) \
+			-output $(DESTDIR)$(BINDIR)/python$(VERSION)-intel64$(EXE) \
 			$(DESTDIR)$(BINDIR)/python$(VERSION)$(EXE); \
 	fi
 
@@ -1222,22 +1388,28 @@ bininstall: altbininstall
 		(cd $(DESTDIR)$(BINDIR); $(LN) -s python$(LDVERSION)-config python$(VERSION)-config); \
 		rm -f $(DESTDIR)$(LIBPC)/python-$(LDVERSION).pc; \
 		(cd $(DESTDIR)$(LIBPC); $(LN) -s python-$(VERSION).pc python-$(LDVERSION).pc); \
+		rm -f $(DESTDIR)$(LIBPC)/python-$(LDVERSION)-embed.pc; \
+		(cd $(DESTDIR)$(LIBPC); $(LN) -s python-$(VERSION)-embed.pc python-$(LDVERSION)-embed.pc); \
 	fi
 	-rm -f $(DESTDIR)$(BINDIR)/python3-config
 	(cd $(DESTDIR)$(BINDIR); $(LN) -s python$(VERSION)-config python3-config)
 	-rm -f $(DESTDIR)$(LIBPC)/python3.pc
 	(cd $(DESTDIR)$(LIBPC); $(LN) -s python-$(VERSION).pc python3.pc)
+	-rm -f $(DESTDIR)$(LIBPC)/python3-embed.pc
+	(cd $(DESTDIR)$(LIBPC); $(LN) -s python-$(VERSION)-embed.pc python3-embed.pc)
 	-rm -f $(DESTDIR)$(BINDIR)/idle3
 	(cd $(DESTDIR)$(BINDIR); $(LN) -s idle$(VERSION) idle3)
 	-rm -f $(DESTDIR)$(BINDIR)/pydoc3
 	(cd $(DESTDIR)$(BINDIR); $(LN) -s pydoc$(VERSION) pydoc3)
 	-rm -f $(DESTDIR)$(BINDIR)/2to3
 	(cd $(DESTDIR)$(BINDIR); $(LN) -s 2to3-$(VERSION) 2to3)
-	-rm -f $(DESTDIR)$(BINDIR)/pyvenv
-	(cd $(DESTDIR)$(BINDIR); $(LN) -s pyvenv-$(VERSION) pyvenv)
 	if test "x$(LIPO_32BIT_FLAGS)" != "x" ; then \
 		rm -f $(DESTDIR)$(BINDIR)/python3-32$(EXE); \
 		(cd $(DESTDIR)$(BINDIR); $(LN) -s python$(VERSION)-32$(EXE) python3-32$(EXE)) \
+	fi
+	if test "x$(LIPO_INTEL64_FLAGS)" != "x" ; then \
+		rm -f $(DESTDIR)$(BINDIR)/python3-intel64$(EXE); \
+		(cd $(DESTDIR)$(BINDIR); $(LN) -s python$(VERSION)-intel64$(EXE) python3-intel64$(EXE)) \
 	fi
 
 # Install the versioned manual page
@@ -1260,26 +1432,64 @@ maninstall:	altmaninstall
 
 # Install the library
 XMLLIBSUBDIRS=  xml xml/dom xml/etree xml/parsers xml/sax
-LIBSUBDIRS=	tkinter tkinter/test tkinter/test/test_tkinter \
-		tkinter/test/test_ttk site-packages test \
-		test/audiodata \
-		test/capath test/data \
-		test/cjkencodings test/decimaltestdata test/xmltestdata \
-		test/dtracedata \
-		test/eintrdata \
-		test/imghdrdata \
-		test/libregrtest \
-		test/subprocessdata test/sndhdrdata test/support \
-		test/tracedmodules test/encoded_modules \
+LIBSUBDIRS=	asyncio \
+		collections \
+		concurrent concurrent/futures \
+		csv \
+		ctypes ctypes/macholib \
+		curses \
+		dbm \
+		distutils distutils/command \
+		email email/mime \
+		encodings \
+		ensurepip ensurepip/_bundled \
+		html \
+		http \
+		idlelib idlelib/Icons \
+		importlib importlib/metadata \
+		json \
+		lib2to3 lib2to3/fixes lib2to3/pgen2 \
+		logging \
+		multiprocessing multiprocessing/dummy \
+		pydoc_data \
+		site-packages \
+		sqlite3 \
+		tkinter \
+		turtledemo \
+		unittest \
+		urllib \
+		venv venv/scripts venv/scripts/common venv/scripts/posix \
+		wsgiref \
+		$(XMLLIBSUBDIRS) \
+		xmlrpc \
+		zoneinfo
+TESTSUBDIRS=	ctypes/test \
+		distutils/tests \
+		idlelib/idle_test \
+		lib2to3/tests \
+		lib2to3/tests/data \
+		lib2to3/tests/data/fixers \
+		lib2to3/tests/data/fixers/myfixes \
+		sqlite3/test \
+		test test/audiodata \
+		test/capath test/cjkencodings \
+		test/data test/decimaltestdata \
+		test/dtracedata test/eintrdata \
+		test/encoded_modules test/imghdrdata \
+		test/libregrtest test/sndhdrdata \
+		test/subprocessdata test/support \
+		test/test_asyncio \
+		test/test_email test/test_email/data \
 		test/test_import \
 		test/test_import/data \
 		test/test_import/data/circular_imports \
 		test/test_import/data/circular_imports/subpkg \
 		test/test_import/data/package \
 		test/test_import/data/package2 \
-		importlib \
+		test/test_import/data/unwritable \
 		test/test_importlib \
 		test/test_importlib/builtin \
+		test/test_importlib/data \
 		test/test_importlib/data01 \
 		test/test_importlib/data01/subdirectory \
 		test/test_importlib/data02 \
@@ -1312,29 +1522,25 @@ LIBSUBDIRS=	tkinter tkinter/test tkinter/test/test_tkinter \
 		test/test_importlib/namespace_pkgs/project3 \
 		test/test_importlib/namespace_pkgs/project3/parent \
 		test/test_importlib/namespace_pkgs/project3/parent/child \
+		test/test_importlib/namespacedata01 \
+		test/test_importlib/partial \
 		test/test_importlib/source \
 		test/test_importlib/zipdata01 \
 		test/test_importlib/zipdata02 \
-		asyncio \
-		test/test_asyncio \
-		collections concurrent concurrent/futures encodings \
-		email email/mime test/test_email test/test_email/data \
-		ensurepip ensurepip/_bundled \
-		html json test/test_json http dbm xmlrpc \
-		sqlite3 sqlite3/test \
-		logging csv wsgiref urllib \
-		lib2to3 lib2to3/fixes lib2to3/pgen2 lib2to3/tests \
-		lib2to3/tests/data lib2to3/tests/data/fixers \
-		lib2to3/tests/data/fixers/myfixes \
-		ctypes ctypes/test ctypes/macholib \
-		idlelib idlelib/Icons idlelib/idle_test \
-		distutils distutils/command distutils/tests $(XMLLIBSUBDIRS) \
-		test/test_tools test/test_warnings test/test_warnings/data \
-		turtledemo \
-		multiprocessing multiprocessing/dummy \
-		unittest unittest/test unittest/test/testmock \
-		venv venv/scripts venv/scripts/common venv/scripts/posix \
-		curses pydoc_data
+		test/test_json \
+		test/test_peg_generator \
+		test/test_tools \
+		test/test_warnings test/test_warnings/data \
+		test/test_zoneinfo test/test_zoneinfo/data \
+		test/tracedmodules \
+		test/typinganndata \
+		test/xmltestdata test/xmltestdata/c14n-20 \
+		test/ziptestdata \
+		tkinter/test tkinter/test/test_tkinter \
+		tkinter/test/test_ttk \
+		unittest/test unittest/test/testmock
+
+TEST_MODULES=yes
 libinstall:	build_all $(srcdir)/Modules/xxmodule.c
 	@for i in $(SCRIPTDIR) $(LIBDEST); \
 	do \
@@ -1344,7 +1550,12 @@ libinstall:	build_all $(srcdir)/Modules/xxmodule.c
 		else	true; \
 		fi; \
 	done
-	@for d in $(LIBSUBDIRS); \
+	@if test "$(TEST_MODULES)" = yes; then \
+		subdirs="$(LIBSUBDIRS) $(TESTSUBDIRS)"; \
+	else \
+		subdirs="$(LIBSUBDIRS)"; \
+	fi; \
+	for d in $$subdirs; \
 	do \
 		a=$(srcdir)/Lib/$$d; \
 		if test ! -d $$a; then continue; else true; fi; \
@@ -1365,7 +1576,12 @@ libinstall:	build_all $(srcdir)/Modules/xxmodule.c
 			echo $(INSTALL_DATA) $$i $(LIBDEST); \
 		fi; \
 	done
-	@for d in $(LIBSUBDIRS); \
+	@if test "$(TEST_MODULES)" = yes; then \
+		subdirs="$(LIBSUBDIRS) $(TESTSUBDIRS)"; \
+	else \
+		subdirs="$(LIBSUBDIRS)"; \
+	fi; \
+	for d in $$subdirs; \
 	do \
 		a=$(srcdir)/Lib/$$d; \
 		if test ! -d $$a; then continue; else true; fi; \
@@ -1399,36 +1615,38 @@ libinstall:	build_all $(srcdir)/Modules/xxmodule.c
 	fi
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST)  $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -Wi $(DESTDIR)$(LIBDEST)/compileall.py \
-		-d $(LIBDEST) -f \
+		-j0 -d $(LIBDEST) -f \
 		-x 'bad_coding|badsyntax|site-packages|lib2to3/tests/data' \
 		$(DESTDIR)$(LIBDEST)
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -Wi -O $(DESTDIR)$(LIBDEST)/compileall.py \
-		-d $(LIBDEST) -f \
+		-j0 -d $(LIBDEST) -f \
 		-x 'bad_coding|badsyntax|site-packages|lib2to3/tests/data' \
 		$(DESTDIR)$(LIBDEST)
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -Wi -OO $(DESTDIR)$(LIBDEST)/compileall.py \
-		-d $(LIBDEST) -f \
+		-j0 -d $(LIBDEST) -f \
 		-x 'bad_coding|badsyntax|site-packages|lib2to3/tests/data' \
 		$(DESTDIR)$(LIBDEST)
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -Wi $(DESTDIR)$(LIBDEST)/compileall.py \
-		-d $(LIBDEST)/site-packages -f \
+		-j0 -d $(LIBDEST)/site-packages -f \
 		-x badsyntax $(DESTDIR)$(LIBDEST)/site-packages
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -Wi -O $(DESTDIR)$(LIBDEST)/compileall.py \
-		-d $(LIBDEST)/site-packages -f \
+		-j0 -d $(LIBDEST)/site-packages -f \
 		-x badsyntax $(DESTDIR)$(LIBDEST)/site-packages
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -Wi -OO $(DESTDIR)$(LIBDEST)/compileall.py \
-		-d $(LIBDEST)/site-packages -f \
+		-j0 -d $(LIBDEST)/site-packages -f \
 		-x badsyntax $(DESTDIR)$(LIBDEST)/site-packages
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -m lib2to3.pgen2.driver $(DESTDIR)$(LIBDEST)/lib2to3/Grammar.txt
 	-PYTHONPATH=$(DESTDIR)$(LIBDEST) $(RUNSHARED) \
 		$(PYTHON_FOR_BUILD) -m lib2to3.pgen2.driver $(DESTDIR)$(LIBDEST)/lib2to3/PatternGrammar.txt
 
+# bpo-21536: Misc/python-config.sh is generated in the build directory
+# from $(srcdir)Misc/python-config.sh.in.
 python-config: $(srcdir)/Misc/python-config.in Misc/python-config.sh
 	@ # Substitution happens here, as the completely-expanded BINDIR
 	@ # is not available in configure
@@ -1454,22 +1672,42 @@ inclinstall:
 		else	true; \
 		fi; \
 	done
+	@if test ! -d $(DESTDIR)$(INCLUDEPY)/cpython; then \
+		echo "Creating directory $(DESTDIR)$(INCLUDEPY)/cpython"; \
+		$(INSTALL) -d -m $(DIRMODE) $(DESTDIR)$(INCLUDEPY)/cpython; \
+	else	true; \
+	fi
+	@if test ! -d $(DESTDIR)$(INCLUDEPY)/internal; then \
+		echo "Creating directory $(DESTDIR)$(INCLUDEPY)/internal"; \
+		$(INSTALL) -d -m $(DIRMODE) $(DESTDIR)$(INCLUDEPY)/internal; \
+	else	true; \
+	fi
 	@for i in $(srcdir)/Include/*.h; \
 	do \
 		echo $(INSTALL_DATA) $$i $(INCLUDEPY); \
 		$(INSTALL_DATA) $$i $(DESTDIR)$(INCLUDEPY); \
 	done
+	@for i in $(srcdir)/Include/cpython/*.h; \
+	do \
+		echo $(INSTALL_DATA) $$i $(INCLUDEPY)/cpython; \
+		$(INSTALL_DATA) $$i $(DESTDIR)$(INCLUDEPY)/cpython; \
+	done
+	@for i in $(srcdir)/Include/internal/*.h; \
+	do \
+		echo $(INSTALL_DATA) $$i $(INCLUDEPY)/internal; \
+		$(INSTALL_DATA) $$i $(DESTDIR)$(INCLUDEPY)/internal; \
+	done
 	$(INSTALL_DATA) pyconfig.h $(DESTDIR)$(CONFINCLUDEPY)/pyconfig.h
 
 # Install the library and miscellaneous stuff needed for extending/embedding
 # This goes into $(exec_prefix)
-LIBPL=		$(prefix)/lib/python3.7/config-$(VERSION)$(ABIFLAGS)-x86_64-linux-gnu
+LIBPL=		$(prefix)/lib/python3.10/config-$(VERSION)$(ABIFLAGS)-x86_64-linux-gnu
 
 # pkgconfig directory
 LIBPC=		$(LIBDIR)/pkgconfig
 
 libainstall:	all python-config
-	@for i in $(LIBDIR) $(LIBPL) $(LIBPC); \
+	@for i in $(LIBDIR) $(LIBPL) $(LIBPC) $(BINDIR); \
 	do \
 		if test ! -d $(DESTDIR)$$i; then \
 			echo "Creating directory $$i"; \
@@ -1477,24 +1715,27 @@ libainstall:	all python-config
 		else	true; \
 		fi; \
 	done
-	@if test -d $(LIBRARY); then :; else \
-		if test "$(PYTHONFRAMEWORKDIR)" = no-framework; then \
-			if test "$(SHLIB_SUFFIX)" = .dll; then \
-				$(INSTALL_DATA) $(LDLIBRARY) $(DESTDIR)$(LIBPL) ; \
+	@if test "$(STATIC_LIBPYTHON)" = 1; then \
+		if test -d $(LIBRARY); then :; else \
+			if test "$(PYTHONFRAMEWORKDIR)" = no-framework; then \
+				if test "$(SHLIB_SUFFIX)" = .dll; then \
+					$(INSTALL_DATA) $(LDLIBRARY) $(DESTDIR)$(LIBPL) ; \
+				else \
+					$(INSTALL_DATA) $(LIBRARY) $(DESTDIR)$(LIBPL)/$(LIBRARY) ; \
+				fi; \
 			else \
-				$(INSTALL_DATA) $(LIBRARY) $(DESTDIR)$(LIBPL)/$(LIBRARY) ; \
+				echo Skip install of $(LIBRARY) - use make frameworkinstall; \
 			fi; \
-		else \
-			echo Skip install of $(LIBRARY) - use make frameworkinstall; \
 		fi; \
+		$(INSTALL_DATA) Programs/python.o $(DESTDIR)$(LIBPL)/python.o; \
 	fi
 	$(INSTALL_DATA) Modules/config.c $(DESTDIR)$(LIBPL)/config.c
-	$(INSTALL_DATA) Programs/python.o $(DESTDIR)$(LIBPL)/python.o
 	$(INSTALL_DATA) $(srcdir)/Modules/config.c.in $(DESTDIR)$(LIBPL)/config.c.in
 	$(INSTALL_DATA) Makefile $(DESTDIR)$(LIBPL)/Makefile
-	$(INSTALL_DATA) Modules/Setup $(DESTDIR)$(LIBPL)/Setup
+	$(INSTALL_DATA) $(srcdir)/Modules/Setup $(DESTDIR)$(LIBPL)/Setup
 	$(INSTALL_DATA) Modules/Setup.local $(DESTDIR)$(LIBPL)/Setup.local
 	$(INSTALL_DATA) Misc/python.pc $(DESTDIR)$(LIBPC)/python-$(VERSION).pc
+	$(INSTALL_DATA) Misc/python-embed.pc $(DESTDIR)$(LIBPC)/python-$(VERSION)-embed.pc
 	$(INSTALL_SCRIPT) $(srcdir)/Modules/makesetup $(DESTDIR)$(LIBPL)/makesetup
 	$(INSTALL_SCRIPT) $(srcdir)/install-sh $(DESTDIR)$(LIBPL)/install-sh
 	$(INSTALL_SCRIPT) python-config.py $(DESTDIR)$(LIBPL)/python-config.py
@@ -1511,7 +1752,7 @@ libainstall:	all python-config
 		$(INSTALL_SCRIPT) Modules/ld_so_aix	\
 				$(DESTDIR)$(LIBPL)/ld_so_aix;		\
 		echo "$(LIBPL)/ld_so_aix";			\
-		echo; echo "See Misc/AIX-NOTES for details.";	\
+		echo; echo "See Misc/README.AIX for details.";	\
 	else true; \
 	fi
 
@@ -1599,14 +1840,6 @@ frameworkaltinstallunixtools:
 frameworkinstallextras:
 	cd Mac && $(MAKE) installextras DESTDIR="$(DESTDIR)"
 
-# This installs a few of the useful scripts in Tools/scripts
-scriptsinstall:
-	SRCDIR=$(srcdir) $(RUNSHARED) \
-	$(PYTHON_FOR_BUILD) $(srcdir)/Tools/scripts/setup.py install \
-	--prefix=$(prefix) \
-	--install-scripts=$(BINDIR) \
-	--root=$(DESTDIR)/
-
 # Build the toplevel Makefile
 Makefile.pre: $(srcdir)/Makefile.pre.in config.status
 	CONFIG_FILES=Makefile.pre CONFIG_HEADERS= $(SHELL) config.status
@@ -1649,16 +1882,19 @@ autoconf:
 
 # Create a tags file for vi
 tags::
-	ctags -w $(srcdir)/Include/*.h $(srcdir)/Include/internal/*.h
+	ctags -w $(srcdir)/Include/*.h $(srcdir)/Include/cpython/*.h $(srcdir)/Include/internal/*.h
 	for i in $(SRCDIRS); do ctags -f tags -w -a $(srcdir)/$$i/*.[ch]; done
 	ctags -f tags -w -a $(srcdir)/Modules/_ctypes/*.[ch]
+	find $(srcdir)/Lib -type f -name "*.py" -not -name "test_*.py" -not -path "*/test/*" -not -path "*/tests/*" -not -path "*/*_test/*" | ctags -f tags -w -a -L -
 	LC_ALL=C sort -o tags tags
 
 # Create a tags file for GNU Emacs
 TAGS::
 	cd $(srcdir); \
-	etags Include/*.h Include/internal/*.h; \
+	etags Include/*.h Include/cpython/*.h Include/internal/*.h; \
 	for i in $(SRCDIRS); do etags -a $$i/*.[ch]; done
+	etags -a $(srcdir)/Modules/_ctypes/*.[ch]
+	find $(srcdir)/Lib -type f -name "*.py" -not -name "test_*.py" -not -path "*/test/*" -not -path "*/tests/*" -not -path "*/*_test/*" | etags - -a
 
 # Sanitation targets -- clean leaves libraries, executables and tags
 # files, which clobber removes as well
@@ -1674,13 +1910,15 @@ rmtestturds:
 	-rm -f gb-18030-2000.xml
 
 docclean:
-	-rm -rf Doc/build
-	-rm -rf Doc/tools/sphinx Doc/tools/pygments Doc/tools/docutils
+	$(MAKE) -C $(srcdir)/Doc clean
 
-clean: pycremoval
+# like the 'clean' target but retain the profile guided optimization (PGO)
+# data.  The PGO data is only valid if source code remains unchanged.
+clean-retain-profile: pycremoval
 	find . -name '*.[oa]' -exec rm -f {} ';'
 	find . -name '*.s[ol]' -exec rm -f {} ';'
 	find . -name '*.so.[0-9]*.[0-9]*' -exec rm -f {} ';'
+	find . -name '*.lst' -exec rm -f {} ';'
 	find build -name 'fficonfig.h' -exec rm -f {} ';' || true
 	find build -name '*.py' -exec rm -f {} ';' || true
 	find build -name '*.py[co]' -exec rm -f {} ';' || true
@@ -1699,26 +1937,30 @@ profile-removal:
 	rm -rf $(COVERAGE_REPORT)
 	rm -f profile-run-stamp
 
-clobber: clean profile-removal
-	-rm -f $(BUILDPYTHON) $(PGEN) $(LIBRARY) $(LDLIBRARY) $(DLLLIBRARY) \
+clean: clean-retain-profile
+	@if test build_all = profile-opt; then \
+		rm -f profile-gen-stamp profile-clean-stamp; \
+		$(MAKE) profile-removal; \
+	fi
+
+clobber: clean
+	-rm -f $(BUILDPYTHON) $(LIBRARY) $(LDLIBRARY) $(DLLLIBRARY) \
 		tags TAGS \
 		config.cache config.log pyconfig.h Modules/config.c
 	-rm -rf build platform
 	-rm -rf $(PYTHONFRAMEWORKDIR)
 	-rm -f python-config.py python-config
-	-rm -f profile-gen-stamp profile-clean-stamp
 
 # Make things extra clean, before making a distribution:
 # remove all generated files, even Makefile[.pre]
 # Keep configure and Python-ast.[ch], it's possible they can't be generated
-distclean: clobber
+distclean: clobber docclean
 	for file in $(srcdir)/Lib/test/data/* ; do \
 	    if test "$$file" != "$(srcdir)/Lib/test/data/README"; then rm "$$file"; fi; \
 	done
-	-rm -f core Makefile Makefile.pre config.status \
-		Modules/Setup Modules/Setup.local \
+	-rm -f core Makefile Makefile.pre config.status Modules/Setup.local \
 		Modules/ld_so_aix Modules/python.exp Misc/python.pc \
-		Misc/python-config.sh
+		Misc/python-embed.pc Misc/python-config.sh
 	-rm -f python*-gdb.py
 	# Issue #28258: set LC_ALL to avoid issues with Estonian locale.
 	# Expansion is performed here by shell (spawned by make) itself before
@@ -1732,7 +1974,7 @@ distclean: clobber
 
 # Check that all symbols exported by libpython start with "Py" or "_Py"
 smelly: all
-	$(RUNSHARED) ./$(BUILDPYTHON) Tools/scripts/smelly.py
+	$(RUNSHARED) ./$(BUILDPYTHON) $(srcdir)/Tools/scripts/smelly.py
 
 # Find files with funny names
 funny:
@@ -1769,9 +2011,18 @@ funny:
 patchcheck: all
 	$(RUNSHARED) ./$(BUILDPYTHON) $(srcdir)/Tools/scripts/patchcheck.py
 
+check-limited-abi: all
+	$(RUNSHARED) ./$(BUILDPYTHON) $(srcdir)/Tools/scripts/stable_abi.py --all $(srcdir)/Misc/stable_abi.txt
+
+.PHONY: update-config
+update-config:
+	curl -sL -o config.guess 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
+	curl -sL -o config.sub 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD'
+	chmod +x config.guess config.sub
+
 # Dependencies
 
-Python/thread.o:  $(srcdir)/Python/thread_nt.h $(srcdir)/Python/thread_pthread.h
+Python/thread.o:  $(srcdir)/Python/thread_nt.h $(srcdir)/Python/thread_pthread.h $(srcdir)/Python/condvar.h
 
 # Declare targets that aren't real files
 .PHONY: all build_all sharedmods check-clean-src oldsharedmods test quicktest
@@ -1781,6 +2032,8 @@ Python/thread.o:  $(srcdir)/Python/thread_nt.h $(srcdir)/Python/thread_pthread.h
 .PHONY: frameworkinstallmaclib frameworkinstallapps frameworkinstallunixtools
 .PHONY: frameworkaltinstallunixtools recheck clean clobber distclean
 .PHONY: smelly funny patchcheck touch altmaninstall commoninstall
+.PHONY: clean-retain-profile profile-removal run_profile_task
+.PHONY: build_all_generate_profile build_all_merge_profile
 .PHONY: gdbhooks
 
 # IF YOU PUT ANYTHING HERE IT WILL GO AWAY
@@ -1788,58 +2041,55 @@ Python/thread.o:  $(srcdir)/Python/thread_nt.h $(srcdir)/Python/thread_pthread.h
 # mode: makefile
 # End:
 
-# Rules appended by makedepend
+# Rules appended by makesetup
 
-Modules/posixmodule.o: $(srcdir)/Modules/posixmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -c $(srcdir)/Modules/posixmodule.c -o Modules/posixmodule.o
+Modules/posixmodule.o: $(srcdir)/Modules/posixmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -c $(srcdir)/Modules/posixmodule.c -o Modules/posixmodule.o
 Modules/posix$(EXT_SUFFIX):  Modules/posixmodule.o; $(BLDSHARED)  Modules/posixmodule.o   -o Modules/posix$(EXT_SUFFIX)
-Modules/errnomodule.o: $(srcdir)/Modules/errnomodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/errnomodule.c -o Modules/errnomodule.o
+Modules/errnomodule.o: $(srcdir)/Modules/errnomodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/errnomodule.c -o Modules/errnomodule.o
 Modules/errno$(EXT_SUFFIX):  Modules/errnomodule.o; $(BLDSHARED)  Modules/errnomodule.o   -o Modules/errno$(EXT_SUFFIX)
-Modules/pwdmodule.o: $(srcdir)/Modules/pwdmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/pwdmodule.c -o Modules/pwdmodule.o
+Modules/pwdmodule.o: $(srcdir)/Modules/pwdmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/pwdmodule.c -o Modules/pwdmodule.o
 Modules/pwd$(EXT_SUFFIX):  Modules/pwdmodule.o; $(BLDSHARED)  Modules/pwdmodule.o   -o Modules/pwd$(EXT_SUFFIX)
-Modules/_sre.o: $(srcdir)/Modules/_sre.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_sre.c -o Modules/_sre.o
+Modules/_sre.o: $(srcdir)/Modules/_sre.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -c $(srcdir)/Modules/_sre.c -o Modules/_sre.o
 Modules/_sre$(EXT_SUFFIX):  Modules/_sre.o; $(BLDSHARED)  Modules/_sre.o   -o Modules/_sre$(EXT_SUFFIX)
-Modules/_codecsmodule.o: $(srcdir)/Modules/_codecsmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_codecsmodule.c -o Modules/_codecsmodule.o
+Modules/_codecsmodule.o: $(srcdir)/Modules/_codecsmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/_codecsmodule.c -o Modules/_codecsmodule.o
 Modules/_codecs$(EXT_SUFFIX):  Modules/_codecsmodule.o; $(BLDSHARED)  Modules/_codecsmodule.o   -o Modules/_codecs$(EXT_SUFFIX)
-Modules/_weakref.o: $(srcdir)/Modules/_weakref.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_weakref.c -o Modules/_weakref.o
+Modules/_weakref.o: $(srcdir)/Modules/_weakref.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/_weakref.c -o Modules/_weakref.o
 Modules/_weakref$(EXT_SUFFIX):  Modules/_weakref.o; $(BLDSHARED)  Modules/_weakref.o   -o Modules/_weakref$(EXT_SUFFIX)
-Modules/_functoolsmodule.o: $(srcdir)/Modules/_functoolsmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -c $(srcdir)/Modules/_functoolsmodule.c -o Modules/_functoolsmodule.o
+Modules/_functoolsmodule.o: $(srcdir)/Modules/_functoolsmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -c $(srcdir)/Modules/_functoolsmodule.c -o Modules/_functoolsmodule.o
 Modules/_functools$(EXT_SUFFIX):  Modules/_functoolsmodule.o; $(BLDSHARED)  Modules/_functoolsmodule.o   -o Modules/_functools$(EXT_SUFFIX)
-Modules/_operator.o: $(srcdir)/Modules/_operator.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_operator.c -o Modules/_operator.o
+Modules/_operator.o: $(srcdir)/Modules/_operator.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -c $(srcdir)/Modules/_operator.c -o Modules/_operator.o
 Modules/_operator$(EXT_SUFFIX):  Modules/_operator.o; $(BLDSHARED)  Modules/_operator.o   -o Modules/_operator$(EXT_SUFFIX)
-Modules/_collectionsmodule.o: $(srcdir)/Modules/_collectionsmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_collectionsmodule.c -o Modules/_collectionsmodule.o
+Modules/_collectionsmodule.o: $(srcdir)/Modules/_collectionsmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/_collectionsmodule.c -o Modules/_collectionsmodule.o
 Modules/_collections$(EXT_SUFFIX):  Modules/_collectionsmodule.o; $(BLDSHARED)  Modules/_collectionsmodule.o   -o Modules/_collections$(EXT_SUFFIX)
-Modules/_abc.o: $(srcdir)/Modules/_abc.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_abc.c -o Modules/_abc.o
+Modules/_abc.o: $(srcdir)/Modules/_abc.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -c $(srcdir)/Modules/_abc.c -o Modules/_abc.o
 Modules/_abc$(EXT_SUFFIX):  Modules/_abc.o; $(BLDSHARED)  Modules/_abc.o   -o Modules/_abc$(EXT_SUFFIX)
-Modules/itertoolsmodule.o: $(srcdir)/Modules/itertoolsmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/itertoolsmodule.c -o Modules/itertoolsmodule.o
+Modules/itertoolsmodule.o: $(srcdir)/Modules/itertoolsmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/itertoolsmodule.c -o Modules/itertoolsmodule.o
 Modules/itertools$(EXT_SUFFIX):  Modules/itertoolsmodule.o; $(BLDSHARED)  Modules/itertoolsmodule.o   -o Modules/itertools$(EXT_SUFFIX)
-Modules/atexitmodule.o: $(srcdir)/Modules/atexitmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/atexitmodule.c -o Modules/atexitmodule.o
+Modules/atexitmodule.o: $(srcdir)/Modules/atexitmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/atexitmodule.c -o Modules/atexitmodule.o
 Modules/atexit$(EXT_SUFFIX):  Modules/atexitmodule.o; $(BLDSHARED)  Modules/atexitmodule.o   -o Modules/atexit$(EXT_SUFFIX)
-Modules/signalmodule.o: $(srcdir)/Modules/signalmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -c $(srcdir)/Modules/signalmodule.c -o Modules/signalmodule.o
+Modules/signalmodule.o: $(srcdir)/Modules/signalmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -c $(srcdir)/Modules/signalmodule.c -o Modules/signalmodule.o
 Modules/_signal$(EXT_SUFFIX):  Modules/signalmodule.o; $(BLDSHARED)  Modules/signalmodule.o   -o Modules/_signal$(EXT_SUFFIX)
-Modules/_stat.o: $(srcdir)/Modules/_stat.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_stat.c -o Modules/_stat.o
+Modules/_stat.o: $(srcdir)/Modules/_stat.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/_stat.c -o Modules/_stat.o
 Modules/_stat$(EXT_SUFFIX):  Modules/_stat.o; $(BLDSHARED)  Modules/_stat.o   -o Modules/_stat$(EXT_SUFFIX)
-Modules/timemodule.o: $(srcdir)/Modules/timemodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -c $(srcdir)/Modules/timemodule.c -o Modules/timemodule.o
+Modules/timemodule.o: $(srcdir)/Modules/timemodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -c $(srcdir)/Modules/timemodule.c -o Modules/timemodule.o
 Modules/time$(EXT_SUFFIX):  Modules/timemodule.o; $(BLDSHARED)  Modules/timemodule.o   -o Modules/time$(EXT_SUFFIX)
-Modules/_threadmodule.o: $(srcdir)/Modules/_threadmodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -c $(srcdir)/Modules/_threadmodule.c -o Modules/_threadmodule.o
+Modules/_threadmodule.o: $(srcdir)/Modules/_threadmodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -c $(srcdir)/Modules/_threadmodule.c -o Modules/_threadmodule.o
 Modules/_thread$(EXT_SUFFIX):  Modules/_threadmodule.o; $(BLDSHARED)  Modules/_threadmodule.o   -o Modules/_thread$(EXT_SUFFIX)
-Modules/_localemodule.o: $(srcdir)/Modules/_localemodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_localemodule.c -o Modules/_localemodule.o
+Modules/_localemodule.o: $(srcdir)/Modules/_localemodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -c $(srcdir)/Modules/_localemodule.c -o Modules/_localemodule.o
 Modules/_locale$(EXT_SUFFIX):  Modules/_localemodule.o; $(BLDSHARED)  Modules/_localemodule.o   -o Modules/_locale$(EXT_SUFFIX)
-Modules/_iomodule.o: $(srcdir)/Modules/_io/_iomodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/_iomodule.c -o Modules/_iomodule.o
-Modules/iobase.o: $(srcdir)/Modules/_io/iobase.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/iobase.c -o Modules/iobase.o
-Modules/fileio.o: $(srcdir)/Modules/_io/fileio.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/fileio.c -o Modules/fileio.o
-Modules/bytesio.o: $(srcdir)/Modules/_io/bytesio.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/bytesio.c -o Modules/bytesio.o
-Modules/bufferedio.o: $(srcdir)/Modules/_io/bufferedio.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/bufferedio.c -o Modules/bufferedio.o
-Modules/textio.o: $(srcdir)/Modules/_io/textio.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/textio.c -o Modules/textio.o
-Modules/stringio.o: $(srcdir)/Modules/_io/stringio.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/stringio.c -o Modules/stringio.o
+Modules/_iomodule.o: $(srcdir)/Modules/_io/_iomodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/_iomodule.c -o Modules/_iomodule.o
+Modules/iobase.o: $(srcdir)/Modules/_io/iobase.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/iobase.c -o Modules/iobase.o
+Modules/fileio.o: $(srcdir)/Modules/_io/fileio.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/fileio.c -o Modules/fileio.o
+Modules/bytesio.o: $(srcdir)/Modules/_io/bytesio.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/bytesio.c -o Modules/bytesio.o
+Modules/bufferedio.o: $(srcdir)/Modules/_io/bufferedio.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/bufferedio.c -o Modules/bufferedio.o
+Modules/textio.o: $(srcdir)/Modules/_io/textio.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/textio.c -o Modules/textio.o
+Modules/stringio.o: $(srcdir)/Modules/_io/stringio.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -DPy_BUILD_CORE_BUILTIN -I$(srcdir)/Include/internal -I$(srcdir)/Modules/_io -c $(srcdir)/Modules/_io/stringio.c -o Modules/stringio.o
 Modules/_io$(EXT_SUFFIX):  Modules/_iomodule.o Modules/iobase.o Modules/fileio.o Modules/bytesio.o Modules/bufferedio.o Modules/textio.o Modules/stringio.o; $(BLDSHARED)  Modules/_iomodule.o Modules/iobase.o Modules/fileio.o Modules/bytesio.o Modules/bufferedio.o Modules/textio.o Modules/stringio.o   -o Modules/_io$(EXT_SUFFIX)
-Modules/zipimport.o: $(srcdir)/Modules/zipimport.c; $(CC) $(PY_STDMODULE_CFLAGS)  -DPy_BUILD_CORE -c $(srcdir)/Modules/zipimport.c -o Modules/zipimport.o
-Modules/zipimport$(EXT_SUFFIX):  Modules/zipimport.o; $(BLDSHARED)  Modules/zipimport.o   -o Modules/zipimport$(EXT_SUFFIX)
-Modules/faulthandler.o: $(srcdir)/Modules/faulthandler.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/faulthandler.c -o Modules/faulthandler.o
+Modules/faulthandler.o: $(srcdir)/Modules/faulthandler.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/faulthandler.c -o Modules/faulthandler.o
 Modules/faulthandler$(EXT_SUFFIX):  Modules/faulthandler.o; $(BLDSHARED)  Modules/faulthandler.o   -o Modules/faulthandler$(EXT_SUFFIX)
-Modules/_tracemalloc.o: $(srcdir)/Modules/_tracemalloc.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/_tracemalloc.c -o Modules/_tracemalloc.o
-Modules/hashtable.o: $(srcdir)/Modules/hashtable.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/hashtable.c -o Modules/hashtable.o
-Modules/_tracemalloc$(EXT_SUFFIX):  Modules/_tracemalloc.o Modules/hashtable.o; $(BLDSHARED)  Modules/_tracemalloc.o Modules/hashtable.o   -o Modules/_tracemalloc$(EXT_SUFFIX)
-Modules/symtablemodule.o: $(srcdir)/Modules/symtablemodule.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/symtablemodule.c -o Modules/symtablemodule.o
+Modules/_tracemalloc.o: $(srcdir)/Modules/_tracemalloc.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/_tracemalloc.c -o Modules/_tracemalloc.o
+Modules/_tracemalloc$(EXT_SUFFIX):  Modules/_tracemalloc.o; $(BLDSHARED)  Modules/_tracemalloc.o   -o Modules/_tracemalloc$(EXT_SUFFIX)
+Modules/symtablemodule.o: $(srcdir)/Modules/symtablemodule.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/symtablemodule.c -o Modules/symtablemodule.o
 Modules/_symtable$(EXT_SUFFIX):  Modules/symtablemodule.o; $(BLDSHARED)  Modules/symtablemodule.o   -o Modules/_symtable$(EXT_SUFFIX)
-Modules/xxsubtype.o: $(srcdir)/Modules/xxsubtype.c; $(CC) $(PY_STDMODULE_CFLAGS)  -c $(srcdir)/Modules/xxsubtype.c -o Modules/xxsubtype.o
+Modules/xxsubtype.o: $(srcdir)/Modules/xxsubtype.c; $(CC) $(PY_BUILTIN_MODULE_CFLAGS)  -c $(srcdir)/Modules/xxsubtype.c -o Modules/xxsubtype.o
 Modules/xxsubtype$(EXT_SUFFIX):  Modules/xxsubtype.o; $(BLDSHARED)  Modules/xxsubtype.o   -o Modules/xxsubtype$(EXT_SUFFIX)

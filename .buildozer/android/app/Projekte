@@ -28,13 +28,16 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=0;Python;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FRadballKivy2.0%2Fmain.py;0;4
+current_page=3
+FILE_NAME_0=0;Sh;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FSalt%2Fproxy.sh;0;4
+FILE_NAME_1=47;Sh;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FSalt%2Fssh.sh;0;4
+FILE_NAME_2=1591;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FKletterwand%2Fhome.html;0;4
+FILE_NAME_3=218;Python;0;EUTF-8;1;1;0;%2Fhome%2Fetienne%2FDokumente%2FProjekte%2FKletterwand%2Fopencv.py;0;4
 
 [VTE]
 last_dir=/home/etienne
 
 [build-menu]
 EX_00_LB=_Execute
-EX_00_CM=/home/etienne/kivy_venv/bin/python3.6 "%f"
+EX_00_CM=/home/etienne/kivy_venv/bin/python3.10 "%f"
 EX_00_WD=

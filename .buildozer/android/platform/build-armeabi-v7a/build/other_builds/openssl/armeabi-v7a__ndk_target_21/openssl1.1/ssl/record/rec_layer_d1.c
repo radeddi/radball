@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2018 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2005-2021 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the OpenSSL license (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -9,11 +9,11 @@
 
 #include <stdio.h>
 #include <errno.h>
-#include "../ssl_locl.h"
+#include "../ssl_local.h"
 #include <openssl/evp.h>
 #include <openssl/buffer.h>
-#include "record_locl.h"
-#include "../packet_locl.h"
+#include "record_local.h"
+#include "../packet_local.h"
 #include "internal/cryptlib.h"
 
 int DTLS_RECORD_LAYER_new(RECORD_LAYER *rl)
@@ -46,6 +46,9 @@ int DTLS_RECORD_LAYER_new(RECORD_LAYER *rl)
 
 void DTLS_RECORD_LAYER_free(RECORD_LAYER *rl)
 {
+    if (rl->d == NULL)
+        return;
+
     DTLS_RECORD_LAYER_clear(rl);
     pqueue_free(rl->d->unprocessed_rcds.q);
     pqueue_free(rl->d->processed_rcds.q);
@@ -185,14 +188,11 @@ int dtls1_buffer_record(SSL *s, record_pqueue *queue, unsigned char *priority)
         return -1;
     }
 
-    /* insert should not fail, since duplicates are dropped */
     if (pqueue_insert(queue->q, item) == NULL) {
-        SSLfatal(s, SSL_AD_INTERNAL_ERROR, SSL_F_DTLS1_BUFFER_RECORD,
-                 ERR_R_INTERNAL_ERROR);
+        /* Must be a duplicate so ignore it */
         OPENSSL_free(rdata->rbuf.buf);
         OPENSSL_free(rdata);
         pitem_free(item);
-        return -1;
     }
 
     return 1;
@@ -442,19 +442,6 @@ int dtls1_read_bytes(SSL *s, int type, int *recvd_type, unsigned char *buf,
     if (SSL3_RECORD_get_type(rr) != SSL3_RT_ALERT
             && SSL3_RECORD_get_length(rr) != 0)
         s->rlayer.alert_count = 0;
-
-    if (SSL3_RECORD_get_type(rr) != SSL3_RT_HANDSHAKE
-            && SSL3_RECORD_get_type(rr) != SSL3_RT_CHANGE_CIPHER_SPEC
-            && !SSL_in_init(s)
-            && (s->d1->next_timeout.tv_sec != 0
-                || s->d1->next_timeout.tv_usec != 0)) {
-        /*
-         * The timer is still running but we've received something that isn't
-         * handshake data - so the peer must have finished processing our
-         * last handshake flight. Stop the timer.
-         */
-        dtls1_stop_timer(s);
-    }
 
     /* we now have a packet which can be read and processed */
 
@@ -824,8 +811,8 @@ int do_dtls1_write(SSL *s, int type, const unsigned char *buf,
     wb = &s->rlayer.wbuf[0];
 
     /*
-     * first check if there is a SSL3_BUFFER still being written out.  This
-     * will happen with non blocking IO
+     * DTLS writes whole datagrams, so there can't be anything left in
+     * the buffer.
      */
     if (!ossl_assert(SSL3_BUFFER_get_left(wb) == 0)) {
         SSLfatal(s, SSL_AD_INTERNAL_ERROR, SSL_F_DO_DTLS1_WRITE,

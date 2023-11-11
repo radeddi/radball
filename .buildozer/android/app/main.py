@@ -24,6 +24,7 @@ import os
 #import certifi as cfi
 import requests
 import random
+import urllib.parse
 
 import datetime
 from datetime import timedelta
@@ -50,6 +51,13 @@ kivy.require("1.10.1")
 
 Config.set('kivy', 'exit_on_escape', '0')
 
+server_urls = {
+"Baden Württemberg": "https://bw.cycleball.eu/api",
+"Bayern": "https://by.cycleball.eu/api",
+"Deutschland": "https://de.cycleball.eu/api",
+"Brandenburg": "https://bb.cycleball.eu/api",
+}
+
 
 # Simple information/error page
 class SelectorPage(GridLayout):
@@ -70,6 +78,13 @@ class SelectorPage(GridLayout):
         self.backFurtherButton.add_widget(self.furtherButton)
         self.add_widget(self.backFurtherButton)
         
+        self.dropdownLand = DropDown()
+        self.mainbuttonLand = Button(text='Land auswählen',font_size=25,size_hint = (1, 0.15))#, size_hint_y=None)
+		# show the dropdown menu when the main button is released - note: all the bind() calls pass the instance of the caller (here, the mainbutton instance) as the first argument of the callback (here, dropdown.open.).
+        self.mainbuttonLand.bind(on_release=self.dropdownLand.open)
+        # one last thing, listen for the selection in the dropdown list and assign the data to the button text.
+        self.dropdownLand.bind(on_select=lambda instance, x: setattr(self.mainbuttonLand, 'text', x))
+        self.add_widget(self.mainbuttonLand)
         
         
         self.dropdownLeague = DropDown()
@@ -92,19 +107,32 @@ class SelectorPage(GridLayout):
         self.add_widget(self.labelCity)
         
         self.gameId=""
+        self.land=""
     def goBack(self,instance):
         print("going back")
         chat_app.screen_manager.current = 'Start'
     def goFurther(self,instance):
-        chat_app.pin_page.load_PinPage(self.gameId,self.league_short)
+        chat_app.pin_page.load_PinPage(self.land,self.gameId,self.league_short)
         
         # Called with a message, to update message text in widget
     def update_info(self):
-        dateiliste=sorted(os.listdir(app_folder+"/spieltage/"))
+        print("*********************************")
+        landliste = sorted(os.listdir(app_folder+"/spieltage/"))
+        for land in landliste:
+          print(land)
+          if os.path.isdir(app_folder+"/spieltage/"+land):
+            btn = Button(text=land, size_hint_y=None, height=80,font_size=25)
+            btn.bind(on_release=lambda btn,land=land: self.update_leagues(btn,land))
+            self.dropdownLand.add_widget(btn)
+        
+    def update_leagues(self, btn, land):
+        self.land = land
+        self.dropdownLand.select(btn.text)
+        dateiliste=sorted(os.listdir(app_folder+"/spieltage/"+land))
         self.spieltage=dict()
         self.leagues=dict()
         for datei in dateiliste:
-            f=open(app_folder+"/spieltage/"+datei,"r",encoding='utf-8')
+            f=open(app_folder+"/spieltage/"+land+"/"+datei,"r",encoding='utf-8')
             game_json=(json.loads(f.read()))
             self.spieltage[datei]=game_json
             print(game_json)
@@ -172,7 +200,8 @@ class PinPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
-    def load_PinPage(self,game_id,league_short):
+    def load_PinPage(self,land,game_id,league_short):
+        self.land=land
         self.gameId=game_id
         self.league_short = league_short
         self.clear_widgets()
@@ -195,14 +224,14 @@ class PinPage(GridLayout):
         chat_app.screen_manager.current = 'Selector'
         print("going back")
     def goFurther(self,instance):
-        chat_app.present_page.load_PresentPage(self.gameId,self.league_short,(self.textinput.text))
+        chat_app.present_page.load_PresentPage(self.land,self.gameId,self.league_short,(self.textinput.text))
         print("go on")   
 
 class PresentPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
-    def load_PresentPage(self,game_id,league_short,pin=0):
+    def load_PresentPage(self,land,game_id,league_short,pin=0):
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
         self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
@@ -215,7 +244,7 @@ class PresentPage(GridLayout):
         
         
         chat_app.screen_manager.current = 'Present'
-        f=open(app_folder+"/spieltage/"+league_short+"_"+str(game_id)+".radball","r",encoding='utf-8')
+        f=open(app_folder+"/spieltage/"+str(land)+"/"+league_short+"_"+str(game_id)+".radball","r",encoding='utf-8')
         self.game_json=(json.loads(f.read()))
         if pin != "":
             self.game_json["pin"]=int(pin)
@@ -597,9 +626,8 @@ class GamePage(GridLayout):
         self.settingsButton.disabled = True
         self.lastButton.disabled = True
         self.nextButton.disabled = True
-        
-
         self.gameStatus=1 
+        
     def stopGame (self,instance):
         self.startStopButton.text="Zeit starten"
         self.timeLeft= -(datetime.datetime.now() - self.startTime) + self.timeLeft
@@ -660,7 +688,7 @@ class StartPage(GridLayout):
         self.add_widget(self.new_day)
 
         #spieltage online laden
-        self.update_days = Button(text="Spieltage online aktualisieren",font_size=25,id="up_da")
+        self.update_days = Button(text="Spieltage online aktualisieren",font_size=25)#,id="up_da")
         self.add_widget(self.update_days)
 
         self.bind_buttons()
@@ -723,12 +751,14 @@ class StartPage(GridLayout):
         self.run=False
     def update_all(self,instance):
         #try:
+        self.clear_folder(app_folder+"/spieltage/")
         self.run=True
         self.reqList=[]
         self.waitlist=[]
         self.unbind_buttons()
         Clock.schedule_once(partial(self.update_button_text,self,"Verbinden"), -1)
-        req = UrlRequest('https://bw.cycleball.eu/api/leagues', on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)#, on_failure=
+        for server_url in list(server_urls.values()):
+          req = UrlRequest(server_url+'/leagues', on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)#, on_failure=
         self.reqList.append(req)
         Clock.schedule_once(self.check_all_req,0.5)
     def extract_leagues(self,req,result):
@@ -742,23 +772,27 @@ class StartPage(GridLayout):
             print(league)
             print("#############")
             self.leaguesList.append(league['longName'])
-            self.list_of_urls.append("https://bw.cycleball.eu/api/leagues/"+league['shortName'])
-            req = UrlRequest("https://bw.cycleball.eu/api/leagues/"+league['shortName']+"/matchdays", on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)#, on_failure=
-            self.reqList.append(req)
+            for server_url in list(server_urls.values()):
+              self.list_of_urls.append(self.escape_url(server_url+"/"+league['shortName']))
+              req = UrlRequest(self.escape_url(server_url + "/leagues/"+league['shortName']+"/matchdays"), on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)#, on_failure=
+              self.reqList.append(req)
         print(self.list_of_urls)
         
         
     def add_spieltag(self,req,result):
         Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Spieltagen"), -1)
-        print(result[0])
-        leagueName = result[0]['leagueShortName']
-        print("#######")
-        #print(req.get_full_url)
-        print("#######")
-        for day in result:
-            print('https://bw.cycleball.eu/api/leagues/'+leagueName +'/matchdays/'+str(day["number"]))
-            req = UrlRequest('https://bw.cycleball.eu/api/leagues/'+leagueName +'/matchdays/'+str(day["number"]), on_success=self.export_spieltag,ca_file=None, verify=False, timeout=10)
-            self.reqList.append(req)
+        if result:
+          print(result)
+          leagueName = result[0]['leagueShortName'].replace(" ","%20")
+          print("#######")
+          #print(req.get_full_url)
+          print("#######")
+          for day in result:
+              for server_url in list(server_urls.values()):
+                print(server_url)
+                if server_url in req.url:
+                  req = UrlRequest(self.escape_url(server_url+'/leagues/'+leagueName +'/matchdays/'+str(day["number"])), on_success=self.export_spieltag,ca_file=None, verify=False, timeout=10)
+                  self.reqList.append(req)
         
     def check_all_req(self,instance): 
         i=0
@@ -769,7 +803,7 @@ class StartPage(GridLayout):
                 if not req.is_finished:
                     i+=1
                 elif req.error != None:
-                    #print(req.error)
+                    print(req.error)
                     i+=1
                     self.reqList.remove(req)
                     self.waitlist.append(req)
@@ -808,11 +842,11 @@ class StartPage(GridLayout):
             if count <= max_req:
                 self.waitlist.remove(req_old)
                 #print(req_old.url)
-                if "https://bw.cycleball.eu/api/leagues/" in req_old.url:
+                if "/leagues/" in req_old.url:
                     req = UrlRequest(req_old.url, on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)
-                elif "https://bw.cycleball.eu/api/leagues" in req_old.url:
+                elif "/leagues" in req_old.url:
                     req = UrlRequest(req_old.url, on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)
-                elif 'https://bw.cycleball.eu/api/matchdays/' in req_old.url:
+                elif '/matchdays/' in req_old.url:
                     req = UrlRequest(req_old.url, on_success=self.export_spieltag,ca_file=None, verify=False, timeout=310)
                 else:
                     print("something is wrong with url")
@@ -826,15 +860,36 @@ class StartPage(GridLayout):
             self.reqList=[]
     def export_spieltag(self,req,result):         
         if self.run:
-            print(result)
-            f= open(app_folder+"/spieltage/"+str(result['leagueShortName'])+"_"+str(result['number'])+".radball","w+",encoding='utf-8')
+            for server_url in server_urls:
+                if server_urls[server_url] in req.url:
+                    if not os.path.isdir(app_folder+"/spieltage/"+server_url):
+                      os.mkdir(app_folder+"/spieltage/"+server_url)
+                    
+                    f= open(app_folder+"/spieltage/"+server_url+"/"+str(result['leagueShortName'])+"_"+str(result['number'])+".radball","w+",encoding='utf-8')
             #print(type(day))
             f.write(json.dumps(result, indent=4, ensure_ascii=False))
             #print(day)
             f.close
 
-  
-
+    def escape_url(self, url):
+        #Python 3 has libraries to handle this situation. Use urllib.parse.urlsplit to split the URL into its components, and urllib.parse.quote to properly quote/escape the unicode characters and urllib.parse.urlunsplit to join it back together.
+        url = urllib.parse.urlsplit(url)
+        url = list(url)
+        url[2] = urllib.parse.quote(url[2])
+        url = urllib.parse.urlunsplit(url)
+        return url
+    def clear_folder(self, dir):
+      if os.path.exists(dir):
+          for the_file in os.listdir(dir):
+              file_path = os.path.join(dir, the_file)
+              try:
+                  if os.path.isfile(file_path):
+                      os.unlink(file_path)
+                  else:
+                      self.clear_folder(file_path)
+                      os.rmdir(file_path)
+              except Exception as e:
+                  print(e)
 class EpicApp(App):
     service = ""
     def on_request_close(self, *args):

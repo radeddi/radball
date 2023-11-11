@@ -1,13 +1,14 @@
 """Unit tests for contextlib.py, and other context managers."""
 
-import asyncio
 import io
 import sys
 import tempfile
 import threading
+import traceback
 import unittest
 from contextlib import *  # Tests __all__
 from test import support
+from test.support import os_helper
 import weakref
 
 
@@ -86,6 +87,56 @@ class ContextManagerTestCase(unittest.TestCase):
                 raise ZeroDivisionError()
         self.assertEqual(state, [1, 42, 999])
 
+    def test_contextmanager_traceback(self):
+        @contextmanager
+        def f():
+            yield
+
+        try:
+            with f():
+                1/0
+        except ZeroDivisionError as e:
+            frames = traceback.extract_tb(e.__traceback__)
+
+        self.assertEqual(len(frames), 1)
+        self.assertEqual(frames[0].name, 'test_contextmanager_traceback')
+        self.assertEqual(frames[0].line, '1/0')
+
+        # Repeat with RuntimeError (which goes through a different code path)
+        class RuntimeErrorSubclass(RuntimeError):
+            pass
+
+        try:
+            with f():
+                raise RuntimeErrorSubclass(42)
+        except RuntimeErrorSubclass as e:
+            frames = traceback.extract_tb(e.__traceback__)
+
+        self.assertEqual(len(frames), 1)
+        self.assertEqual(frames[0].name, 'test_contextmanager_traceback')
+        self.assertEqual(frames[0].line, 'raise RuntimeErrorSubclass(42)')
+
+        class StopIterationSubclass(StopIteration):
+            pass
+
+        for stop_exc in (
+            StopIteration('spam'),
+            StopIterationSubclass('spam'),
+        ):
+            with self.subTest(type=type(stop_exc)):
+                try:
+                    with f():
+                        raise stop_exc
+                except type(stop_exc) as e:
+                    self.assertIs(e, stop_exc)
+                    frames = traceback.extract_tb(e.__traceback__)
+                else:
+                    self.fail(f'{stop_exc} was suppressed')
+
+                self.assertEqual(len(frames), 1)
+                self.assertEqual(frames[0].name, 'test_contextmanager_traceback')
+                self.assertEqual(frames[0].line, 'raise stop_exc')
+
     def test_contextmanager_no_reraise(self):
         @contextmanager
         def whee():
@@ -126,19 +177,22 @@ class ContextManagerTestCase(unittest.TestCase):
         self.assertEqual(state, [1, 42, 999])
 
     def test_contextmanager_except_stopiter(self):
-        stop_exc = StopIteration('spam')
         @contextmanager
         def woohoo():
             yield
-        try:
-            with self.assertWarnsRegex(DeprecationWarning,
-                                       "StopIteration"):
-                with woohoo():
-                    raise stop_exc
-        except Exception as ex:
-            self.assertIs(ex, stop_exc)
-        else:
-            self.fail('StopIteration was suppressed')
+
+        class StopIterationSubclass(StopIteration):
+            pass
+
+        for stop_exc in (StopIteration('spam'), StopIterationSubclass('spam')):
+            with self.subTest(type=type(stop_exc)):
+                try:
+                    with woohoo():
+                        raise stop_exc
+                except Exception as ex:
+                    self.assertIs(ex, stop_exc)
+                else:
+                    self.fail(f'{stop_exc} was suppressed')
 
     def test_contextmanager_except_pep479(self):
         code = """\
@@ -228,6 +282,8 @@ def woohoo():
         def woohoo(a, b):
             a = weakref.ref(a)
             b = weakref.ref(b)
+            # Allow test to work with a non-refcounted GC
+            support.gc_collect()
             self.assertIsNone(a())
             self.assertIsNone(b())
             yield
@@ -316,19 +372,19 @@ class FileContextTestCase(unittest.TestCase):
         tfn = tempfile.mktemp()
         try:
             f = None
-            with open(tfn, "w") as f:
+            with open(tfn, "w", encoding="utf-8") as f:
                 self.assertFalse(f.closed)
                 f.write("Booh\n")
             self.assertTrue(f.closed)
             f = None
             with self.assertRaises(ZeroDivisionError):
-                with open(tfn, "r") as f:
+                with open(tfn, "r", encoding="utf-8") as f:
                     self.assertFalse(f.closed)
                     self.assertEqual(f.read(), "Booh\n")
                     1 / 0
             self.assertTrue(f.closed)
         finally:
-            support.unlink(tfn)
+            os_helper.unlink(tfn)
 
 class LockContextTestCase(unittest.TestCase):
 
@@ -575,6 +631,7 @@ class TestBaseExitStack:
             ((), dict(example=1)),
             ((1,), dict(example=1)),
             ((1,2), dict(example=1)),
+            ((1,2), dict(self=3, callback=4)),
         ]
         result = []
         def _exit(*args, **kwds):
@@ -596,6 +653,16 @@ class TestBaseExitStack:
                 self.assertNotEqual(wrapper[1].__name__, _exit.__name__)
                 self.assertIsNone(wrapper[1].__doc__, _exit.__doc__)
         self.assertEqual(result, expected)
+
+        result = []
+        with self.exit_stack() as stack:
+            with self.assertRaises(TypeError):
+                stack.callback(arg=1)
+            with self.assertRaises(TypeError):
+                self.exit_stack.callback(arg=2)
+            with self.assertRaises(TypeError):
+                stack.callback(callback=_exit, arg=3)
+        self.assertEqual(result, [])
 
     def test_push(self):
         exc_raised = ZeroDivisionError
@@ -685,6 +752,38 @@ class TestBaseExitStack:
             stack.push(lambda *exc: True)
             1/0
 
+    def test_exit_exception_traceback(self):
+        # This test captures the current behavior of ExitStack so that we know
+        # if we ever unintendedly change it. It is not a statement of what the
+        # desired behavior is (for instance, we may want to remove some of the
+        # internal contextlib frames).
+
+        def raise_exc(exc):
+            raise exc
+
+        try:
+            with self.exit_stack() as stack:
+                stack.callback(raise_exc, ValueError)
+                1/0
+        except ValueError as e:
+            exc = e
+
+        self.assertIsInstance(exc, ValueError)
+        ve_frames = traceback.extract_tb(exc.__traceback__)
+        expected = \
+            [('test_exit_exception_traceback', 'with self.exit_stack() as stack:')] + \
+            self.callback_error_internal_frames + \
+            [('_exit_wrapper', 'callback(*args, **kwds)'),
+             ('raise_exc', 'raise exc')]
+
+        self.assertEqual(
+            [(f.name, f.line) for f in ve_frames], expected)
+
+        self.assertIsInstance(exc.__context__, ZeroDivisionError)
+        zde_frames = traceback.extract_tb(exc.__context__.__traceback__)
+        self.assertEqual([(f.name, f.line) for f in zde_frames],
+                         [('test_exit_exception_traceback', '1/0')])
+
     def test_exit_exception_chaining_reference(self):
         # Sanity check to make sure that ExitStack chaining matches
         # actual nested with statements
@@ -763,6 +862,40 @@ class TestBaseExitStack:
         inner_exc = saved_details[1]
         self.assertIsInstance(inner_exc, ValueError)
         self.assertIsInstance(inner_exc.__context__, ZeroDivisionError)
+
+    def test_exit_exception_explicit_none_context(self):
+        # Ensure ExitStack chaining matches actual nested `with` statements
+        # regarding explicit __context__ = None.
+
+        class MyException(Exception):
+            pass
+
+        @contextmanager
+        def my_cm():
+            try:
+                yield
+            except BaseException:
+                exc = MyException()
+                try:
+                    raise exc
+                finally:
+                    exc.__context__ = None
+
+        @contextmanager
+        def my_cm_with_exit_stack():
+            with self.exit_stack() as stack:
+                stack.enter_context(my_cm())
+                yield stack
+
+        for cm in (my_cm, my_cm_with_exit_stack):
+            with self.subTest():
+                try:
+                    with cm():
+                        raise IndexError()
+                except MyException as exc:
+                    self.assertIsNone(exc.__context__)
+                else:
+                    self.fail("Expected IndexError, but no exception was raised")
 
     def test_exit_exception_non_suppressing(self):
         # http://bugs.python.org/issue19092
@@ -918,6 +1051,10 @@ class TestBaseExitStack:
 
 class TestExitStack(TestBaseExitStack, unittest.TestCase):
     exit_stack = ExitStack
+    callback_error_internal_frames = [
+        ('__exit__', 'raise exc_details[1]'),
+        ('__exit__', 'if cb(*exc_details):'),
+    ]
 
 
 class TestRedirectStream:

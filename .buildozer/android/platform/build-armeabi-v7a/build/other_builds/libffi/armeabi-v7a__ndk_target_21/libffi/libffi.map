@@ -1,17 +1,17 @@
-# 1 "libffi.map.in"
+# 1 "./libffi.map.in"
 # 1 "<built-in>" 1
-# 1 "libffi.map.in" 2
+# 1 "./libffi.map.in" 2
 
 
 # 1 "./fficonfig.h" 1
-# 4 "libffi.map.in" 2
+# 4 "./libffi.map.in" 2
 # 1 "./include/ffitarget.h" 1
-# 5 "libffi.map.in" 2
+# 5 "./libffi.map.in" 2
 
 
 
 
-LIBFFI_BASE_7.0 {
+LIBFFI_BASE_8.0 {
   global:
 
  ffi_type_void;
@@ -43,27 +43,23 @@ LIBFFI_BASE_7.0 {
  ffi_java_raw_to_ptrarray;
  ffi_java_raw_size;
 
+ ffi_get_struct_offsets;
   local:
  *;
 };
 
-LIBFFI_BASE_7.1 {
-  global:
- ffi_get_struct_offsets;
-} LIBFFI_BASE_7.0;
 
-
-LIBFFI_COMPLEX_7.0 {
+LIBFFI_COMPLEX_8.0 {
   global:
 
  ffi_type_complex_float;
  ffi_type_complex_double;
  ffi_type_complex_longdouble;
-} LIBFFI_BASE_7.0;
+} LIBFFI_BASE_8.0;
 
 
 
-LIBFFI_CLOSURE_7.0 {
+LIBFFI_CLOSURE_8.0 {
   global:
  ffi_closure_alloc;
  ffi_closure_free;
@@ -73,12 +69,12 @@ LIBFFI_CLOSURE_7.0 {
  ffi_prep_raw_closure_loc;
  ffi_prep_java_raw_closure;
  ffi_prep_java_raw_closure_loc;
-} LIBFFI_BASE_7.0;
+} LIBFFI_BASE_8.0;
 
 
 
-LIBFFI_GO_CLOSURE_7.0 {
+LIBFFI_GO_CLOSURE_8.0 {
   global:
  ffi_call_go;
  ffi_prep_go_closure;
-} LIBFFI_CLOSURE_7.0;
+} LIBFFI_CLOSURE_8.0;

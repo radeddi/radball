@@ -41,7 +41,6 @@ extern PyObject* PyInit_time(void);
 extern PyObject* PyInit__thread(void);
 extern PyObject* PyInit__locale(void);
 extern PyObject* PyInit__io(void);
-extern PyObject* PyInit_zipimport(void);
 extern PyObject* PyInit_faulthandler(void);
 extern PyObject* PyInit__tracemalloc(void);
 extern PyObject* PyInit__symtable(void);
@@ -76,7 +75,6 @@ struct _inittab _PyImport_Inittab[] = {
     {"_thread", PyInit__thread},
     {"_locale", PyInit__locale},
     {"_io", PyInit__io},
-    {"zipimport", PyInit_zipimport},
     {"faulthandler", PyInit_faulthandler},
     {"_tracemalloc", PyInit__tracemalloc},
     {"_symtable", PyInit__symtable},

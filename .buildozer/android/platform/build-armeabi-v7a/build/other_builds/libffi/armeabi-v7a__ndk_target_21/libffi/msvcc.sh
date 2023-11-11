@@ -52,7 +52,7 @@ ml="ml"
 safeseh="-safeseh"
 output=
 libpaths=
-libversion=7
+libversion=8
 verbose=
 
 while [ $# -gt 0 ]
@@ -60,7 +60,7 @@ do
   case $1
   in
     --verbose)
-      $verbose=1
+      verbose=1
       shift 1
     ;;
     --version)
@@ -77,6 +77,16 @@ do
     ;;
     -m64)
       ml="ml64" # "$MSVC/x86_amd64/ml64"
+      safeseh=
+      shift 1
+    ;;
+    -marm)
+      ml='armasm'
+      safeseh=
+      shift 1
+    ;;
+    -marm64)
+      ml='armasm64'
       safeseh=
       shift 1
     ;;
@@ -155,24 +165,24 @@ do
       shift 1
     ;;
     -I)
-      p=$(cygpath -m $2)
-      args="$args -I$p"
-      includes="$includes -I$p"
+      p=$(cygpath -ma "$2")
+      args="$args -I\"$p\""
+      includes="$includes -I\"$p\""
       shift 2
     ;;
     -I*)
-      p=$(cygpath -m ${1#-I})
-      args="$args -I$p"
-      includes="$includes -I$p"
+      p=$(cygpath -ma "${1#-I}")
+      args="$args -I\"$p\""
+      includes="$includes -I\"$p\""
       shift 1
     ;;
     -L)
-      p=$(cygpath -m $2)
+      p=$(cygpath -ma $2)
       linkargs="$linkargs -LIBPATH:$p"
       shift 2
     ;;
     -L*)
-      p=$(cygpath -m ${1#-L})
+      p=$(cygpath -ma ${1#-L})
       linkargs="$linkargs -LIBPATH:$p"
       shift 1
     ;;
@@ -237,6 +247,7 @@ do
       else
         output="-Fe$2"
       fi
+      armasm_output="-o $2"
       if [ -n "$assembly" ]; then
         args="$args $output"
       else
@@ -245,12 +256,12 @@ do
       shift 2
     ;;
     *.S)
-      src=$1
+      src="$(cygpath -ma $1)"
       assembly="true"
       shift 1
     ;;
     *.c)
-      args="$args $1"
+      args="$args $(cygpath -ma $1)"
       shift 1
     ;;
     *)
@@ -289,13 +300,27 @@ if [ -n "$assembly" ]; then
     fi
     ppsrc="$outdir/$(basename $src|sed 's/.S$/.asm/g')"
 
+    if [ $ml = "armasm" ]; then
+      defines="$defines -D_M_ARM"
+    fi
+
+    if [ $ml = "armasm64" ]; then
+      defines="$defines -D_M_ARM64"
+    fi
+
     if test -n "$verbose"; then
       echo "$cl -nologo -EP $includes $defines $src > $ppsrc"
     fi
 
-    "$cl" -nologo -EP $includes $defines $src > $ppsrc || exit $?
+    eval "\"$cl\" -nologo -EP $includes $defines $src" > $ppsrc || exit $?
     output="$(echo $output | sed 's%/F[dpa][^ ]*%%g')"
-    args="-nologo $safeseh $single $output $ppsrc"
+    if [ $ml = "armasm" ]; then
+      args="-nologo -g -oldit $armasm_output $ppsrc -errorReport:prompt"
+    elif [ $ml = "armasm64" ]; then
+      args="-nologo -g $armasm_output $ppsrc -errorReport:prompt"
+    else
+      args="-nologo $safeseh $single $output $ppsrc"
+    fi
 
     if test -n "$verbose"; then
       echo "$ml $args"

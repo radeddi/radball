@@ -12,7 +12,8 @@
 --------------
 
 The :mod:`wave` module provides a convenient interface to the WAV sound format.
-It does not support compression/decompression, but it does support mono/stereo.
+Only files using ``WAVE_FORMAT_PCM`` are supported. Note that this does not
+include files using ``WAVE_FORMAT_EXTENSIBLE`` even if the subformat is PCM.
 
 The :mod:`wave` module defines the following function and exception:
 
@@ -40,19 +41,12 @@ The :mod:`wave` module defines the following function and exception:
    the file object.
 
    The :func:`.open` function may be used in a :keyword:`with` statement.  When
-   the :keyword:`with` block completes, the :meth:`Wave_read.close()
+   the :keyword:`!with` block completes, the :meth:`Wave_read.close()
    <wave.Wave_read.close>` or :meth:`Wave_write.close()
    <wave.Wave_write.close()>` method is called.
 
    .. versionchanged:: 3.4
       Added support for unseekable files.
-
-.. function:: openfp(file, mode)
-
-   A synonym for :func:`.open`, maintained for backwards compatibility.
-
-   .. deprecated-removed:: 3.7 3.9
-
 
 .. exception:: Error
 

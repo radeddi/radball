@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2016-2021 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the OpenSSL licenses, (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,10 +36,10 @@ static int test_certs(int num)
 
     for (c = 0; !err && PEM_read_bio(fp, &name, &header, &data, &len); ++c) {
         const int trusted = (strcmp(name, PEM_STRING_X509_TRUSTED) == 0);
-
         d2i_X509_t d2i = trusted ? d2i_X509_AUX : d2i_X509;
         i2d_X509_t i2d = trusted ? i2d_X509_AUX : i2d_X509;
         X509 *cert = NULL;
+        X509 *reuse = NULL;
         const unsigned char *p = data;
         unsigned char *buf = NULL;
         unsigned char *bufp;
@@ -91,6 +91,19 @@ static int test_certs(int num)
             err = 1;
             goto next;
         }
+        p = buf;
+        reuse = d2i(NULL, &p, enclen);
+        if (reuse == NULL) {
+            TEST_error("second d2i call failed for %s", name);
+            err = 1;
+            goto next;
+        }
+        err = X509_cmp(reuse, cert);
+        if (err != 0) {
+            TEST_error("X509_cmp for %s resulted in %d", name, err);
+            err = 1;
+            goto next;
+        }
         OPENSSL_free(buf);
         buf = NULL;
 
@@ -133,6 +146,7 @@ static int test_certs(int num)
          */
     next:
         X509_free(cert);
+        X509_free(reuse);
         OPENSSL_free(buf);
         OPENSSL_free(name);
         OPENSSL_free(header);

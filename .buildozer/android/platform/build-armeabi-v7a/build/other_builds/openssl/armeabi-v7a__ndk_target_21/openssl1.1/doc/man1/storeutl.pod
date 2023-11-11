@@ -51,7 +51,7 @@ this option prevents output of the PEM data.
 =item B<-passin arg>
 
 the key password source. For more information about the format of B<arg>
-see the B<PASS PHRASE ARGUMENTS> section in L<openssl(1)>.
+see L<openssl(1)/Pass Phrase Options>.
 
 =item B<-text>
 
@@ -82,8 +82,11 @@ returned.
 =item B<-subject arg>
 
 Search for an object having the subject name B<arg>.
-The arg must be formatted as I</type0=value0/type1=value1/type2=...>,
-characters may be escaped by \ (backslash), no spaces are skipped.
+The arg must be formatted as I</type0=value0/type1=value1/type2=...>.
+Keyword characters may be escaped by \ (backslash), and whitespace is retained.
+Empty values are permitted but are ignored for the search.  That is,
+a search with an empty value will have the same effect as not specifying
+the type at all.
 
 =item B<-issuer arg>
 
@@ -116,11 +119,11 @@ L<openssl(1)>
 
 =head1 HISTORY
 
-B<openssl> B<storeutl> was added to OpenSSL 1.1.1.
+The B<openssl> B<storeutl> app was added in OpenSSL 1.1.1.
 
 =head1 COPYRIGHT
 
-Copyright 2016-2018 The OpenSSL Project Authors. All Rights Reserved.
+Copyright 2016-2021 The OpenSSL Project Authors. All Rights Reserved.
 
 Licensed under the OpenSSL license (the "License").  You may not use
 this file except in compliance with the License.  You can obtain a copy

@@ -132,7 +132,7 @@ do
   shift
 done
 
-if test "$objfile" = "libpython3.7m.so"; then
+if test "$objfile" = "libpython3.10.so"; then
   ldsocoremode="true"
 fi
 

@@ -7,6 +7,8 @@
 .. moduleauthor:: Phillip J. Eby <pje@telecommunity.com>
 .. sectionauthor:: Phillip J. Eby <pje@telecommunity.com>
 
+**Source code:** :source:`Lib/wsgiref`
+
 --------------
 
 The Web Server Gateway Interface (WSGI) is a standard interface between web
@@ -54,7 +56,7 @@ parameter expect a WSGI-compliant dictionary to be supplied; please see
 
    This function is useful when creating a gateway that wraps CGI or a CGI-like
    protocol such as FastCGI.  Typically, servers providing such protocols will
-   include a ``HTTPS`` variable with a value of "1" "yes", or "on" when a request
+   include a ``HTTPS`` variable with a value of "1", "yes", or "on" when a request
    is received via SSL.  So, this function returns "https" if such a value is
    found, and "http" otherwise.
 
@@ -144,7 +146,7 @@ also provides these miscellaneous utilities:
 
 .. function:: is_hop_by_hop(header_name)
 
-   Return true if 'header_name' is an HTTP/1.1 "Hop-by-Hop" header, as defined by
+   Return ``True`` if 'header_name' is an HTTP/1.1 "Hop-by-Hop" header, as defined by
    :rfc:`2616`.
 
 
@@ -173,6 +175,8 @@ also provides these miscellaneous utilities:
       for chunk in wrapper:
           print(chunk)
 
+   .. deprecated:: 3.8
+      Support for :meth:`sequence protocol <__getitem__>` is deprecated.
 
 
 :mod:`wsgiref.headers` -- WSGI response header tools
@@ -327,7 +331,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
    .. method:: WSGIServer.get_app()
 
-      Returns the currently-set application callable.
+      Returns the currently set application callable.
 
    Normally, however, you do not need to use these additional methods, as
    :meth:`set_app` is normally called by :func:`make_server`, and the
@@ -478,8 +482,8 @@ input, output, and error streams.
    rarely used and is not guaranteed by WSGI. On IIS<7, though, the
    setting can only be made on a vhost level, affecting all other script
    mappings, many of which break when exposed to the ``PATH_TRANSLATED`` bug.
-   For this reason IIS<7 is almost never deployed with the fix. (Even IIS7
-   rarely uses it because there is still no UI for it.)
+   For this reason IIS<7 is almost never deployed with the fix (Even IIS7
+   rarely uses it because there is still no UI for it.).
 
    There is no way for CGI code to tell whether the option was set, so a
    separate handler class is provided.  It is used in the same way as
@@ -633,7 +637,7 @@ input, output, and error streams.
 
    .. method:: BaseHandler.setup_environ()
 
-      Set the :attr:`environ` attribute to a fully-populated WSGI environment.  The
+      Set the :attr:`environ` attribute to a fully populated WSGI environment.  The
       default implementation uses all of the above methods and attributes, plus the
       :meth:`get_stdin`, :meth:`get_stderr`, and :meth:`add_cgi_vars` methods and the
       :attr:`wsgi_file_wrapper` attribute.  It also inserts a ``SERVER_SOFTWARE`` key
@@ -737,7 +741,7 @@ input, output, and error streams.
 
 .. function:: read_environ()
 
-   Transcode CGI variables from ``os.environ`` to PEP 3333 "bytes in unicode"
+   Transcode CGI variables from ``os.environ`` to :pep:`3333` "bytes in unicode"
    strings, returning a new dictionary.  This function is used by
    :class:`CGIHandler` and :class:`IISCGIHandler` in place of directly using
    ``os.environ``, which is not necessarily WSGI-compliant on all platforms
@@ -765,7 +769,7 @@ This is a working "Hello World" WSGI application::
    # use a function (note that you're not limited to a function, you can
    # use a class for example). The first argument passed to the function
    # is a dictionary containing CGI-style environment variables and the
-   # second variable is the callable object (see PEP 333).
+   # second variable is the callable object.
    def hello_world_app(environ, start_response):
        status = '200 OK'  # HTTP Status
        headers = [('Content-type', 'text/plain; charset=utf-8')]  # HTTP Headers
@@ -779,3 +783,9 @@ This is a working "Hello World" WSGI application::
 
        # Serve until process is killed
        httpd.serve_forever()
+
+
+Example of a WSGI application serving the current directory, accept optional
+directory and port number (default: 8000) on the command line:
+
+.. literalinclude:: ../../Tools/scripts/serve.py

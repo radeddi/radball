@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2018 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2015-2021 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the OpenSSL license (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -17,7 +17,7 @@
 #include <openssl/err.h>
 #include <time.h>
 
-#include "../ssl/packet_locl.h"
+#include "../ssl/packet_local.h"
 
 #include "testutil.h"
 
@@ -45,10 +45,16 @@
 
 static const char *sessionfile = NULL;
 /* Dummy ALPN protocols used to pad out the size of the ClientHello */
+/* ASCII 'O' = 79 = 0x4F = EBCDIC '|'*/
+#ifdef CHARSET_EBCDIC
 static const char alpn_prots[] =
-    "0123456789012345678901234567890123456789012345678901234567890123456789"
-    "0123456789012345678901234567890123456789012345678901234567890123456789"
-    "01234567890123456789";
+    "|1234567890123456789012345678901234567890123456789012345678901234567890123456789"
+    "|1234567890123456789012345678901234567890123456789012345678901234567890123456789";
+#else
+static const char alpn_prots[] =
+    "O1234567890123456789012345678901234567890123456789012345678901234567890123456789"
+    "O1234567890123456789012345678901234567890123456789012345678901234567890123456789";
+#endif
 
 static int test_client_hello(int currtest)
 {
@@ -99,8 +105,9 @@ static int test_client_hello(int currtest)
          * ClientHello is already going to be quite long. To avoid getting one
          * that is too long for this test we use a restricted ciphersuite list
          */
-        if (!TEST_true(SSL_CTX_set_cipher_list(ctx, "")))
+        if (!TEST_false(SSL_CTX_set_cipher_list(ctx, "")))
             goto end;
+        ERR_clear_error();
          /* Fall through */
     case TEST_ADD_PADDING:
     case TEST_PADDING_NOT_NEEDED:
