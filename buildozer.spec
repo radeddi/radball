@@ -56,7 +56,7 @@ requirements = python3,kivy, requests, openssl
 
 # (list) Supported orientations
 # Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
-orientation = landscape
+orientation = landscape, landscape-reverse
 
 # (list) List of services to declare
 # This is currently only relevant to Android services.
@@ -83,7 +83,7 @@ osx.kivy_version = 2.2.0
 #
 
 # (bool) Indicate if the application should be fullscreen or not
-fullscreen = 0
+fullscreen = 1
 
 # (string) Presplash background color (for android toolchain)
 # Supported formats are: #RRGGBB #AARRGGBB or one of the following names:
@@ -112,7 +112,7 @@ android.permissions = INTERNET,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 31
+#android.api = 27
 
 # (int) Minimum API your APK / AAB will support.
 #android.minapi = 21

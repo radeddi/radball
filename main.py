@@ -43,9 +43,13 @@ from kivy.utils import platform
 
 from kivy.config import Config
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # UDP
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 #sock.bind(("", 5556))
 #sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
+
 
 kivy.require("1.10.1")
 
@@ -56,6 +60,7 @@ server_urls = {
 "Bayern": "https://by.cycleball.eu/api",
 "Deutschland": "https://de.cycleball.eu/api",
 "Brandenburg": "https://bb.cycleball.eu/api",
+"Schweiz": "http://127.0.0.1:5000/api",
 }
 
 
@@ -66,7 +71,6 @@ class SelectorPage(GridLayout):
 
         # Just one column
         self.cols = 1        
-        
         
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
         self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
@@ -258,6 +262,7 @@ class PresentPage(GridLayout):
         i=0
         for team in self.game_json["teams"]:
             teamLayout = GridLayout(cols=1)
+            print(team)
             #bx=CheckBox()
             #bx.active=True
             #teamLayout.add_widget(bx)
@@ -441,7 +446,7 @@ class GamePage(GridLayout):
         # 2 = halftime
         self.halfTime = timedelta ( minutes = 2)
         self.timeLeft = timedelta ( minutes = 0, seconds = 15)
-        self.playingTime = timedelta ( minutes = 7)
+        self.playingTime = timedelta ( minutes = 5)
         self.startTime = datetime.datetime.now()
         
         
@@ -478,6 +483,7 @@ class GamePage(GridLayout):
 
         
         self.rszButton=Button(size_hint =(0.3, 1),text="Restspielzeit",font_size=25)
+        self.rszButton.bind(on_release=self.setRsz)
         self.pauseButton=Button(size_hint =(0.4, 1),text="Halbzeitpause starten",font_size=25)
         self.settingsButton=Button(size_hint =(0.3, 1),text="Einstellungen",font_size=25)
         self.fourthLine.add_widget(self.rszButton)
@@ -533,9 +539,14 @@ class GamePage(GridLayout):
             self.lastButton.disabled=False
         if self.gameNr == len(self.sequence)-1:
             #game is last game
-            self.nextButton.disabled=True
+            #self.nextButton.disabled=True
+            self.nextButton.unbind(on_release=self.nextGame)
+            self.nextButton.text = "Spieltag beenden"
         else:
-            self.nextButton.disabled=False
+            #self.nextButton.disabled=False
+            if self.nextButton.text == "Spieltag beenden":
+                self.nextButton.text = "nächstes Spiel"
+                self.nextButton.bind(on_release=self.nextGame)
     
     def nextGame (self,instance):
         score = {}
@@ -614,8 +625,206 @@ class GamePage(GridLayout):
                 minutes, remainder = divmod(remainder,60)
                 seconds, remainder = divmod(remainder,1)
                 self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-        sock.sendto((self.timeLabel.text+" \n").encode(), ("127.0.0.1", 5555))
+        send_str = {
+            "team1": self.teamALabel.text,
+            "team2": self.teamBLabel.text,
+            "tore1": self.goalALabel.text,
+            "tore2": self.goalBLabel.text,
+            "minutes": self.timeLabel.text.split(":")[0],
+            "seconds": self.timeLabel.text.split(":")[1],
+            "schnaps": 0
+            }
+        sock.sendto((json.dumps(send_str)+"\n").encode(), ("255.255.255.255", 5005))
+        print("hello")
+    
+    def setRsz (self,instance):
+        self.rszButton.text="Restspielzeit setzen"
+        self.rszButton.unbind(on_release=self.setRsz)
+        self.rszButton.bind(on_release=self.finishRsz)
+        self.sideButton.unbind(on_release=self.sideChange)
         
+        total_seconds = int(self.playingTime.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        
+        self.sideButton.bind(on_release=self.resetTime)
+        self.startStopButton.disabled=True
+        self.setButtons()
+        
+    def finishRsz (self,instance):
+        
+        total_seconds = int(self.playingTime.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        playing_str = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        
+        if not self.sideButton.text == playing_str:
+            t = datetime.datetime.strptime(self.sideButton.text,"%M:%S")
+            self.timeLeft = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second)
+            
+        self.rszButton.text="Restspielzeit"
+        self.rszButton.unbind(on_release=self.finishRsz)  
+        self.rszButton.bind(on_release=self.setRsz)  
+        self.sideButton.unbind(on_release=self.resetTime)
+        self.sideButton.text="Seitenwechsel"
+        self.sideButton.bind(on_release=self.sideChange)
+        self.startStopButton.disabled=False
+        self.resetButtons()
+     
+    def resetTime (self,instance):
+        t = datetime.datetime.strptime(self.sideButton.text,"%M:%S")
+        self.timeLeft = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second)
+        
+    def setButtons  (self):
+        self.teamAp.text="+10s"
+        self.teamAp.font_size=20
+        self.teamAm.text="-10s"
+        self.teamAm.font_size=20
+        self.teamBp.text="+1s"
+        self.teamBp.font_size=20
+        self.teamBm.text="-1s"
+        self.teamBm.font_size=20
+        
+        self.teamAp.unbind(on_release=self.teamApCB)
+        self.teamAm.unbind(on_release=self.teamAmCB)
+        self.teamBp.unbind(on_release=self.teamBpCB)
+        self.teamBm.unbind(on_release=self.teamBmCB)
+        self.teamAp.bind(on_release=self.p10s)
+        self.teamAm.bind(on_release=self.m10s)
+        self.teamBp.bind(on_release=self.p1s)
+        self.teamBm.bind(on_release=self.m1s)
+        
+    def resetButtons  (self):
+        self.teamAp.text="+"
+        self.teamAp.font_size=40
+        self.teamAm.text="-"
+        self.teamAm.font_size=40
+        self.teamBp.text="+"
+        self.teamBp.font_size=40
+        self.teamBm.text="-"
+        self.teamBm.font_size=40
+        
+        self.teamAp.unbind(on_release=self.p10s)
+        self.teamAm.unbind(on_release=self.m10s)
+        self.teamBp.unbind(on_release=self.p1s)
+        self.teamBm.unbind(on_release=self.m1s)
+        
+        
+        
+        self.teamAp.bind(on_release=self.teamApCB)
+        self.teamAm.bind(on_release=self.teamAmCB)
+        self.teamBp.bind(on_release=self.teamBpCB)
+        self.teamBm.bind(on_release=self.teamBmCB)
+    
+    
+    def p1s (self,instance):
+        total_seconds = int(self.playingTime.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        playing_str = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        
+        if self.sideButton.text == playing_str:
+            total_seconds = int(self.timeLeft.total_seconds())
+            hours, remainder = divmod(total_seconds,60*60)
+            minutes, remainder = divmod(remainder,60)
+            seconds, remainder = divmod(remainder,1)
+            self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        t = datetime.datetime.strptime(self.sideButton.text,"%M:%S") + timedelta(seconds=1)
+        t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+        
+        total_seconds = int(t.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+    def p10s (self,instance):
+        total_seconds = int(self.playingTime.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        playing_str = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        
+        if self.sideButton.text == playing_str:
+            total_seconds = int(self.timeLeft.total_seconds())
+            hours, remainder = divmod(total_seconds,60*60)
+            minutes, remainder = divmod(remainder,60)
+            seconds, remainder = divmod(remainder,1)
+            self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+            
+        t = datetime.datetime.strptime(self.sideButton.text,"%M:%S") + timedelta(seconds=10)
+        t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+        
+        total_seconds = int(t.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+    def m1s (self,instance):
+        total_seconds = int(self.playingTime.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        playing_str = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        
+        if self.sideButton.text == playing_str:
+            total_seconds = int(self.timeLeft.total_seconds())
+            hours, remainder = divmod(total_seconds,60*60)
+            minutes, remainder = divmod(remainder,60)
+            seconds, remainder = divmod(remainder,1)
+            self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+            
+        t = datetime.datetime.strptime(self.sideButton.text,"%M:%S") - timedelta(seconds=1)
+        t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+        
+        
+        total_seconds = int(t.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+    def m10s (self,instance):
+        total_seconds = int(self.playingTime.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        playing_str = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        
+        if self.sideButton.text == playing_str:
+            total_seconds = int(self.timeLeft.total_seconds())
+            hours, remainder = divmod(total_seconds,60*60)
+            minutes, remainder = divmod(remainder,60)
+            seconds, remainder = divmod(remainder,1)
+            self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+            
+        t = datetime.datetime.strptime(self.sideButton.text,"%M:%S") - timedelta(seconds=10)
+        t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+        
+        
+        total_seconds = int(t.total_seconds())
+        hours, remainder = divmod(total_seconds,60*60)
+        minutes, remainder = divmod(remainder,60)
+        seconds, remainder = divmod(remainder,1)
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        
+        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
     def startGame (self,instance):
         self.startStopButton.text="Zeit stoppen"
         self.startTime = datetime.datetime.now()    
@@ -782,8 +991,10 @@ class StartPage(GridLayout):
     def add_spieltag(self,req,result):
         Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Spieltagen"), -1)
         if result:
-          print(result)
-          leagueName = result[0]['leagueShortName'].replace(" ","%20")
+          if type(result) is dict:
+            leagueName = result['leagueShortName'].replace(" ","%20")
+          else:  
+            leagueName = result[0]['leagueShortName'].replace(" ","%20")
           print("#######")
           #print(req.get_full_url)
           print("#######")
@@ -900,6 +1111,7 @@ class EpicApp(App):
         if platform == 'android':
             self.service.stop()
         self.stop()
+        return True
     def textpopup(self, title='', text=''):
         """Open the pop-up with the name.
 
@@ -919,7 +1131,8 @@ class EpicApp(App):
     
     def on_key(self, window, key, *args):
         if key == 27:  # the esc key
-            EpicApp.on_request_close(self)
+            Clock.schedule_once(partial(self.on_request_close,self, -1))
+            return True
     def build(self):
         if platform == 'android':
             import android
