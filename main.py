@@ -598,7 +598,7 @@ class GamePage(GridLayout):
             print("there is a big error")
         if self.game_json["games"][self.gameNr]["state"]=="running":
             self.game_json["games"][self.gameNr]["state"]="finished"
-        self.sendUpdate()
+        Clock.schedule_once(self.sendUpdate)
         self.gameNr+=1
         self.load_Game()
     def lastGame (self,instance):        
@@ -635,7 +635,7 @@ class GamePage(GridLayout):
             print("there is a big error")
         if self.game_json["games"][self.gameNr]["state"]=="running":
             self.game_json["games"][self.gameNr]["state"]="finished"
-        self.sendUpdate()
+        Clock.schedule_once(self.sendUpdate)
         time.sleep(3)
         exit()
     def findClients (self,instance):
@@ -920,7 +920,7 @@ class GamePage(GridLayout):
         self.nextButton.disabled = True
         self.gameStatus=1 
         self.game_json["games"][self.gameNr]["state"]="running"
-        self.sendUpdate()
+        Clock.schedule_once(self.sendUpdate)
     def stopGame (self,instance):
         self.startStopButton.text="Zeit starten"
         self.timeLeft= -(datetime.datetime.now() - self.startTime) + self.timeLeft
@@ -954,20 +954,20 @@ class GamePage(GridLayout):
 
     def teamApCB (self,instance):
         self.goalALabel.text = str(int(self.goalALabel.text) + 1)          
-        self.sendUpdate()   
+        Clock.schedule_once(self.sendUpdate)
     def teamAmCB (self,instance):
         if int(self.goalALabel.text) > 0 :
             self.goalALabel.text = str(int(self.goalALabel.text) - 1)
-        self.sendUpdate()
+        Clock.schedule_once(self.sendUpdate)
     def teamBpCB (self,instance):
         self.goalBLabel.text = str(int(self.goalBLabel.text) + 1)
-        self.sendUpdate()
+        Clock.schedule_once(self.sendUpdate)
     def teamBmCB (self,instance):        
         if int(self.goalBLabel.text) > 0 :
             self.goalBLabel.text = str(int(self.goalBLabel.text) - 1)
-        self.sendUpdate()
+        Clock.schedule_once(self.sendUpdate)
     
-    def sendUpdate (self):
+    def sendUpdate (self, instance=None):
         
         url=f"{server_urls[self.land]}/leagues/{self.league_short}/matchdays/{self.gameId}"
         print (url)
