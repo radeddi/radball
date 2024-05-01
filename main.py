@@ -513,7 +513,10 @@ class GamePage(GridLayout):
         self.rszButton=Button(size_hint =(0.3, 1),text="Restspielzeit",font_size=25)
         self.rszButton.bind(on_release=self.setRsz)
         self.pauseButton=Button(size_hint =(0.4, 1),text="Halbzeitpause starten",font_size=25)
+        self.pauseButton.bind(on_release=self.setPause)
         self.settingsButton=Button(size_hint =(0.3, 1),text="Einstellungen",font_size=25)
+        self.settingsButton.bind(on_release=self.create_popup)
+        
         self.fourthLine.add_widget(self.rszButton)
         self.fourthLine.add_widget(self.pauseButton)
         self.fourthLine.add_widget(self.settingsButton)
@@ -530,6 +533,9 @@ class GamePage(GridLayout):
         self.fifthLine.add_widget(self.lastButton)
         self.fifthLine.add_widget(self.startStopButton)
         self.fifthLine.add_widget(self.nextButton)
+        
+        self.popup = []
+        
 
     def load_GamePage(self,game_json,sequence,land,game_id,league_short):
         Clock.schedule_interval(self.refreshTime, 0.1)
@@ -551,6 +557,9 @@ class GamePage(GridLayout):
         self.timeLeft = self.playingTime
         self.teamALabel.text=self.game_json["games"][self.gameNr]["teamA"]
         self.teamBLabel.text=self.game_json["games"][self.gameNr]["teamB"]
+        
+        self.htLabel.text="1. Halbzeit"
+        
         if "score" in self.game_json["games"][self.gameNr]:
             if "goalsA" and "goalsB" in self.game_json["games"][self.gameNr]["score"]:
                 self.goalALabel.text= str(self.game_json["games"][self.gameNr]["score"]["goalsA"])
@@ -759,7 +768,7 @@ class GamePage(GridLayout):
         self.startStopButton.disabled=False
         self.resetButtons()
      
-    def resetTime (self,instance):
+    def resetTime (self,instance=None):
         t = datetime.datetime.strptime(self.sideButton.text,"%M:%S")
         self.timeLeft = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second)
         
@@ -944,13 +953,18 @@ class GamePage(GridLayout):
 
         self.gameStatus=0
         
-    def sideChange (self,instance):    
+    def sideChange (self,instance=None):    
         teamA = self.teamALabel.text
         goalA = self.goalALabel.text
         self.teamALabel.text = self.teamBLabel.text
         self.teamBLabel.text = teamA
         self.goalALabel.text = self.goalBLabel.text
         self.goalBLabel.text = goalA
+
+    def setPause (self,instance):
+        self.sideChange()
+        self.timeLeft = self.playingTime
+        self.htLabel.text="2. Halbzeit"
 
     def teamApCB (self,instance):
         self.goalALabel.text = str(int(self.goalALabel.text) + 1)          
@@ -976,6 +990,54 @@ class GamePage(GridLayout):
             r = requests.post(url, json=self.game_json)
         except:
             pass
+            
+    def create_popup(self,instance):
+        layout=GridLayout(cols=1, rows=10)
+        min_5 = Button(text='5 min',font_size=20)
+        min_6 = Button(text='6 min',font_size=20)
+        min_7 = Button(text='7 min',font_size=20)
+        swapBt = Button(text='Halbzeit anpassen',font_size=20)
+        dismiss = Button(text='Abbrechen',font_size=20)
+        self.popup = Popup(title='Einstellungen',content=layout, auto_dismiss=False)
+        layout.add_widget(min_5)
+        layout.add_widget(min_6)
+        layout.add_widget(min_7)
+        layout.add_widget(swapBt)
+        layout.add_widget(dismiss)
+        min_5.bind(on_press=(self.set_playtime5))
+        min_6.bind(on_press=(self.set_playtime6))
+        min_7.bind(on_press=(self.set_playtime7))
+        swapBt.bind(on_press=(self.swapHT))
+        dismiss.bind(on_press=self.popup.dismiss)
+        self.popup.open()        
+    
+    def set_playtime5(self,instance):
+        if self.timeLeft == self.playingTime:
+            self.playingTime = timedelta ( minutes = 5)
+            self.timeLeft = self.playingTime
+        else:
+            self.playingTime = timedelta ( minutes = 5)
+        self.popup.dismiss()
+    def set_playtime6(self,instance):
+        if self.timeLeft == self.playingTime:
+            self.playingTime = timedelta ( minutes = 6)
+            self.timeLeft = self.playingTime
+        else:
+            self.playingTime = timedelta ( minutes = 6)
+        self.popup.dismiss()
+    def set_playtime7(self,instance):
+        if self.timeLeft == self.playingTime:
+            self.playingTime = timedelta ( minutes = 7)
+            self.timeLeft = self.playingTime
+        else:
+            self.playingTime = timedelta ( minutes = 7)
+        self.popup.dismiss()
+    def swapHT(self,instance):
+        if self.htLabel.text=="1. Halbzeit":
+            self.htLabel.text="2. Halbzeit"
+        else:
+            self.htLabel.text="1. Halbzeit"
+        self.popup.dismiss()
 class StartPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
