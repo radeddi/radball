@@ -589,6 +589,7 @@ class GamePage(GridLayout):
             if self.nextButton.text == "Spieltag beenden":
                 self.nextButton.text = "nächstes Spiel"
                 self.nextButton.bind(on_release=self.nextGame)
+                self.nextButton.unbind(on_release=self.quitGames)
     
     def nextGame (self,instance):
         score = {}
@@ -607,7 +608,7 @@ class GamePage(GridLayout):
             print("there is a big error")
         if self.game_json["games"][self.gameNr]["state"]=="running":
             self.game_json["games"][self.gameNr]["state"]="finished"
-        Clock.schedule_once(self.sendUpdate)
+        Clock.schedule_once(self.sendUpdate,1)
         self.gameNr+=1
         self.load_Game()
     def lastGame (self,instance):        
@@ -644,9 +645,9 @@ class GamePage(GridLayout):
             print("there is a big error")
         if self.game_json["games"][self.gameNr]["state"]=="running":
             self.game_json["games"][self.gameNr]["state"]="finished"
-        Clock.schedule_once(self.sendUpdate)
+        Clock.schedule_once(self.sendUpdate,1)
         time.sleep(3)
-        exit()
+        #exit()
     def findClients (self,instance):
         try:
 
@@ -703,7 +704,7 @@ class GamePage(GridLayout):
                 minutes, remainder = divmod(remainder,60)
                 seconds, remainder = divmod(remainder,1)
                 self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-        if self.gameNr == len(self.sequence)-1:
+        if self.gameNr == len(self.sequence)-1 or self.timeLabel.text.split(":")[0] != "0" or self.timeLabel.text.split(":")[1] != "00" :
             nextTeams = ""
         else:
             nextTeams = f'{(self.game_json["games"][self.gameNr+1]["teamA"])} vs. {(self.game_json["games"][self.gameNr+1]["teamB"])}'
@@ -929,7 +930,7 @@ class GamePage(GridLayout):
         self.nextButton.disabled = True
         self.gameStatus=1 
         self.game_json["games"][self.gameNr]["state"]="running"
-        Clock.schedule_once(self.sendUpdate)
+        Clock.schedule_once(self.sendUpdate,1)
     def stopGame (self,instance):
         self.startStopButton.text="Zeit starten"
         self.timeLeft= -(datetime.datetime.now() - self.startTime) + self.timeLeft
@@ -968,18 +969,18 @@ class GamePage(GridLayout):
 
     def teamApCB (self,instance):
         self.goalALabel.text = str(int(self.goalALabel.text) + 1)          
-        Clock.schedule_once(self.sendUpdate)
+        Clock.schedule_once(self.sendUpdate,1)
     def teamAmCB (self,instance):
         if int(self.goalALabel.text) > 0 :
             self.goalALabel.text = str(int(self.goalALabel.text) - 1)
-        Clock.schedule_once(self.sendUpdate)
+        Clock.schedule_once(self.sendUpdate,1)
     def teamBpCB (self,instance):
         self.goalBLabel.text = str(int(self.goalBLabel.text) + 1)
-        Clock.schedule_once(self.sendUpdate)
+        Clock.schedule_once(self.sendUpdate,1)
     def teamBmCB (self,instance):        
         if int(self.goalBLabel.text) > 0 :
             self.goalBLabel.text = str(int(self.goalBLabel.text) - 1)
-        Clock.schedule_once(self.sendUpdate)
+        Clock.schedule_once(self.sendUpdate,1)
     
     def sendUpdate (self, instance=None):
         
@@ -987,10 +988,17 @@ class GamePage(GridLayout):
         print (url)
         print(self.game_json)
         try:
-            r = requests.post(url, json=self.game_json)
+            #r = requests.post(url, json=self.game_json, timeout=2)
+            params = json.dumps(self.game_json, indent=2)
+
+            # changed Content-type from application/x-www-form-urlencoded to application/json
+            headers = {'Content-type': 'application/json','Accept': 'text/plain'}
+            UrlRequest(url, req_headers=headers,req_body=params, verify=False, timeout=10)
         except:
             pass
-            
+    
+
+    
     def create_popup(self,instance):
         layout=GridLayout(cols=1, rows=10)
         min_5 = Button(text='5 min',font_size=20)
@@ -1122,7 +1130,7 @@ class StartPage(GridLayout):
         self.run=False
     def update_all(self,instance):
         #try:
-        self.clear_folder(app_folder+"/spieltage/")
+        #self.clear_folder(app_folder+"/spieltage/")
         self.run=True
         self.reqList=[]
         self.waitlist=[]
