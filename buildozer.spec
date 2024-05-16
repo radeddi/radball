@@ -66,7 +66,7 @@ orientation = landscape, landscape-reverse
 # ":foreground:sticky" for sticky foreground services. The default is a background service.
 # Bound services are not supported.
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
-services = service:service.py
+services = service:service/main.py
 
 #
 # OSX Specific
@@ -105,7 +105,7 @@ fullscreen = 1
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
 #android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
-android.permissions = INTERNET,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
+android.permissions = INTERNET,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,ACCESS_NETWORK_STATE, LOCATION
 
 
 # (list) features (adds uses-feature -tags to manifest)

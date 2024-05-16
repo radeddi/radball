@@ -650,8 +650,9 @@ class GamePage(GridLayout):
         #exit()
     def findClients (self,instance):
         try:
-
+            print("finding")
             data, addr = sock2.recvfrom(1024) # buffer size is 1024 bytes
+            print("found")
             print(addr)
             if addr[0] not in client_ip:
                 client_ip.append(addr[0])
@@ -659,8 +660,8 @@ class GamePage(GridLayout):
             for i in range(len(client_ip)):
                if  client_ip[i].split(":")[2]  != addr[0].split(":")[2]:
                    client_ip.remove(i)
-        except:
-            pass
+        except Exception as e: print(e)
+        
     def refreshTime (self,instance):
         if self.gameStatus == 0:
             remTime = self.timeLeft
@@ -704,7 +705,7 @@ class GamePage(GridLayout):
                 minutes, remainder = divmod(remainder,60)
                 seconds, remainder = divmod(remainder,1)
                 self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-        if self.gameNr == len(self.sequence)-1 or self.timeLabel.text.split(":")[0] != "0" or self.timeLabel.text.split(":")[1] != "00" :
+        if self.gameNr == len(self.sequence)-1 or not ((self.timeLabel.text.split(":")[0] == "0" and self.timeLabel.text.split(":")[1] == "00") or (self.timeLeft == self.playingTime and self.htLabel.text=="2. Halbzeit" and self.startStopButton.text=="Zeit starten")) :
             nextTeams = ""
         else:
             nextTeams = f'{(self.game_json["games"][self.gameNr+1]["teamA"])} vs. {(self.game_json["games"][self.gameNr+1]["teamB"])}'
@@ -989,7 +990,7 @@ class GamePage(GridLayout):
         print(self.game_json)
         try:
             #r = requests.post(url, json=self.game_json, timeout=2)
-            params = json.dumps(self.game_json)
+            params = json.dumps(self.game_json, indent=2)
 
             # changed Content-type from application/x-www-form-urlencoded to application/json
             headers = {'Content-type': 'application/json','Accept': 'text/plain'}
