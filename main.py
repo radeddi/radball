@@ -32,6 +32,11 @@ from functools import partial
 
 from collections import deque
 
+
+if platform == 'android':
+    from android import mActivity
+    from jnius import autoclass
+
 try:
 	import simplejson as json
 except ImportError:
@@ -46,8 +51,6 @@ from kivy.config import Config
 
 broadcast = False
 client_ip = []
-
-
 
 
 if broadcast:
@@ -1280,7 +1283,7 @@ class EpicApp(App):
 
     def close_app(self, *args):
         if platform == 'android':
-            self.service.stop()
+            self.bgservice.stop(mActivity)
         self.stop()
         return True
     def textpopup(self, title='', text=''):
@@ -1304,15 +1307,19 @@ class EpicApp(App):
         if key == 27:  # the esc key
             Clock.schedule_once(partial(self.on_request_close,self, -1))
             return True
+    
+    def start_service(self, name):    
+        context =  mActivity.getApplicationContext()
+        service_name = str(context.getPackageName()) + '.Service' + "Worker"
+        service = autoclass(service_name)
+        service.start(mActivity,'')   # starts or re-initializes a service
+        return service
+
     def build(self):
         if platform == 'android':
-            import android
-            self.service = android.AndroidService('Notification Name', 'Notification Message')
-            self.service.start('Service args')
-
-        
-        
-        
+            self.bgservice = self.start_service('Worker') # starts a service
+            
+            
         
         # We are going to use screen manager, so we can add multiple screens
         # and switch between them
