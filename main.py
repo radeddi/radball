@@ -1,3 +1,5 @@
+debug=False
+
 import kivy
 from kivy.app import App
 from kivy.uix.label import Label
@@ -669,19 +671,14 @@ class GamePage(GridLayout):
         if self.gameStatus == 0:
             remTime = self.timeLeft
             if remTime < timedelta ( minutes = 0):
-                
                 self.timeLabel.text = "0:00"
+                remTime = timedelta ( seconds = 0)
             elif remTime < timedelta ( seconds = 10):
-                
-               
                 total_seconds = (remTime.total_seconds())
                 hours, remainder = divmod(total_seconds,60*60)
                 minutes, seconds = divmod(remainder,60)
           #      seconds, remainder = divmod(remainder,1)
-                
                 self.timeLabel.text = '{}:{}'.format("{:02.0f}".format(minutes),"{:04.1f}".format(seconds))
-                        
-        
             else :    
                 total_seconds = int(remTime.total_seconds())
                 hours, remainder = divmod(total_seconds,60*60)
@@ -694,13 +691,12 @@ class GamePage(GridLayout):
                 self.timeLabel.text = "0:00"
                 self.stopGame(self)
                 self.pauseButton.disabled = False
-
+                remTime = timedelta ( seconds = 0)
             elif remTime < timedelta ( seconds = 10):
                 total_seconds = (remTime.total_seconds())
                 hours, remainder = divmod(total_seconds,60*60)
                 minutes, seconds = divmod(remainder,60)
            #     seconds, remainder = divmod(remainder,1)
-                
                 self.timeLabel.text = '{}:{}'.format("{:02.0f}".format(minutes),"{:04.1f}".format(seconds))
             else :    
                 total_seconds = int(remTime.total_seconds())
@@ -721,14 +717,22 @@ class GamePage(GridLayout):
             "minutes": self.timeLabel.text.split(":")[0],
             "seconds": self.timeLabel.text.split(":")[1],
             "schnaps": 0,
-            "next": nextTeams
+            "next": nextTeams,
+            "status": self.gameStatus,
+            "rem": str(remTime),
+            "client_ip": client_ip
             }
         try:
-            if broadcast:
-                sock.sendto((json.dumps(send_str)+"\n").encode(), ("255.255.255.255", 5005))
+            if platform == 'android' or debug:
+                #add Android here
+                sock.sendto((json.dumps(send_str)+"\n").encode(), ("127.0.0.1", 5066))
             else:
-                for client in client_ip:
-                    sock.sendto((json.dumps(send_str)+"\n").encode(), (client, 5005))
+                if broadcast:
+                    sock.sendto((json.dumps(send_str)+"\n").encode(), ("255.255.255.255", 5005))
+                else:
+                    #sock.sendto((json.dumps(send_str)+"\n").encode(), ("127.0.0.1", 5066))
+                    for client in client_ip:
+                        sock.sendto((json.dumps(send_str)+"\n").encode(), (client, 5005))
             
         except:
             pass
