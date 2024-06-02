@@ -4,6 +4,9 @@ import datetime
 import errno
 from datetime import timedelta
 import json
+from kivy.utils import platform
+
+
 try:
     if platform == 'android':
         from jnius import autoclass

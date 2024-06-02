@@ -1,6 +1,16 @@
 debug=False
 
+from kivy.config import Config
+
 import kivy
+
+
+Config.set('kivy', 'exit_on_escape', '0')
+Config.set('graphics', 'width', '1200')
+Config.set('graphics', 'height', '1000')
+Config.set('graphics', 'minimum_width', '1000')
+Config.set('graphics', 'minimum_height', '800')
+
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
@@ -34,6 +44,12 @@ from functools import partial
 
 from collections import deque
 
+if platform == 'android':
+    from android.permissions import Permission, check_permission, request_permissions
+    perms = [Permission.WRITE_EXTERNAL_STORAGE]
+    if not all([check_permission(perm) for perm in perms]):
+        request_permissions(perms)
+
 
 if platform == 'android':
     from android import mActivity
@@ -48,7 +64,7 @@ from concurrent.futures import ThreadPoolExecutor
 import socket 
 from kivy.utils import platform
 
-from kivy.config import Config
+
 
 
 broadcast = False
@@ -75,7 +91,8 @@ else:
 
 kivy.require("1.10.1")
 
-Config.set('kivy', 'exit_on_escape', '0')
+
+
 
 server_urls = {
 #"Baden Württemberg": "https://bw.cycleball.eu/api",
@@ -95,9 +112,9 @@ class SelectorPage(GridLayout):
         self.cols = 1        
         
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = Button(text="Spieltag starten",font_size=25)#size_hint_y=None)
+        self.furtherButton = Button(text="Spieltag starten",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.furtherButton.disabled=True
@@ -105,7 +122,7 @@ class SelectorPage(GridLayout):
         self.add_widget(self.backFurtherButton)
         
         self.dropdownLand = DropDown()
-        self.mainbuttonLand = Button(text='Land auswählen',font_size=25,size_hint = (1, 0.15))#, size_hint_y=None)
+        self.mainbuttonLand = Button(text='Land auswählen',font_size=40,size_hint = (1, 0.15))#, size_hint_y=None)
 		# show the dropdown menu when the main button is released - note: all the bind() calls pass the instance of the caller (here, the mainbutton instance) as the first argument of the callback (here, dropdown.open.).
         self.mainbuttonLand.bind(on_release=self.dropdownLand.open)
         # one last thing, listen for the selection in the dropdown list and assign the data to the button text.
@@ -114,7 +131,7 @@ class SelectorPage(GridLayout):
         
         
         self.dropdownLeague = DropDown()
-        self.mainbuttonLeague = Button(text='Liga auswählen',font_size=25,size_hint = (1, 0.15))#, size_hint_y=None)
+        self.mainbuttonLeague = Button(text='Liga auswählen',font_size=40,size_hint = (1, 0.15))#, size_hint_y=None)
 		# show the dropdown menu when the main button is released - note: all the bind() calls pass the instance of the caller (here, the mainbutton instance) as the first argument of the callback (here, dropdown.open.).
         self.mainbuttonLeague.bind(on_release=self.dropdownLeague.open)
         # one last thing, listen for the selection in the dropdown list and assign the data to the button text.
@@ -122,14 +139,14 @@ class SelectorPage(GridLayout):
         self.add_widget(self.mainbuttonLeague)
         
         self.dropdownDay = DropDown()
-        self.mainbuttonDay = Button(text='Spieltag auswählen',font_size=25,size_hint = (1, 0.15))#, size_hint_y=None)
+        self.mainbuttonDay = Button(text='Spieltag auswählen',font_size=40,size_hint = (1, 0.15))#, size_hint_y=None)
 		# show the dropdown menu when the main button is released - note: all the bind() calls pass the instance of the caller (here, the mainbutton instance) as the first argument of the callback (here, dropdown.open.).
         self.mainbuttonDay.bind(on_release=self.dropdownDay.open)
         # one last thing, listen for the selection in the dropdown list and assign the data to the button text.
         self.dropdownDay.bind(on_select=lambda instance, x: setattr(self.mainbuttonDay, 'text', x))
         self.add_widget(self.mainbuttonDay)
         
-        self.labelCity = Label(text='',font_size=25,size_hint = (1, 0.55))#, size_hint_y=None)
+        self.labelCity = Label(text='',font_size=40,size_hint = (1, 0.55))#, size_hint_y=None)
         self.add_widget(self.labelCity)
         
         self.gameId=""
@@ -148,7 +165,7 @@ class SelectorPage(GridLayout):
         for land in landliste:
           print(land)
           if os.path.isdir(app_folder+"/spieltage/"+land):
-            btn = Button(text=land, size_hint_y=None, height=80,font_size=25)
+            btn = Button(text=land, size_hint_y=None, height=80,font_size=40)
             btn.bind(on_release=lambda btn,land=land: self.update_leagues(btn,land))
             self.dropdownLand.add_widget(btn)
         
@@ -177,7 +194,7 @@ class SelectorPage(GridLayout):
             # (disabling the size_hint_y) so the dropdown can calculate
             # the area it needs.
 
-            btn = Button(text=self.leagues[index][0]["leagueLongName"], size_hint_y=None, height=80,font_size=25)
+            btn = Button(text=self.leagues[index][0]["leagueLongName"], size_hint_y=None, height=80,font_size=40)
 
             # for each button, attach a callback that will call the select() method
             # on the dropdown. We'll pass the text of the button as the data of the
@@ -205,7 +222,7 @@ class SelectorPage(GridLayout):
                     date = spieltag["start"][8:10]+"."+spieltag["start"][5:7]+"."+spieltag["start"][0:4]
                     city = spieltag["gym"]["city"]
                      
-                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=80,font_size=25),spieltag["number"],spieltag["number"],city])
+                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=100,font_size=40),spieltag["number"],spieltag["number"],city])
                     
                 for btnL in sorted(btnList, key=lambda tup: tup[1]):  
                     btn=btnL[0]
@@ -233,18 +250,18 @@ class PinPage(GridLayout):
         self.league_short = league_short
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = Button(text="Pin übernehmen",font_size=25)#size_hint_y=None)
+        self.furtherButton = Button(text="Pin übernehmen",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.backFurtherButton.add_widget(self.furtherButton)
         self.add_widget(self.backFurtherButton)
-        self.textinput = TextInput(input_filter="int",size_hint = (1, 0.15),font_size=25)
+        self.textinput = TextInput(input_filter="int",size_hint = (1, 0.15),font_size=40)
         self.add_widget(self.textinput)
-        self.lb = Label(text='Spieltags Pin',size_hint = (1, 0.15),font_size=25)
+        self.lb = Label(text='Spieltags Pin',size_hint = (1, 0.15),font_size=40)
         self.add_widget(self.lb)
-        self.placeholder = Label(size_hint = (1, 0.55),font_size=25)
+        self.placeholder = Label(size_hint = (1, 0.55),font_size=40)
         self.add_widget(self.placeholder)
         chat_app.screen_manager.current = 'Pin'
     def goBack(self,instance):
@@ -264,9 +281,9 @@ class PresentPage(GridLayout):
         self.league_short = league_short
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = Button(text="alle anwesend",font_size=25)#size_hint_y=None)
+        self.furtherButton = Button(text="alle anwesend",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.backFurtherButton.add_widget(self.furtherButton)
@@ -279,7 +296,7 @@ class PresentPage(GridLayout):
         if pin != "":
             self.game_json["pin"]=int(pin)
         self.teamsLayout = GridLayout(cols=2,size_hint = (1, 0.7))
-        self.add_widget(Label(text="anwesende Mannschaften",font_size=25,size_hint = (1, 0.15)))
+        self.add_widget(Label(text="anwesende Mannschaften",font_size=40,size_hint = (1, 0.15)))
         self.add_widget(self.teamsLayout)
         self.bx=[]
         self.lb=[]
@@ -292,7 +309,7 @@ class PresentPage(GridLayout):
             #bx=CheckBox()
             #bx.active=True
             #teamLayout.add_widget(bx)
-            lb=ToggleButton(text=team["name"],font_size=25,background_color = (0, 1, 0, 1))
+            lb=ToggleButton(text=team["name"],font_size=40,background_color = (0, 1, 0, 1))
             #teamLayout.bind(on_prese=lambda lb=lb: self.set_box(lb))
             lb.bind(on_press=lambda lb: self.unset_box(self,lb))
             lb.state="down"
@@ -341,15 +358,15 @@ class SequencePage(GridLayout):
         self.absence_list=absence_list
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = Button(text="zurück",font_size=25)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = Button(text="weiter",font_size=25)#size_hint_y=None)
+        self.furtherButton = Button(text="weiter",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.backFurtherButton.add_widget(self.furtherButton)
         self.add_widget(self.backFurtherButton)
-        self.add_widget(Label(text="Spielreihenfolge (ohne ausfallende Spiele)",size_hint = (1, 0.05)))
-        self.sv = ScrollView(size_hint=(1, 0.7))
+        self.add_widget(Label(text="Spielreihenfolge (ohne ausfallende Spiele)",size_hint = (1, 0.05), font_size=30))
+        self.sv = ScrollView(size_hint=(1, 1.0))
         self.add_widget(self.sv)
         
         self.layout = GridLayout(cols=1, spacing=10, size_hint_y=None,height=self.minimum_size[1])
@@ -359,9 +376,9 @@ class SequencePage(GridLayout):
         
         
         self.upDownButton = GridLayout(cols=2,size_hint = (1, 0.1))
-        self.downButton = Button(text="nach hinten schieben",font_size=25,disabled = True)#size_hint_y=None)
+        self.downButton = Button(text="nach hinten schieben",font_size=40,disabled = True)#size_hint_y=None)
         self.downButton.bind(on_release=self.down)
-        self.upButton = Button(text="nach vorne schieben",font_size=25,disabled = True)#size_hint_y=None)
+        self.upButton = Button(text="nach vorne schieben",font_size=40,disabled = True)#size_hint_y=None)
         self.upButton.bind(on_release=self.up)
         self.upDownButton.add_widget(self.upButton)
         self.upDownButton.add_widget(self.downButton)
@@ -405,7 +422,7 @@ class SequencePage(GridLayout):
                 text+=self.game_json["games"][game_nr]["teamA"]
                 text+=" : "
                 text+=self.game_json["games"][game_nr]["teamB"]
-                bt=(ToggleButton(text=text,size_hint_y=None, height=40))
+                bt=(ToggleButton(text=text,size_hint_y=None, height=40, font_size=30))
                 self.buttonList.append(bt)
                 bt.bind(on_press=lambda bt,game_nr=game_nr: self.select_game(self,bt,game_nr))
                 self.layout.add_widget(bt)
@@ -483,25 +500,25 @@ class GamePage(GridLayout):
         self.startTime = datetime.datetime.now()
         
         
-        self.teamALabel=Label(size_hint = (0.4, 1),text="Team 1",font_size=40)
-        self.teamBLabel=Label(size_hint = (0.4, 1),text="Team 2",font_size=40)
-        self.htLabel=Label(size_hint = (0.2, 1),text="1. Halbzeit",font_size=30)
+        self.teamALabel=Label(size_hint = (0.4, 1),text="Team 1",font_size=60)
+        self.teamBLabel=Label(size_hint = (0.4, 1),text="Team 2",font_size=60)
+        self.htLabel=Label(size_hint = (0.2, 1),text="1. Halbzeit",font_size=50)
         self.firstLine.add_widget(self.teamALabel)
         self.firstLine.add_widget(self.htLabel)
         self.firstLine.add_widget(self.teamBLabel)
         
-        self.goalALabel=Label(size_hint = (0.3, 1),text="0",font_size=40)
-        self.goalBLabel=Label(size_hint = (0.3, 1),text="0",font_size=40)
-        self.timeLabel=Label(size_hint = (0.4, 1),text="7:00",font_size=40)
+        self.goalALabel=Label(size_hint = (0.3, 1),text="0",font_size=60)
+        self.goalBLabel=Label(size_hint = (0.3, 1),text="0",font_size=60)
+        self.timeLabel=Label(size_hint = (0.4, 1),text="7:00",font_size=60)
         self.secondLine.add_widget(self.goalALabel)
         self.secondLine.add_widget(self.timeLabel)
         self.secondLine.add_widget(self.goalBLabel)
         
-        self.teamAp=Button(size_hint = (0.15, 1),text="+",font_size=40)
-        self.teamAm=Button(size_hint = (0.15, 1),text="-",font_size=40)
-        self.teamBp=Button(size_hint = (0.15, 1),text="+",font_size=40)
-        self.teamBm=Button(size_hint = (0.15, 1),text="-",font_size=40)
-        self.sideButton=Button(size_hint =(0.4, 1),text="Seitenwechsel",font_size=25)
+        self.teamAp=Button(size_hint = (0.15, 1),text="+",font_size=60)
+        self.teamAm=Button(size_hint = (0.15, 1),text="-",font_size=60)
+        self.teamBp=Button(size_hint = (0.15, 1),text="+",font_size=60)
+        self.teamBm=Button(size_hint = (0.15, 1),text="-",font_size=60)
+        self.sideButton=Button(size_hint =(0.4, 1),text="Seitenwechsel",font_size=40)
         self.thirdLine.add_widget(self.teamAp)
         self.thirdLine.add_widget(self.teamAm)
         self.thirdLine.add_widget(self.sideButton)
@@ -515,24 +532,24 @@ class GamePage(GridLayout):
         self.teamBm.bind(on_release=self.teamBmCB)
 
         
-        self.rszButton=Button(size_hint =(0.3, 1),text="Restspielzeit",font_size=25)
+        self.rszButton=Button(size_hint =(0.3, 1),text="Restspielzeit",font_size=40)
         self.rszButton.bind(on_release=self.setRsz)
-        self.pauseButton=Button(size_hint =(0.4, 1),text="Halbzeitpause starten",font_size=25)
+        self.pauseButton=Button(size_hint =(0.4, 1),text="Halbzeitpause starten",font_size=40)
         self.pauseButton.bind(on_release=self.setPause)
-        self.settingsButton=Button(size_hint =(0.3, 1),text="Einstellungen",font_size=25)
+        self.settingsButton=Button(size_hint =(0.3, 1),text="Einstellungen",font_size=40)
         self.settingsButton.bind(on_release=self.create_popup)
         
         self.fourthLine.add_widget(self.rszButton)
         self.fourthLine.add_widget(self.pauseButton)
         self.fourthLine.add_widget(self.settingsButton)
         
-        self.lastButton=Button(size_hint =(0.3, 1),text="vorheriges Spiel",font_size=25)
+        self.lastButton=Button(size_hint =(0.3, 1),text="vorheriges Spiel",font_size=40)
         self.lastButton.bind(on_release=self.lastGame)
         
-        self.startStopButton=Button(size_hint =(0.4, 1),text="Zeit starten",font_size=25)
+        self.startStopButton=Button(size_hint =(0.4, 1),text="Zeit starten",font_size=40)
         self.startStopButton.bind(on_release=self.startGame)
 
-        self.nextButton=Button(size_hint =(0.3, 1),text="nächstes Spiel",font_size=25)
+        self.nextButton=Button(size_hint =(0.3, 1),text="nächstes Spiel",font_size=40)
         self.nextButton.bind(on_release=self.nextGame)
 
         self.fifthLine.add_widget(self.lastButton)
@@ -783,13 +800,13 @@ class GamePage(GridLayout):
         
     def setButtons  (self):
         self.teamAp.text="+10s"
-        self.teamAp.font_size=20
+        self.teamAp.font_size=40
         self.teamAm.text="-10s"
-        self.teamAm.font_size=20
+        self.teamAm.font_size=40
         self.teamBp.text="+1s"
-        self.teamBp.font_size=20
+        self.teamBp.font_size=40
         self.teamBm.text="-1s"
-        self.teamBm.font_size=20
+        self.teamBm.font_size=40
         
         self.teamAp.unbind(on_release=self.teamApCB)
         self.teamAm.unbind(on_release=self.teamAmCB)
@@ -802,13 +819,13 @@ class GamePage(GridLayout):
         
     def resetButtons  (self):
         self.teamAp.text="+"
-        self.teamAp.font_size=40
+        self.teamAp.font_size=60
         self.teamAm.text="-"
-        self.teamAm.font_size=40
+        self.teamAm.font_size=60
         self.teamBp.text="+"
-        self.teamBp.font_size=40
+        self.teamBp.font_size=60
         self.teamBm.text="-"
-        self.teamBm.font_size=40
+        self.teamBm.font_size=60
         
         self.teamAp.unbind(on_release=self.p10s)
         self.teamAm.unbind(on_release=self.m10s)
@@ -1009,11 +1026,11 @@ class GamePage(GridLayout):
     
     def create_popup(self,instance):
         layout=GridLayout(cols=1, rows=10)
-        min_5 = Button(text='5 min',font_size=20)
-        min_6 = Button(text='6 min',font_size=20)
-        min_7 = Button(text='7 min',font_size=20)
-        swapBt = Button(text='Halbzeit anpassen',font_size=20)
-        dismiss = Button(text='Abbrechen',font_size=20)
+        min_5 = Button(text='5 min',font_size=40)
+        min_6 = Button(text='6 min',font_size=40)
+        min_7 = Button(text='7 min',font_size=40)
+        swapBt = Button(text='Halbzeit anpassen',font_size=40)
+        dismiss = Button(text='Abbrechen',font_size=40)
         self.popup = Popup(title='Einstellungen',content=layout, auto_dismiss=False)
         layout.add_widget(min_5)
         layout.add_widget(min_6)
@@ -1059,7 +1076,7 @@ class StartPage(GridLayout):
         super().__init__(**kwargs)
         self.cols = 1
         self.rows = 10
-        self.message = Label(halign="center",font_size=30)
+        self.message = Label(halign="center",font_size=40)
 
 
         # Add text widget to the layout
@@ -1067,15 +1084,15 @@ class StartPage(GridLayout):
         self.message.text = "Willkommen zur Radballanzeige"    
         
         #Spieltag wählen
-        self.existing_day = Button(text="Spieltag wählen",font_size=25)
+        self.existing_day = Button(text="Spieltag wählen",font_size=40)
         self.add_widget(self.existing_day)
         
         #neuen Spieltag erstellen
-        self.new_day = Button(text="neuen Spieltag erstellen",font_size=25)
+        self.new_day = Button(text="neuen Spieltag erstellen",font_size=40)
         self.add_widget(self.new_day)
 
         #spieltage online laden
-        self.update_days = Button(text="Spieltage online aktualisieren",font_size=25)#,id="up_da")
+        self.update_days = Button(text="Spieltage online aktualisieren",font_size=40)#,id="up_da")
         self.add_widget(self.update_days)
 
         self.bind_buttons()
@@ -1124,9 +1141,9 @@ class StartPage(GridLayout):
         self.message.text_size = (self.message.width * 0.9, None)
     def create_popup(self,instance):
         layout=GridLayout(cols=1, rows=3)
-        layout.add_widget(Label(text="Wollen Sie wirklich das Update abbrechen?", halign="center",font_size=30))
-        cancel = Button(text='abbrechen',font_size=20)
-        go_on = Button(text='nicht abbrechen',font_size=20)
+        layout.add_widget(Label(text="Wollen Sie wirklich das Update abbrechen?", halign="center",font_size=40))
+        cancel = Button(text='abbrechen',font_size=40)
+        go_on = Button(text='nicht abbrechen',font_size=40)
         layout.add_widget(cancel)
         layout.add_widget(go_on)
         popup = Popup(title='cancel',content=layout, auto_dismiss=False)
@@ -1366,6 +1383,7 @@ class EpicApp(App):
         
         Window.bind(on_request_close=self.on_request_close)
         Window.bind(on_keyboard=self.on_key)
+        Window.update_viewport()
 
         return self.screen_manager
     
