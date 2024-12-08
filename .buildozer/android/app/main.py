@@ -572,7 +572,7 @@ class GamePage(GridLayout):
         if sequence == []:
             chat_app.screen_manager.current = 'Present'
         else:
-            self.gameNr=0
+            self.gameNr=self.sequence[0]
             self.load_Game()
     def load_Game (self):
         print(self.gameNr)
@@ -595,12 +595,12 @@ class GamePage(GridLayout):
             self.goalBLabel.text= "0"
             
             
-        if self.gameNr == 0:
+        if self.gameNr == self.sequence [0] :
             #game is first game
             self.lastButton.disabled=True
         else:
             self.lastButton.disabled=False
-        if self.gameNr == len(self.sequence)-1:
+        if self.gameNr == self.sequence[-1]:
             #game is last game
             #self.nextButton.disabled=True
             self.nextButton.unbind(on_release=self.nextGame)
@@ -631,7 +631,7 @@ class GamePage(GridLayout):
         if self.game_json["games"][self.gameNr]["state"]=="running":
             self.game_json["games"][self.gameNr]["state"]="finished"
         Clock.schedule_once(self.sendUpdate,1)
-        self.gameNr+=1
+        self.gameNr = self.sequence [self.sequence.index(self.gameNr) +1]
         self.load_Game()
     def lastGame (self,instance):        
         score = {}
@@ -648,7 +648,7 @@ class GamePage(GridLayout):
             
         else: 
             print("there is a big error")
-        self.gameNr-=1
+        self.gameNr = self.sequence [self.sequence.index(self.gameNr) - 1]
         self.load_Game()     
     def quitGames(self,instance):
         score = {}
