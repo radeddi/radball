@@ -77,7 +77,7 @@ services = Worker:service/service.py:foreground
 # author = © Copyright Info
 
 # Kivy version to use
-osx.kivy_version = 2.2.0
+osx.kivy_version = 2.3.0
 
 #
 # Android specific
