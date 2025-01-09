@@ -95,10 +95,10 @@ kivy.require("1.10.1")
 
 
 server_urls = {
-#"Baden Württemberg": "https://bw.cycleball.eu/api",
-#"Bayern": "https://by.cycleball.eu/api",
-#"Deutschland": "https://de.cycleball.eu/api",
-#"Brandenburg": "https://bb.cycleball.eu/api",
+"Baden Württemberg": "https://bw.cycleball.eu/api",
+"Bayern": "https://by.cycleball.eu/api",
+"Deutschland": "https://de.cycleball.eu/api",
+"Brandenburg": "https://bb.cycleball.eu/api",
 "Schweiz": "https://rmva.groff.de/api",
 }
 
@@ -386,7 +386,7 @@ class SequencePage(GridLayout):
         self.upButton.disabled=True
         self.downButton.disabled=True
 
-        
+
         
         self.update_buttons(range(len(self.game_json["games"])))
         
@@ -558,6 +558,8 @@ class GamePage(GridLayout):
         
         self.popup = []
         
+        self.rotation=False
+
 
     def load_GamePage(self,game_json,sequence,land,game_id,league_short):
         Clock.schedule_interval(self.refreshTime, 0.1)
@@ -726,19 +728,34 @@ class GamePage(GridLayout):
         else:
             nextTeams = f'{(self.game_json["games"][self.gameNr+1]["teamA"])} vs. {(self.game_json["games"][self.gameNr+1]["teamB"])}'
             
-        send_str = {
-            "team1": self.teamALabel.text,
-            "team2": self.teamBLabel.text,
-            "tore1": self.goalALabel.text,
-            "tore2": self.goalBLabel.text,
-            "minutes": self.timeLabel.text.split(":")[0],
-            "seconds": self.timeLabel.text.split(":")[1],
-            "schnaps": 0,
-            "next": nextTeams,
-            "status": self.gameStatus,
-            "rem": str(remTime),
-            "client_ip": client_ip
-            }
+        if self.rotation:
+            send_str = {
+                "team1": self.teamBLabel.text,
+                "team2": self.teamALabel.text,
+                "tore1": self.goalBLabel.text,
+                "tore2": self.goalALabel.text,
+                "minutes": self.timeLabel.text.split(":")[0],
+                "seconds": self.timeLabel.text.split(":")[1],
+                "schnaps": 0,
+                "next": nextTeams,
+                "status": self.gameStatus,
+                "rem": str(remTime),
+                "client_ip": client_ip
+                }
+        else:
+            send_str = {
+                "team1": self.teamALabel.text,
+                "team2": self.teamBLabel.text,
+                "tore1": self.goalALabel.text,
+                "tore2": self.goalBLabel.text,
+                "minutes": self.timeLabel.text.split(":")[0],
+                "seconds": self.timeLabel.text.split(":")[1],
+                "schnaps": 0,
+                "next": nextTeams,
+                "status": self.gameStatus,
+                "rem": str(remTime),
+                "client_ip": client_ip
+                }
         try:
             if platform == 'android' or debug:
                 #add Android here
@@ -1030,17 +1047,20 @@ class GamePage(GridLayout):
         min_6 = Button(text='6 min',font_size=40)
         min_7 = Button(text='7 min',font_size=40)
         swapBt = Button(text='Halbzeit anpassen',font_size=40)
+        swapPos = Button(text='Anzeige drehen',font_size=40)
         dismiss = Button(text='Abbrechen',font_size=40)
         self.popup = Popup(title='Einstellungen',content=layout, auto_dismiss=False)
         layout.add_widget(min_5)
         layout.add_widget(min_6)
         layout.add_widget(min_7)
         layout.add_widget(swapBt)
+        layout.add_widget(swapPos)
         layout.add_widget(dismiss)
         min_5.bind(on_press=(self.set_playtime5))
         min_6.bind(on_press=(self.set_playtime6))
         min_7.bind(on_press=(self.set_playtime7))
         swapBt.bind(on_press=(self.swapHT))
+        swapPos.bind(on_press=(self.swapP))
         dismiss.bind(on_press=self.popup.dismiss)
         self.popup.open()        
     
@@ -1070,6 +1090,9 @@ class GamePage(GridLayout):
             self.htLabel.text="2. Halbzeit"
         else:
             self.htLabel.text="1. Halbzeit"
+        self.popup.dismiss()
+    def swapP(self,instance):
+        self.rotation = not self.rotation
         self.popup.dismiss()
 class StartPage(GridLayout):
     def __init__(self, **kwargs):
@@ -1155,7 +1178,7 @@ class StartPage(GridLayout):
         self.run=False
     def update_all(self,instance):
         #try:
-        #self.clear_folder(app_folder+"/spieltage/")
+        self.clear_folder(app_folder+"/spieltage/")
         self.run=True
         self.reqList=[]
         self.waitlist=[]
