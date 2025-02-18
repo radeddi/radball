@@ -1590,9 +1590,9 @@ class NewGameStep2Screen(Screen):
         # Spinner mit bekannten Teams:
         spinner = Spinner(
             text="Team auswählen...",
-            values=["Prechtal 2", "Prechtal 3", "Hardt 1"],  # z.B.
+            values=KNOWN_TEAMS,  # jetzt wirklich die globale Liste
             font_size=25,
-            size_hint=(0.3, None), 
+            size_hint=(0.3, None),
             height=60
         )
         # TextInput
@@ -1601,12 +1601,11 @@ class NewGameStep2Screen(Screen):
         # "X"-Button
         remove_btn = Button(text="X", font_size=30, size_hint_x=0.1)
 
-        def on_spinner_select(spin, text):
-            # Beim Auswählen eines Teams -> TextInput füllen
-            print("text")
-            txt.text = text
+        def on_spinner_text(spin, new_value):
+            print("Spinner gewählt:", new_value)
+            txt.text = new_value
 
-        spinner.bind(text=on_spinner_select)
+        spinner.bind(text=on_spinner_text)
 
         def on_remove(btn):
             self.teamsContainer.remove_widget(row)
@@ -1741,7 +1740,7 @@ class NewGameStep3Screen(Screen):
                     })
                     game_counter += 1
 
-        data["games"] = list(reversed(games))
+        data["games"] = list((games))
         data["incidents"] = []
 
         # Fallbacks
