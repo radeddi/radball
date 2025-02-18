@@ -37,6 +37,7 @@ from kivy.properties import StringProperty, ListProperty
 from kivy.uix.relativelayout import RelativeLayout
 
 import os
+import re
 #import certifi as cfi
 import requests
 import random
@@ -123,11 +124,76 @@ server_urls = {
 }
 
 
+
+
 def set_orientation(orientation):
     if platform == "android":
         # Überprüfen, ob auf Android, und dann die Orientierung setzen
         import android
         android.orientation = orientation
+
+import re
+
+def build_known_teams():
+    """
+    Durchsucht alle .radball-Dateien unter 'spieltage/' und sammelt dort gefundene Teams in einem Set.
+    Anschließend entfernen wir alles ab dem ersten Vorkommen von:
+       - U + Ziffern (z.B. 'U15')
+       - oder jeder anderen Ziffer (z.B. '3', '12', '2ZSR')
+    So wird aus 'Neetzow U15' => 'Neetzow', 'Burgkunstadt U19ZSR' => 'Burgkunstadt', usw.
+
+    Alle zusammengesammelten Teamnamen speichern wir alphabetisch sortiert in der globalen Liste KNOWN_TEAMS.
+    """
+    global KNOWN_TEAMS
+    found_teams = set()
+
+    root_path = os.path.join(app_folder, "spieltage")
+    if not os.path.exists(root_path):
+        return  # Keine Spieltage vorhanden
+
+    for land_dir in sorted(os.listdir(root_path)):
+        full_land_path = os.path.join(root_path, land_dir)
+        if not os.path.isdir(full_land_path):
+            continue
+
+        # Jede .radball-Datei im Unterordner
+        for datei in sorted(os.listdir(full_land_path)):
+            if not datei.endswith(".radball"):
+                continue  # Nur radball-Dateien
+
+            full_file_path = os.path.join(full_land_path, datei)
+            try:
+                with open(full_file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+            except Exception as e:
+                print(f"Fehler beim Lesen von {full_file_path}: {e}")
+                continue
+
+            # Teams auslesen und verarbeiten
+            if "teams" in data:
+                for t in data["teams"]:
+                    raw_name = t.get("name", "").strip()
+                    if not raw_name:
+                        continue
+
+                    # Regex: Finde das erste Vorkommen von "Uxx" (groß/klein) ODER jeder anderen Ziffer
+                    # (?i) = case-insensitive
+                    # (u\d+|\d+) = "U" gefolgt von >=1 Ziffern ODER >=1 Ziffer
+                    pattern = r"(?i)(u\d+|\d+)"
+                    m = re.search(pattern, raw_name)
+                    if m:
+                        # Alles vor dem Fund behalten, Rest weg
+                        name_cleaned = raw_name[:m.start()].strip()
+                    else:
+                        # Keine Ziffer / kein "Uxx" gefunden, also komplett lassen
+                        name_cleaned = raw_name
+
+                    if name_cleaned:
+                        found_teams.add(name_cleaned)
+
+    # Alphabetisch sortieren
+    KNOWN_TEAMS = sorted(found_teams)
+    print("Aufgebaute KNOWN_TEAMS:", KNOWN_TEAMS)
 
 
 # Simple information/error page
@@ -1173,6 +1239,8 @@ class StartPage(GridLayout):
         chat_app.selector_page.update_info()
         chat_app.screen_manager.current = 'Selector'
     def new_button(self, instance):
+
+        build_known_teams()  # <-- Aufruf
         chat_app.temp_matchday_data = {}
         # Dann auf Seite 1 springen
         chat_app.screen_manager.current = "NewGameStep1"
@@ -1417,6 +1485,13 @@ class NewGameStep1Screen(Screen):
         super().__init__(**kwargs)
 
         layout = GridLayout(cols=1, spacing=10, padding=10)
+
+        self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
+        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.backButton.bind(on_release=self.go_back)
+        self.headerLayout.add_widget(self.backButton)
+        layout.add_widget(self.headerLayout, index=0)
+
         self.add_widget(layout)
 
         layout.add_widget(Label(text="Neuen Spieltag erstellen (1/3)", font_size=50, size_hint=(1, 0.1)))
@@ -1548,6 +1623,10 @@ class NewGameStep1Screen(Screen):
         # Weiter zu Schritt 2
         chat_app.screen_manager.current = "NewGameStep2"
 
+    def go_back(self, instance):
+    # zurück zur Screen "NewGameStep1"
+        chat_app.screen_manager.current = "Start"
+
 
 ###############################################################################
 # SCREEN 2: Teams eingeben
@@ -1558,6 +1637,13 @@ class NewGameStep2Screen(Screen):
         super().__init__(**kwargs)
 
         layout = GridLayout(cols=1, spacing=10, padding=10)
+
+        self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
+        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.backButton.bind(on_release=self.go_back)
+        self.headerLayout.add_widget(self.backButton)
+        layout.add_widget(self.headerLayout, index=0)
+
         self.add_widget(layout)
 
         layout.add_widget(Label(text="Teams anlegen (2/3)", font_size=50, size_hint=(1, 0.1)))
@@ -1647,6 +1733,10 @@ class NewGameStep2Screen(Screen):
         # Weiter zu Schritt 3
         chat_app.screen_manager.current = "NewGameStep3"
 
+    def go_back(self, instance):
+    # zurück zur Screen "NewGameStep2"
+        chat_app.screen_manager.current = "NewGameStep1"
+
 
 ###############################################################################
 # SCREEN 3: Spiele definieren
@@ -1657,6 +1747,13 @@ class NewGameStep3Screen(Screen):
         super().__init__(**kwargs)
 
         layout = GridLayout(cols=1, spacing=10, padding=10)
+
+        self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
+        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.backButton.bind(on_release=self.go_back)
+        self.headerLayout.add_widget(self.backButton)
+        layout.add_widget(self.headerLayout, index=0)
+
         self.add_widget(layout)
 
         layout.add_widget(Label(text="Spiele anlegen (3/3)", font_size=50, size_hint=(1, 0.1)))
@@ -1763,7 +1860,9 @@ class NewGameStep3Screen(Screen):
         print(f"[INFO] Neuer Spieltag gespeichert unter {save_path}")
         # Zurück zur Start-Seite
         chat_app.screen_manager.current = "Start"
-
+    def go_back(self, instance):
+    # zurück zur Screen "NewGameStep2"
+        chat_app.screen_manager.current = "NewGameStep2"
 
 
 class EpicApp(App):
@@ -1864,6 +1963,8 @@ class EpicApp(App):
         new_game_step3 = NewGameStep3Screen(name="NewGameStep3")
         self.screen_manager.add_widget(new_game_step3)
 
+        
+
 
         Window.bind(on_request_close=self.on_request_close)
         Window.bind(on_keyboard=self.on_key)
@@ -1872,7 +1973,9 @@ class EpicApp(App):
         if platform == 'android':
             orientation.set_sensor(mode='any')
 
+        
 
+        
         return self.screen_manager
     
 		
