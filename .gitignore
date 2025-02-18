@@ -5,3 +5,4 @@ logs/
 spieltage/
 spieltage_old/
 .buildozer/
+.buildozer/state.db

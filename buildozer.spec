@@ -57,7 +57,7 @@ requirements = python3,kivy, requests, openssl, plyer
 
 # (list) Supported orientations
 # Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
-orientation = landscape, landscape-reverse
+orientation = landscape, portrait
 
 # (list) List of services to declare
 # This is currently only relevant to Android services.
@@ -84,7 +84,7 @@ osx.kivy_version = 2.3.0
 #
 
 # (bool) Indicate if the application should be fullscreen or not
-fullscreen = 1
+fullscreen = 0
 
 # (string) Presplash background color (for android toolchain)
 # Supported formats are: #RRGGBB #AARRGGBB or one of the following names:
@@ -415,7 +415,7 @@ ios.codesign.allowed = false
 [buildozer]
 
 # (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
-log_level = 2
+log_level = 1
 
 # (int) Display warning if buildozer is run as root (0 = False, 1 = True)
 warn_on_root = 1
@@ -477,3 +477,8 @@ warn_on_root = 1
 #        buildozer --profile demo android debug
 #
 #   Environment variable overrides have priority over profile overrides.
+
+
+
+# (boolean) Use the private directory as a build cache
+use_setup_py = False

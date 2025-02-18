@@ -54,6 +54,7 @@ if platform == 'android':
 if platform == 'android':
     from android import mActivity
     from jnius import autoclass
+    from plyer import orientation
 
 try:
 	import simplejson as json
@@ -99,8 +100,15 @@ server_urls = {
 "Bayern": "https://by.cycleball.eu/api",
 "Deutschland": "https://de.cycleball.eu/api",
 "Brandenburg": "https://bb.cycleball.eu/api",
-"Schweiz": "https://rmva.groff.de/api",
+"Schweiz": "https://rmva.groff.de/api"
 }
+
+
+def set_orientation(orientation):
+    if platform == "android":
+        # Überprüfen, ob auf Android, und dann die Orientierung setzen
+        import android
+        android.orientation = orientation
 
 
 # Simple information/error page
@@ -574,6 +582,8 @@ class GamePage(GridLayout):
         if sequence == []:
             chat_app.screen_manager.current = 'Present'
         else:
+            if platform == "android":
+                orientation.set_sensor(mode='landscape')
             self.gameNr=self.sequence[0]
             self.load_Game()
     def load_Game (self):
@@ -1026,18 +1036,19 @@ class GamePage(GridLayout):
     
     def sendUpdate (self, instance=None):
         
-        url=f"{server_urls[self.land]}/leagues/{self.league_short}/matchdays/{self.gameId}"
-        print (url)
-        print(self.game_json)
-        try:
-            #r = requests.post(url, json=self.game_json, timeout=2)
-            params = json.dumps(self.game_json, indent=2)
+        if self.land in server_urls:
+            url=f"{server_urls[self.land]}/leagues/{self.league_short}/matchdays/{self.gameId}"
+            print (url)
+            print(self.game_json)
+            try:
+                #r = requests.post(url, json=self.game_json, timeout=2)
+                params = json.dumps(self.game_json, indent=2)
 
-            # changed Content-type from application/x-www-form-urlencoded to application/json
-            headers = {'Content-type': 'application/json','Accept': 'text/plain'}
-            UrlRequest(url, req_headers=headers,req_body=params, verify=False, timeout=10)
-        except:
-            pass
+                # changed Content-type from application/x-www-form-urlencoded to application/json
+                headers = {'Content-type': 'application/json','Accept': 'text/plain'}
+                UrlRequest(url, req_headers=headers,req_body=params, verify=False, timeout=10)
+            except:
+                pass
     
 
     
@@ -1143,11 +1154,13 @@ class StartPage(GridLayout):
         chat_app.selector_page.update_info()
         chat_app.screen_manager.current = 'Selector'
     def new_button(self, instance):
-        pass   
+        chat_app.new_game_page.load_NewGamePage()
+           
     def update_button(self, instance):
         Clock.schedule_once(self.update_all,0)
         
     def update_button_text(self,instance,text,*largs):
+        
         #pass
         
         self.update_days.text=text
@@ -1254,7 +1267,7 @@ class StartPage(GridLayout):
             Clock.schedule_once(self.check_all_req,1)
             self.pb.max=len(self.reqList)+len(self.waitlist)
             self.pb.value=len(self.reqList)-i
-#        except:
+    #        except:
  #           print("an error occured")
   #          Clock.schedule_once(self.check_all_req,1)
         
@@ -1308,17 +1321,50 @@ class StartPage(GridLayout):
         url = urllib.parse.urlunsplit(url)
         return url
     def clear_folder(self, dir):
-      if os.path.exists(dir):
-          for the_file in os.listdir(dir):
-              file_path = os.path.join(dir, the_file)
-              try:
-                  if os.path.isfile(file_path):
-                      os.unlink(file_path)
-                  else:
-                      self.clear_folder(file_path)
-                      os.rmdir(file_path)
-              except Exception as e:
-                  print(e)
+        if os.path.exists(dir):
+            for the_file in os.listdir(dir):
+                file_path = os.path.join(dir, the_file)
+                print(file_path)
+                print(dir)
+                
+                if dir == app_folder + "/spieltage/eigene":
+                    pass
+                else:
+                    
+                    try:
+                        if os.path.isfile(file_path):
+                            os.unlink(file_path)
+                        else:
+                            self.clear_folder(file_path)
+                            os.rmdir(file_path)
+                    except Exception as e:
+                        print(e)
+class NewGamePage(GridLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.cols = 1  
+
+        # Erste Zeile (firstLine)
+        self.firstLine = GridLayout(cols=3, size_hint=(1, 0.2))
+        self.add_widget(self.firstLine)
+
+        # Zweite Zeile (secondLine)
+        self.secondLine = GridLayout(cols=1, size_hint=(1, 0.8))
+        self.add_widget(self.secondLine)
+
+        # TextInput für die zweite Zeile
+        multiline_text_input = TextInput(multiline=True, hint_text="Hier Text eingeben...", size_hint=(1, 1))
+        self.secondLine.add_widget(multiline_text_input)
+
+
+
+
+    def load_NewGamePage(self):
+        if platform == 'android':
+            orientation.set_sensor(mode='portrait')
+            chat_app.screen_manager.current = 'NewGame'
+
 class EpicApp(App):
     service = ""
     def on_request_close(self, *args):
@@ -1362,7 +1408,7 @@ class EpicApp(App):
     def build(self):
         if platform == 'android':
             self.bgservice = self.start_service('Worker') # starts a service
-            
+
             
         
         # We are going to use screen manager, so we can add multiple screens
@@ -1403,10 +1449,20 @@ class EpicApp(App):
         screen.add_widget(self.game_page)
         self.screen_manager.add_widget(screen)
         
-        
+        self.new_game_page = NewGamePage()
+        screen = Screen(name='NewGame')
+        screen.add_widget(self.new_game_page)
+        self.screen_manager.add_widget(screen)
+
+
+
         Window.bind(on_request_close=self.on_request_close)
         Window.bind(on_keyboard=self.on_key)
         Window.update_viewport()
+
+        if platform == 'android':
+            orientation.set_sensor(mode='any')
+
 
         return self.screen_manager
     
