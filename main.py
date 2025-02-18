@@ -18,6 +18,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.checkbox import CheckBox
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.spinner import Spinner
+from kivy.uix.popup import Popup
 # to use buttons:
 from kivy.uix.button import Button
 from kivy.uix.togglebutton import ToggleButton
@@ -31,6 +33,8 @@ from kivy.network.urlrequest import UrlRequest
 from kivy.core.window import Window
 
 from kivy.uix.dropdown import DropDown
+from kivy.properties import StringProperty, ListProperty
+from kivy.uix.relativelayout import RelativeLayout
 
 import os
 #import certifi as cfi
@@ -64,6 +68,21 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 import socket 
 from kivy.utils import platform
+
+
+
+KNOWN_TEAMS = [
+    "Prechtal 2",
+    "Prechtal 3",
+    "Hardt 1",
+    "Ailingen 2",
+    "Weil im Schönbuch 1",
+    "Schwaikheim 1",
+    "Schwaikheim 2",
+    "Waldrems 4",
+    "Gastteam A",
+    "Gastteam B"
+]
 
 
 
@@ -1154,7 +1173,9 @@ class StartPage(GridLayout):
         chat_app.selector_page.update_info()
         chat_app.screen_manager.current = 'Selector'
     def new_button(self, instance):
-        chat_app.new_game_page.load_NewGamePage()
+        chat_app.temp_matchday_data = {}
+        # Dann auf Seite 1 springen
+        chat_app.screen_manager.current = "NewGameStep1"
            
     def update_button(self, instance):
         Clock.schedule_once(self.update_all,0)
@@ -1339,31 +1360,412 @@ class StartPage(GridLayout):
                             os.rmdir(file_path)
                     except Exception as e:
                         print(e)
-class NewGamePage(GridLayout):
+
+
+
+class AutoCompleteTextInput(TextInput):
+    """
+    Sehr einfaches Autocomplete für Teamnamen:
+    - Zeigt ein DropDown mit Vorschlägen aus KNOWN_TEAMS an, 
+      die den bisher eingegebenen Text enthalten.
+    - Klick auf Vorschlag -> TextInput wird damit gefüllt.
+    
+    Für ein vollwertiges Autocomplete bräuchte man ggf. mehr Logik
+    (z.B. Eingaben wie "schw" -> "Schwaikheim 1" finden).
+    """
+    # Liste der Vorschläge
+    suggestions = ListProperty([])
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.dropdown = DropDown()
+        self.bind(text=self.on_text)  # Bei Texteingabe Vorschläge aktualisieren
+    
+    def on_text(self, instance, value):
+        # Dropdown zurücksetzen
+        self.dropdown.dismiss()
+        self.dropdown.clear_widgets()
+        # Neue Vorschläge filtern
+        self.suggestions = [team for team in KNOWN_TEAMS if value.lower() in team.lower()]
+
+        # Bei leerer Eingabe nix anzeigen
+        if not self.text.strip():
+            return
+
+        # Dropdown füllen
+        for team_name in self.suggestions[:5]:  # max. 5 Vorschläge
+            btn = Button(text=team_name, size_hint_y=None, height=40)
+            btn.bind(on_release=lambda btn: self.select_autocomplete(btn.text))
+            self.dropdown.add_widget(btn)
+
+        # Dropdown öffnen, wenn Vorschläge vorhanden
+        if self.suggestions:
+            self.dropdown.open(self)
+
+    def select_autocomplete(self, text):
+        # Wenn Vorschlag geklickt -> in TextInput übernehmen und Dropdown schließen
+        self.text = text
+        self.dropdown.dismiss()
+
+
+
+###############################################################################
+# SCREEN 1: Allgemeine Spieltags-Infos
+###############################################################################
+class NewGameStep1Screen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.cols = 1  
+        layout = GridLayout(cols=1, spacing=10, padding=10)
+        self.add_widget(layout)
 
-        # Erste Zeile (firstLine)
-        self.firstLine = GridLayout(cols=3, size_hint=(1, 0.2))
-        self.add_widget(self.firstLine)
+        layout.add_widget(Label(text="Neuen Spieltag erstellen (1/3)", font_size=50, size_hint=(1, 0.1)))
 
-        # Zweite Zeile (secondLine)
-        self.secondLine = GridLayout(cols=1, size_hint=(1, 0.8))
-        self.add_widget(self.secondLine)
+        # Grid für Eingaben
+        input_grid = GridLayout(cols=2, size_hint=(1, 0.7))
+        layout.add_widget(input_grid)
 
-        # TextInput für die zweite Zeile
-        multiline_text_input = TextInput(multiline=True, hint_text="Hier Text eingeben...", size_hint=(1, 1))
-        self.secondLine.add_widget(multiline_text_input)
+        # leagueShortName
+        input_grid.add_widget(Label(text="leagueShortName:", font_size=40))
+        self.leagueShortNameInput = TextInput(font_size=40, multiline=False)
+        input_grid.add_widget(self.leagueShortNameInput)
+
+        # leagueLongName
+        input_grid.add_widget(Label(text="leagueLongName:", font_size=40))
+        self.leagueLongNameInput = TextInput(font_size=40, multiline=False)
+        input_grid.add_widget(self.leagueLongNameInput)
+
+        # Spieltagsnummer
+        input_grid.add_widget(Label(text="Spieltagsnummer:", font_size=40))
+        self.numberInput = TextInput(font_size=40, multiline=False, input_filter="int")
+        input_grid.add_widget(self.numberInput)
+
+        # HostClub
+        input_grid.add_widget(Label(text="hostClub:", font_size=40))
+        self.hostClubInput = TextInput(font_size=40, multiline=False)
+        input_grid.add_widget(self.hostClubInput)
+
+        # Datum-Label + Button für DatePicker
+        input_grid.add_widget(Label(text="Datum wählen:", font_size=40))
+        self.dateButton = Button(text="Datum wählen...", font_size=40)
+        self.dateButton.bind(on_release=self.open_date_picker)
+        input_grid.add_widget(self.dateButton)
+
+        # Weiter-Button
+        self.continueBtn = Button(text="Weiter", font_size=40, size_hint=(1, 0.2))
+        self.continueBtn.bind(on_release=self.go_next)
+        layout.add_widget(self.continueBtn)
+
+        self.picked_date = datetime.date.today()
+
+    def on_pre_enter(self, *args):
+        # Falls bei "Zurück" und Wiederkehr vorhandene Daten gefüllt werden sollen,
+        # könnte man hier 'chat_app.temp_matchday_data' lesen.
+        pass
+
+    def open_date_picker(self, instance):
+        """
+        Sehr einfacher DatePicker (Popup mit 3 Spinners: Jahr, Monat, Tag).
+        """
+        popup_layout = GridLayout(cols=2, spacing=5, padding=10)
+
+        # Spinner für Jahr
+        years = [str(y) for y in range(2023, 2035)]
+        self.yearSpinner = Spinner(text=str(self.picked_date.year), values=years, font_size=30)
+
+        # Spinner für Monat
+        months = [str(m) for m in range(1, 13)]
+        self.monthSpinner = Spinner(text=str(self.picked_date.month), values=months, font_size=30)
+
+        # Spinner für Tag
+        days = [str(d) for d in range(1, 32)]
+        self.daySpinner = Spinner(text=str(self.picked_date.day), values=days, font_size=30)
+
+        popup_layout.add_widget(Label(text="Jahr:", font_size=30))
+        popup_layout.add_widget(self.yearSpinner)
+        popup_layout.add_widget(Label(text="Monat:", font_size=30))
+        popup_layout.add_widget(self.monthSpinner)
+        popup_layout.add_widget(Label(text="Tag:", font_size=30))
+        popup_layout.add_widget(self.daySpinner)
+
+        ok_btn = Button(text="OK", font_size=30)
+        cancel_btn = Button(text="Abbrechen", font_size=30)
+        popup_layout.add_widget(ok_btn)
+        popup_layout.add_widget(cancel_btn)
+
+        popup = Popup(title="Datum wählen",
+                      content=popup_layout,
+                      size_hint=(None, None),
+                      size=(600, 400),
+                      auto_dismiss=False)
+
+        def on_ok(btn):
+            yy = int(self.yearSpinner.text)
+            mm = int(self.monthSpinner.text)
+            dd = int(self.daySpinner.text)
+            try:
+                self.picked_date = datetime.date(yy, mm, dd)
+                self.dateButton.text = self.picked_date.strftime("%Y-%m-%d")
+            except ValueError:
+                self.picked_date = datetime.date.today()
+                self.dateButton.text = "Fehlerhaft, neu wählen"
+            popup.dismiss()
+
+        def on_cancel(btn):
+            popup.dismiss()
+
+        ok_btn.bind(on_release=on_ok)
+        cancel_btn.bind(on_release=on_cancel)
+        popup.open()
+
+    def go_next(self, instance):
+        """
+        Speichert die Daten in chat_app.temp_matchday_data und wechselt zu Screen 2.
+        """
+        data = chat_app.temp_matchday_data
+
+        data["leagueShortName"] = self.leagueShortNameInput.text.strip()
+        data["leagueLongName"]  = self.leagueLongNameInput.text.strip()
+        data["hostClub"]        = self.hostClubInput.text.strip()
+
+        data["number"] = 1
+        if self.numberInput.text.isdigit():
+            data["number"] = int(self.numberInput.text)
+
+        # Datum:
+        dt_str = self.picked_date.strftime("%Y-%m-%dT00:00:00.000Z")
+        data["start"] = dt_str
+
+        # Gym etc. kann hier noch leer bleiben
+        data["gym"] = {
+            "name":   "",
+            "street": "",
+            "zip":    "",
+            "city":   "",
+            "phone":  ""
+        }
+
+        # Weiter zu Schritt 2
+        chat_app.screen_manager.current = "NewGameStep2"
 
 
+###############################################################################
+# SCREEN 2: Teams eingeben
+###############################################################################
+
+class NewGameStep2Screen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        layout = GridLayout(cols=1, spacing=10, padding=10)
+        self.add_widget(layout)
+
+        layout.add_widget(Label(text="Teams anlegen (2/3)", font_size=50, size_hint=(1, 0.1)))
+
+        # ScrollView
+        self.scroll = ScrollView(size_hint=(1, 0.7))
+        layout.add_widget(self.scroll)
+
+        self.teamsContainer = GridLayout(cols=1, spacing=5, size_hint_y=None)
+        self.teamsContainer.bind(minimum_height=self.teamsContainer.setter("height"))
+        self.scroll.add_widget(self.teamsContainer)
+
+        # "+ Team hinzufügen"
+        add_btn = Button(text="+ Team hinzufügen", font_size=40, size_hint=(1, 0.1))
+        add_btn.bind(on_release=self.add_team_row)
+        layout.add_widget(add_btn)
+
+        # Weiter-Button
+        self.continueBtn = Button(text="Weiter", font_size=40, size_hint=(1, 0.1))
+        self.continueBtn.bind(on_release=self.go_next)
+        layout.add_widget(self.continueBtn)
+
+    def add_team_row(self, *args):
+        """
+        Zeile: Spinner links, TextInput rechts, "X"-Button zum Entfernen.
+        Ausgewähltes Spinner-Item -> ins TextInput.
+        """
+        row = GridLayout(cols=3, size_hint_y=None, height=60)
+
+        # Spinner mit bekannten Teams:
+        spinner = Spinner(
+            text="Team auswählen...",
+            values=["Prechtal 2", "Prechtal 3", "Hardt 1"],  # z.B.
+            font_size=25,
+            size_hint=(0.3, None), 
+            height=60
+        )
+        # TextInput
+        txt = TextInput(font_size=25, multiline=False, size_hint_x=0.6)
+
+        # "X"-Button
+        remove_btn = Button(text="X", font_size=30, size_hint_x=0.1)
+
+        def on_spinner_select(spin, text):
+            # Beim Auswählen eines Teams -> TextInput füllen
+            print("text")
+            txt.text = text
+
+        spinner.bind(text=on_spinner_select)
+
+        def on_remove(btn):
+            self.teamsContainer.remove_widget(row)
+
+        remove_btn.bind(on_release=on_remove)
+
+        row.add_widget(spinner)
+        row.add_widget(txt)
+        row.add_widget(remove_btn)
+
+        self.teamsContainer.add_widget(row)
+
+    def go_next(self, instance):
+        """
+        Liest alle Textfelder aus und speichert sie in temp_matchday_data["teams"].
+        Danach weiter zu Schritt 3.
+        """
+        data = chat_app.temp_matchday_data
+        data["teams"] = []  # neu anlegen
+
+        # reversed, weil neue rows ganz oben in .children landen
+        for row in reversed(self.teamsContainer.children):
+            text_input = None
+            for child in row.children:
+                if isinstance(child, TextInput):
+                    text_input = child
+                    break
+
+            if text_input:
+                tname = text_input.text.strip()
+                if tname:
+                    # Team eintragen
+                    data["teams"].append({
+                        "name": tname,
+                        "present": True,
+                        "players": []
+                    })
+
+        # Weiter zu Schritt 3
+        chat_app.screen_manager.current = "NewGameStep3"
 
 
-    def load_NewGamePage(self):
-        if platform == 'android':
-            orientation.set_sensor(mode='portrait')
-            chat_app.screen_manager.current = 'NewGame'
+###############################################################################
+# SCREEN 3: Spiele definieren
+###############################################################################
+
+class NewGameStep3Screen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        layout = GridLayout(cols=1, spacing=10, padding=10)
+        self.add_widget(layout)
+
+        layout.add_widget(Label(text="Spiele anlegen (3/3)", font_size=50, size_hint=(1, 0.1)))
+
+        # ScrollView für Game-Eingaben
+        self.scroll = ScrollView(size_hint=(1, 0.7))
+        layout.add_widget(self.scroll)
+
+        self.gamesContainer = GridLayout(cols=1, spacing=5, size_hint_y=None)
+        self.gamesContainer.bind(minimum_height=self.gamesContainer.setter("height"))
+        self.scroll.add_widget(self.gamesContainer)
+
+        # "+ Spiel hinzufügen"
+        add_game_btn = Button(text="+ Spiel hinzufügen", font_size=40, size_hint=(1, 0.1))
+        add_game_btn.bind(on_release=self.add_game_row)
+        layout.add_widget(add_game_btn)
+
+        # "Speichern"-Button
+        save_btn = Button(text="Speichern", font_size=40, size_hint=(1, 0.1))
+        save_btn.bind(on_release=self.save_matchday)
+        layout.add_widget(save_btn)
+
+        self.available_teams = []
+
+    def on_pre_enter(self, *args):
+        """
+        Kurz bevor die Seite sichtbar wird: Teams aus temp_matchday_data holen
+        und in self.available_teams packen.
+        """
+        data = chat_app.temp_matchday_data
+        if "teams" in data:
+            self.available_teams = [t["name"] for t in data["teams"]]
+        else:
+            self.available_teams = []
+        # Optional: self.gamesContainer.clear_widgets() falls man neu aufbaut
+
+    def add_game_row(self, *args):
+        """
+        Zeile: SpinnerA, SpinnerB, "X"
+        """
+        row = GridLayout(cols=3, size_hint_y=None, height=60)
+
+        spinnerA = Spinner(text="Team A wählen", values=self.available_teams, font_size=25)
+        spinnerB = Spinner(text="Team B wählen", values=self.available_teams, font_size=25)
+        remove_btn = Button(text="X", font_size=30, size_hint_x=None, width=60)
+
+        def on_remove(btn):
+            self.gamesContainer.remove_widget(row)
+
+        remove_btn.bind(on_release=on_remove)
+
+        row.add_widget(spinnerA)
+        row.add_widget(spinnerB)
+        row.add_widget(remove_btn)
+        self.gamesContainer.add_widget(row)
+
+    def save_matchday(self, instance):
+        """
+        Liest alle Games aus, speichert sie in temp_matchday_data, schreibt das JSON.
+        """
+        data = chat_app.temp_matchday_data
+
+        games = []
+        game_counter = 1
+        for row in reversed(self.gamesContainer.children):
+            spinners = [c for c in row.children if isinstance(c, Spinner)]
+            if len(spinners) == 2:
+                # spinnerA = spinners[1], spinnerB = spinners[0] in umgekehrter Reihenfolge
+                teamA = spinners[1].text
+                teamB = spinners[0].text
+
+                # Nur gültige Paarungen übernehmen
+                if teamA not in ("Team A wählen", "") and teamB not in ("Team B wählen", "") and teamA != teamB:
+                    games.append({
+                        "number": game_counter,
+                        "teamA": teamA,
+                        "teamB": teamB,
+                        "goalsA": 0,
+                        "goalsB": 0,
+                        "state": "Open"
+                    })
+                    game_counter += 1
+
+        data["games"] = list(reversed(games))
+        data["incidents"] = []
+
+        # Fallbacks
+        if "leagueShortName" not in data:
+            data["leagueShortName"] = "UNDEF"
+        if "number" not in data:
+            data["number"] = 1
+
+        # Datei speichern
+        eigene_folder = os.path.join(app_folder, "spieltage", "eigene")
+        if not os.path.exists(eigene_folder):
+            os.makedirs(eigene_folder)
+
+        filename = f"{data['leagueShortName']}_{data['number']}.radball"
+        save_path = os.path.join(eigene_folder, filename)
+
+        with open(save_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+
+        print(f"[INFO] Neuer Spieltag gespeichert unter {save_path}")
+        # Zurück zur Start-Seite
+        chat_app.screen_manager.current = "Start"
+
+
 
 class EpicApp(App):
     service = ""
@@ -1449,11 +1851,19 @@ class EpicApp(App):
         screen.add_widget(self.game_page)
         self.screen_manager.add_widget(screen)
         
-        self.new_game_page = NewGamePage()
-        screen = Screen(name='NewGame')
-        screen.add_widget(self.new_game_page)
-        self.screen_manager.add_widget(screen)
+        self.temp_matchday_data = {}
 
+        # Schritt-1-Screen
+        new_game_step1 = NewGameStep1Screen(name="NewGameStep1")
+        self.screen_manager.add_widget(new_game_step1)
+
+        # Schritt-2-Screen
+        new_game_step2 = NewGameStep2Screen(name="NewGameStep2")
+        self.screen_manager.add_widget(new_game_step2)
+
+        # Schritt-3-Screen
+        new_game_step3 = NewGameStep3Screen(name="NewGameStep3")
+        self.screen_manager.add_widget(new_game_step3)
 
 
         Window.bind(on_request_close=self.on_request_close)
