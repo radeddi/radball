@@ -259,10 +259,15 @@ class SelectorPage(GridLayout):
         # Just one column
         self.cols = 1        
         
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
+
+
+
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = SwipeSafeButton(text="zurück",font_size=40)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = SwipeSafeButton(text="Spieltag starten",font_size=40)#size_hint_y=None)
+        self.furtherButton = Button(text="Spieltag starten",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.furtherButton.disabled=True
@@ -313,7 +318,7 @@ class SelectorPage(GridLayout):
         for land in landliste:
           print(land)
           if os.path.isdir(app_folder+"/spieltage/"+land):
-            btn = SwipeSafeButton(text=land, size_hint_y=None, height=80,font_size=40)
+            btn = Button(text=land, size_hint_y=None, height=80,font_size=40)
             btn.bind(on_release=lambda btn,land=land: self.update_leagues(btn,land))
             self.dropdownLand.add_widget(btn)
         
@@ -342,7 +347,7 @@ class SelectorPage(GridLayout):
             # (disabling the size_hint_y) so the dropdown can calculate
             # the area it needs.
 
-            btn = SwipeSafeButton(text=self.leagues[index][0]["leagueLongName"], size_hint_y=None, height=80,font_size=40)
+            btn = Button(text=self.leagues[index][0]["leagueLongName"], size_hint_y=None, height=80,font_size=40)
 
             # for each button, attach a callback that will call the select() method
             # on the dropdown. We'll pass the text of the button as the data of the
@@ -370,7 +375,7 @@ class SelectorPage(GridLayout):
                     date = spieltag["start"][8:10]+"."+spieltag["start"][5:7]+"."+spieltag["start"][0:4]
                     city = spieltag["gym"]["city"]
                      
-                    btnList.append([SwipeSafeButton(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=100,font_size=40),spieltag["number"],spieltag["number"],city])
+                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=100,font_size=40),spieltag["number"],spieltag["number"],city])
                     
                 for btnL in sorted(btnList, key=lambda tup: tup[1]):  
                     btn=btnL[0]
@@ -392,15 +397,21 @@ class PinPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
+
+
+
+
     def load_PinPage(self,land,game_id,league_short):
         self.land=land
         self.gameId=game_id
         self.league_short = league_short
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = SwipeSafeButton(text="zurück",font_size=40)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = SwipeSafeButton(text="Pin übernehmen",font_size=40)#size_hint_y=None)
+        self.furtherButton = Button(text="Pin übernehmen",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.backFurtherButton.add_widget(self.furtherButton)
@@ -423,15 +434,18 @@ class PresentPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
+
     def load_PresentPage(self,land,game_id,league_short,pin=0):
         self.land=land
         self.gameId=game_id
         self.league_short = league_short
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = SwipeSafeButton(text="zurück",font_size=40)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = SwipeSafeButton(text="alle anwesend",font_size=40)#size_hint_y=None)
+        self.furtherButton = Button(text="alle anwesend",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.backFurtherButton.add_widget(self.furtherButton)
@@ -459,7 +473,7 @@ class PresentPage(GridLayout):
             #teamLayout.add_widget(bx)
             lb=ToggleButton(text=team["name"],font_size=40,background_color = (0, 1, 0, 1))
             #teamLayout.bind(on_prese=lambda lb=lb: self.set_box(lb))
-            lb.bind(on_release=lambda lb: self.unset_box(self,lb))
+            lb.bind(on_press=lambda lb: self.unset_box(self,lb))
             lb.state="down"
             teamLayout.add_widget(lb)
             self.teamsLayout.add_widget(teamLayout)
@@ -495,6 +509,9 @@ class SequencePage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
+
         self.index=0
     def load_SequencePage(self,game_json,absence_list,land,game_id,league_short):
         
@@ -506,9 +523,9 @@ class SequencePage(GridLayout):
         self.absence_list=absence_list
         self.clear_widgets()
         self.backFurtherButton = GridLayout(cols=2,size_hint = (1, 0.15))
-        self.backButton = SwipeSafeButton(text="zurück",font_size=40)#size_hint_y=None)
+        self.backButton = Button(text="zurück",font_size=40)#size_hint_y=None)
         self.backButton.bind(on_release=self.goBack)
-        self.furtherButton = SwipeSafeButton(text="weiter",font_size=40)#size_hint_y=None)
+        self.furtherButton = Button(text="weiter",font_size=40)#size_hint_y=None)
         self.furtherButton.bind(on_release=self.goFurther)
         self.backFurtherButton.add_widget(self.backButton)
         self.backFurtherButton.add_widget(self.furtherButton)
@@ -524,9 +541,9 @@ class SequencePage(GridLayout):
         
         
         self.upDownButton = GridLayout(cols=2,size_hint = (1, 0.1))
-        self.downButton = SwipeSafeButton(text="nach hinten schieben",font_size=40,disabled = True)#size_hint_y=None)
+        self.downButton = Button(text="nach hinten schieben",font_size=40,disabled = True)#size_hint_y=None)
         self.downButton.bind(on_release=self.down)
-        self.upButton = SwipeSafeButton(text="nach vorne schieben",font_size=40,disabled = True)#size_hint_y=None)
+        self.upButton = Button(text="nach vorne schieben",font_size=40,disabled = True)#size_hint_y=None)
         self.upButton.bind(on_release=self.up)
         self.upDownButton.add_widget(self.upButton)
         self.upDownButton.add_widget(self.downButton)
@@ -572,7 +589,7 @@ class SequencePage(GridLayout):
                 text+=self.game_json["games"][game_nr]["teamB"]
                 bt=(ToggleButton(text=text,size_hint_y=None, height=40, font_size=30))
                 self.buttonList.append(bt)
-                bt.bind(on_release=lambda bt,game_nr=game_nr: self.select_game(self,bt,game_nr))
+                bt.bind(on_press=lambda bt,game_nr=game_nr: self.select_game(self,bt,game_nr))
                 self.layout.add_widget(bt)
         #print(absence_list)
         for game_nr in range(len(self.game_json["games"])):
@@ -605,6 +622,7 @@ class SequencePage(GridLayout):
         
     def up(self,instance):
         pos=self.sequence.index(self.index)
+        print(pos)
         self.sequence[pos],self.sequence[pos-1]=self.sequence[pos-1],self.sequence[pos]
         self.update_buttons(self.sequence)
         self.buttonList[pos-1].state="down"
@@ -613,6 +631,7 @@ class SequencePage(GridLayout):
         print("up")
     def down(self,instance):
         pos=self.sequence.index(self.index)
+        print(pos)
         self.sequence[pos],self.sequence[pos+1]=self.sequence[pos+1],self.sequence[pos]
         self.update_buttons(self.sequence)
         self.buttonList[pos+1].state="down"
@@ -625,6 +644,9 @@ class GamePage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols=1
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
+
         self.index=0 
         self.firstLine = GridLayout(cols=3,size_hint = (1, 0.2))
         self.secondLine = GridLayout(cols=3,size_hint = (1, 0.2))
@@ -1194,12 +1216,13 @@ class GamePage(GridLayout):
     
     def create_popup(self,instance):
         layout=GridLayout(cols=1, rows=10)
-        min_5 = SwipeSafeButton(text='5 min',font_size=40)
-        min_6 = SwipeSafeButton(text='6 min',font_size=40)
-        min_7 = SwipeSafeButton(text='7 min',font_size=40)
-        swapBt = SwipeSafeButton(text='Halbzeit anpassen',font_size=40)
-        swapPos = SwipeSafeButton(text='Anzeige drehen',font_size=40)
-        dismiss = SwipeSafeButton(text='Abbrechen',font_size=40)
+        self.padding = (50, 50, 50, 50)
+        min_5 = Button(text='5 min',font_size=40)
+        min_6 = Button(text='6 min',font_size=40)
+        min_7 = Button(text='7 min',font_size=40)
+        swapBt = Button(text='Halbzeit anpassen',font_size=40)
+        swapPos = Button(text='Anzeige drehen',font_size=40)
+        dismiss = Button(text='Abbrechen',font_size=40)
         self.popup = Popup(title='Einstellungen',content=layout, auto_dismiss=False)
         layout.add_widget(min_5)
         layout.add_widget(min_6)
@@ -1249,6 +1272,9 @@ class StartPage(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.cols = 1
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
+
         self.rows = 10
         self.message = Label(halign="center",font_size=40)
 
@@ -1258,15 +1284,15 @@ class StartPage(GridLayout):
         self.message.text = "Willkommen zur Radballanzeige"    
         
         #Spieltag wählen
-        self.existing_day = SwipeSafeButton(text="Spieltag wählen",font_size=40)
+        self.existing_day = Button(text="Spieltag wählen",font_size=40)
         self.add_widget(self.existing_day)
         
         #neuen Spieltag erstellen
-        self.new_day = SwipeSafeButton(text="neuen Spieltag erstellen",font_size=40)
+        self.new_day = Button(text="neuen Spieltag erstellen",font_size=40)
         self.add_widget(self.new_day)
 
         #spieltage online laden
-        self.update_days = SwipeSafeButton(text="Spieltage online aktualisieren",font_size=40)#,id="up_da")
+        self.update_days = Button(text="Spieltage online aktualisieren",font_size=40)#,id="up_da")
         self.add_widget(self.update_days)
 
         self.bind_buttons()
@@ -1320,10 +1346,11 @@ class StartPage(GridLayout):
     def update_text_width(self, *_):
         self.message.text_size = (self.message.width * 0.9, None)
     def create_popup(self,instance):
-        layout=GridLayout(cols=1, rows=3)
+        
+        layout=GridLayout(cols=1, rows=3, padding = (50, 50, 50, 50))
         layout.add_widget(Label(text="Wollen Sie wirklich das Update abbrechen?", halign="center",font_size=40))
-        cancel = SwipeSafeButton(text='abbrechen',font_size=40)
-        go_on = SwipeSafeButton(text='nicht abbrechen',font_size=40)
+        cancel = Button(text='abbrechen',font_size=40)
+        go_on = Button(text='nicht abbrechen',font_size=40)
         layout.add_widget(cancel)
         layout.add_widget(go_on)
         popup = Popup(title='cancel',content=layout, auto_dismiss=False)
@@ -1517,7 +1544,7 @@ class AutoCompleteTextInput(TextInput):
 
         # Dropdown füllen
         for team_name in self.suggestions[:5]:  # max. 5 Vorschläge
-            btn = SwipeSafeButton(text=team_name, size_hint_y=None, height=40)
+            btn = Button(text=team_name, size_hint_y=None, height=40)
             btn.bind(on_release=lambda btn: self.select_autocomplete(btn.text))
             self.dropdown.add_widget(btn)
 
@@ -1538,11 +1565,12 @@ class AutoCompleteTextInput(TextInput):
 class NewGameStep1Screen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
-        layout = GridLayout(cols=1, spacing=10, padding=10)
+        # links, oben, rechts, unten = 50 px Abstand
+        
+        layout = GridLayout(cols=1, spacing=10, padding=50)
 
         self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
-        self.backButton = SwipeSafeButton(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
         self.backButton.bind(on_release=self.go_back)
         self.headerLayout.add_widget(self.backButton)
         layout.add_widget(self.headerLayout, index=0)
@@ -1577,12 +1605,12 @@ class NewGameStep1Screen(Screen):
 
         # Datum-Label + Button für DatePicker
         input_grid.add_widget(Label(text="Datum wählen:", font_size=40))
-        self.dateButton = SwipeSafeButton(text="Datum wählen...", font_size=40)
+        self.dateButton = Button(text="Datum wählen...", font_size=40)
         self.dateButton.bind(on_release=self.open_date_picker)
         input_grid.add_widget(self.dateButton)
 
         # Weiter-Button
-        self.continueBtn = SwipeSafeButton(text="Weiter", font_size=40, size_hint=(1, 0.2))
+        self.continueBtn = Button(text="Weiter", font_size=40, size_hint=(1, 0.2))
         self.continueBtn.bind(on_release=self.go_next)
         layout.add_widget(self.continueBtn)
 
@@ -1598,7 +1626,7 @@ class NewGameStep1Screen(Screen):
         Sehr einfacher DatePicker (Popup mit 3 Spinners: Jahr, Monat, Tag).
         """
         popup_layout = GridLayout(cols=2, spacing=5, padding=10)
-
+        self.padding = (50, 50, 50, 50)
         # Spinner für Jahr
         years = [str(y) for y in range(2023, 2035)]
         self.yearSpinner = Spinner(text=str(self.picked_date.year), values=years, font_size=30)
@@ -1618,8 +1646,8 @@ class NewGameStep1Screen(Screen):
         popup_layout.add_widget(Label(text="Tag:", font_size=30))
         popup_layout.add_widget(self.daySpinner)
 
-        ok_btn = SwipeSafeButton(text="OK", font_size=30)
-        cancel_btn = SwipeSafeButton(text="Abbrechen", font_size=30)
+        ok_btn = Button(text="OK", font_size=30)
+        cancel_btn = Button(text="Abbrechen", font_size=30)
         popup_layout.add_widget(ok_btn)
         popup_layout.add_widget(cancel_btn)
 
@@ -1690,11 +1718,13 @@ class NewGameStep1Screen(Screen):
 class NewGameStep2Screen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
 
-        layout = GridLayout(cols=1, spacing=10, padding=10)
+        layout = GridLayout(cols=1, spacing=10, padding=50)
 
         self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
-        self.backButton = SwipeSafeButton(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
         self.backButton.bind(on_release=self.go_back)
         self.headerLayout.add_widget(self.backButton)
         layout.add_widget(self.headerLayout, index=0)
@@ -1712,12 +1742,12 @@ class NewGameStep2Screen(Screen):
         self.scroll.add_widget(self.teamsContainer)
 
         # "+ Team hinzufügen"
-        add_btn = SwipeSafeButton(text="+ Team hinzufügen", font_size=40, size_hint=(1, 0.1))
+        add_btn = Button(text="+ Team hinzufügen", font_size=40, size_hint=(1, 0.1))
         add_btn.bind(on_release=self.add_team_row)
         layout.add_widget(add_btn)
 
         # Weiter-Button
-        self.continueBtn = SwipeSafeButton(text="Weiter", font_size=40, size_hint=(1, 0.1))
+        self.continueBtn = Button(text="Weiter", font_size=40, size_hint=(1, 0.1))
         self.continueBtn.bind(on_release=self.go_next)
         layout.add_widget(self.continueBtn)
 
@@ -1740,7 +1770,7 @@ class NewGameStep2Screen(Screen):
         txt = TextInput(font_size=25, multiline=False, size_hint_x=0.6)
 
         # "X"-Button
-        remove_btn = SwipeSafeButton(text="X", font_size=30, size_hint_x=0.1)
+        remove_btn = Button(text="X", font_size=30, size_hint_x=0.1)
 
         def on_spinner_text(spin, new_value):
             print("Spinner gewählt:", new_value)
@@ -1800,11 +1830,13 @@ class NewGameStep2Screen(Screen):
 class NewGameStep3Screen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        # links, oben, rechts, unten = 50 px Abstand
+        self.padding = (50, 50, 50, 50)
 
-        layout = GridLayout(cols=1, spacing=10, padding=10)
+        layout = GridLayout(cols=1, spacing=10, padding=50)
 
         self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
-        self.backButton = SwipeSafeButton(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
         self.backButton.bind(on_release=self.go_back)
         self.headerLayout.add_widget(self.backButton)
         layout.add_widget(self.headerLayout, index=0)
@@ -1822,12 +1854,12 @@ class NewGameStep3Screen(Screen):
         self.scroll.add_widget(self.gamesContainer)
 
         # "+ Spiel hinzufügen"
-        add_game_btn = SwipeSafeButton(text="+ Spiel hinzufügen", font_size=40, size_hint=(1, 0.1))
+        add_game_btn = Button(text="+ Spiel hinzufügen", font_size=40, size_hint=(1, 0.1))
         add_game_btn.bind(on_release=self.add_game_row)
         layout.add_widget(add_game_btn)
 
         # "Speichern"-Button
-        save_btn = SwipeSafeButton(text="Speichern", font_size=40, size_hint=(1, 0.1))
+        save_btn = Button(text="Speichern", font_size=40, size_hint=(1, 0.1))
         save_btn.bind(on_release=self.save_matchday)
         layout.add_widget(save_btn)
 
@@ -1853,7 +1885,7 @@ class NewGameStep3Screen(Screen):
 
         spinnerA = Spinner(text="Team A wählen", values=self.available_teams, font_size=25)
         spinnerB = Spinner(text="Team B wählen", values=self.available_teams, font_size=25)
-        remove_btn = SwipeSafeButton(text="X", font_size=30, size_hint_x=None, width=60)
+        remove_btn = Button(text="X", font_size=30, size_hint_x=None, width=60)
 
         def on_remove(btn):
             self.gamesContainer.remove_widget(row)
@@ -1942,9 +1974,9 @@ class EpicApp(App):
         """
         box = BoxLayout(orientation='vertical')
         box.add_widget(Label(text=text))
-        mybutton = SwipeSafeButton(text='OK', size_hint=(1, 0.25))
+        mybutton = Button(text='OK', size_hint=(1, 0.25))
         box.add_widget(mybutton)
-        popup = Popup(title=title, content=box, size_hint=(None, None), size=(600, 300))
+        popup = Popup(title=title, content=box, size_hint=(None, None), size=(600, 300),padding = (50, 50, 50, 50))
         mybutton.bind(on_release=self.close_app)
         popup.open()
     
