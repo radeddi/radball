@@ -1905,6 +1905,30 @@ class EpicApp(App):
         service.start(mActivity,'')   # starts or re-initializes a service
         return service
 
+
+    def on_android_back(self, window, key, scancode, codepoint, modifiers):
+            # key==27 bedeutet "Escape"/"Back" in Kivy
+            if key == 27:
+                current_screen = self.screen_manager.current
+                if current_screen == "Start":
+                    # Wenn wir im Start-Screen sind, dürfen wir die App schließen:
+                    return False  # Kivy bzw. Android darf das Event normal behandeln -> App schließen
+                else:
+                    # In jedem anderen Screen gehen wir zurück zum jeweiligen vorherigen Screen
+                    if current_screen == "NewGameStep1":
+                        self.screen_manager.current = "Start"
+                    elif current_screen == "NewGameStep2":
+                        self.screen_manager.current = "NewGameStep1"
+                    elif current_screen == "NewGameStep3":
+                        self.screen_manager.current = "NewGameStep2"
+                    else:
+                        # Fallback, falls andere Screens: zurück zu "Start"
+                        self.screen_manager.current = "Start"
+
+                    return True  # Wir haben das Event verarbeitet, App bleibt offen
+            return False
+
+
     def build(self):
         if platform == 'android':
             self.bgservice = self.start_service('Worker') # starts a service
@@ -1973,6 +1997,11 @@ class EpicApp(App):
         if platform == 'android':
             orientation.set_sensor(mode='any')
 
+        
+        # 1) In build() oder on_start(), sobald dein ScreenManager fertig ist:
+        Window.bind(on_keyboard=self.on_android_back)
+
+        # 2) Neue Methode in EpicApp (nur das hier ist neu!):
         
 
         
