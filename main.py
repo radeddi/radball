@@ -18,7 +18,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.checkbox import CheckBox
 from kivy.uix.scrollview import ScrollView
-from kivy.uix.spinner import Spinner
+from kivy.uix.spinner import Spinner, SpinnerOption
 from kivy.uix.popup import Popup
 # to use buttons:
 from kivy.uix.button import Button
@@ -123,7 +123,8 @@ server_urls = {
 "Schweiz": "https://rmva.groff.de/api"
 }
 
-
+class MySpinnerOption(SpinnerOption):
+    font_size = 40  # Angepasste Schriftgröße
 
 
 def set_orientation(orientation):
@@ -249,7 +250,22 @@ class SwipeSafeButton(Button):
                 return True
         return super().on_touch_up(touch)
 
-
+def get_new_matchday_number(league_short):
+    eigene_folder = os.path.join(app_folder, "spieltage", "eigene")
+    if not os.path.exists(eigene_folder):
+        return 1
+    max_number = 0
+    for fname in os.listdir(eigene_folder):
+        if fname.startswith(f"{league_short}_") and fname.endswith(".radball"):
+            try:
+                # Entferne das Präfix (league_short + "_") und das Suffix ".radball"
+                number_str = fname[len(league_short) + 1: -8]
+                number = int(number_str)
+                if number > max_number:
+                    max_number = number
+            except Exception:
+                continue
+    return max_number + 1
 
 # Simple information/error page
 class SelectorPage(GridLayout):
@@ -299,7 +315,7 @@ class SelectorPage(GridLayout):
         self.dropdownDay.bind(on_select=lambda instance, x: setattr(self.mainbuttonDay, 'text', x))
         self.add_widget(self.mainbuttonDay)
         
-        self.labelCity = Label(text='',font_size=40,size_hint = (1, 0.55))#, size_hint_y=None)
+        self.labelCity = Label(text='',font_size=40,size_hint = (1, 0.4))#, size_hint_y=None)
         self.add_widget(self.labelCity)
         
         self.gameId=""
@@ -1569,10 +1585,13 @@ class NewGameStep1Screen(Screen):
         
         layout = GridLayout(cols=1, spacing=10, padding=50)
 
-        self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
-        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.headerLayout = GridLayout(cols=2, size_hint=(1, 0.15))
+        self.backButton = Button(text="Zurück", font_size=32)
         self.backButton.bind(on_release=self.go_back)
         self.headerLayout.add_widget(self.backButton)
+        self.nextButton = Button(text="Weiter", font_size=32)
+        self.nextButton.bind(on_release=self.go_next)
+        self.headerLayout.add_widget(self.nextButton)
         layout.add_widget(self.headerLayout, index=0)
 
         self.add_widget(layout)
@@ -1583,23 +1602,13 @@ class NewGameStep1Screen(Screen):
         input_grid = GridLayout(cols=2, size_hint=(1, 0.7))
         layout.add_widget(input_grid)
 
-        # leagueShortName
-        input_grid.add_widget(Label(text="leagueShortName:", font_size=40))
-        self.leagueShortNameInput = TextInput(font_size=40, multiline=False)
-        input_grid.add_widget(self.leagueShortNameInput)
-
-        # leagueLongName
-        input_grid.add_widget(Label(text="leagueLongName:", font_size=40))
+         # leagueLongName
+        input_grid.add_widget(Label(text="Turniername:", font_size=40))
         self.leagueLongNameInput = TextInput(font_size=40, multiline=False)
         input_grid.add_widget(self.leagueLongNameInput)
 
-        # Spieltagsnummer
-        input_grid.add_widget(Label(text="Spieltagsnummer:", font_size=40))
-        self.numberInput = TextInput(font_size=40, multiline=False, input_filter="int")
-        input_grid.add_widget(self.numberInput)
-
         # HostClub
-        input_grid.add_widget(Label(text="hostClub:", font_size=40))
+        input_grid.add_widget(Label(text="Veranstalter:", font_size=40))
         self.hostClubInput = TextInput(font_size=40, multiline=False)
         input_grid.add_widget(self.hostClubInput)
 
@@ -1609,10 +1618,6 @@ class NewGameStep1Screen(Screen):
         self.dateButton.bind(on_release=self.open_date_picker)
         input_grid.add_widget(self.dateButton)
 
-        # Weiter-Button
-        self.continueBtn = Button(text="Weiter", font_size=40, size_hint=(1, 0.2))
-        self.continueBtn.bind(on_release=self.go_next)
-        layout.add_widget(self.continueBtn)
 
         self.picked_date = datetime.date.today()
 
@@ -1629,15 +1634,15 @@ class NewGameStep1Screen(Screen):
         self.padding = (50, 50, 50, 50)
         # Spinner für Jahr
         years = [str(y) for y in range(2023, 2035)]
-        self.yearSpinner = Spinner(text=str(self.picked_date.year), values=years, font_size=30)
+        self.yearSpinner = Spinner(text=str(self.picked_date.year), values=years, font_size=30, option_cls=MySpinnerOption)
 
         # Spinner für Monat
         months = [str(m) for m in range(1, 13)]
-        self.monthSpinner = Spinner(text=str(self.picked_date.month), values=months, font_size=30)
+        self.monthSpinner = Spinner(text=str(self.picked_date.month), values=months, font_size=30, option_cls=MySpinnerOption)
 
         # Spinner für Tag
         days = [str(d) for d in range(1, 32)]
-        self.daySpinner = Spinner(text=str(self.picked_date.day), values=days, font_size=30)
+        self.daySpinner = Spinner(text=str(self.picked_date.day), values=days, font_size=30, option_cls=MySpinnerOption)
 
         popup_layout.add_widget(Label(text="Jahr:", font_size=30))
         popup_layout.add_widget(self.yearSpinner)
@@ -1677,24 +1682,29 @@ class NewGameStep1Screen(Screen):
         popup.open()
 
     def go_next(self, instance):
-        """
-        Speichert die Daten in chat_app.temp_matchday_data und wechselt zu Screen 2.
-        """
-        data = chat_app.temp_matchday_data
+        # Überprüfe, ob der leagueLongName eingegeben wurde
+        if not self.leagueLongNameInput.text.strip():
+            popup = Popup(
+                title="Fehlende Eingabe",
+                content=Label(text="Bitte fülle den Turniernamen aus.",font_size=30),
+                size_hint=(0.5, 0.5)
+            )
+            popup.open()
+            return
 
-        data["leagueShortName"] = self.leagueShortNameInput.text.strip()
+        data = chat_app.temp_matchday_data
+        data["leagueShortName"] = "own"
         data["leagueLongName"]  = self.leagueLongNameInput.text.strip()
         data["hostClub"]        = self.hostClubInput.text.strip()
 
-        data["number"] = 1
-        if self.numberInput.text.isdigit():
-            data["number"] = int(self.numberInput.text)
+        # Automatisch ermittelte Spieltagsnummer (siehe vorherige Anpassung)
+        data["number"] = get_new_matchday_number(data["leagueShortName"])
 
         # Datum:
         dt_str = self.picked_date.strftime("%Y-%m-%dT00:00:00.000Z")
         data["start"] = dt_str
 
-        # Gym etc. kann hier noch leer bleiben
+        # Gym-Daten (können noch leer bleiben)
         data["gym"] = {
             "name":   "",
             "street": "",
@@ -1703,8 +1713,9 @@ class NewGameStep1Screen(Screen):
             "phone":  ""
         }
 
-        # Weiter zu Schritt 2
         chat_app.screen_manager.current = "NewGameStep2"
+
+
 
     def go_back(self, instance):
     # zurück zur Screen "NewGameStep1"
@@ -1723,11 +1734,15 @@ class NewGameStep2Screen(Screen):
 
         layout = GridLayout(cols=1, spacing=10, padding=50)
 
-        self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
-        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.headerLayout = GridLayout(cols=2, size_hint=(1, 0.15))
+        self.backButton = Button(text="Zurück", font_size=32)
         self.backButton.bind(on_release=self.go_back)
         self.headerLayout.add_widget(self.backButton)
+        self.nextButton = Button(text="Weiter", font_size=32)
+        self.nextButton.bind(on_release=self.go_next)
+        self.headerLayout.add_widget(self.nextButton)
         layout.add_widget(self.headerLayout, index=0)
+
 
         self.add_widget(layout)
 
@@ -1746,10 +1761,6 @@ class NewGameStep2Screen(Screen):
         add_btn.bind(on_release=self.add_team_row)
         layout.add_widget(add_btn)
 
-        # Weiter-Button
-        self.continueBtn = Button(text="Weiter", font_size=40, size_hint=(1, 0.1))
-        self.continueBtn.bind(on_release=self.go_next)
-        layout.add_widget(self.continueBtn)
 
     def add_team_row(self, *args):
         """
@@ -1762,12 +1773,13 @@ class NewGameStep2Screen(Screen):
         spinner = Spinner(
             text="Team auswählen...",
             values=KNOWN_TEAMS,  # jetzt wirklich die globale Liste
-            font_size=25,
+            font_size=30,
             size_hint=(0.3, None),
-            height=60
+            height=60,
+            option_cls=MySpinnerOption
         )
         # TextInput
-        txt = TextInput(font_size=25, multiline=False, size_hint_x=0.6)
+        txt = TextInput(font_size=30, multiline=False, size_hint_x=0.6)
 
         # "X"-Button
         remove_btn = Button(text="X", font_size=30, size_hint_x=0.1)
@@ -1834,12 +1846,15 @@ class NewGameStep3Screen(Screen):
         self.padding = (50, 50, 50, 50)
 
         layout = GridLayout(cols=1, spacing=10, padding=50)
-
-        self.headerLayout = BoxLayout(orientation='horizontal', size_hint=(1, None), height=60, padding=(10, 10))
-        self.backButton = Button(text="‹ Back", font_size=32, size_hint=(None, 1), width=150)
+        self.headerLayout = GridLayout(cols=2, size_hint=(1, 0.15))
+        self.backButton = Button(text="Zurück", font_size=32)
         self.backButton.bind(on_release=self.go_back)
         self.headerLayout.add_widget(self.backButton)
+        self.saveButton = Button(text="Speichern", font_size=32)
+        self.saveButton.bind(on_release=self.save_matchday)
+        self.headerLayout.add_widget(self.saveButton)
         layout.add_widget(self.headerLayout, index=0)
+
 
         self.add_widget(layout)
 
@@ -1858,10 +1873,6 @@ class NewGameStep3Screen(Screen):
         add_game_btn.bind(on_release=self.add_game_row)
         layout.add_widget(add_game_btn)
 
-        # "Speichern"-Button
-        save_btn = Button(text="Speichern", font_size=40, size_hint=(1, 0.1))
-        save_btn.bind(on_release=self.save_matchday)
-        layout.add_widget(save_btn)
 
         self.available_teams = []
 
@@ -1883,8 +1894,8 @@ class NewGameStep3Screen(Screen):
         """
         row = GridLayout(cols=3, size_hint_y=None, height=60)
 
-        spinnerA = Spinner(text="Team A wählen", values=self.available_teams, font_size=25)
-        spinnerB = Spinner(text="Team B wählen", values=self.available_teams, font_size=25)
+        spinnerA = Spinner(text="Team A wählen", values=self.available_teams, font_size=30, option_cls=MySpinnerOption)
+        spinnerB = Spinner(text="Team B wählen", values=self.available_teams, font_size=30, option_cls=MySpinnerOption)
         remove_btn = Button(text="X", font_size=30, size_hint_x=None, width=60)
 
         def on_remove(btn):
@@ -1973,8 +1984,8 @@ class EpicApp(App):
         :rtype: None
         """
         box = BoxLayout(orientation='vertical')
-        box.add_widget(Label(text=text))
-        mybutton = Button(text='OK', size_hint=(1, 0.25))
+        box.add_widget(Label(text=text,font_size=30))
+        mybutton = Button(text='OK', size_hint=(1, 0.25), font_size=30)
         box.add_widget(mybutton)
         popup = Popup(title=title, content=box, size_hint=(None, None), size=(600, 300),padding = (50, 50, 50, 50))
         mybutton.bind(on_release=self.close_app)
