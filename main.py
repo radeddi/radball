@@ -684,7 +684,7 @@ class GamePage(GridLayout):
         self.timeLeft = timedelta ( minutes = 0, seconds = 15)
         self.playingTime = timedelta ( minutes = 7)
         self.startTime = datetime.datetime.now()
-        
+        self.pauseTime = datetime.datetime.now()        
         
         self.teamALabel=Label(size_hint = (0.4, 1),text="Team 1",font_size=60)
         self.teamBLabel=Label(size_hint = (0.4, 1),text="Team 2",font_size=60)
@@ -911,6 +911,30 @@ class GamePage(GridLayout):
                 minutes, remainder = divmod(remainder,60)
                 seconds, remainder = divmod(remainder,1)
                 self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+        elif self.gameStatus == 2:
+            remTime = self.timeLeft
+            remPause = -(datetime.datetime.now() - self.pauseTime) + self.halfTime
+            
+            if remPause  > timedelta(0):
+
+                total_seconds = int(remTime.total_seconds())
+                hours, remainder = divmod(total_seconds,60*60)
+                minutes, remainder = divmod(remainder,60)
+                seconds, remainder = divmod(remainder,1)
+                
+                pause_seconds = int(remPause.total_seconds())
+                pause_hours, remainder = divmod(pause_seconds,60*60)
+                pause_minutes, remainder = divmod(remainder,60)
+                pause_seconds, remainder = divmod(remainder,1)
+                
+                
+                self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+                self.pauseButton.text = '{}:{}'.format("{:0>2d}".format(pause_minutes),"{:0>2d}".format(pause_seconds))
+
+            else:
+                self.gameStatus = 0
+                self.pauseButton.text = "Halbzeitpause starten"
+
         if self.gameNr == len(self.sequence)-1 or not ((self.timeLabel.text.split(":")[0] == "0" and self.timeLabel.text.split(":")[1] == "00") or (self.timeLeft == self.playingTime and self.htLabel.text=="2. Halbzeit" and self.startStopButton.text=="Zeit starten")) :
             nextTeams = ""
         else:
@@ -1069,7 +1093,6 @@ class GamePage(GridLayout):
         seconds, remainder = divmod(remainder,1)
         self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         
-        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         
     def p10s (self,instance):
         total_seconds = int(self.playingTime.total_seconds())
@@ -1095,7 +1118,6 @@ class GamePage(GridLayout):
         seconds, remainder = divmod(remainder,1)
         self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         
-        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
     def m1s (self,instance):
         total_seconds = int(self.playingTime.total_seconds())
         hours, remainder = divmod(total_seconds,60*60)
@@ -1112,16 +1134,19 @@ class GamePage(GridLayout):
             self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
             
         t = datetime.datetime.strptime(self.sideButton.text,"%M:%S") - timedelta(seconds=1)
-        t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+        base = datetime.datetime(1900, 1, 1)
+        if (t - base) > timedelta(0):
+
+
+            t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+            
+            
+            total_seconds = int(t.total_seconds())
+            hours, remainder = divmod(total_seconds,60*60)
+            minutes, remainder = divmod(remainder,60)
+            seconds, remainder = divmod(remainder,1)
+            self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         
-        
-        total_seconds = int(t.total_seconds())
-        hours, remainder = divmod(total_seconds,60*60)
-        minutes, remainder = divmod(remainder,60)
-        seconds, remainder = divmod(remainder,1)
-        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-        
-        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
     def m10s (self,instance):
         total_seconds = int(self.playingTime.total_seconds())
         hours, remainder = divmod(total_seconds,60*60)
@@ -1138,16 +1163,17 @@ class GamePage(GridLayout):
             self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
             
         t = datetime.datetime.strptime(self.sideButton.text,"%M:%S") - timedelta(seconds=10)
-        t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+        base = datetime.datetime(1900, 1, 1)
+        if (t - base) > timedelta(0):
+            t = datetime.timedelta(days=t.day, hours=t.hour, minutes=t.minute, seconds=t.second)
+            
+            
+            total_seconds = int(t.total_seconds())
+            hours, remainder = divmod(total_seconds,60*60)
+            minutes, remainder = divmod(remainder,60)
+            seconds, remainder = divmod(remainder,1)
+            self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         
-        
-        total_seconds = int(t.total_seconds())
-        hours, remainder = divmod(total_seconds,60*60)
-        minutes, remainder = divmod(remainder,60)
-        seconds, remainder = divmod(remainder,1)
-        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-        
-        self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
     def startGame (self,instance):
         self.startStopButton.text="Zeit stoppen"
         self.startTime = datetime.datetime.now()    
@@ -1160,6 +1186,7 @@ class GamePage(GridLayout):
         self.nextButton.disabled = True
         self.gameStatus=1 
         self.game_json["games"][self.gameNr]["state"]="running"
+        self.pauseButton.text = "Halbzeitpause starten"
         Clock.schedule_once(self.sendUpdate,1)
     def stopGame (self,instance):
         self.startStopButton.text="Zeit starten"
@@ -1169,6 +1196,7 @@ class GamePage(GridLayout):
         self.rszButton.disabled = False
         self.settingsButton.disabled = False
         self.nextButton.disabled=False
+
 
         if self.gameNr == 0:
             #game is first game
@@ -1194,9 +1222,12 @@ class GamePage(GridLayout):
 
     def setPause (self,instance):
         self.sideChange()
+        self.pauseTime = datetime.datetime.now()  
         self.timeLeft = self.playingTime
         self.htLabel.text="2. Halbzeit"
-
+        self.gameStatus = 2
+        self.pauseButton.disabled = True
+        
     def teamApCB (self,instance):
         self.goalALabel.text = str(int(self.goalALabel.text) + 1)          
         Clock.schedule_once(self.sendUpdate,1)
