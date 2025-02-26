@@ -1,5 +1,7 @@
 debug=False
 
+__version__ = "0.0.1"
+
 from kivy.config import Config
 
 import kivy

@@ -6,10 +6,10 @@
 [app]
 
 # (str) Title of your application
-title = RMV-Amriswil
+title = Radballoon
 
 # (str) Package name
-package.name = rmva
+package.name = radball
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
@@ -35,11 +35,11 @@ source.include_patterns = service/*
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+#version = 0.0.1
 
 # (str) Application versioning (method 2)
-# version.regex = __version__ = ['"](.*)['"]
-# version.filename = %(source.dir)s/main.py
+ version.regex = __version__ = ['"](.*)['"]
+ version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
@@ -67,7 +67,7 @@ orientation = landscape, portrait
 # ":foreground:sticky" for sticky foreground services. The default is a background service.
 # Bound services are not supported.
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
-services = Worker:service/service.py:foreground
+services = radballoon:service/service.py:foreground
 
 #
 # OSX Specific
