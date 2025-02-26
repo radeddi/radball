@@ -665,22 +665,25 @@ class GamePage(GridLayout):
 
         self.index=0 
         self.firstLine = GridLayout(cols=3,size_hint = (1, 0.2))
+        self.LineHidden = GridLayout(cols=1,size_hint = (1, 0.0))
         self.secondLine = GridLayout(cols=3,size_hint = (1, 0.2))
         self.thirdLine = GridLayout(cols=5,size_hint = (1, 0.2))
         self.fourthLine = GridLayout(cols=3,size_hint = (1, 0.2))
         self.fifthLine = GridLayout(cols=3,size_hint = (1, 0.2))
         self.add_widget(self.firstLine)
         self.add_widget(self.secondLine)
+        self.add_widget(self.LineHidden)
         self.add_widget(self.thirdLine)
         self.add_widget(self.fourthLine)
         self.add_widget(self.fifthLine)
+
         
         self.gameNr=0
         self.gameStatus=0
         # 0 = stopped
         # 1 = running
         # 2 = halftime
-        self.halfTime = timedelta ( minutes = 2)
+        self.halfTime = timedelta ( minutes= 2)
         self.timeLeft = timedelta ( minutes = 0, seconds = 15)
         self.playingTime = timedelta ( minutes = 7)
         self.startTime = datetime.datetime.now()
@@ -875,6 +878,13 @@ class GamePage(GridLayout):
         except Exception as e: print(e)
         
     def refreshTime (self,instance):
+        
+        if self.gameNr == len(self.sequence)-1 or not ((self.timeLabel.text.split(":")[0] == "0" and self.timeLabel.text.split(":")[1] == "00") or (self.timeLeft == self.playingTime and self.htLabel.text=="2. Halbzeit" and self.startStopButton.text=="Zeit starten")) :
+            nextTeams = ""
+            nextTeamsLocal=''
+        else:
+            nextTeams = f'{(self.game_json["games"][self.gameNr+1]["teamA"])} \n {(self.game_json["games"][self.gameNr+1]["teamB"])}'
+            nextTeamsLocal=f'nächstes Spiel: {(self.game_json["games"][self.gameNr+1]["teamA"])} gegen {(self.game_json["games"][self.gameNr+1]["teamB"])}'
         if self.gameStatus == 0:
             remTime = self.timeLeft
             if remTime < timedelta ( minutes = 0):
@@ -930,15 +940,11 @@ class GamePage(GridLayout):
                 
                 self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
                 self.pauseButton.text = '{}:{}'.format("{:0>2d}".format(pause_minutes),"{:0>2d}".format(pause_seconds))
-
+                self.nextLabel.text = nextTeamsLocal
             else:
                 self.gameStatus = 0
                 self.pauseButton.text = "Halbzeitpause starten"
 
-        if self.gameNr == len(self.sequence)-1 or not ((self.timeLabel.text.split(":")[0] == "0" and self.timeLabel.text.split(":")[1] == "00") or (self.timeLeft == self.playingTime and self.htLabel.text=="2. Halbzeit" and self.startStopButton.text=="Zeit starten")) :
-            nextTeams = ""
-        else:
-            nextTeams = f'{(self.game_json["games"][self.gameNr+1]["teamA"])} vs. {(self.game_json["games"][self.gameNr+1]["teamB"])}'
             
         if self.rotation:
             send_str = {
@@ -1175,6 +1181,11 @@ class GamePage(GridLayout):
             self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         
     def startGame (self,instance):
+        self.LineHidden.clear_widgets()
+        self.LineHidden.size_hint = (1, 0.0)
+        self.firstLine.size_hint = (1, 0.2)
+        self.secondLine.size_hint = (1, 0.2)
+
         self.startStopButton.text="Zeit stoppen"
         self.startTime = datetime.datetime.now()    
         self.startStopButton.unbind(on_release=self.startGame)
@@ -1227,6 +1238,12 @@ class GamePage(GridLayout):
         self.htLabel.text="2. Halbzeit"
         self.gameStatus = 2
         self.pauseButton.disabled = True
+        
+        self.nextLabel=Label(size_hint = (0.2, 1),font_size=30)
+        self.LineHidden.add_widget(self.nextLabel)
+        self.firstLine.size_hint = (1, 0.15)
+        self.secondLine.size_hint = (1, 0.15)
+        self.LineHidden.size_hint = (1, 0.1)
         
     def teamApCB (self,instance):
         self.goalALabel.text = str(int(self.goalALabel.text) + 1)          
