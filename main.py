@@ -324,9 +324,9 @@ class SelectorPage(GridLayout):
         self.land=""
     def goBack(self,instance):
         print("going back")
-        chat_app.screen_manager.current = 'Start'
+        rad_app.screen_manager.current = 'Start'
     def goFurther(self,instance):
-        chat_app.pin_page.load_PinPage(self.land,self.gameId,self.league_short)
+        rad_app.pin_page.load_PinPage(self.land,self.gameId,self.league_short)
         
         # Called with a message, to update message text in widget
     def update_info(self):
@@ -440,12 +440,12 @@ class PinPage(GridLayout):
         self.add_widget(self.lb)
         self.placeholder = Label(size_hint = (1, 0.55),font_size=40)
         self.add_widget(self.placeholder)
-        chat_app.screen_manager.current = 'Pin'
+        rad_app.screen_manager.current = 'Pin'
     def goBack(self,instance):
-        chat_app.screen_manager.current = 'Selector'
+        rad_app.screen_manager.current = 'Selector'
         print("going back")
     def goFurther(self,instance):
-        chat_app.present_page.load_PresentPage(self.land,self.gameId,self.league_short,(self.textinput.text))
+        rad_app.present_page.load_PresentPage(self.land,self.gameId,self.league_short,(self.textinput.text))
         print("go on")   
 
 class PresentPage(GridLayout):
@@ -470,7 +470,7 @@ class PresentPage(GridLayout):
         self.add_widget(self.backFurtherButton)
         
         
-        chat_app.screen_manager.current = 'Present'
+        rad_app.screen_manager.current = 'Present'
         f=open(app_folder+"/spieltage/"+str(land)+"/"+league_short+"_"+str(game_id)+".radball","r",encoding='utf-8')
         self.game_json=(json.loads(f.read()))
         if pin != "":
@@ -513,11 +513,11 @@ class PresentPage(GridLayout):
         else:
             self.furtherButton.text=str(len(self.absent)) +" Mannschaften abwesend"  
     def goBack(self,instance):
-        chat_app.screen_manager.current = 'Pin'
+        rad_app.screen_manager.current = 'Pin'
         print("going back")
     def goFurther(self,instance):
         print(self.game_json)
-        chat_app.sequence_page.load_SequencePage(self.game_json,self.absent,self.land,self.gameId,self.league_short)
+        rad_app.sequence_page.load_SequencePage(self.game_json,self.absent,self.land,self.gameId,self.league_short)
         print("go on")
     
 
@@ -536,7 +536,7 @@ class SequencePage(GridLayout):
         self.land=land
         self.gameId=game_id
         self.league_short = league_short
-        chat_app.screen_manager.current = 'Sequence'
+        rad_app.screen_manager.current = 'Sequence'
         self.game_json=game_json
         self.absence_list=absence_list
         self.clear_widgets()
@@ -631,10 +631,10 @@ class SequencePage(GridLayout):
         else:
             self.downButton.disabled=True
     def goBack(self,instance):
-        chat_app.screen_manager.current = 'Present'
+        rad_app.screen_manager.current = 'Present'
         print("going back")
     def goFurther(self,instance):
-        chat_app.game_page.load_GamePage(self.game_json,self.sequence,self.land,self.gameId,self.league_short)
+        rad_app.game_page.load_GamePage(self.game_json,self.sequence,self.land,self.gameId,self.league_short)
        
         print("go on")
         
@@ -761,9 +761,9 @@ class GamePage(GridLayout):
         self.land=land
         self.gameId=game_id
         self.league_short = league_short
-        chat_app.screen_manager.current = 'Game'
+        rad_app.screen_manager.current = 'Game'
         if sequence == []:
-            chat_app.screen_manager.current = 'Present'
+            rad_app.screen_manager.current = 'Present'
         else:
             if platform == "android":
                 orientation.set_sensor(mode='landscape')
@@ -1383,14 +1383,14 @@ class StartPage(GridLayout):
         self.update_days.unbind(on_release=self.update_button)
         self.update_days.bind(on_release=self.create_popup)    
     def existing_button(self, instance):
-        chat_app.selector_page.update_info()
-        chat_app.screen_manager.current = 'Selector'
+        rad_app.selector_page.update_info()
+        rad_app.screen_manager.current = 'Selector'
     def new_button(self, instance):
 
         build_known_teams()  # <-- Aufruf
-        chat_app.temp_matchday_data = {}
+        rad_app.temp_matchday_data = {}
         # Dann auf Seite 1 springen
-        chat_app.screen_manager.current = "NewGameStep1"
+        rad_app.screen_manager.current = "NewGameStep1"
            
     def update_button(self, instance):
         Clock.schedule_once(self.update_all,0)
@@ -1673,7 +1673,7 @@ class NewGameStep1Screen(Screen):
 
     def on_pre_enter(self, *args):
         # Falls bei "Zurück" und Wiederkehr vorhandene Daten gefüllt werden sollen,
-        # könnte man hier 'chat_app.temp_matchday_data' lesen.
+        # könnte man hier 'rad_app.temp_matchday_data' lesen.
         pass
 
     def open_date_picker(self, instance):
@@ -1742,7 +1742,7 @@ class NewGameStep1Screen(Screen):
             popup.open()
             return
 
-        data = chat_app.temp_matchday_data
+        data = rad_app.temp_matchday_data
         data["leagueShortName"] = "own"
         data["leagueLongName"]  = self.leagueLongNameInput.text.strip()
         data["hostClub"]        = self.hostClubInput.text.strip()
@@ -1763,13 +1763,13 @@ class NewGameStep1Screen(Screen):
             "phone":  ""
         }
 
-        chat_app.screen_manager.current = "NewGameStep2"
+        rad_app.screen_manager.current = "NewGameStep2"
 
 
 
     def go_back(self, instance):
     # zurück zur Screen "NewGameStep1"
-        chat_app.screen_manager.current = "Start"
+        rad_app.screen_manager.current = "Start"
 
 
 ###############################################################################
@@ -1856,7 +1856,7 @@ class NewGameStep2Screen(Screen):
         Liest alle Textfelder aus und speichert sie in temp_matchday_data["teams"].
         Danach weiter zu Schritt 3.
         """
-        data = chat_app.temp_matchday_data
+        data = rad_app.temp_matchday_data
         data["teams"] = []  # neu anlegen
 
         # reversed, weil neue rows ganz oben in .children landen
@@ -1878,11 +1878,11 @@ class NewGameStep2Screen(Screen):
                     })
 
         # Weiter zu Schritt 3
-        chat_app.screen_manager.current = "NewGameStep3"
+        rad_app.screen_manager.current = "NewGameStep3"
 
     def go_back(self, instance):
     # zurück zur Screen "NewGameStep2"
-        chat_app.screen_manager.current = "NewGameStep1"
+        rad_app.screen_manager.current = "NewGameStep1"
 
 
 ###############################################################################
@@ -1931,7 +1931,7 @@ class NewGameStep3Screen(Screen):
         Kurz bevor die Seite sichtbar wird: Teams aus temp_matchday_data holen
         und in self.available_teams packen.
         """
-        data = chat_app.temp_matchday_data
+        data = rad_app.temp_matchday_data
         if "teams" in data:
             self.available_teams = [t["name"] for t in data["teams"]]
         else:
@@ -1962,7 +1962,7 @@ class NewGameStep3Screen(Screen):
         """
         Liest alle Games aus, speichert sie in temp_matchday_data, schreibt das JSON.
         """
-        data = chat_app.temp_matchday_data
+        data = rad_app.temp_matchday_data
 
         games = []
         game_counter = 1
@@ -2007,10 +2007,10 @@ class NewGameStep3Screen(Screen):
 
         print(f"[INFO] Neuer Spieltag gespeichert unter {save_path}")
         # Zurück zur Start-Seite
-        chat_app.screen_manager.current = "Start"
+        rad_app.screen_manager.current = "Start"
     def go_back(self, instance):
     # zurück zur Screen "NewGameStep2"
-        chat_app.screen_manager.current = "NewGameStep2"
+        rad_app.screen_manager.current = "NewGameStep2"
 
 
 class EpicApp(App):
@@ -2048,7 +2048,7 @@ class EpicApp(App):
     
     def start_service(self, name):    
         context =  mActivity.getApplicationContext()
-        service_name = str(context.getPackageName()) + '.Service' + "Worker"
+        service_name = str(context.getPackageName()) + '.ServiceRadballoon'
         service = autoclass(service_name)
         service.start(mActivity,'')   # starts or re-initializes a service
         return service
@@ -2079,7 +2079,7 @@ class EpicApp(App):
 
     def build(self):
         if platform == 'android':
-            self.bgservice = self.start_service('Worker') # starts a service
+            self.bgservice = self.start_service('radballoon') # starts a service
 
             
         
@@ -2161,5 +2161,5 @@ if __name__ == "__main__":
     app_folder = os.path.dirname(os.path.abspath(__file__))
     if not os.path.exists(app_folder+"/spieltage"):
         os.makedirs(app_folder+"/spieltage")
-    chat_app = EpicApp()
-    chat_app.run()
+    rad_app = EpicApp()
+    rad_app.run()
