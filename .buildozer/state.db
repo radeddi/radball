@@ -1,1 +1,0 @@
-{"android:sdk_installation": ["31", "21", "25b", "/home/etienne/.buildozer/android/platform/android-sdk", "/home/etienne/.buildozer/android/platform/android-ndk-r25b"], "cache.build_id": "31", "android:latestapk": "radball-0.0.1-arm64-v8a_armeabi-v7a-debug.apk", "android:latestmode": "debug", "buildozer:defaultcommand": ["android", "debug", "deploy", "run", "logcat"]}
