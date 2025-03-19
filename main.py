@@ -1,6 +1,6 @@
 debug=False
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 from kivy.config import Config
 
@@ -2048,7 +2048,7 @@ class EpicApp(App):
     
     def start_service(self, name):    
         context =  mActivity.getApplicationContext()
-        service_name = str(context.getPackageName()) + '.ServiceRadballoon'
+        service_name = str(context.getPackageName()) + '.Service' + "radball"
         service = autoclass(service_name)
         service.start(mActivity,'')   # starts or re-initializes a service
         return service
@@ -2079,7 +2079,7 @@ class EpicApp(App):
 
     def build(self):
         if platform == 'android':
-            self.bgservice = self.start_service('radballoon') # starts a service
+            self.bgservice = self.start_service('radball') # starts a service
 
             
         

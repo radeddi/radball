@@ -7,7 +7,4 @@ spieltage_old/
 .buildozer/
 .buildozer/state.db
 __pycache__
-<<<<<<< HEAD
-data/DALL·E 2025-02-26 22.41.54 - A minimalistic and modern logo featuring a half bicycle wheel with spokes that seamlessly transitions into a clock. The design should be simple, using.webp
-=======
->>>>>>> 0484eb45 (Aufgräumt und alle alten Files entfernt)
+data
