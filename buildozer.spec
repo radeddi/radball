@@ -67,7 +67,7 @@ orientation = landscape, portrait
 # ":foreground:sticky" for sticky foreground services. The default is a background service.
 # Bound services are not supported.
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
-services = radball:service/service.py:foreground
+services = Radball:service/service.py:foreground
 
 #
 # OSX Specific
