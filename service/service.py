@@ -46,10 +46,11 @@ def str_to_timedelta(time_str):
 
         return timedelta(hours=int(hours), minutes=int(minutes), seconds=int(seconds), microseconds=microseconds)
     except:
-        return timedelta(seconds=0)
+        return timedelta(seconds=-1)
 
 if __name__ == "__main__":
     
+    last_data = b""
     if platform == 'android':
         Logger = autoclass('java.util.logging.Logger')
         mylogger = Logger.getLogger('MyLogger')
@@ -60,7 +61,7 @@ if __name__ == "__main__":
                 mylogger.info("Try")
             #print("hello")
             data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
-            
+            last_data = data
             json_data = json.loads(data)
             
             client_ip = json_data["client_ip"]
@@ -76,10 +77,11 @@ if __name__ == "__main__":
             last_received=datetime.datetime.now()
             remaining_time = str_to_timedelta(json_data["rem"])
             
-            time.sleep(0.01)
+            time.sleep(0.005)
             
         except socket.timeout:
             timeLabel = "0:00"
+            game = True
             if platform == 'android':
                 mylogger.info("Except")
             if json_data:
@@ -129,6 +131,8 @@ if __name__ == "__main__":
                         minutes, remainder = divmod(remainder,60)
                         seconds, remainder = divmod(remainder,1)
                         timeLabel = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
+                elif json_data["status"] == 2:
+                    game = False
                 else:
                     pass
                 print(timeLabel)
@@ -137,8 +141,12 @@ if __name__ == "__main__":
                 json_data["minutes"] = str(timeLabel.split(":")[0])
                 json_data["seconds"] = str(timeLabel.split(":")[1])
                 try:
-                    for client in client_ip:
-                        sock_send.sendto((json.dumps(json_data)+"\n").encode(), (client, 5005))
+                    if game:
+                        for client in client_ip:
+                            sock_send.sendto((json.dumps(json_data)+"\n").encode(), (client, 5005))
+                    else:
+                        for client in client_ip:
+                            sock_send.sendto(last_data, (client, 5005))
                 except:
                     pass
             time.sleep(0.01)

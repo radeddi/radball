@@ -12,7 +12,7 @@ title = Radballoon
 package.name = radball
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = radball.groff.de
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -106,7 +106,7 @@ fullscreen = 0
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
 #android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
-android.permissions = INTERNET,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,ACCESS_NETWORK_STATE, LOCATION, FOREGROUND_SERVICE
+android.permissions = INTERNET,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,ACCESS_NETWORK_STATE, LOCATION, FOREGROUND_SERVICE, CHANGE_WIFI_MULTICAST_STATE, ACCESS_WIFI_STATE
 
 
 # (list) features (adds uses-feature -tags to manifest)
@@ -317,7 +317,7 @@ android.allow_backup = True
 # android.no-byte-compile-python = False
 
 # (str) The format used to package the app for release mode (aab or apk or aar).
-# android.release_artifact = aab
+android.release_artifact = apk
 
 # (str) The format used to package the app for debug mode (apk or aar).
 # android.debug_artifact = apk

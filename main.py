@@ -1,6 +1,6 @@
 debug=False
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 from kivy.config import Config
 
@@ -72,6 +72,7 @@ from concurrent.futures import ThreadPoolExecutor
 import socket 
 from kivy.utils import platform
 
+from kivy.core.window import Window
 
 
 KNOWN_TEAMS = [
@@ -767,6 +768,7 @@ class GamePage(GridLayout):
         else:
             if platform == "android":
                 orientation.set_sensor(mode='landscape')
+                Window.allow_screensaver = False
             self.gameNr=self.sequence[0]
             self.load_Game()
     def load_Game (self):
@@ -864,6 +866,8 @@ class GamePage(GridLayout):
             self.game_json["games"][self.gameNr]["state"]="finished"
         Clock.schedule_once(self.sendUpdate,1)
         time.sleep(3)
+        Window.allow_screensaver = True
+        rad_app.screen_manager.current = 'Start'
         #exit()
     def findClients (self,instance):
         try:
@@ -2069,6 +2073,8 @@ class EpicApp(App):
                         self.screen_manager.current = "NewGameStep1"
                     elif current_screen == "NewGameStep3":
                         self.screen_manager.current = "NewGameStep2"
+                    elif current_screen == "Game":
+                        return False
                     else:
                         # Fallback, falls andere Screens: zurück zu "Start"
                         self.screen_manager.current = "Start"
