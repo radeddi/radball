@@ -43,7 +43,8 @@ import re
 #import certifi as cfi
 import requests
 import random
-import urllib.parse
+import certifi
+from matchday_import import FEEDS, SWISS_API, import_jobs, league_path, save_matchday
 
 import datetime
 from datetime import timedelta
@@ -117,14 +118,6 @@ kivy.require("1.10.1")
 
 
 
-
-server_urls = {
-"Baden Württemberg": "https://bw.cycleball.eu/api",
-"Bayern": "https://by.cycleball.eu/api",
-"Deutschland": "https://de.cycleball.eu/api",
-"Brandenburg": "https://bb.cycleball.eu/api",
-"Schweiz": "https://rmva.groff.de/api"
-}
 
 class MySpinnerOption(SpinnerOption):
     font_size = 40  # Angepasste Schriftgröße
@@ -348,15 +341,18 @@ class SelectorPage(GridLayout):
         self.spieltage=dict()
         self.leagues=dict()
         for datei in dateiliste:
-            f=open(app_folder+"/spieltage/"+land+"/"+datei,"r",encoding='utf-8')
-            game_json=(json.loads(f.read()))
-            self.spieltage[datei]=game_json
-            print(game_json)
-            print(type(game_json))
-            if game_json['leagueLongName'] in self.leagues.keys():
-               self.leagues[game_json['leagueLongName']].append(game_json)
-            else:
-                self.leagues[game_json['leagueLongName']]=[game_json]
+            if not datei.endswith(".radball"):
+                continue
+            try:
+                path = os.path.join(app_folder, "spieltage", land, datei)
+                with open(path, encoding="utf-8") as file:
+                    game_json = json.load(file)
+                league_name = game_json["leagueLongName"]
+            except (KeyError, OSError, TypeError, ValueError) as error:
+                print(f"Spieltag übersprungen: {datei}: {error}")
+                continue
+            self.spieltage[datei] = game_json
+            self.leagues.setdefault(league_name, []).append(game_json)
         for key in self.leagues.keys():
             print(key)
         self.dropdownLeague.clear_widgets()
@@ -394,12 +390,12 @@ class SelectorPage(GridLayout):
                     date = spieltag["start"][8:10]+"."+spieltag["start"][5:7]+"."+spieltag["start"][0:4]
                     city = spieltag["gym"]["city"]
                      
-                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=100,font_size=40),spieltag["number"],spieltag["number"],city])
+                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=100,font_size=40),spieltag["number"],spieltag["number"],city,spieltag["leagueShortName"]])
                     
                 for btnL in sorted(btnList, key=lambda tup: tup[1]):  
                     btn=btnL[0]
                     #btn.bind(on_release=lambda btn: self.dropdownDay.select(btn.text))
-                    btn.bind(on_release=lambda btn,btnL=btnL: self.dropdownDayAction(btn,btnL[2],btnL[3],spieltag["leagueShortName"]))
+                    btn.bind(on_release=lambda btn,btnL=btnL: self.dropdownDayAction(btn,btnL[2],btnL[3],btnL[4]))
                     self.dropdownDay.add_widget(btn)    
     def dropdownDayAction(self, btn,index,city,league_short):
         self.dropdownDay.select(btn.text)
@@ -780,7 +776,7 @@ class GamePage(GridLayout):
         self.htLabel.text="1. Halbzeit"
         
         if "score" in self.game_json["games"][self.gameNr]:
-            if "goalsA" and "goalsB" in self.game_json["games"][self.gameNr]["score"]:
+            if {"goalsA", "goalsB"} <= self.game_json["games"][self.gameNr]["score"].keys():
                 self.goalALabel.text= str(self.game_json["games"][self.gameNr]["score"]["goalsA"])
                 self.goalBLabel.text= str(self.game_json["games"][self.gameNr]["score"]["goalsB"])
                 print("there is a score")
@@ -1268,8 +1264,8 @@ class GamePage(GridLayout):
     
     def sendUpdate (self, instance=None):
         
-        if self.land in server_urls:
-            url=f"{server_urls[self.land]}/leagues/{self.league_short}/matchdays/{self.gameId}"
+        if self.land == "Schweiz":
+            url = f"{SWISS_API}{league_path(self.league_short)}/{self.gameId}"
             print (url)
             print(self.game_json)
             try:
@@ -1376,6 +1372,7 @@ class StartPage(GridLayout):
         self.message.bind(width=self.update_text_width)
         self.pb=ProgressBar()
         self.add_widget(self.pb)
+        self.requests = {}
     def bind_buttons(self):
         self.existing_day.bind(on_release=self.existing_button)
         self.new_day.bind(on_release=self.new_button)
@@ -1397,21 +1394,8 @@ class StartPage(GridLayout):
         rad_app.screen_manager.current = "NewGameStep1"
            
     def update_button(self, instance):
-        Clock.schedule_once(self.update_all,0)
-        
-    def update_button_text(self,instance,text,*largs):
-        
-        #pass
-        
-        self.update_days.text=text
-    def update_process(self,dt):
-        if self.update_thread.isAlive():
-            #print("running")
-            Clock.schedule_once(self.update_process,1)
-            #sock.sendto(b'This is a test', ("255.255.255.255", 6666))
-        else:    
-            self.update_days.text="done"
-     
+        self.update_all()
+
         # Called on label width update, so we can set text width properly - to 90% of label width
     def update_text_width(self, *_):
         self.message.text_size = (self.message.width * 0.9, None)
@@ -1428,159 +1412,79 @@ class StartPage(GridLayout):
         cancel.bind(on_release=popup.dismiss)
         cancel.bind(on_release=self.cancel)
         popup.open()
-    def cancel(self,instance):
-        self.run=False
-    def update_all(self,instance):
-        #try:
-        self.clear_folder(app_folder+"/spieltage/")
-        self.run=True
-        self.reqList=[]
-        self.waitlist=[]
+    def cancel(self, instance):
+        for request in self.requests:
+            request.cancel()
+        self.requests.clear()
+        self.pending.clear()
+        self.finish_update("Update abgebrochen")
+
+    def update_all(self):
+        self.pending = deque((region, "/leagues") for region in FEEDS)
+        self.failed_regions = set()
+        self.completed_requests = 0
+        self.imported_days = 0
+        self.pb.value = 0
         self.unbind_buttons()
-        Clock.schedule_once(partial(self.update_button_text,self,"Verbinden"), -1)
-        for server_url in list(server_urls.values()):
-          req = UrlRequest(server_url+'/leagues', on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)#, on_failure=
-        self.reqList.append(req)
-        Clock.schedule_once(self.check_all_req,0.5)
-    def extract_leagues(self,req,result):
-        #print(req)
-        Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Ligen"), -1)
-        
-        self.list_of_urls = []
-        self.leaguesList = []
-        #print(result)
-        for league in result:
-            print(league)
-            print("#############")
-            self.leaguesList.append(league['longName'])
-            for server_url in list(server_urls.values()):
-              self.list_of_urls.append(self.escape_url(server_url+"/"+league['shortName']))
-              req = UrlRequest(self.escape_url(server_url + "/leagues/"+league['shortName']+"/matchdays"), on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)#, on_failure=
-              self.reqList.append(req)
-        print(self.list_of_urls)
-        
-        
-    def add_spieltag(self,req,result):
-        Clock.schedule_once(partial(self.update_button_text,self,"Suche nach Spieltagen"), -1)
-        if result:
-          if type(result) is dict:
-            leagueName = result['leagueShortName'].replace(" ","%20")
-          else:  
-            leagueName = result[0]['leagueShortName'].replace(" ","%20")
-          print("#######")
-          #print(req.get_full_url)
-          print("#######")
-          for day in result:
-              for server_url in list(server_urls.values()):
-                print(server_url)
-                if server_url in req.url:
-                  req = UrlRequest(self.escape_url(server_url+'/leagues/'+leagueName +'/matchdays/'+str(day["number"])), on_success=self.export_spieltag,ca_file=None, verify=False, timeout=10)
-                  self.reqList.append(req)
-        
-    def check_all_req(self,instance): 
-        i=0
-        
-        #try:
-        if self.run:
-            for req in self.reqList:
-                if not req.is_finished:
-                    i+=1
-                elif req.error != None:
-                    print(req.error)
-                    i+=1
-                    self.reqList.remove(req)
-                    self.waitlist.append(req)
-                    Clock.schedule_once(partial(self.update_button_text,self,"Verbindung instabil, wird langsam fortgesetzt"), -1)
-                    Clock.schedule_once(partial(self.remove_restart_req,self,req),3)
-                    
-                        
-        if i==0 and len(self.waitlist)==0:
-            if self.run:
-                self.pb.max=len(self.reqList)+len(self.waitlist)
-                self.pb.value=len(self.reqList)-i
-                Clock.schedule_once(partial(self.update_button_text,self,"alles aktuell"), -1)
-                self.bind_buttons()
-                print(os.listdir(app_folder+"/spieltage/"))
-            else:
-                Clock.schedule_once(partial(self.update_button_text,self,"Update abgebrochen"), -1)
-                self.bind_buttons()
+        self.next_request()
+
+    def next_request(self):
+        while self.pending and len(self.requests) < 4:
+            region, route = self.pending.popleft()
+            self.update_days.text = f"Lade {region} ..."
+            request = UrlRequest(
+                FEEDS[region] + route,
+                on_success=self.import_response,
+                on_failure=self.import_failure,
+                on_error=self.import_failure,
+                on_redirect=self.import_failure,
+                req_headers={"Accept": "application/json"},
+                ca_file=certifi.where(),
+                timeout=10,
+            )
+            self.requests[request] = (region, route)
+        if self.requests:
+            return
+        if self.failed_regions:
+            failed = ", ".join(sorted(self.failed_regions))
+            status = f"{self.imported_days} geladen, Fehler: {failed}"
         else:
-            Clock.schedule_once(self.check_all_req,1)
-            self.pb.max=len(self.reqList)+len(self.waitlist)
-            self.pb.value=len(self.reqList)-i
-    #        except:
- #           print("an error occured")
-  #          Clock.schedule_once(self.check_all_req,1)
-        
+            status = f"{self.imported_days} Spieltage aktualisiert"
+        self.finish_update(status)
 
-    def remove_restart_req(self,instace,req_old,*largs):
-        if self.run:
-            #maximale Requests, falls es Verbindungsprobleme gibt
-            max_req=1
-            count=0
-            for req in self.reqList:
-                if not req.is_finished:
-                    count+=1
-                    
-            if count <= max_req:
-                self.waitlist.remove(req_old)
-                #print(req_old.url)
-                if "/leagues/" in req_old.url:
-                    req = UrlRequest(req_old.url, on_success=self.add_spieltag,ca_file=None, verify=False, timeout=10)
-                elif "/leagues" in req_old.url:
-                    req = UrlRequest(req_old.url, on_success=self.extract_leagues,ca_file=None, verify=False, timeout=10)
-                elif '/matchdays/' in req_old.url:
-                    req = UrlRequest(req_old.url, on_success=self.export_spieltag,ca_file=None, verify=False, timeout=310)
-                else:
-                    print("something is wrong with url")
-                self.reqList.append(req)
+    def import_response(self, request, result):
+        if request not in self.requests:
+            return
+        region, route = self.requests[request]
+        try:
+            if "/matchdays/" in route:
+                save_matchday(app_folder, region, result)
+                self.imported_days += 1
             else:
-                Clock.schedule_once(partial(self.remove_restart_req,self,req_old),1)
-                #print("too many Tasks, wait")
-        ##Cancel if cancel button pressed
-        else:
-            self.waitlist=[]
-            self.reqList=[]
-    def export_spieltag(self,req,result):         
-        if self.run:
-            for server_url in server_urls:
-                if server_urls[server_url] in req.url:
-                    if not os.path.isdir(app_folder+"/spieltage/"+server_url):
-                      os.mkdir(app_folder+"/spieltage/"+server_url)
-                    
-                    f= open(app_folder+"/spieltage/"+server_url+"/"+str(result['leagueShortName'])+"_"+str(result['number'])+".radball","w+",encoding='utf-8')
-            #print(type(day))
-            f.write(json.dumps(result, indent=4, ensure_ascii=False))
-            #print(day)
-            f.close
+                self.pending.extend((region, job) for job in import_jobs(route, result))
+        except (AttributeError, KeyError, OSError, TypeError, ValueError) as error:
+            self.import_failure(request, error)
+            return
+        self.advance_update(request)
 
-    def escape_url(self, url):
-        #Python 3 has libraries to handle this situation. Use urllib.parse.urlsplit to split the URL into its components, and urllib.parse.quote to properly quote/escape the unicode characters and urllib.parse.urlunsplit to join it back together.
-        url = urllib.parse.urlsplit(url)
-        url = list(url)
-        url[2] = urllib.parse.quote(url[2])
-        url = urllib.parse.urlunsplit(url)
-        return url
-    def clear_folder(self, dir):
-        if os.path.exists(dir):
-            for the_file in os.listdir(dir):
-                file_path = os.path.join(dir, the_file)
-                print(file_path)
-                print(dir)
-                
-                if dir == app_folder + "/spieltage/eigene":
-                    pass
-                else:
-                    
-                    try:
-                        if os.path.isfile(file_path):
-                            os.unlink(file_path)
-                        else:
-                            self.clear_folder(file_path)
-                            os.rmdir(file_path)
-                    except Exception as e:
-                        print(e)
+    def import_failure(self, request, error):
+        if request not in self.requests:
+            return
+        region, _ = self.requests[request]
+        print(f"Spieltag-Import {region}: {request.url}: {error}"[:250])
+        self.failed_regions.add(region)
+        self.advance_update(request)
 
+    def advance_update(self, request):
+        del self.requests[request]
+        self.completed_requests += 1
+        self.pb.max = self.completed_requests + len(self.pending) + len(self.requests)
+        self.pb.value = self.completed_requests
+        self.next_request()
+
+    def finish_update(self, status):
+        self.update_days.text = status
+        self.bind_buttons()
 
 
 class AutoCompleteTextInput(TextInput):
