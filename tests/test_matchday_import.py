@@ -8,7 +8,10 @@ from matchday_import import FEEDS, import_jobs, save_matchday
 
 class MatchdayImportTest(unittest.TestCase):
     def test_feed_paths_encode_short_name_once(self):
-        self.assertEqual(len(set(FEEDS.values())), 5)
+        self.assertEqual(set(FEEDS), {
+            "Baden Württemberg", "Bayern", "Deutschland", "Brandenburg",
+        })
+        self.assertEqual(len(set(FEEDS.values())), len(FEEDS))
         paths = import_jobs("/leagues", [{"shortName": "Liga A/B"}])
         self.assertEqual(paths, ["/leagues/Liga%20A%2FB/matchdays"])
         self.assertEqual(import_jobs(paths[0], [{"number": 3}]), [paths[0] + "/3"])
