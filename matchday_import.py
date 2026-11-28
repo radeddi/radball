@@ -7,14 +7,12 @@ from tempfile import NamedTemporaryFile
 from urllib.parse import quote
 
 
-SWISS_API = "https://rmva.groff.de/api"
 DIGITAL_API = "https://rest.radball.digital"
 FEEDS = {
     "Baden Württemberg": f"{DIGITAL_API}/689f53bb-44d4-4be0-b5e1-aa2d66177459",
     "Bayern": f"{DIGITAL_API}/8570f08a-4a57-42ef-a3b9-4fb237620315",
     "Deutschland": f"{DIGITAL_API}/e897552b-f7c2-4dd1-8cae-5830c3ab8244",
     "Brandenburg": f"{DIGITAL_API}/8893c1bf-213f-4291-b200-99482e24b427",
-    "Schweiz": SWISS_API,
 }
 
 
@@ -41,7 +39,8 @@ def save_matchday(folder, region, day):
         raise ValueError("Ungültige Mannschafts- oder Spieleliste")
     if day.get("gym") is None:
         day["gym"] = {}
-    day["gym"].setdefault("city", "")
+    if not isinstance(day["gym"].get("city"), str):
+        day["gym"]["city"] = ""
     for team in day["teams"]:
         if not isinstance(team["name"], str):
             raise ValueError("Ungültiger Mannschaftsname")

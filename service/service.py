@@ -1,152 +1,54 @@
-import time
-import socket
-import datetime
-import errno
-from datetime import timedelta
+"""Relay the local Kivy clock to hall displays, including during screen sleep."""
 import json
-from kivy.utils import platform
+import socket
+import time
+from display_routes import send_displays
 
 
-try:
-    if platform == 'android':
-        from jnius import autoclass
-except:
-    platform=""
-UDP_IP = ""
-UDP_PORT = 5066
-
-sock = socket.socket(socket.AF_INET, # Internet
-                     socket.SOCK_DGRAM) # UDP
-sock.settimeout(0.1)
-sock.bind((UDP_IP, UDP_PORT))
-
-sock_send = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-
-last_received=datetime.datetime.now()
-json_data=""
-
-client_ip=[]
+def clock_text(seconds):
+    if seconds <= 0:
+        return "0", "00"
+    minutes, remainder = divmod(int(seconds * 10), 600)
+    value = f"{remainder / 10:04.1f}" if seconds < 10 else f"{remainder // 10:02d}"
+    return f"{minutes:02d}", value
 
 
+def serve():
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as receiver, socket.socket(
+        socket.AF_INET, socket.SOCK_DGRAM
+    ) as sender:
+        receiver.bind(("127.0.0.1", 5066))
+        receiver.settimeout(0.1)
+        current = None
+        while True:
+            try:
+                raw, _ = receiver.recvfrom(16384)
+                message = json.loads(raw)
+                if not isinstance(message, dict):
+                    continue
+                if message.get("idle") is True:
+                    current = None
+                    continue
+                if not isinstance(message["routes"], list):
+                    continue
+                hours, minutes, seconds = message["rem"].split(":")
+                remaining = max(0, int(hours) * 3600 + int(minutes) * 60 + float(seconds))
+                received = time.monotonic()
+                current = message
+            except (KeyError, AttributeError, UnicodeError, ValueError, TypeError):
+                continue
+            except socket.timeout:
+                if current is None:
+                    continue
+                elapsed = time.monotonic() - received
+                running = current.get("status") == 1
+                if elapsed > (remaining if running else 0) + 5:
+                    current = None
+                    continue
+                if running:
+                    current["minutes"], current["seconds"] = clock_text(remaining - elapsed)
+            send_displays(sender, current)
 
-
-
-
-
-
-def str_to_timedelta(time_str):
-    try:
-        hours, minutes, seconds = time_str.split(':')
-
-        try:
-            seconds, microseconds = seconds.split('.')
-            microseconds = int(microseconds)
-        except ValueError:
-            microseconds = 0
-
-        return timedelta(hours=int(hours), minutes=int(minutes), seconds=int(seconds), microseconds=microseconds)
-    except:
-        return timedelta(seconds=-1)
 
 if __name__ == "__main__":
-    
-    last_data = b""
-    if platform == 'android':
-        Logger = autoclass('java.util.logging.Logger')
-        mylogger = Logger.getLogger('MyLogger')
-    while 1:
-            
-        try:
-            if platform == 'android':
-                mylogger.info("Try")
-            #print("hello")
-            data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
-            last_data = data
-            json_data = json.loads(data)
-            
-            client_ip = json_data["client_ip"]
-            for client in client_ip:
-                if platform == 'android':
-                    mylogger.info("senden an client "+ str(client))
-                try:
-                    sock_send.sendto((json.dumps(json_data)+"\n").encode(), (client, 5005))
-                except:
-                    pass
-                if platform == 'android':
-                    mylogger.info("gesendet")
-            last_received=datetime.datetime.now()
-            remaining_time = str_to_timedelta(json_data["rem"])
-            
-            time.sleep(0.005)
-            
-        except socket.timeout:
-            timeLabel = "0:00"
-            game = True
-            if platform == 'android':
-                mylogger.info("Except")
-            if json_data:
-                print(json_data)
-                print(remaining_time)
-                #mylogger.info(json_data)
-                #mylogger.info(remaining_time)
-                if remaining_time <= timedelta ( minutes = 0):
-                    print("less than 0")
-                    remTime = timedelta ( minutes = 0)
-                    timeLabel = "0:00"
-                else:
-                    remTime =  datetime.datetime.now() - last_received + remaining_time
-                if json_data["status"] == 0:
-                    remTime =  remaining_time
-                    if remTime <= timedelta ( minutes = 0):
-                        #mylogger.info("1")
-                        timeLabel = "0:00"
-                        remTime = timedelta ( minutes = 0)
-                        #mylogger.info("2")
-                    elif remTime < timedelta ( seconds = 10):
-                        total_seconds = (remTime.total_seconds())
-                        hours, remainder = divmod(total_seconds,60*60)
-                        minutes, seconds = divmod(remainder,60)
-                  #      seconds, remainder = divmod(remainder,1)
-                        timeLabel = '{}:{}'.format("{:02.0f}".format(minutes),"{:04.1f}".format(seconds))
-                    else :    
-                        total_seconds = int(remTime.total_seconds())
-                        hours, remainder = divmod(total_seconds,60*60)
-                        minutes, remainder = divmod(remainder,60)
-                        seconds, remainder = divmod(remainder,1)
-                        timeLabel = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-                elif json_data["status"] == 1:
-                    remTime =  last_received + remaining_time - datetime.datetime.now() 
-                    if remTime <= timedelta ( minutes = 0):
-                        timeLabel = "0:00"
-                        remTime = timedelta ( seconds = 0)
-                    elif remTime < timedelta ( seconds = 10):
-                        total_seconds = (remTime.total_seconds())
-                        hours, remainder = divmod(total_seconds,60*60)
-                        minutes, seconds = divmod(remainder,60)
-                   #     seconds, remainder = divmod(remainder,1)
-                        timeLabel = '{}:{}'.format("{:02.0f}".format(minutes),"{:04.1f}".format(seconds))
-                    else :    
-                        total_seconds = int(remTime.total_seconds())
-                        hours, remainder = divmod(total_seconds,60*60)
-                        minutes, remainder = divmod(remainder,60)
-                        seconds, remainder = divmod(remainder,1)
-                        timeLabel = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
-                elif json_data["status"] == 2:
-                    game = False
-                else:
-                    pass
-                print(timeLabel)
-                #mylogger.info("Hello here")
-                #mylogger.info(str(timelabel)
-                json_data["minutes"] = str(timeLabel.split(":")[0])
-                json_data["seconds"] = str(timeLabel.split(":")[1])
-                try:
-                    if game:
-                        for client in client_ip:
-                            sock_send.sendto((json.dumps(json_data)+"\n").encode(), (client, 5005))
-                    else:
-                        for client in client_ip:
-                            sock_send.sendto(last_data, (client, 5005))
-                except:
-                    pass
-            time.sleep(0.01)
+    serve()

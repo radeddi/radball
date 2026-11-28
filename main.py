@@ -1,6 +1,6 @@
 debug=False
 
-__version__ = "0.0.3"
+__version__ = "1.0.0"
 
 from kivy.config import Config
 
@@ -44,11 +44,17 @@ import re
 import requests
 import random
 import certifi
-from matchday_import import FEEDS, SWISS_API, import_jobs, league_path, save_matchday
+from matchday_import import FEEDS, import_jobs, save_matchday
+from portal_results import ResultQueue
+from digital_results import VerifiedMatchday, matchday_url, scored
+from matchday_selection import league_order, matchday_order, selection_labels
+from portal_import import CATALOG, PORTAL_NAME, PORTAL_REGIONS, PORTAL_URL, SWISS_PORTAL_NAME, cache_portal_plan, portal_jobs
 
 import datetime
 from datetime import timedelta
-from functools import partial
+from uuid import uuid4
+from display_routes import Displays, MODES, result_page, send_displays
+from game_navigation import expired_during_play, may_finalize_on_navigation, quick_game_plan
 
 from collections import deque
 
@@ -92,26 +98,14 @@ KNOWN_TEAMS = [
 
 
 
-broadcast = False
-client_ip = []
-
-
-if broadcast:
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # UDP
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-else:
-    sock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-    
-    UDP_IP = ""
-    UDP_PORT = 5006
-    sock2 = socket.socket(socket.AF_INET, # Internet
-                         socket.SOCK_DGRAM) # UDP
-    sock2.settimeout(0.05)
-    sock2.bind((UDP_IP, UDP_PORT))
-#sock.bind(("", 5556))
-#sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock2.setblocking(False)
+try:
+    sock2.bind(("", 5006))
+except OSError:
+    sock2.close()
+    sock2 = None
 
 
 kivy.require("1.10.1")
@@ -155,7 +149,7 @@ def build_known_teams():
 
         # Jede .radball-Datei im Unterordner
         for datei in sorted(os.listdir(full_land_path)):
-            if not datei.endswith(".radball"):
+            if not datei.endswith(".radball") or (land == SWISS_PORTAL_NAME and not datei.startswith("portal-")):
                 continue  # Nur radball-Dateien
 
             full_file_path = os.path.join(full_land_path, datei)
@@ -320,7 +314,7 @@ class SelectorPage(GridLayout):
         print("going back")
         rad_app.screen_manager.current = 'Start'
     def goFurther(self,instance):
-        rad_app.pin_page.load_PinPage(self.land,self.gameId,self.league_short)
+        rad_app.pin_page.load_PinPage(self.land, self.gameId, self.league_short)
         
         # Called with a message, to update message text in widget
     def update_info(self):
@@ -330,7 +324,7 @@ class SelectorPage(GridLayout):
         for land in landliste:
           print(land)
           if os.path.isdir(app_folder+"/spieltage/"+land):
-            btn = Button(text=land, size_hint_y=None, height=80,font_size=40)
+            btn = Button(text="Radball-Portal" if land == PORTAL_NAME else land, size_hint_y=None, height=80,font_size=40)
             btn.bind(on_release=lambda btn,land=land: self.update_leagues(btn,land))
             self.dropdownLand.add_widget(btn)
         
@@ -347,56 +341,41 @@ class SelectorPage(GridLayout):
                 path = os.path.join(app_folder, "spieltage", land, datei)
                 with open(path, encoding="utf-8") as file:
                     game_json = json.load(file)
-                league_name = game_json["leagueLongName"]
-            except (KeyError, OSError, TypeError, ValueError) as error:
+                league_name, _, _ = selection_labels(game_json)
+                matchday_order(game_json)
+            except (AttributeError, KeyError, OSError, TypeError, ValueError) as error:
                 print(f"Spieltag übersprungen: {datei}: {error}")
                 continue
             self.spieltage[datei] = game_json
             self.leagues.setdefault(league_name, []).append(game_json)
-        for key in self.leagues.keys():
-            print(key)
         self.dropdownLeague.clear_widgets()
+        self.dropdownLeague.select("Liga auswählen")
+        self.createdropdownDay(None)
+        for league in sorted(self.leagues, key=league_order):
+            item = Button(text=league, size_hint_y=None, height=80, font_size=40)
+            item.bind(on_release=lambda button, league=league: self.dropdownLeagueAction(button, league))
+            self.dropdownLeague.add_widget(item)
 
-        for index in sorted(self.leagues.keys()):
-            # When adding widgets, we need to specify the height manually
-            # (disabling the size_hint_y) so the dropdown can calculate
-            # the area it needs.
-
-            btn = Button(text=self.leagues[index][0]["leagueLongName"], size_hint_y=None, height=80,font_size=40)
-
-            # for each button, attach a callback that will call the select() method
-            # on the dropdown. We'll pass the text of the button as the data of the
-            # selection.
-            #btn.bind(on_release=lambda btn: self.dropdownLeague.select(btn.text))
-            btn.bind(on_release=lambda btn,index=index: self.dropdownLeagueAction(btn,index))
-
-            # then add the button inside the dropdown
-            self.dropdownLeague.add_widget(btn)
-    def dropdownLeagueAction(self, btn,index):
+    def dropdownLeagueAction(self, btn, league):
         self.dropdownLeague.select(btn.text)
-        self.createdropdownDay(index)
-    def createdropdownDay(self,index):
+        self.createdropdownDay(league)
+
+    def createdropdownDay(self, league):
         self.dropdownDay.clear_widgets()
         self.dropdownDay.select("Spieltag auswählen")
-        self.labelCity.text=""
-        self.furtherButton.disabled=True
-        print(index)
-        for liga in self.leagues.keys():
-            if liga == index:
-                print(type(self.leagues[liga]))
-                btnList=[]
-                
-                for spieltag in self.leagues[liga]:
-                    date = spieltag["start"][8:10]+"."+spieltag["start"][5:7]+"."+spieltag["start"][0:4]
-                    city = spieltag["gym"]["city"]
-                     
-                    btnList.append([Button(text="Spieltag "+str(spieltag["number"])+"\n"+date, size_hint_y=None, height=100,font_size=40),spieltag["number"],spieltag["number"],city,spieltag["leagueShortName"]])
-                    
-                for btnL in sorted(btnList, key=lambda tup: tup[1]):  
-                    btn=btnL[0]
-                    #btn.bind(on_release=lambda btn: self.dropdownDay.select(btn.text))
-                    btn.bind(on_release=lambda btn,btnL=btnL: self.dropdownDayAction(btn,btnL[2],btnL[3],btnL[4]))
-                    self.dropdownDay.add_widget(btn)    
+        self.labelCity.text = ""
+        self.furtherButton.disabled = True
+        for day in sorted(self.leagues.get(league, ()), key=matchday_order):
+            _, label, city = selection_labels(day)
+            start = day["start"][:10]
+            displayed_date = ".".join(reversed(start.split("-")))
+            item = Button(text=f"{label}\n{displayed_date}", size_hint_y=None, height=106,
+                          font_size=30, halign="center", valign="middle")
+            item.bind(size=lambda button, size: setattr(button, "text_size", (max(0, size[0] - 16), size[1])))
+            item.bind(on_release=lambda button, day=day, city=city:
+                      self.dropdownDayAction(button, day["number"], city, day["leagueShortName"]))
+            self.dropdownDay.add_widget(item)
+
     def dropdownDayAction(self, btn,index,city,league_short):
         self.dropdownDay.select(btn.text)
         self.labelCity.text=city
@@ -431,19 +410,144 @@ class PinPage(GridLayout):
         self.backFurtherButton.add_widget(self.backButton)
         self.backFurtherButton.add_widget(self.furtherButton)
         self.add_widget(self.backFurtherButton)
-        self.textinput = TextInput(input_filter="int",size_hint = (1, 0.15),font_size=40)
+        is_portal = land in PORTAL_REGIONS
+        self.digital_url = matchday_url(land, league_short, game_id)
+        self.pin_request = None
+        rad_app.digital_access = None
+        self.textinput = TextInput(input_filter=None if is_portal else "int", password=is_portal or bool(self.digital_url),
+                                   multiline=False, size_hint=(1, 0.15), font_size=40)
         self.add_widget(self.textinput)
-        self.lb = Label(text='Spieltags Pin',size_hint = (1, 0.15),font_size=40)
+        self.lb = Label(text='Spieltags-PIN',size_hint = (1, 0.15),font_size=40)
         self.add_widget(self.lb)
-        self.placeholder = Label(size_hint = (1, 0.55),font_size=40)
+        self.placeholder = Label(size_hint=(1, 0.55), font_size=34, halign="center", valign="middle")
+        self.placeholder.bind(size=lambda label, size: setattr(label, "text_size", size))
         self.add_widget(self.placeholder)
+        self.day_url = self.digital_url
+        if is_portal:
+            self.portal_scope = ResultQueue.scope(game_id, league_short.removeprefix("portal-"))
+            self.day_url = f"{PORTAL_URL}/api/v1/matchdays/{game_id}"
+        if self.day_url:
+            self.show_saved_access()
+
         rad_app.screen_manager.current = 'Pin'
+
+    def show_saved_access(self):
+        saved = rad_app.portal_queue.saved_pin(self.day_url)
+        self.textinput.text = saved
+        self.furtherButton.text = "Weiter"
+        if self.land in PORTAL_REGIONS and rad_app.portal_queue.token(self.portal_scope):
+            self.placeholder.text = "Gerätezugang für diese Fläche gespeichert."
+        elif saved:
+            self.placeholder.text = "PIN gespeichert. Weiter zum Prüfen."
+        else:
+            self.placeholder.text = "PIN eingeben oder leer lassen, um lokal zu spielen."
+
     def goBack(self,instance):
+        self.pin_request = None
         rad_app.screen_manager.current = 'Selector'
         print("going back")
-    def goFurther(self,instance):
-        rad_app.present_page.load_PresentPage(self.land,self.gameId,self.league_short,(self.textinput.text))
-        print("go on")   
+    def goFurther(self, instance):
+        pin = self.textinput.text.strip()
+        if self.digital_url:
+            rad_app.digital_access = None
+            if not pin:
+                self.open_portal_day()
+                return
+            self.textinput.text = ""
+            self.furtherButton.disabled = True
+            self.placeholder.text = "PIN wird geprüft ..."
+            self.pin_request = UrlRequest(
+                self.digital_url, method="GET", req_headers={"x-pin": pin, "Accept": "application/json",
+                                                            "Cache-Control": "no-cache"},
+                on_success=lambda req, data: self.accept_digital_pin(req, data, pin),
+                on_failure=lambda req, data: self.digital_pin_failed(req, data, pin if req.resp_status in (401, 403) else None),
+                on_error=self.digital_pin_failed,
+                on_redirect=self.digital_pin_failed, timeout=5,
+            )
+            return
+        if self.land not in PORTAL_REGIONS:
+            rad_app.present_page.load_PresentPage(self.land, self.gameId, self.league_short, pin)
+            return
+        saved = rad_app.portal_queue.saved_pin(self.day_url)
+        if not pin or (pin.upper() == saved and rad_app.portal_queue.token(self.portal_scope)):
+            self.open_portal_day()
+            return
+        self.textinput.text = ""
+        self.furtherButton.disabled = True
+        self.placeholder.text = "PIN wird geprüft ..."
+        scope = self.portal_scope
+        self.pin_request = UrlRequest(
+            f"{self.day_url}/access/redeem",
+            req_body=json.dumps({"pin": pin.upper(), "court": int(scope.split(":")[1])}),
+            req_headers={"Content-Type": "application/json"},
+            on_success=lambda req, data: self.accept_portal_pin(req, scope, pin.upper(), data),
+            on_failure=lambda req, data: self.portal_pin_failed(req, data, pin.upper()), on_error=self.portal_pin_failed,
+            on_redirect=self.portal_pin_failed, timeout=5,
+        )
+
+    def open_portal_day(self):
+        rad_app.present_page.load_PresentPage(self.land, self.gameId, self.league_short, "")
+
+    def accept_digital_pin(self, request, data, pin):
+        if request is not self.pin_request or rad_app.screen_manager.current != "Pin":
+            return
+        access = VerifiedMatchday.from_response(
+            self.digital_url, self.league_short, self.gameId, pin, data,
+        )
+        if access is None:
+            same_day = (isinstance(data, dict) and data.get("number") == self.gameId
+                        and data.get("leagueShortName") == self.league_short)
+            self.digital_pin_failed(request, data, pin if same_day else None)
+            return
+        self.pin_request = None
+        self.furtherButton.disabled = False
+        try:
+            rad_app.portal_queue.remember_pin(self.day_url, pin)
+        except OSError:
+            rad_app.textpopup(title="PIN nicht gespeichert", text="Der Zugang gilt für dieses Spiel.")
+        rad_app.digital_access = access
+        self.open_portal_day()
+
+    def digital_pin_failed(self, request, _, rejected=None):
+        if request is not self.pin_request:
+            return
+        self.pin_request = None
+        self.furtherButton.disabled = False
+        self.discard_rejected_pin(rejected)
+        self.placeholder.text = "PIN nicht bestätigt. PIN prüfen oder leer lassen."
+
+    def discard_rejected_pin(self, rejected):
+        try:
+            rad_app.portal_queue.forget_pin(self.day_url, rejected)
+        except OSError:
+            rad_app.textpopup(title="PIN-Speicher prüfen", text="Der alte PIN konnte nicht entfernt werden.")
+
+    def accept_portal_pin(self, request, scope, pin, data):
+        if request is not self.pin_request or rad_app.screen_manager.current != "Pin":
+            return
+        self.pin_request = None
+        self.furtherButton.disabled = False
+        try:
+            token = data["token"]
+            if not isinstance(token, str) or not 32 <= len(token) <= 100:
+                raise ValueError
+            expires = datetime.datetime.fromisoformat(data["expires_at"]).timestamp()
+            rad_app.portal_queue.set_token(scope, token, self.day_url, pin, expires)
+        except (KeyError, TypeError, ValueError, OSError):
+            self.placeholder.text = "Gerätezugang konnte nicht gespeichert werden."
+            return
+        if rad_app.screen_manager.current == "Pin" and scope == self.portal_scope:
+            self.open_portal_day()
+
+    def portal_pin_failed(self, request, result, pin=None):
+        if request is not self.pin_request:
+            return
+        self.pin_request = None
+        if request.resp_status == 403:
+            self.discard_rejected_pin(pin)
+        self.furtherButton.disabled = False
+        self.placeholder.text = "PIN oder Verbindung prüfen. Leer: lokal spielen."
+
 
 class PresentPage(GridLayout):
     def __init__(self, **kwargs):
@@ -510,10 +614,9 @@ class PresentPage(GridLayout):
         else:
             self.furtherButton.text=str(len(self.absent)) +" Mannschaften abwesend"  
     def goBack(self,instance):
-        rad_app.screen_manager.current = 'Pin'
+        rad_app.pin_page.load_PinPage(self.land, self.gameId, self.league_short)
         print("going back")
     def goFurther(self,instance):
-        print(self.game_json)
         rad_app.sequence_page.load_SequencePage(self.game_json,self.absent,self.land,self.gameId,self.league_short)
         print("go on")
     
@@ -667,7 +770,7 @@ class GamePage(GridLayout):
         self.LineHidden = GridLayout(cols=1,size_hint = (1, 0.0))
         self.secondLine = GridLayout(cols=3,size_hint = (1, 0.2))
         self.thirdLine = GridLayout(cols=5,size_hint = (1, 0.2))
-        self.fourthLine = GridLayout(cols=3,size_hint = (1, 0.2))
+        self.fourthLine = GridLayout(cols=4,size_hint = (1, 0.2))
         self.fifthLine = GridLayout(cols=3,size_hint = (1, 0.2))
         self.add_widget(self.firstLine)
         self.add_widget(self.secondLine)
@@ -729,7 +832,14 @@ class GamePage(GridLayout):
         
         self.fourthLine.add_widget(self.rszButton)
         self.fourthLine.add_widget(self.pauseButton)
+        self.rszButton.font_size = 30
+        self.pauseButton.font_size = 30
+        self.settingsButton.font_size = 31
         self.fourthLine.add_widget(self.settingsButton)
+        self.display_button = Button(text="Anzeigen", font_size=31, size_hint=(.3, 1))
+        self.display_button.bind(on_release=self.choose_displays)
+        self.fourthLine.add_widget(self.display_button)
+        self.display_popup = None
         
         self.lastButton=Button(size_hint =(0.3, 1),text="vorheriges Spiel",font_size=40)
         self.lastButton.bind(on_release=self.lastGame)
@@ -747,11 +857,25 @@ class GamePage(GridLayout):
         self.popup = []
         
         self.rotation=False
+        # Coalesce a side swap or several label changes into one complete scoreboard snapshot.
+        self.refresh_display = Clock.create_trigger(self.refreshTime, -1)
+        self.goalALabel.bind(text=self.refresh_display)
+        self.goalBLabel.bind(text=self.refresh_display)
 
 
     def load_GamePage(self,game_json,sequence,land,game_id,league_short):
+        if not sequence:
+            rad_app.textpopup(title="Kein spielbares Spiel", text="Prüfe den Spielplan und die anwesenden Mannschaften.")
+            return
+        welcome = game_json.get("welcome") or "Willkommen zur Radballanzeige"
+        rad_app.start_page.message.text = welcome
+        if rad_app.config.get("halle", "welcome") != welcome:
+            rad_app.config.set("halle", "welcome", welcome)
+            rad_app.config.write()
+        self.match_drafts = {}
         Clock.schedule_interval(self.refreshTime, 0.1)
-        Clock.schedule_interval(self.findClients, 1)
+        rad_app.displays.seen.clear()
+        Clock.schedule_interval(self.findClients, .5)
         print(sequence)
         self.sequence = sequence
         self.game_json = game_json
@@ -759,26 +883,35 @@ class GamePage(GridLayout):
         self.gameId=game_id
         self.league_short = league_short
         rad_app.screen_manager.current = 'Game'
-        if sequence == []:
-            rad_app.screen_manager.current = 'Present'
-        else:
-            if platform == "android":
-                orientation.set_sensor(mode='landscape')
-                Window.allow_screensaver = False
-            self.gameNr=self.sequence[0]
-            self.load_Game()
+        if platform == "android":
+            orientation.set_sensor(mode="landscape")
+            Window.allow_screensaver = False
+        self.gameNr = sequence[0]
+        self.load_Game()
     def load_Game (self):
         print(self.gameNr)
-        self.timeLeft = self.playingTime
+        game = self.game_json["games"][self.gameNr]
+        draft = self.match_drafts.get(self.gameNr, {})
+        self.timeLeft = draft.get("time_left", self.playingTime)
+        self.regulation_expired = draft.get("expired", False)
+        self.gameStatus = 0
+        self.pauseButton.text = "Halbzeitpause starten"
+        self.pauseButton.disabled = not (self.timeLeft <= timedelta(0) and not draft.get("second_half"))
+        self.LineHidden.clear_widgets()
+        self.LineHidden.size_hint = (1, 0)
+        self.firstLine.size_hint = self.secondLine.size_hint = (1, 0.2)
         self.teamALabel.text=self.game_json["games"][self.gameNr]["teamA"]
         self.teamBLabel.text=self.game_json["games"][self.gameNr]["teamB"]
         
-        self.htLabel.text="1. Halbzeit"
+        self.htLabel.text = "2. Halbzeit" if draft.get("second_half") else "1. Halbzeit"
+        self.startStopButton.disabled = self.result_is_final()
+        self.nextButton.disabled = False
         
-        if "score" in self.game_json["games"][self.gameNr]:
-            if {"goalsA", "goalsB"} <= self.game_json["games"][self.gameNr]["score"].keys():
-                self.goalALabel.text= str(self.game_json["games"][self.gameNr]["score"]["goalsA"])
-                self.goalBLabel.text= str(self.game_json["games"][self.gameNr]["score"]["goalsB"])
+        score = draft.get("score", game.get("score", {}))
+        if score:
+            if {"goalsA", "goalsB"} <= score.keys():
+                self.goalALabel.text = str(score["goalsA"])
+                self.goalBLabel.text = str(score["goalsB"])
                 print("there is a score")
             else:
                 self.goalALabel.text= "0"
@@ -806,90 +939,218 @@ class GamePage(GridLayout):
                 self.nextButton.bind(on_release=self.nextGame)
                 self.nextButton.unbind(on_release=self.quitGames)
     
-    def nextGame (self,instance):
-        score = {}
-        if self.game_json["games"][self.gameNr]["teamA"] == self.teamALabel.text:
-            score["bothLost"]=False
-            score["goalsA"]=int(self.goalALabel.text)
-            score["goalsB"]=int(self.goalBLabel.text)
-            self.game_json["games"][self.gameNr]["score"]=score
-        elif self.teamBLabel.text == self.game_json["games"][self.gameNr]["teamA"]:
-            score["bothLost"]=False
-            score["goalsA"]=int(self.goalBLabel.text)
-            score["goalsB"]=int(self.goalALabel.text)
-            self.game_json["games"][self.gameNr]["score"]=score
-            
-        else: 
-            print("there is a big error")
-        if self.game_json["games"][self.gameNr]["state"]=="running":
-            self.game_json["games"][self.gameNr]["state"]="finished"
-        Clock.schedule_once(self.sendUpdate,1)
-        self.gameNr = self.sequence [self.sequence.index(self.gameNr) +1]
-        self.load_Game()
-    def lastGame (self,instance):        
-        score = {}
-        if self.game_json["games"][self.gameNr]["teamA"] == self.teamALabel.text:
-            score["bothLost"]=False
-            score["goalsA"]=int(self.goalALabel.text)
-            score["goalsB"]=int(self.goalBLabel.text)
-            self.game_json["games"][self.gameNr]["score"]=score
-        elif self.teamBLabel.text == self.game_json["games"][self.gameNr]["teamA"]:
-            score["bothLost"]=False
-            score["goalsA"]=int(self.goalBLabel.text)
-            score["goalsB"]=int(self.goalALabel.text)
-            self.game_json["games"][self.gameNr]["score"]=score
-            
-        else: 
-            print("there is a big error")
-        self.gameNr = self.sequence [self.sequence.index(self.gameNr) - 1]
-        self.load_Game()     
-    def quitGames(self,instance):
-        score = {}
-        if self.game_json["games"][self.gameNr]["teamA"] == self.teamALabel.text:
-            score["bothLost"]=False
-            score["goalsA"]=int(self.goalALabel.text)
-            score["goalsB"]=int(self.goalBLabel.text)
-            self.game_json["games"][self.gameNr]["score"]=score
-        elif self.teamBLabel.text == self.game_json["games"][self.gameNr]["teamA"]:
-            score["bothLost"]=False
-            score["goalsA"]=int(self.goalBLabel.text)
-            score["goalsB"]=int(self.goalALabel.text)
-            self.game_json["games"][self.gameNr]["score"]=score
-            
-        else: 
-            print("there is a big error")
-        if self.game_json["games"][self.gameNr]["state"]=="running":
-            self.game_json["games"][self.gameNr]["state"]="finished"
-        Clock.schedule_once(self.sendUpdate,1)
-        time.sleep(3)
+        self.refresh_display()
+
+    def nav_score(self):
+        game = self.game_json["games"][self.gameNr]
+        left, right = int(self.goalALabel.text), int(self.goalBLabel.text)
+        if self.teamALabel.text != game["teamA"]:
+            left, right = right, left
+        return {"bothLost": False, "goalsA": left, "goalsB": right}
+
+    def result_is_final(self):
+        game = self.game_json["games"][self.gameNr]
+        return game["state"] == "finished" or (
+            matchday_url(self.land, self.league_short, self.gameId) is not None and scored(game)
+        ) or (
+            self.land in PORTAL_REGIONS and rad_app.portal_queue.already_finished(game)
+        )
+
+    def leave_current_match(self):
+        if may_finalize_on_navigation(self.regulation_expired, self.result_is_final()):
+            if not self.save_current_result(self.nav_score()):
+                return False
+        game = self.game_json["games"][self.gameNr]
+        if not self.result_is_final():
+            # A draft is presentation state only. Navigation does not change game state.
+            self.match_drafts[self.gameNr] = {
+                "time_left": self.timeLeft, "expired": self.regulation_expired,
+                "second_half": self.htLabel.text == "2. Halbzeit", "score": self.nav_score(),
+            }
+        return True
+
+    def nextGame(self, instance):
+        if self.leave_current_match():
+            self.gameNr = self.sequence[self.sequence.index(self.gameNr) + 1]
+            self.load_Game()
+
+    def lastGame(self, instance):
+        if self.leave_current_match():
+            self.gameNr = self.sequence[self.sequence.index(self.gameNr) - 1]
+            self.load_Game()
+
+    def quitGames(self, instance):
+        if getattr(rad_app, "back_popup", None):
+            return
+        box = BoxLayout(orientation="vertical", padding=12, spacing=8)
+        box.add_widget(Label(text="Spieltag beenden und zum Hauptmenü zurückkehren?", font_size=25))
+        buttons = BoxLayout(spacing=8)
+        cancel = Button(text="Weiterspielen", font_size=26)
+        confirm = Button(text="Spieltag beenden", font_size=26)
+        buttons.add_widget(cancel)
+        buttons.add_widget(confirm)
+        box.add_widget(buttons)
+        popup = Popup(title="Spieltag beenden?", content=box, size_hint=(.94, .48), auto_dismiss=False)
+        rad_app.back_popup = popup
+        popup.bind(on_dismiss=lambda *_: setattr(rad_app, "back_popup", None))
+        cancel.bind(on_release=popup.dismiss)
+        def finish(*_):
+            popup.dismiss()
+            if self.leave_current_match():
+                self.leave_game_screen()
+        confirm.bind(on_release=finish)
+        popup.open()
+
+    def leave_game_screen(self):
+        if self.gameStatus == 1:
+            self.stopGame(self)
+        self.refresh_display.cancel()
+        Clock.unschedule(self.refreshTime)
+        Clock.unschedule(self.findClients)
+        if platform == "android" or debug:
+            try:
+                sock.sendto(b'{"idle":true}', ("127.0.0.1", 5066))
+            except OSError:
+                pass
         Window.allow_screensaver = True
-        rad_app.screen_manager.current = 'Start'
-        #exit()
-    def findClients (self,instance):
-        try:
-            print("finding")
-            data, addr = sock2.recvfrom(1024) # buffer size is 1024 bytes
-            print("found")
-            print(addr)
-            if addr[0] not in client_ip:
-                client_ip.append(addr[0])
-                print(client_ip)
-            for i in range(len(client_ip)):
-               if  client_ip[i].split(":")[2]  != addr[0].split(":")[2]:
-                   client_ip.remove(i)
-        except Exception as e: print(e)
-        
+        if platform == "android":
+            orientation.set_sensor(mode="any")
+        rad_app.screen_manager.current = "Start"
+
+    def confirm_game_result(self, instance):
+        if self.gameStatus == 1 or self.result_is_final():
+            return
+        self.popup.dismiss()
+        game = self.game_json["games"][self.gameNr]
+        score = self.nav_score()
+        layout = GridLayout(cols=1, padding=12, spacing=12)
+        layout.add_widget(Label(
+            text=f"{game['teamA']} – {game['teamB']}\n{score['goalsA']}:{score['goalsB']}",
+            font_size=30,
+        ))
+        actions = GridLayout(cols=2, spacing=12)
+        cancel = Button(text="Abbrechen", font_size=26)
+        confirm = Button(text="Resultat speichern", font_size=26)
+        actions.add_widget(cancel)
+        actions.add_widget(confirm)
+        layout.add_widget(actions)
+        popup = Popup(title="Spiel abschliessen?", content=layout, size_hint=(.8, .65))
+        cancel.bind(on_release=popup.dismiss)
+        confirm.bind(on_release=lambda *_: self.finish_game(popup, score))
+        popup.open()
+
+    def finish_game(self, popup, score):
+        if self.save_current_result(score):
+            popup.dismiss()
+
+    def save_current_result(self, score):
+        if self.result_is_final():
+            return True
+        if self.land in PORTAL_REGIONS and not self.queue_portal_result(score):
+            return False
+        game = self.game_json["games"][self.gameNr]
+        game["score"] = score
+        game["state"] = "finished"
+        self.startStopButton.disabled = True
+        self.pauseButton.disabled = True
+        self.match_drafts.pop(self.gameNr, None)
+        self.send_digital_result(game)
+        return True
+
+    def findClients(self, instance):
+        if sock2 is None:
+            return
+        now = time.monotonic()
+        for _ in range(64):
+            try:
+                data, (address, _) = sock2.recvfrom(2048)
+            except BlockingIOError:
+                break
+            rad_app.displays.discover(data, address, now)
+        rad_app.displays.available(now)
+        if self.display_popup:
+            self.render_displays()
+
+    def choose_displays(self, *_):
+        if self.display_popup:
+            return
+        body = BoxLayout(orientation="vertical", spacing=8)
+        scroll = ScrollView()
+        self.display_rows = GridLayout(cols=1, spacing=8, size_hint_y=None)
+        self.display_rows.bind(minimum_height=self.display_rows.setter("height"))
+        scroll.add_widget(self.display_rows)
+        body.add_widget(scroll)
+        maintenance = Button(text="Raspberry Pi warten", size_hint_y=None, height=56)
+        maintenance.bind(on_release=lambda *_: self.open_pi_maintenance())
+        body.add_widget(maintenance)
+        close = Button(text="Fertig", size_hint_y=None, height=56)
+        body.add_widget(close)
+        self.display_popup = Popup(title="Hallenanzeigen auswählen", content=body, size_hint=(.94, .85))
+        close.bind(on_release=self.display_popup.dismiss)
+        self.display_popup.bind(on_dismiss=lambda *_: setattr(self, "display_popup", None))
+        self.display_state = None
+        self.render_displays()
+        self.display_popup.open()
+
+    def open_pi_maintenance(self):
+        url = "https://connect.raspberrypi.com/"
+        if platform == "android":
+            intent = autoclass("android.content.Intent")
+            uri = autoclass("android.net.Uri").parse(url)
+            mActivity.startActivity(intent(intent.ACTION_VIEW, uri))
+        else:
+            import webbrowser
+            webbrowser.open(url)
+
+    def render_displays(self):
+        devices = rad_app.displays
+        state = [(key, item["name"], item["address"], item["owner"], item["modes"],
+                  devices.choices.get(key, "off")) for key, item in sorted(devices.seen.items())]
+        if state == self.display_state:
+            return
+        self.display_state = state
+        self.display_rows.clear_widgets()
+        if not state:
+            self.display_rows.add_widget(Label(text="Suche Hallenanzeigen im WLAN …", size_hint_y=None, height=64))
+        for key, name, address, owner, supported, selected in state:
+            busy = owner not in ("", devices.controller)
+            row = BoxLayout(size_hint_y=None, height=66, spacing=8)
+            row.add_widget(Label(text=f"{name} · {address}" + (" · belegt" if busy else ""), font_size=21))
+            modes = ("off",) if busy else ("off", *supported)
+            choice = Spinner(text=MODES.get(selected if selected in modes or busy else "game", "Aus"), values=[MODES[m] for m in modes],
+                             disabled=busy and selected == "off", font_size=23)
+            choice.bind(text=lambda _, value, k=key: self.select_display(k, value))
+            row.add_widget(choice)
+            self.display_rows.add_widget(row)
+
+    def select_display(self, key, label):
+        choices = dict(rad_app.displays.choices)
+        mode = next(m for m, text in MODES.items() if text == label)
+        if mode == "off":
+            choices.pop(key, None)
+        else:
+            choices[key] = mode
+        rad_app.config.set("halle", "displays", json.dumps(choices))
+        rad_app.config.write()
+        rad_app.displays.choices = choices
+        self.refresh_display()
+
     def refreshTime (self,instance):
         
-        if self.gameNr == len(self.sequence)-1 or not ((self.timeLabel.text.split(":")[0] == "0" and self.timeLabel.text.split(":")[1] == "00") or (self.timeLeft == self.playingTime and self.htLabel.text=="2. Halbzeit" and self.startStopButton.text=="Zeit starten")) :
-            nextTeams = ""
-            nextTeamsLocal=''
-        else:
-            nextTeams = f'{(self.game_json["games"][self.gameNr+1]["teamA"])} \n {(self.game_json["games"][self.gameNr+1]["teamB"])}'
-            nextTeamsLocal=f'nächstes Spiel: {(self.game_json["games"][self.gameNr+1]["teamA"])} gegen {(self.game_json["games"][self.gameNr+1]["teamB"])}'
+        next_position = self.sequence.index(self.gameNr) + 1
+        nextTeams = nextTeamsLocal = ""
+        if next_position < len(self.sequence) and (
+            self.timeLeft <= timedelta(0)
+            or (self.timeLeft == self.playingTime and self.htLabel.text == "2. Halbzeit"
+                and self.startStopButton.text == "Zeit starten")
+        ):
+            upcoming = self.game_json["games"][self.sequence[next_position]]
+            home, away = upcoming["teamA"], upcoming["teamB"]
+            nextTeams = f"{home} \n {away}"
+            nextTeamsLocal = f"nächstes Spiel: {home} gegen {away}"
         if self.gameStatus == 0:
             remTime = self.timeLeft
-            if remTime < timedelta ( minutes = 0):
+            if remTime <= timedelta(0):
                 self.timeLabel.text = "0:00"
                 remTime = timedelta ( seconds = 0)
             elif remTime < timedelta ( seconds = 10):
@@ -906,10 +1167,10 @@ class GamePage(GridLayout):
                 self.timeLabel.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         elif self.gameStatus == 1:
             remTime = -(datetime.datetime.now() - self.startTime) + self.timeLeft
-            if remTime < timedelta ( minutes = 0):
+            if remTime <= timedelta(0):
                 self.timeLabel.text = "0:00"
                 self.stopGame(self)
-                self.pauseButton.disabled = False
+                self.pauseButton.disabled = self.htLabel.text == "2. Halbzeit"
                 remTime = timedelta ( seconds = 0)
             elif remTime < timedelta ( seconds = 10):
                 total_seconds = (remTime.total_seconds())
@@ -948,50 +1209,28 @@ class GamePage(GridLayout):
                 self.pauseButton.text = "Halbzeitpause starten"
 
             
+        routes = rad_app.displays.routes(time.monotonic())
+        left, right = (self.teamALabel.text, self.goalALabel.text), (self.teamBLabel.text, self.goalBLabel.text)
         if self.rotation:
-            send_str = {
-                "team1": self.teamBLabel.text,
-                "team2": self.teamALabel.text,
-                "tore1": self.goalBLabel.text,
-                "tore2": self.goalALabel.text,
-                "minutes": self.timeLabel.text.split(":")[0],
-                "seconds": self.timeLabel.text.split(":")[1],
-                "schnaps": 0,
-                "next": nextTeams,
-                "status": self.gameStatus,
-                "rem": str(remTime),
-                "client_ip": client_ip
-                }
-        else:
-            send_str = {
-                "team1": self.teamALabel.text,
-                "team2": self.teamBLabel.text,
-                "tore1": self.goalALabel.text,
-                "tore2": self.goalBLabel.text,
-                "minutes": self.timeLabel.text.split(":")[0],
-                "seconds": self.timeLabel.text.split(":")[1],
-                "schnaps": 0,
-                "next": nextTeams,
-                "status": self.gameStatus,
-                "rem": str(remTime),
-                "client_ip": client_ip
-                }
+            left, right = right, left
+        minutes, seconds = self.timeLabel.text.split(":")
+        frame = dict(team1=left[0], team2=right[0], tore1=left[1], tore2=right[1],
+                     minutes=minutes, seconds=seconds, schnaps=0, next=nextTeams, status=self.gameStatus,
+                     rem=str(remTime), routes=routes, controller=rad_app.displays.controller)
+        if any(route[2] == "results" for route in routes):
+            score = self.nav_score()
+            frame["overview"] = result_page(self.game_json["games"], self.sequence, self.gameNr,
+                                            score["goalsA"], score["goalsB"], time.monotonic())
+            if self.land in PORTAL_REGIONS:
+                frame["event_id"] = self.game_json.get("portal_event_id")
         try:
-            if platform == 'android' or debug:
-                #add Android here
-                sock.sendto((json.dumps(send_str)+"\n").encode(), ("127.0.0.1", 5066))
+            if platform == "android" or debug:
+                sock.sendto(json.dumps(frame, ensure_ascii=False).encode(), ("127.0.0.1", 5066))
             else:
-                if broadcast:
-                    sock.sendto((json.dumps(send_str)+"\n").encode(), ("255.255.255.255", 5005))
-                else:
-                    #sock.sendto((json.dumps(send_str)+"\n").encode(), ("127.0.0.1", 5066))
-                    for client in client_ip:
-                        sock.sendto((json.dumps(send_str)+"\n").encode(), (client, 5005))
-            
-        except:
+                send_displays(sock, frame)
+        except OSError:
             pass
-        #print("hello")
-    
+
     def setRsz (self,instance):
         self.rszButton.text="Restspielzeit setzen"
         self.rszButton.unbind(on_release=self.setRsz)
@@ -1021,20 +1260,22 @@ class GamePage(GridLayout):
         if not self.sideButton.text == playing_str:
             t = datetime.datetime.strptime(self.sideButton.text,"%M:%S")
             self.timeLeft = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second)
-            
+            self.regulation_expired = False
+
         self.rszButton.text="Restspielzeit"
         self.rszButton.unbind(on_release=self.finishRsz)  
         self.rszButton.bind(on_release=self.setRsz)  
         self.sideButton.unbind(on_release=self.resetTime)
         self.sideButton.text="Seitenwechsel"
         self.sideButton.bind(on_release=self.sideChange)
-        self.startStopButton.disabled=False
+        self.startStopButton.disabled = self.result_is_final()
         self.resetButtons()
      
     def resetTime (self,instance=None):
         t = datetime.datetime.strptime(self.sideButton.text,"%M:%S")
         self.timeLeft = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second)
-        
+        self.regulation_expired = False
+
     def setButtons  (self):
         self.teamAp.text="+10s"
         self.teamAp.font_size=40
@@ -1183,6 +1424,9 @@ class GamePage(GridLayout):
             self.sideButton.text = '{}:{}'.format("{:0>2d}".format(minutes),"{:0>2d}".format(seconds))
         
     def startGame (self,instance):
+        if self.timeLeft <= timedelta(0) or self.result_is_final():
+            return
+        self.regulation_expired = False
         self.LineHidden.clear_widgets()
         self.LineHidden.size_hint = (1, 0.0)
         self.firstLine.size_hint = (1, 0.2)
@@ -1200,16 +1444,19 @@ class GamePage(GridLayout):
         self.gameStatus=1 
         self.game_json["games"][self.gameNr]["state"]="running"
         self.pauseButton.text = "Halbzeitpause starten"
-        Clock.schedule_once(self.sendUpdate,1)
+        self.refresh_display()
+
     def stopGame (self,instance):
         self.startStopButton.text="Zeit starten"
-        self.timeLeft= -(datetime.datetime.now() - self.startTime) + self.timeLeft
+        remaining = self.timeLeft - (datetime.datetime.now() - self.startTime)
+        self.regulation_expired = expired_during_play(remaining, self.htLabel.text == "2. Halbzeit")
+        self.timeLeft = max(timedelta(0), remaining)
+        self.pauseButton.disabled = self.timeLeft > timedelta(0) or self.htLabel.text == "2. Halbzeit"
         self.startStopButton.unbind(on_release=self.stopGame)         
         self.startStopButton.bind(on_release=self.startGame)
         self.rszButton.disabled = False
         self.settingsButton.disabled = False
         self.nextButton.disabled=False
-
 
         if self.gameNr == 0:
             #game is first game
@@ -1224,6 +1471,7 @@ class GamePage(GridLayout):
             self.nextButton.disabled=False
 
         self.gameStatus=0
+        self.refresh_display()
         
     def sideChange (self,instance=None):    
         teamA = self.teamALabel.text
@@ -1232,8 +1480,10 @@ class GamePage(GridLayout):
         self.teamBLabel.text = teamA
         self.goalALabel.text = self.goalBLabel.text
         self.goalBLabel.text = goalA
+        self.refresh_display()
 
     def setPause (self,instance):
+        self.regulation_expired = False
         self.sideChange()
         self.pauseTime = datetime.datetime.now()  
         self.timeLeft = self.playingTime
@@ -1249,37 +1499,48 @@ class GamePage(GridLayout):
         
     def teamApCB (self,instance):
         self.goalALabel.text = str(int(self.goalALabel.text) + 1)          
-        Clock.schedule_once(self.sendUpdate,1)
     def teamAmCB (self,instance):
         if int(self.goalALabel.text) > 0 :
             self.goalALabel.text = str(int(self.goalALabel.text) - 1)
-        Clock.schedule_once(self.sendUpdate,1)
     def teamBpCB (self,instance):
         self.goalBLabel.text = str(int(self.goalBLabel.text) + 1)
-        Clock.schedule_once(self.sendUpdate,1)
     def teamBmCB (self,instance):        
         if int(self.goalBLabel.text) > 0 :
             self.goalBLabel.text = str(int(self.goalBLabel.text) - 1)
-        Clock.schedule_once(self.sendUpdate,1)
     
-    def sendUpdate (self, instance=None):
-        
-        if self.land == "Schweiz":
-            url = f"{SWISS_API}{league_path(self.league_short)}/{self.gameId}"
-            print (url)
-            print(self.game_json)
-            try:
-                #r = requests.post(url, json=self.game_json, timeout=2)
-                params = json.dumps(self.game_json, indent=2)
+    def queue_portal_result(self, score):
+        try:
+            scope = ResultQueue.scope(self.gameId, self.game_json["portal_court"])
+            game = self.game_json["games"][self.gameNr]
+            rad_app.portal_queue.enqueue(scope, game, score["goalsA"], score["goalsB"])
+        except KeyError:
+            rad_app.textpopup(title="Resultat nicht gespeichert",
+                              text="Bitte lade den Spieltag mit dieser App-Version erneut vom Portal.")
+            return False
+        except (OSError, ValueError):
+            rad_app.textpopup(title="Resultat nicht gespeichert", text="Bitte versuche es erneut.")
+            return False
+        rad_app.show_portal_status()
+        return True
 
-                # changed Content-type from application/x-www-form-urlencoded to application/json
-                headers = {'Content-type': 'application/json','Accept': 'text/plain'}
-                UrlRequest(url, req_headers=headers,req_body=params, verify=False, timeout=10)
-            except:
-                pass
-    
 
-    
+    def send_digital_result(self, game):
+        access = rad_app.digital_access
+        if access is None:
+            return
+        url = matchday_url(self.land, self.league_short, self.gameId)
+        request = access.final_request(url, game, rad_app.digital_attempted)
+        if request is None:
+            return
+        destination, headers, body = request
+
+        def failed(_request, _result):
+            rad_app.textpopup(title="Endresultat nicht übertragen",
+                              text="Das Ergebnis ist lokal übernommen. Bitte den Online-Eintrag prüfen.")
+
+        UrlRequest(destination, method="PUT", req_headers=headers, req_body=body,
+                   on_failure=failed, on_error=failed, on_redirect=failed, timeout=5)
+
     def create_popup(self,instance):
         layout=GridLayout(cols=1, rows=10)
         self.padding = (50, 50, 50, 50)
@@ -1295,6 +1556,9 @@ class GamePage(GridLayout):
         layout.add_widget(min_7)
         layout.add_widget(swapBt)
         layout.add_widget(swapPos)
+        manual = Button(text="Resultat manuell übernehmen", font_size=32, disabled=self.result_is_final())
+        manual.bind(on_release=self.confirm_game_result)
+        layout.add_widget(manual)
         layout.add_widget(dismiss)
         min_5.bind(on_release=(self.set_playtime5))
         min_6.bind(on_release=(self.set_playtime6))
@@ -1326,6 +1590,7 @@ class GamePage(GridLayout):
             self.playingTime = timedelta ( minutes = 7)
         self.popup.dismiss()
     def swapHT(self,instance):
+        self.regulation_expired = False
         if self.htLabel.text=="1. Halbzeit":
             self.htLabel.text="2. Halbzeit"
         else:
@@ -1347,19 +1612,29 @@ class StartPage(GridLayout):
 
         # Add text widget to the layout
         self.add_widget(self.message)
-        self.message.text = "Willkommen zur Radballanzeige"    
+        self.message.bind(width=lambda label, width: setattr(label, "text_size", (width, None)))
+        self.message.text = App.get_running_app().config.get("halle", "welcome")
         
         #Spieltag wählen
         self.existing_day = Button(text="Spieltag wählen",font_size=40)
         self.add_widget(self.existing_day)
         
         #neuen Spieltag erstellen
-        self.new_day = Button(text="neuen Spieltag erstellen",font_size=40)
-        self.add_widget(self.new_day)
+        create_row = BoxLayout(spacing=8)
+        self.new_day = Button(text="Spieltag erstellen", font_size=29)
+        self.quick_day = Button(text="Schnelles Spiel", font_size=29)
+        self.quick_day.bind(on_release=self.open_quick_game)
+        create_row.add_widget(self.new_day)
+        create_row.add_widget(self.quick_day)
+        self.add_widget(create_row)
 
         #spieltage online laden
         self.update_days = Button(text="Spieltage online aktualisieren",font_size=40)#,id="up_da")
         self.add_widget(self.update_days)
+        self.portal_days = Button(text="Spieltage vom Portal laden", font_size=40)
+        self.add_widget(self.portal_days)
+        self.portal_status = Label(text="", size_hint_y=.27, font_size=24)
+        self.add_widget(self.portal_status)
 
         self.bind_buttons()
 		
@@ -1377,12 +1652,18 @@ class StartPage(GridLayout):
         self.existing_day.bind(on_release=self.existing_button)
         self.new_day.bind(on_release=self.new_button)
         self.update_days.bind(on_release=self.update_button)
-        self.update_days.unbind(on_release=self.create_popup) 
+        self.update_days.unbind(on_release=self.create_popup)
+        self.portal_days.unbind(on_release=self.create_popup)
+        self.portal_days.bind(on_release=self.update_button)
+        self.update_days.disabled = self.portal_days.disabled = False
     def unbind_buttons(self):
         self.existing_day.unbind(on_release=self.existing_button)
         self.new_day.unbind(on_release=self.new_button)
         self.update_days.unbind(on_release=self.update_button)
-        self.update_days.bind(on_release=self.create_popup)    
+        self.portal_days.unbind(on_release=self.update_button)
+        self.active_import.bind(on_release=self.create_popup)
+        inactive = self.portal_days if self.active_import is self.update_days else self.update_days
+        inactive.disabled = True
     def existing_button(self, instance):
         rad_app.selector_page.update_info()
         rad_app.screen_manager.current = 'Selector'
@@ -1393,8 +1674,37 @@ class StartPage(GridLayout):
         # Dann auf Seite 1 springen
         rad_app.screen_manager.current = "NewGameStep1"
            
+    def open_quick_game(self, instance):
+        if self.requests:
+            return
+        content = BoxLayout(orientation="vertical", padding=14, spacing=8)
+        home = TextInput(hint_text="Heimmannschaft", multiline=False, font_size=27)
+        away = TextInput(hint_text="Gastmannschaft", multiline=False, font_size=27)
+        message = Label(text="", font_size=22)
+        actions = BoxLayout(spacing=8)
+        cancel = Button(text="Abbrechen", font_size=24)
+        play = Button(text="Spielen", font_size=24)
+        for widget in (home, away, message, actions):
+            content.add_widget(widget)
+        actions.add_widget(cancel)
+        actions.add_widget(play)
+        popup = Popup(title="Schnelles Spiel", content=content, size_hint=(.9, .65))
+        cancel.bind(on_release=popup.dismiss)
+
+        def play_local(*_):
+            try:
+                plan = quick_game_plan(home.text, away.text)
+            except ValueError as error:
+                message.text = str(error)
+                return
+            popup.dismiss()
+            rad_app.game_page.load_GamePage(plan, [0], "Schnelles Spiel", 0, "quick")
+
+        play.bind(on_release=play_local)
+        popup.open()
+
     def update_button(self, instance):
-        self.update_all()
+        self.update_all(instance)
 
         # Called on label width update, so we can set text width properly - to 90% of label width
     def update_text_width(self, *_):
@@ -1419,8 +1729,13 @@ class StartPage(GridLayout):
         self.pending.clear()
         self.finish_update("Update abgebrochen")
 
-    def update_all(self):
-        self.pending = deque((region, "/leagues") for region in FEEDS)
+    def update_all(self, button):
+        self.active_import = button
+        if button is self.portal_days:
+            self.pending = deque([(PORTAL_NAME, CATALOG)])
+        else:
+            self.pending = deque((region, "/leagues") for region in FEEDS)
+            self.pending.append((PORTAL_NAME, CATALOG))
         self.failed_regions = set()
         self.completed_requests = 0
         self.imported_days = 0
@@ -1431,9 +1746,10 @@ class StartPage(GridLayout):
     def next_request(self):
         while self.pending and len(self.requests) < 4:
             region, route = self.pending.popleft()
-            self.update_days.text = f"Lade {region} ..."
+            self.active_import.text = f"Lade {region} ..."
+            origin = PORTAL_URL if region == PORTAL_NAME else FEEDS[region]
             request = UrlRequest(
-                FEEDS[region] + route,
+                origin + route,
                 on_success=self.import_response,
                 on_failure=self.import_failure,
                 on_error=self.import_failure,
@@ -1457,7 +1773,12 @@ class StartPage(GridLayout):
             return
         region, route = self.requests[request]
         try:
-            if "/matchdays/" in route:
+            if region == PORTAL_NAME:
+                if route == CATALOG:
+                    self.pending.extend((region, job) for job in portal_jobs(result))
+                else:
+                    self.imported_days += cache_portal_plan(app_folder, route, result)
+            elif "/matchdays/" in route:
                 save_matchday(app_folder, region, result)
                 self.imported_days += 1
             else:
@@ -1483,7 +1804,7 @@ class StartPage(GridLayout):
         self.next_request()
 
     def finish_update(self, status):
-        self.update_days.text = status
+        self.active_import.text = status
         self.bind_buttons()
 
 
@@ -1785,6 +2106,11 @@ class NewGameStep2Screen(Screen):
                         "players": []
                     })
 
+        names = [team["name"].casefold() for team in data["teams"]]
+        if len(names) < 2 or len(names) != len(set(names)):
+            rad_app.textpopup(title="Mannschaften prüfen", text="Gib mindestens zwei unterschiedliche Mannschaftsnamen ein.")
+            return
+
         # Weiter zu Schritt 3
         rad_app.screen_manager.current = "NewGameStep3"
 
@@ -1893,7 +2219,10 @@ class NewGameStep3Screen(Screen):
                     })
                     game_counter += 1
 
-        data["games"] = list((games))
+        if not games:
+            rad_app.textpopup(title="Keine gültige Paarung", text="Lege mindestens ein Spiel mit zwei unterschiedlichen Mannschaften an.")
+            return
+        data["games"] = games
         data["incidents"] = []
 
         # Fallbacks
@@ -1922,9 +2251,45 @@ class NewGameStep3Screen(Screen):
 
 
 class EpicApp(App):
+    def get_application_config(self, defaultpath=None):
+        if platform == "android":
+            return super().get_application_config()
+        return os.path.join(self.user_data_dir, "radball.ini")
+
+
+    def build_config(self, config):
+        config.setdefaults("halle", {"welcome": "Willkommen zur Radballanzeige", "controller": "", "displays": "{}"})
+
     service = ""
     def on_request_close(self, *args):
-        self.textpopup(title='', text='Programm beenden?')
+        if getattr(self, "back_popup", None) is not None:
+            return True
+        current = self.screen_manager.current
+        exiting = current == "Start"
+        layout = BoxLayout(orientation="vertical", padding=12, spacing=8)
+        layout.add_widget(Label(text="App beenden?" if exiting else "Zum Hauptmenü zurück?", font_size=29))
+        buttons = BoxLayout(spacing=8)
+        cancel = Button(text="Abbrechen", font_size=26)
+        confirm = Button(text="Beenden" if exiting else "Hauptmenü", font_size=26)
+        buttons.add_widget(cancel)
+        buttons.add_widget(confirm)
+        layout.add_widget(buttons)
+        popup = Popup(title="Zurück", content=layout, size_hint=(.85, .45), auto_dismiss=False)
+        self.back_popup = popup
+        popup.bind(on_dismiss=lambda *_: setattr(self, "back_popup", None))
+        cancel.bind(on_release=popup.dismiss)
+
+        def accept(*_):
+            popup.dismiss()
+            if exiting:
+                self.close_app()
+            elif current == "Game":
+                self.game_page.leave_game_screen()
+            else:
+                self.screen_manager.current = "Start"
+
+        confirm.bind(on_release=accept)
+        popup.open()
         return True
 
     def close_app(self, *args):
@@ -1946,13 +2311,12 @@ class EpicApp(App):
         mybutton = Button(text='OK', size_hint=(1, 0.25), font_size=30)
         box.add_widget(mybutton)
         popup = Popup(title=title, content=box, size_hint=(None, None), size=(600, 300),padding = (50, 50, 50, 50))
-        mybutton.bind(on_release=self.close_app)
+        mybutton.bind(on_release=popup.dismiss)
         popup.open()
     
     def on_key(self, window, key, *args):
         if key == 27:  # the esc key
-            Clock.schedule_once(partial(self.on_request_close,self, -1))
-            return True
+            return self.on_request_close()
     
     def start_service(self, name):    
         context =  mActivity.getApplicationContext()
@@ -1962,32 +2326,111 @@ class EpicApp(App):
         return service
 
 
-    def on_android_back(self, window, key, scancode, codepoint, modifiers):
-            # key==27 bedeutet "Escape"/"Back" in Kivy
-            if key == 27:
-                current_screen = self.screen_manager.current
-                if current_screen == "Start":
-                    # Wenn wir im Start-Screen sind, dürfen wir die App schließen:
-                    return False  # Kivy bzw. Android darf das Event normal behandeln -> App schließen
-                else:
-                    # In jedem anderen Screen gehen wir zurück zum jeweiligen vorherigen Screen
-                    if current_screen == "NewGameStep1":
-                        self.screen_manager.current = "Start"
-                    elif current_screen == "NewGameStep2":
-                        self.screen_manager.current = "NewGameStep1"
-                    elif current_screen == "NewGameStep3":
-                        self.screen_manager.current = "NewGameStep2"
-                    elif current_screen == "Game":
-                        return False
-                    else:
-                        # Fallback, falls andere Screens: zurück zu "Start"
-                        self.screen_manager.current = "Start"
+    def show_portal_status(self):
+        if self.portal_queue.storage_error:
+            self.start_page.portal_status.text = "Ergebnisspeicher prüfen · Lokales Spiel verfügbar"
+            return
+        pending, sent, conflicts = self.portal_queue.overview()
+        if pending or sent or conflicts:
+            self.start_page.portal_status.text = (
+                f"Portal: {pending} offen · {sent} gesendet · {conflicts} prüfen"
+            )
 
-                    return True  # Wir haben das Event verarbeitet, App bleibt offen
-            return False
+    def upload_portal_results(self, dt):
+        if self.portal_upload is not None:
+            return
+        row = self.portal_queue.next_result()
+        if row is None:
+            return
+        key, entry, token = row
+        request_id = entry["body"]["request_id"]
+        self.portal_upload = UrlRequest(
+            f"{PORTAL_URL}/api/v1/games/{key}/result",
+            req_body=json.dumps(entry["body"]),
+            req_headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+            on_success=lambda req, data: self.portal_uploaded(key, request_id, data),
+            on_failure=lambda req, data: self.portal_rejected(req, key, entry["scope"], request_id, token),
+            on_error=self.portal_retry, on_redirect=self.portal_retry, timeout=5,
+        )
 
+    def portal_uploaded(self, key, request_id, data):
+        self.portal_upload = None
+        try:
+            if isinstance(data, dict) and type(data.get("revision")) is int:
+                self.portal_queue.mark(key, "sent", request_id)
+        except OSError:
+            pass
+        self.show_portal_status()
+
+    def portal_rejected(self, request, key, scope, request_id, token):
+        self.portal_upload = None
+        try:
+            if request.resp_status == 403:
+                self.portal_queue.fail_authorization(scope, token)
+            elif request.resp_status in (400, 404, 409):
+                self.portal_queue.mark(key, "conflict", request_id)
+        except OSError:
+            pass
+        self.show_portal_status()
+
+    def portal_retry(self, request, error):
+        self.portal_upload = None
+
+    def upload_portal_live_status(self, dt):
+        if self.portal_live_request is not None or self.screen_manager.current != "Game":
+            return
+        page = self.game_page
+        if page.land not in PORTAL_REGIONS:
+            return
+        game = page.game_json["games"][page.gameNr]
+        if game["state"] != "running" or "portal_revision" not in game:
+            return
+        scope = ResultQueue.scope(page.gameId, page.game_json["portal_court"])
+        token = self.portal_queue.token(scope)
+        if not token:
+            return
+        score = page.nav_score()
+        running = page.gameStatus == 1
+        remaining = page.timeLeft
+        if running:
+            remaining -= datetime.datetime.now() - page.startTime
+        self.portal_live_seq = max(time.time_ns(), self.portal_live_seq + 1)
+        self.portal_live_request = UrlRequest(
+            f"{PORTAL_URL}/api/v1/games/{game['portal_game_id']}/live-status",
+            req_body=json.dumps({
+                "revision": game["portal_revision"], "seq": self.portal_live_seq,
+                "home_goals": score["goalsA"], "away_goals": score["goalsB"],
+                "remaining_ms": max(0, min(7_200_000, int(remaining.total_seconds() * 1000))),
+                "running": running,
+            }),
+            req_headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+            on_success=self.portal_live_done,
+            on_failure=lambda req, data: self.portal_live_rejected(req, data, scope, token),
+            on_error=self.portal_live_done, on_redirect=self.portal_live_done, timeout=3,
+        )
+
+    def portal_live_rejected(self, request, result, scope, token):
+        self.portal_live_done(request, result)
+        if request.resp_status == 403:
+            try:
+                self.portal_queue.fail_authorization(scope, token)
+            except OSError:
+                pass
+
+    def portal_live_done(self, request, result):
+        self.portal_live_request = None
 
     def build(self):
+        controller = self.config.get("halle", "controller")
+        if not controller:
+            controller = uuid4().hex
+            self.config.set("halle", "controller", controller)
+            self.config.write()
+        try:
+            choices = json.loads(self.config.get("halle", "displays"))
+        except ValueError:
+            choices = {}
+        self.displays = Displays(controller, choices if isinstance(choices, dict) else {})
         if platform == 'android':
             self.bgservice = self.start_service('Radball') # starts a service
 
@@ -2057,19 +2500,28 @@ class EpicApp(App):
 
         
         # 1) In build() oder on_start(), sobald dein ScreenManager fertig ist:
-        Window.bind(on_keyboard=self.on_android_back)
 
         # 2) Neue Methode in EpicApp (nur das hier ist neu!):
         
 
         
+        self.digital_access = None
+        self.digital_attempted = set()
+        self.portal_queue = ResultQueue(self.user_data_dir)
+        self.portal_upload = None
+        self.portal_live_request = None
+        self.portal_live_seq = 0
+        self.show_portal_status()
+        Clock.schedule_interval(self.upload_portal_results, 5)
+        Clock.schedule_interval(self.upload_portal_live_status, 2)
         return self.screen_manager
     
 		
 
 if __name__ == "__main__":
-    app_folder = os.path.dirname(os.path.abspath(__file__))
+    rad_app = EpicApp()
+    app_folder = (os.path.dirname(os.path.abspath(__file__)) if platform == "android"
+                  else rad_app.user_data_dir)
     if not os.path.exists(app_folder+"/spieltage"):
         os.makedirs(app_folder+"/spieltage")
-    rad_app = EpicApp()
     rad_app.run()
